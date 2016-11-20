@@ -1,14 +1,19 @@
 #include <gtest/gtest.h>
 #include "MatrixXdAdapter.h"
 
-TEST(MatrixXdAdapter_test, check_rows) {
-    MatrixXd m(2,2);
-    m(0,0) = 3;
-    m(1,0) = 2.5;
-    m(0,1) = -1;
-    m(1,1) = m(1,0) + m(0,1);
 
-    MatrixXdAdapter matrixXdAdapter (m);
+class MatrixXdAdapterTest : public testing::Test {
+protected:
+    virtual void SetUp() {
+        fMatrix << 1.f,2.f,3.f,4.f;
+        dMatrix << 1.0,2.0,3.0,4.0;
+    }
 
-    ASSERT_EQ(2, matrixXdAdapter.rows());
+    Matrix<float, Dynamic, Dynamic> fMatrix {2, 2};
+    Matrix<double, Dynamic, Dynamic> dMatrix {2, 2};
+};
+
+TEST_F(MatrixXdAdapterTest, check_rows) {
+    ASSERT_EQ(2, fMatrix.rows());
+    ASSERT_EQ(2, dMatrix.rows());
 }

@@ -15,3 +15,4 @@ set(SOURCE_FILES
 #include_directories(../include)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
+#add_library(src STATIC ${HEADER_FILES})
