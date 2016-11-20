@@ -1,7 +1,3 @@
-//
-// Created by Krishna Kamath on 11/19/16.
-//
-
 #ifndef KDTREE_MATRIXXDADAPTER_H
 #define KDTREE_MATRIXXDADAPTER_H
 

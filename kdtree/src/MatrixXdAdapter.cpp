@@ -1,7 +1,3 @@
-//
-// Created by Krishna Kamath on 11/19/16.
-//
-
 #include "MatrixXdAdapter.h"
 
 int MatrixXdAdapter::rows() {

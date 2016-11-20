@@ -1,8 +1,3 @@
-//
-// Created by Krishna Kamath on 11/19/16.
-//
-
-
 #include <gtest/gtest.h>
 #include "MatrixXdAdapter.h"
 
