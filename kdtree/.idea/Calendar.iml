@@ -7,13 +7,17 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest-1.7.0/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/lib/gtest-1.7.0/cmake/internal_utils.cmake" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/UtilTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/MatrixXdAdapterTest.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_check.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/AxisTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Axis.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/MatrixXdAdapter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/AxisScorer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Util.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/MatrixXdAdapter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>

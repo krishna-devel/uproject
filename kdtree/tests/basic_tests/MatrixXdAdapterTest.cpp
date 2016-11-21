@@ -23,8 +23,8 @@ TEST_F(MatrixXdAdapterTest, check_indices_are_correct_if_initialized_without_con
     MatrixXdAdapter<float> adapter (fMatrix);
     vector<int> expectedIndices {0,1};
 
-    ASSERT_EQ(expectedIndices, adapter.getIndices());
-    ASSERT_EQ(fMatrix.rows(), adapter.getIndices().size());
+    ASSERT_EQ(expectedIndices, adapter.getRowIndices());
+    ASSERT_EQ(fMatrix.rows(), adapter.getRowIndices().size());
 }
 
 TEST_F(MatrixXdAdapterTest, check_indices_are_correct_if_initialized_with_constructor) {
@@ -32,22 +32,6 @@ TEST_F(MatrixXdAdapterTest, check_indices_are_correct_if_initialized_with_constr
     MatrixXdAdapter<double> adapter (dMatrix, passedIndices);
 
     vector<int> expectedIndices {0,2};
-    ASSERT_EQ(expectedIndices, adapter.getIndices());
-    ASSERT_EQ(fMatrix.rows(), adapter.getIndices().size());
-}
-
-TEST_F(MatrixXdAdapterTest, getValuesAlongAxis_checks_for_valid_index_size) {
-
-}
-
-
-TEST_F(MatrixXdAdapterTest, getValuesAlongAxis_returns_right_values) {
-    MatrixXdAdapter<float> adapter1 (fMatrix);
-    vector<float> expectedvalues1 {1.f, 3.f};
-    ASSERT_EQ(expectedvalues1, adapter1.getValuesAlongAxis(0));
-
-    vector<int> indices {0, 2};
-    MatrixXdAdapter<double> adapter2 (dMatrix, indices);
-    vector<double> expectedvalues2 {2.0, 6.0};
-    ASSERT_EQ(expectedvalues2, adapter2.getValuesAlongAxis(1));
+    ASSERT_EQ(expectedIndices, adapter.getRowIndices());
+    ASSERT_EQ(fMatrix.rows(), adapter.getRowIndices().size());
 }
