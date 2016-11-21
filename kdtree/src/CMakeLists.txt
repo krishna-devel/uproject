@@ -10,7 +10,7 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         MatrixXdAdapter.cpp
-        )
+        Axis.h)
 
 #include_directories(../include)
 

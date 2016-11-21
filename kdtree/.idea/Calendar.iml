@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_check.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Axis.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/MatrixXdAdapter.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/MatrixXdAdapter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />

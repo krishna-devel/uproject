@@ -22,7 +22,7 @@ public:
     const vector<int> &getIndices() const { return indices; };
 
     //
-//    const vector<T> &getValuesAlongAxis(int axis);
+    vector<T> getValuesAlongAxis(int axis);
 
 private:
     Matrix<T, Dynamic, Dynamic> samples;
@@ -31,8 +31,8 @@ private:
 
 template <typename T>
 MatrixXdAdapter<T>::MatrixXdAdapter(const Matrix<T, Dynamic, Dynamic> &matrix) : samples(matrix) {
-    this->indices = vector<int>(matrix.rows());
-    iota(begin(this->indices), end(this->indices), 0);
+    indices = vector<int>(matrix.rows());
+    iota(begin(indices), end(indices), 0);
 }
 
 template <typename T>
@@ -40,11 +40,17 @@ MatrixXdAdapter<T>::MatrixXdAdapter(
         const Matrix<T, Dynamic, Dynamic> &matrix,
         const vector<int> &indices
 ) : samples(matrix), indices(indices) {}
+// Check indices size is less than rows and all items are valid.
 
-//template <typename T>
-//const vector<T>& MatrixXdAdapter<T>::getValuesAlongAxis(int axis) {
-//    return samples.col(axis);
-//}
+template <typename T>
+vector<T> MatrixXdAdapter<T>::getValuesAlongAxis(int axis) {
+    vector<T> vectorToReturn;
+    for (int index: indices) {
+        vectorToReturn.push_back(samples(index, axis));
+    }
+    int a = 0;
+    return vectorToReturn;
+}
 
 
 #endif //KDTREE_MATRIXXDADAPTER_H
