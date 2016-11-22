@@ -1,0 +1,2 @@
+/Users/kkamath/Downloads/googletest/googletest/build-aux/CMakeFiles/gtest_main.dir
+/Users/kkamath/Downloads/googletest/googletest/build-aux/CMakeFiles/gtest.dir

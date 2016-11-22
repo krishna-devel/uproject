@@ -5,17 +5,14 @@ project(src)
 add_definitions(-std=c++11)
 
 set(HEADER_FILES
-        MatrixXdAdapter.h
+        EigenMatrixAdapter.h
         )
 
 set(SOURCE_FILES
-        MatrixXdAdapter.cpp
+        EigenMatrixAdapter.cpp
         Axis.h
-        AxisScorer.h
+        AxisSeparation.h
         Util.h
-        )
-
-#include_directories(../include)
+        exceptions.h Util.cpp)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
-#add_library(src STATIC ${HEADER_FILES})

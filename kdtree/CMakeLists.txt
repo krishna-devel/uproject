@@ -4,7 +4,6 @@ project(kdtree)
 add_definitions(-std=c++11)
 
 set(SOURCE_FILES main.cpp)
-#set(Eigen3_DIR ./lib/cmake/eigen3)
 add_executable(kdtree_run ${SOURCE_FILES})
 
 include_directories(src)
