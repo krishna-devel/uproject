@@ -13,6 +13,6 @@ set(SOURCE_FILES
         Axis.h
         AxisSeparation.h
         Util.h
-        exceptions.h Util.cpp)
+        Util.cpp)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})

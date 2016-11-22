@@ -17,11 +17,10 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/AxisTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/exceptions.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Axis.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/EigenMatrixAdapter.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/AxisSeparation.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/EigenMatrixAdapter.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Axis.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.cpp" isTestSource="false" />

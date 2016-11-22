@@ -3,12 +3,20 @@
 #include <AxisSeparation.h>
 
 
-class AxisSeparationTest : public testing::Test {
-protected:
-    virtual void SetUp() {}
-};
+TEST(AxisSeparationTest, test_median_empty_Axis) {
+    ASSERT_THROW(
+            {
+                 vector<ValueAlongAxis<double>> valuesAlongAxis;
+                 SeparationInfo<double> separationInfo = AxisSeparation<double>::score(
+                         AxisScoreType::MEDIAN_OF_MEDIAN,
+                         valuesAlongAxis
+                 );
+             },
+             cant_split_threshold_for_empty_vector_exception
+    );
+}
 
-TEST_F(AxisSeparationTest, test_median) {
+TEST(AxisSeparationTest, test_median_odd_numbers) {
     vector<ValueAlongAxis<double>> valuesAlongAxis {
         ValueAlongAxis<double>(0, 1.0),
         ValueAlongAxis<double>(1, 5.0),
@@ -17,9 +25,28 @@ TEST_F(AxisSeparationTest, test_median) {
         ValueAlongAxis<double>(4, 3.0)
     };
 
-    sort(valuesAlongAxis.begin(), valuesAlongAxis.end());
+    SeparationInfo<double> separationInfo = AxisSeparation<double>::score(
+            AxisScoreType::MEDIAN_OF_MEDIAN,
+            valuesAlongAxis
+    );
 
-    SeparationInfo<double> separationInfo = AxisSeparation<double>::score(AxisScoreType::MEDIAN, valuesAlongAxis);
+    ASSERT_EQ(3.0, separationInfo.getThreshold());
+}
 
-    ASSERT_EQ(0, 0);
+TEST(AxisSeparationTest, test_median_even_numbers) {
+    vector<ValueAlongAxis<double>> valuesAlongAxis {
+        ValueAlongAxis<double>(0, 1.0),
+        ValueAlongAxis<double>(1, 5.0),
+        ValueAlongAxis<double>(2, 4.0),
+        ValueAlongAxis<double>(3, 2.0),
+        ValueAlongAxis<double>(4, 3.0),
+        ValueAlongAxis<double>(5, 6.0)
+    };
+
+    SeparationInfo<double> separationInfo = AxisSeparation<double>::score(
+            AxisScoreType::MEDIAN_OF_MEDIAN,
+            valuesAlongAxis
+    );
+
+    ASSERT_EQ(3.5, separationInfo.getThreshold());
 }
