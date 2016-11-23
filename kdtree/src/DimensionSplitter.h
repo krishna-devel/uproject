@@ -1,0 +1,82 @@
+#ifndef KDTREE_DIMENSIONSPLITTER_H
+#define KDTREE_DIMENSIONSPLITTER_H
+
+#include "Dimension.h"
+#include "Util.h"
+
+using namespace std;
+
+enum DimensionSplittingMethod {
+    MEDIAN_OF_MEDIAN
+};
+
+template <typename  T>
+class SplitInfo {
+public:
+    SplitInfo(T threshold) : splitThreshold(threshold) {}
+    T getThreshold() const { return splitThreshold; }
+private:
+    T splitThreshold;
+};
+
+template <typename  T>
+class DimensionSplitter {
+public:
+    /**
+     * Not passing valuesAlongDimension as reference as this can be modified
+     * by the underlying implementation.
+     *
+     * @param splittingMethod
+     * @param valuesAlongDimension
+     * @return
+     */
+    static SplitInfo<T> getSplitInfo(
+            const DimensionSplittingMethod splittingMethod,
+            vector<ValueAlongDimension<T>> valuesAlongDimension
+    );
+private:
+    static SplitInfo<T> medianOfMedianScorer(vector<ValueAlongDimension<T>> valuesAlongDimension);
+};
+
+class cant_split_threshold_for_empty_vector_exception : public exception {};
+
+/**
+ * http://stackoverflow.com/a/2579393
+ *
+ * @param valuesAlongDimension
+ * @return
+ */
+template <typename  T>
+SplitInfo<T> DimensionSplitter<T>::medianOfMedianScorer(vector<ValueAlongDimension<T>> valuesAlongDimension) {
+    T threshold;
+
+    int size = valuesAlongDimension.size();
+    int middleItemIndex = size / 2;
+
+    nth_element(valuesAlongDimension.begin(), valuesAlongDimension.begin() + middleItemIndex, valuesAlongDimension.end());
+
+    if (size % 2 != 0) {
+        //Odd number of points
+        threshold = valuesAlongDimension[middleItemIndex].getValue();
+    } else {
+        //Even number of points
+        int neighborIndex = middleItemIndex - 1;
+        nth_element(valuesAlongDimension.begin(), valuesAlongDimension.begin() + neighborIndex, valuesAlongDimension.end());
+        threshold = (valuesAlongDimension[neighborIndex].getValue() + valuesAlongDimension[middleItemIndex].getValue()) / 2.0;
+    }
+    return SplitInfo<T>(threshold);
+}
+
+template <typename  T>
+SplitInfo<T> DimensionSplitter<T>::getSplitInfo(const DimensionSplittingMethod splittingMethod, vector<ValueAlongDimension<T>> valuesAlongDimension) {
+    int size = valuesAlongDimension.size();
+    if (size != 0) {
+        switch(splittingMethod) {
+            case MEDIAN_OF_MEDIAN: return DimensionSplitter<T>::medianOfMedianScorer(valuesAlongDimension);
+        }
+    } else {
+        throw cant_split_threshold_for_empty_vector_exception();
+    }
+}
+
+#endif //KDTREE_DIMENSIONSPLITTER_H

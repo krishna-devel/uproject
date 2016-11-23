@@ -10,8 +10,8 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
         EigenMatrixAdapter.cpp
-        Axis.h
-        AxisSeparation.h
+        Dimension.h
+        DimensionSplitter.h
         Util.h
         Util.cpp)
 

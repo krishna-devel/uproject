@@ -2,8 +2,8 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(runTests
         basic_check.cpp
-        AxisSeparationTest.cpp
-        AxisTest.cpp
+        DimensionSplitterTest.cpp
+        DimensionTest.cpp
         EigenMatrixAdapterTest.cpp
         UtilTest.cpp
         )
