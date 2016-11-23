@@ -18,16 +18,18 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/UtilTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/MockTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/SegmentTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/SplitDeciderTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/DimensionSplitter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Dimension.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Node.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Segment.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/DimensionSelector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Segment.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/SplitDecider.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/SegmentSplitter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Node.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
