@@ -11,7 +11,7 @@ enum DimensionSplittingMethod {
     MEDIAN_OF_MEDIAN
 };
 
-template <typename  T>
+template <typename DataType, typename DimensionType>
 class DimensionSplitter {
 public:
     /**
@@ -22,12 +22,14 @@ public:
      * @param valuesAlongDimension
      * @return
      */
-    static SplitInfo<T> getSplitInfo(
+    static SplitInfo<DataType> getSplitInfo(
             const DimensionSplittingMethod splittingMethod,
-            vector<ValueAlongDimension<T>> valuesAlongDimension
+            vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
     );
 private:
-    static SplitInfo<T> medianOfMedianScorer(vector<ValueAlongDimension<T>> valuesAlongDimension);
+    static SplitInfo<DataType> medianOfMedianScorer(
+            vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
+    );
 };
 
 class cant_split_threshold_for_empty_vector_exception : public exception {};
@@ -38,14 +40,20 @@ class cant_split_threshold_for_empty_vector_exception : public exception {};
  * @param valuesAlongDimension
  * @return
  */
-template <typename  T>
-SplitInfo<T> DimensionSplitter<T>::medianOfMedianScorer(vector<ValueAlongDimension<T>> valuesAlongDimension) {
-    T threshold;
+template <typename DataType, typename DimensionType>
+SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::medianOfMedianScorer(
+        vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
+) {
+    DataType threshold;
 
     int size = valuesAlongDimension.size();
     int middleItemIndex = size / 2;
 
-    nth_element(valuesAlongDimension.begin(), valuesAlongDimension.begin() + middleItemIndex, valuesAlongDimension.end());
+    nth_element(
+            valuesAlongDimension.begin(),
+            valuesAlongDimension.begin() + middleItemIndex,
+            valuesAlongDimension.end()
+    );
 
     if (size % 2 != 0) {
         //Odd number of points
@@ -53,18 +61,27 @@ SplitInfo<T> DimensionSplitter<T>::medianOfMedianScorer(vector<ValueAlongDimensi
     } else {
         //Even number of points
         int neighborIndex = middleItemIndex - 1;
-        nth_element(valuesAlongDimension.begin(), valuesAlongDimension.begin() + neighborIndex, valuesAlongDimension.end());
-        threshold = (valuesAlongDimension[neighborIndex].getValue() + valuesAlongDimension[middleItemIndex].getValue()) / 2.0;
+        nth_element(
+                valuesAlongDimension.begin(),
+                valuesAlongDimension.begin() + neighborIndex,
+                valuesAlongDimension.end()
+        );
+        threshold = (valuesAlongDimension[neighborIndex].getValue() +
+                        valuesAlongDimension[middleItemIndex].getValue()) / 2.0;
     }
-    return SplitInfo<T>(threshold);
+    return SplitInfo<DataType>(threshold);
 }
 
-template <typename  T>
-SplitInfo<T> DimensionSplitter<T>::getSplitInfo(const DimensionSplittingMethod splittingMethod, vector<ValueAlongDimension<T>> valuesAlongDimension) {
+template <typename DataType, typename DimensionType>
+SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::getSplitInfo(
+        const DimensionSplittingMethod splittingMethod,
+        vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
+) {
     int size = valuesAlongDimension.size();
     if (size != 0) {
         switch(splittingMethod) {
-            case MEDIAN_OF_MEDIAN: return DimensionSplitter<T>::medianOfMedianScorer(valuesAlongDimension);
+            case MEDIAN_OF_MEDIAN:
+                return DimensionSplitter<DataType, DimensionType>::medianOfMedianScorer(valuesAlongDimension);
         }
     } else {
         throw cant_split_threshold_for_empty_vector_exception();

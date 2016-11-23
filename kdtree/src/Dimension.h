@@ -6,37 +6,37 @@
 
 using namespace std;
 
-template <typename T>
+template <typename DataType, typename DimensionType>
 class ValueAlongDimension {
 public:
-    ValueAlongDimension(int rowId, T value) : rowId(rowId), value(value) {}
-    int getRowId() const { return rowId; }
-    T getValue() const { return value; }
+    ValueAlongDimension(int rowId, DataType value) : rowId(rowId), value(value) {}
+    DimensionType getRowId() const { return rowId; }
+    DataType getValue() const { return value; }
     bool operator<( const ValueAlongDimension& val ) const { return value < val.value; }
 private:
-    int rowId;
-    T value;
+    DimensionType rowId;
+    DataType value;
 };
 
-template <typename T>
+template <typename DataType, typename DimensionType>
 class Dimension {
 public:
-    Dimension(const Segment<T> &adapter, int dimensionId);
-    const Segment<T> &getAdapter() const { return adapter; }
-    const vector<ValueAlongDimension<T>> &getValuesAlongDimension() const { return valuesAlongDimension; }
+    Dimension(const Segment<DataType, DimensionType> &segment, int dimensionId);
+    const Segment<DataType, DimensionType> &getAdapter() const { return adapter; }
+    const vector<ValueAlongDimension<DataType, DimensionType>> &getValuesAlongDimension() const { return valuesAlongDimension; }
 private:
-    const Segment<T> &adapter;
+    const Segment<DataType, DimensionType> &adapter;
     int dimensionId;
-    vector<ValueAlongDimension<T>> valuesAlongDimension;
+    vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension;
 };
 
-template <typename T>
-Dimension<T>::Dimension(const Segment<T> &adapter, int dimensionId) : adapter(adapter), dimensionId(dimensionId) {
-    const Matrix<T, Dynamic, Dynamic> &samples = adapter.getSamples();
-    const vector<int> &indices = adapter.getSamplesInSegment();
+template <typename DataType, typename DimensionType>
+Dimension<DataType, DimensionType>::Dimension(const Segment<DataType, DimensionType> &segment, int dimensionId) : adapter(segment), dimensionId(dimensionId) {
+    const Matrix<DataType, Dynamic, Dynamic> &samples = segment.getSamples();
+    const vector<int> &indices = segment.getSamplesInSegment();
     if (dimensionId < samples.cols()) {
         for (int index: indices) {
-            valuesAlongDimension.push_back(ValueAlongDimension<T>(index, samples(index, dimensionId)));
+            valuesAlongDimension.push_back(ValueAlongDimension<DataType, DimensionType>(index, samples(index, dimensionId)));
         }
     }
 }

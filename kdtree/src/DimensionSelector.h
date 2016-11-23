@@ -3,6 +3,7 @@
 
 #include "Node.h"
 #include "Segment.h"
+#include "Dimension.h"
 
 template <typename  T>
 class DimensionWithSplitInfo {
@@ -18,14 +19,27 @@ private:
     SplitInfo<T> splitInfo;
 };
 
+template <typename  T>
 class DimensionSelector {
 public:
-    virtual DimensionWithSplitInfo getNextDimensionToSplit(const Segment &segment) = 0;
+    virtual DimensionWithSplitInfo getNextDimensionToSplit(const Segment<T> &segment) = 0;
 };
 
-class LoopingDimensionSelector : public DimensionSelector {
-
-};
+//template <typename T>
+// class LoopingDimensionSelector : public DimensionSelector<T> {
+//public:
+//    LoopingDimensionSelector(int lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
+//
+//    virtual DimensionWithSplitInfo getNextDimensionToSplit(const Segment<T> &segment) override {
+//        long numDimensions = segment.getSamples().cols();
+//        long nextDimension = (lastSelectedDimension + 1)%numDimensions;
+//
+//        Dimension<T> dimension (segment, nextDimension);
+//    }
+//
+//private:
+//    int lastSelectedDimension;
+//};
 
 
 #endif //KDTREE_DIMENSIONSELECTOR_H

@@ -19,7 +19,7 @@ protected:
 };
 
 TEST_F(SegmentTest, check_indices_are_correct_if_initialized_without_constructor) {
-    Segment<float> segment (fMatrix);
+    Segment<float, int> segment (fMatrix);
     vector<int> expectedIndices {0,1};
 
     ASSERT_EQ(expectedIndices, segment.getSamplesInSegment());
@@ -27,10 +27,10 @@ TEST_F(SegmentTest, check_indices_are_correct_if_initialized_without_constructor
 }
 
 TEST_F(SegmentTest, check_indices_are_correct_if_initialized_with_constructor) {
-    vector<int> passedIndices {0,2};
-    Segment<double> segment (dMatrix, passedIndices);
+    vector<long> passedIndices {0,2};
+    Segment<double, long> segment (dMatrix, passedIndices);
 
-    vector<int> expectedIndices {0,2};
+    vector<long> expectedIndices {0,2};
     ASSERT_EQ(expectedIndices, segment.getSamplesInSegment());
     ASSERT_EQ(fMatrix.rows(), segment.getSamplesInSegment().size());
 }

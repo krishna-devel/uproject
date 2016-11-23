@@ -4,8 +4,12 @@ using testing::Return;
 
 class I {
 public:
+//    I(int j) : j(j) {}
     virtual int f1() = 0;
     virtual int f2(int i) = 0;
+//    virtual int getJ() = 0;
+//private:
+//    int j;
 };
 
 template <typename T>
@@ -16,9 +20,12 @@ public:
 };
 
 class MockI : public I {
+
 public:
+//    MockI(int j) : I(j) {}
     MOCK_METHOD0(f1, int());
     MOCK_METHOD1(f2, int(int));
+//    MOCK_METHOD1(getJ, int());
 };
 
 template <typename T>
