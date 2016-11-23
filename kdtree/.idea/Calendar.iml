@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/DimensionTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_check.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/UtilTest.cpp" isTestSource="false" />
@@ -24,6 +25,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Node.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Segment.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/DimensionSelector.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/SegmentSplitter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.cpp" isTestSource="false" />

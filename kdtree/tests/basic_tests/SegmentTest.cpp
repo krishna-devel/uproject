@@ -22,8 +22,8 @@ TEST_F(SegmentTest, check_indices_are_correct_if_initialized_without_constructor
     Segment<float, int> segment (fSamples);
     vector<int> expectedIndices {0,1};
 
-    ASSERT_EQ(expectedIndices, segment.getSamplesInSegment());
-    ASSERT_EQ(fSamples.rows(), segment.getSamplesInSegment().size());
+    ASSERT_EQ(expectedIndices, segment.getSampleIdsInSegment());
+    ASSERT_EQ(fSamples.rows(), segment.getSampleIdsInSegment().size());
 }
 
 TEST_F(SegmentTest, check_indices_are_correct_if_initialized_with_constructor) {
@@ -31,6 +31,6 @@ TEST_F(SegmentTest, check_indices_are_correct_if_initialized_with_constructor) {
     Segment<double, long> segment (dSamples, passedIndices);
 
     vector<long> expectedIndices {0,2};
-    ASSERT_EQ(expectedIndices, segment.getSamplesInSegment());
-    ASSERT_EQ(fSamples.rows(), segment.getSamplesInSegment().size());
+    ASSERT_EQ(expectedIndices, segment.getSampleIdsInSegment());
+    ASSERT_EQ(fSamples.rows(), segment.getSampleIdsInSegment().size());
 }

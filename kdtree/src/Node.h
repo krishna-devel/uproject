@@ -16,12 +16,12 @@ private:
     DataType splitThreshold;
 };
 
-template <typename  T>
-class Node {
-private:
-    SplitInfo<T> splitInfo;
-    unique_ptr<Node<T>> leftChild;
-    unique_ptr<Node<T>> rigthChild;
-};
+//template <typename  T>
+//class Node {
+//private:
+//    SplitInfo<T> splitInfo;
+//    unique_ptr<Node<T>> leftChild;
+//    unique_ptr<Node<T>> rigthChild;
+//};
 
 #endif //KDTREE_NODE_H

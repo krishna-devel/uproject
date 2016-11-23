@@ -32,10 +32,10 @@ private:
 
 template <typename DataType, typename DimensionType>
 Dimension<DataType, DimensionType>::Dimension(const Segment<DataType, DimensionType> &segment, int dimensionId) : adapter(segment), dimensionId(dimensionId) {
-    const Matrix<DataType, Dynamic, Dynamic> &samples = segment.getSamples();
-    const vector<int> &indices = segment.getSamplesInSegment();
+    const Samples<DataType> &samples = segment.getSamples();
+    const SampleIdsInSegment<DimensionType> &indices = segment.getSampleIdsInSegment();
     if (dimensionId < samples.cols()) {
-        for (int index: indices) {
+        for (DimensionType index: indices) {
             valuesAlongDimension.push_back(ValueAlongDimension<DataType, DimensionType>(index, samples(index, dimensionId)));
         }
     }

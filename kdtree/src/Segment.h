@@ -10,24 +10,25 @@ using namespace Eigen;
 using Eigen::Matrix;
 
 template <typename DataType> using Samples = Matrix<DataType, Dynamic, Dynamic>;
+template <typename DimensionType> using SampleIdsInSegment = vector<DimensionType>;
 
 template <typename DataType, typename DimensionType>
 class Segment {
 public:
-    //TODO: Check samplesInSegment size is less than total samples and all items are valid.
+    //TODO: Check sampleIdsInSegment size is less than total samples and all items are valid.
     Segment(const Samples<DataType> &samples) : samples(samples) {
-        samplesInSegment = vector<DimensionType>(samples.rows());
-        iota(begin(samplesInSegment), end(samplesInSegment), 0);
+        sampleIdsInSegment = vector<DimensionType>(samples.rows());
+        iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
     }
     Segment(
             const Samples<DataType> &samples,
             const vector<DimensionType> &samplesInSegment
-    ): samples(samples), samplesInSegment(samplesInSegment) {}
+    ): samples(samples), sampleIdsInSegment(samplesInSegment) {}
     const Samples<DataType> &getSamples() const { return samples; };
-    const vector<DimensionType> &getSamplesInSegment() const { return samplesInSegment; };
+    const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; };
 private:
     Samples<DataType> samples;
-    vector<DimensionType> samplesInSegment;
+    SampleIdsInSegment<DimensionType> sampleIdsInSegment;
 };
 
 #endif //KDTREE_SEGMENT_H

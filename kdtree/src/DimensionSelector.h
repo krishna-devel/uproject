@@ -6,24 +6,24 @@
 #include "Dimension.h"
 #include "DimensionSplitter.h"
 
-template <typename  DataType>
+template <typename  DataType, typename DimensionType>
 class DimensionWithSplitInfo {
 public:
     DimensionWithSplitInfo(
-        int splitDimension,
-        const SplitInfo<DataType> &splitInfo
+            DimensionType splitDimension,
+            const SplitInfo<DataType> &splitInfo
     ) : splitDimension(splitDimension), splitInfo(splitInfo) {}
     int getSplitDimension() const { return splitDimension; }
     const SplitInfo<DataType> &getSplitInfo() const { return splitInfo; }
 private:
-    int splitDimension;
+    DimensionType splitDimension;
     SplitInfo<DataType> splitInfo;
 };
 
 template <typename  DataType, typename DimensionType>
 class DimensionSelector {
 public:
-    virtual DimensionWithSplitInfo<DataType> getNextDimensionToSplit(
+    virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
             const Segment<DataType, DimensionType> &segment
     ) = 0;
 };
@@ -33,7 +33,7 @@ template <typename  DataType, typename DimensionType>
 public:
     LoopingDimensionSelector(int lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
 
-    virtual DimensionWithSplitInfo<DataType> getNextDimensionToSplit(
+    virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
             const Segment<DataType, DimensionType> &segment
     ) override {
         long numDimensions = segment.getSamples().cols();
@@ -45,7 +45,7 @@ public:
                 dimension.getValuesAlongDimension()
         );
 
-        DimensionWithSplitInfo<DataType> dimensionWithSplitInfo (nextDimension, splitInfo);
+        DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
         return dimensionWithSplitInfo;
     }
 

@@ -15,7 +15,7 @@ protected:
 TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_first_dimension) {
     Segment<float, int> segment (samples);
     LoopingDimensionSelector<float, int> dimensionSelector (-1);
-    DimensionWithSplitInfo<float> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
+    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
     ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
     ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
 }
@@ -23,7 +23,7 @@ TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_first_dimension) {
 TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_dimension_in_between) {
     Segment<float, int> segment (samples);
     LoopingDimensionSelector<float, int> dimensionSelector (1);
-    DimensionWithSplitInfo<float> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
+    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
     ASSERT_EQ(2, dimensionWithSplitInfo.getSplitDimension());
     ASSERT_EQ(6.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
 }
@@ -31,7 +31,7 @@ TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_dimension_in_betwee
 TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_dimension_rotate_back_to_first_dimension) {
     Segment<float, int> segment (samples);
     LoopingDimensionSelector<float, int> dimensionSelector (2);
-    DimensionWithSplitInfo<float> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
+    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo = dimensionSelector.getNextDimensionToSplit(segment);
     ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
     ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
 }
