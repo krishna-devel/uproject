@@ -9,36 +9,25 @@ using namespace std;
 using namespace Eigen;
 using Eigen::Matrix;
 
+template <typename DataType> using Samples = Matrix<DataType, Dynamic, Dynamic>;
+
 template <typename DataType, typename DimensionType>
 class Segment {
 public:
-    // constructors
     //TODO: Check samplesInSegment size is less than total samples and all items are valid.
-    Segment(const Matrix<DataType, Dynamic, Dynamic> &samples) : samples(samples) {}
+    Segment(const Samples<DataType> &samples) : samples(samples) {
+        samplesInSegment = vector<DimensionType>(samples.rows());
+        iota(begin(samplesInSegment), end(samplesInSegment), 0);
+    }
     Segment(
-            const Matrix<DataType, Dynamic, Dynamic> &samples,
+            const Samples<DataType> &samples,
             const vector<DimensionType> &samplesInSegment
     ): samples(samples), samplesInSegment(samplesInSegment) {}
-    // getters
-    const Matrix<DataType, Dynamic, Dynamic> &getSamples() const { return samples; };
+    const Samples<DataType> &getSamples() const { return samples; };
     const vector<DimensionType> &getSamplesInSegment() const { return samplesInSegment; };
 private:
-    Matrix<DataType, Dynamic, Dynamic> samples;
+    Samples<DataType> samples;
     vector<DimensionType> samplesInSegment;
 };
-
-
-//template <typename DataType, typename DimensionType>
-//Segment<DataType, DimensionType>::Segment(const Matrix<DataType, Dynamic, Dynamic> &matrix) : samples(matrix) {
-//    samplesInSegment = vector<DimensionType>(matrix.rows());
-//    iota(begin(samplesInSegment), end(samplesInSegment), 0);
-//}
-
-//template <typename DataType, typename DimensionType>
-//Segment<DataType, DimensionType>::Segment(
-//        const Matrix<DataType, Dynamic, Dynamic> &matrix,
-//        const vector<DimensionType> &indices
-//) : samples(matrix), samplesInSegment(indices) {}
-// Check samplesInSegment size is less than total samples and all items are valid.
 
 #endif //KDTREE_SEGMENT_H

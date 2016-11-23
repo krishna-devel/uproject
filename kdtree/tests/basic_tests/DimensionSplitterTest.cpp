@@ -5,14 +5,14 @@
 
 TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) {
     ASSERT_THROW(
-            {
-                 vector<ValueAlongDimension<double, int>> valuesAlongDimension;
-                 SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
-                         DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-                         valuesAlongDimension
-                 );
-             },
-             cant_split_threshold_for_empty_vector_exception
+        ({
+             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
+             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+                     DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+                     valuesAlongDimension
+             );
+         }),
+         cant_split_threshold_for_empty_vector_exception
     );
 }
 

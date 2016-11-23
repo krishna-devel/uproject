@@ -7,13 +7,13 @@
 
 using namespace std;
 
-template <typename  T>
+template <typename  DataType>
 class SplitInfo {
 public:
-    SplitInfo(T threshold) : splitThreshold(threshold) {}
-    T getThreshold() const { return splitThreshold; }
+    SplitInfo(DataType threshold) : splitThreshold(threshold) {}
+    DataType getThreshold() const { return splitThreshold; }
 private:
-    T splitThreshold;
+    DataType splitThreshold;
 };
 
 template <typename  T>
