@@ -8,8 +8,3 @@ int Util::getRandomInteger(const int &max, const int &min) {
     uniform_int_distribution<int> uni(min, max);
     return uni(rng);
 }
-
-//template <typename T>
-//void Util::medianOfMedians(vector<int> &items) {
-//    items[0] = items[2];
-//}

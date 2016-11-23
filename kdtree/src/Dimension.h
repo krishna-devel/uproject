@@ -2,7 +2,7 @@
 #define KDTREE_DIMENSION_H
 
 #include <vector>
-#include "EigenMatrixAdapter.h"
+#include "Segment.h"
 
 using namespace std;
 
@@ -21,21 +21,19 @@ private:
 template <typename T>
 class Dimension {
 public:
-    Dimension(const EigenMatrixAdapter<T> &adapter, int dimensionId);
-    const EigenMatrixAdapter<T> &getAdapter() const { return adapter; }
+    Dimension(const Segment<T> &adapter, int dimensionId);
+    const Segment<T> &getAdapter() const { return adapter; }
     const vector<ValueAlongDimension<T>> &getValuesAlongDimension() const { return valuesAlongDimension; }
 private:
-    const EigenMatrixAdapter<T> &adapter;
+    const Segment<T> &adapter;
     int dimensionId;
     vector<ValueAlongDimension<T>> valuesAlongDimension;
 };
 
 template <typename T>
-Dimension<T>::Dimension(const EigenMatrixAdapter<T> &adapter, int dimensionId) : adapter(adapter), dimensionId(dimensionId) {
-
+Dimension<T>::Dimension(const Segment<T> &adapter, int dimensionId) : adapter(adapter), dimensionId(dimensionId) {
     const Matrix<T, Dynamic, Dynamic> &samples = adapter.getSamples();
-    const vector<int> &indices = adapter.getRowIndices();
-
+    const vector<int> &indices = adapter.getSamplesInSegment();
     if (dimensionId < samples.cols()) {
         for (int index: indices) {
             valuesAlongDimension.push_back(ValueAlongDimension<T>(index, samples(index, dimensionId)));

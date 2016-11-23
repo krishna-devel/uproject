@@ -15,9 +15,3 @@ TEST(UtilTest, testGetRandomInteger) {
     }
 }
 
-//TEST(UtilTest, testMedianOfMedians) {
-//    vector<int> items = {1, 2, 3};
-//    Util::medianOfMedians(items);
-//    int i = 0;
-//}
-

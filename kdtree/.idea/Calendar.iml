@@ -12,15 +12,17 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/DimensionTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/basic_check.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/SegmentTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/UtilTest.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/EigenMatrixAdapterTest.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/MockTest.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests/basic_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/DimensionSplitter.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Dimension.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/EigenMatrixAdapter.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/EigenMatrixAdapter.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Node.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Segment.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/DimensionSelector.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Util.cpp" isTestSource="false" />

@@ -4,9 +4,9 @@ add_executable(runTests
         basic_check.cpp
         DimensionSplitterTest.cpp
         DimensionTest.cpp
-        EigenMatrixAdapterTest.cpp
+        SegmentTest.cpp
         UtilTest.cpp
-        )
+        MockTest.cpp)
 
 #add_subdirectory(mocks)
 

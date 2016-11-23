@@ -5,14 +5,13 @@ project(src)
 add_definitions(-std=c++11)
 
 set(HEADER_FILES
-        EigenMatrixAdapter.h
+        Segment.h
         )
 
 set(SOURCE_FILES
-        EigenMatrixAdapter.cpp
         Dimension.h
         DimensionSplitter.h
         Util.h
-        Util.cpp)
+        Util.cpp Node.h DimensionSelector.h)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})

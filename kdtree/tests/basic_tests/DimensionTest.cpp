@@ -15,13 +15,13 @@ protected:
 };
 
 TEST_F(DimensionTest, getValuesAlongDimension_checks_for_valid_index_size) {
-    EigenMatrixAdapter<double> adapter1 (dMatrix);
+    Segment<double> adapter1 (dMatrix);
     Dimension<double> dimension (adapter1, 5);
     ASSERT_EQ(0, dimension.getValuesAlongDimension().size());
 }
 
 TEST_F(DimensionTest, getValuesAlongDimension_returns_right_values) {
-    EigenMatrixAdapter<double> adapter1 (dMatrix);
+    Segment<double> adapter1 (dMatrix);
     Dimension<double> dimension1 (adapter1, 0);
     const vector<ValueAlongDimension<double>> valuesAlongDimension = dimension1.getValuesAlongDimension();
 
@@ -36,7 +36,7 @@ TEST_F(DimensionTest, getValuesAlongDimension_returns_right_values) {
 
 TEST_F(DimensionTest, getValuesAlongDimension_returns_right_values_for_partial_row_indices) {
     vector<int> indices {0, 2};
-    EigenMatrixAdapter<double> adapter2 (dMatrix, indices);
+    Segment<double> adapter2 (dMatrix, indices);
     Dimension<double> dimension2 (adapter2, 1);
 
     const vector<ValueAlongDimension<double>> valuesAlongDimension = dimension2.getValuesAlongDimension();

@@ -3,20 +3,12 @@
 
 #include "Dimension.h"
 #include "Util.h"
+#include "Node.h"
 
 using namespace std;
 
 enum DimensionSplittingMethod {
     MEDIAN_OF_MEDIAN
-};
-
-template <typename  T>
-class SplitInfo {
-public:
-    SplitInfo(T threshold) : splitThreshold(threshold) {}
-    T getThreshold() const { return splitThreshold; }
-private:
-    T splitThreshold;
 };
 
 template <typename  T>
