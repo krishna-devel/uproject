@@ -2,8 +2,6 @@
 #define KDTREE_DIMENSIONSPLITTER_H
 
 #include "Dimension.h"
-#include "Util.h"
-#include "Node.h"
 
 using namespace std;
 

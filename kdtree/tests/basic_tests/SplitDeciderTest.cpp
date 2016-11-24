@@ -1,4 +1,4 @@
-#include "gtest/gtest.h"
+#include <gmock/gmock.h>
 #include "SplitDecider.h"
 
 class SplitDeciderTest : public testing::Test {
@@ -35,5 +35,3 @@ TEST_F(SplitDeciderTest, shouldSplit_samplesWithNoRows) {
     bool shouldSplit = SplitDecider<float, int>::shouldSplit(segment);
     ASSERT_EQ(false, shouldSplit);
 }
-
-

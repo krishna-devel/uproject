@@ -1,3 +1,4 @@
+#include "memory"
 #include <gmock/gmock.h>
 #include "Node.h"
 

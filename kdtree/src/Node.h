@@ -1,6 +1,8 @@
 #ifndef KDTREE_NODE_H
 #define KDTREE_NODE_H
 
+#include "memory"
+
 using namespace std;
 
 template <typename T>

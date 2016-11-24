@@ -1,7 +1,6 @@
 #ifndef KDTREE_DIMENSIONSELECTOR_H
 #define KDTREE_DIMENSIONSELECTOR_H
 
-#include "Node.h"
 #include "Segment.h"
 #include "Dimension.h"
 #include "DimensionSplitter.h"
