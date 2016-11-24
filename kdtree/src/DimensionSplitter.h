@@ -11,6 +11,16 @@ enum DimensionSplittingMethod {
     MEDIAN_OF_MEDIAN
 };
 
+template <typename  DataType>
+class SplitInfo {
+public:
+    SplitInfo(DataType threshold) : splitThreshold(threshold) {}
+    DataType getThreshold() const { return splitThreshold; }
+private:
+    DataType splitThreshold;
+};
+
+
 template <typename DataType, typename DimensionType>
 class DimensionSplitter {
 public:

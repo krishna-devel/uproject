@@ -1,6 +1,8 @@
 #include <gmock/gmock.h>
+#include <memory>
 
 using testing::Return;
+using namespace std;
 
 class I {
 public:
@@ -51,5 +53,76 @@ TEST(mock_test, test2) {
 
     ASSERT_EQ(100, i.f1());
     ASSERT_EQ(10, i.f2(10));
+}
+
+class N {
+public:
+    N(int score) : score(score) {}
+    int getScore() const { return score; }
+    void setScore(int score) { N::score = score; }
+    void setLeftN(int v) { N::leftN = unique_ptr<N>(new N(v)); }
+    const unique_ptr<N> &getLeftN() const { return leftN; }
+private:
+    int score;
+
+private:
+    unique_ptr<N> leftN;
+};
+
+template <typename T>
+class Node {
+private:
+    T value;
+    unique_ptr<Node<T>> rightNode;
+    unique_ptr<Node<T>> leftNode;
+public:
+    Node(T value) : value(value) {}
+    T getValue() const { return value; }
+    unique_ptr<Node<T>> &getLeftNode() { return leftNode; }
+    unique_ptr<Node<T>> &getRightNode() { return rightNode; }
+    static void updateNode(unique_ptr<Node<T>> &node, T value) {
+        node = unique_ptr<Node<int>>(new Node<T>(value));
+    }
+};
+
+TEST(mock_test, test3) {
+
+    unique_ptr<Node<int>> root;
+    // split occurs, set the value of root
+    root = unique_ptr<Node<int>>(new Node<int>(15));
+
+    // pass left node down and set a value to it.
+    Node<int>::updateNode(root->getLeftNode(), 16);
+    Node<int>::updateNode(root->getLeftNode()->getLeftNode(), 17);
+
+    // pass right node down and set a value to it.
+    Node<int>::updateNode(root->getRightNode(), 18);
+    Node<int>::updateNode(root->getRightNode()->getRightNode(), 19);
+
+    ASSERT_EQ(15, root->getValue());
+    ASSERT_EQ(16, root->getLeftNode()->getValue());
+    ASSERT_EQ(17, root->getLeftNode()->getLeftNode()->getValue());
+    ASSERT_EQ(18, root->getRightNode()->getValue());
+    ASSERT_EQ(19, root->getRightNode()->getRightNode()->getValue());
+
+}
+
+TEST(mock_test, test4) {
+    N n (10);
+    unique_ptr<N> n1(new N(12));
+    n.setLeftN(24);
+
+    N n2 (32);
+    n2.setScore(56);
+
+    unique_ptr<N> root;
+
+    root = unique_ptr<N>(new N(-1));
+
+    ASSERT_EQ(10, n.getScore());
+    ASSERT_EQ(12, n1->getScore());
+    ASSERT_EQ(24, n.getLeftN()->getScore());
+    ASSERT_EQ(56, n2.getScore());
+    ASSERT_EQ(-1, root->getScore());
 }
 
