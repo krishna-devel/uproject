@@ -5,6 +5,7 @@ function build() {
   cd kdtree/build
   cmake ..
   make
+  ./tests/basic_tests/runTests
 }
 
 build

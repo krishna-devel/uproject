@@ -26,10 +26,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSelector.h" afterPath="$PROJECT_DIR$/src/DimensionSelector.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSplitter.h" afterPath="$PROJECT_DIR$/src/DimensionSplitter.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Node.h" afterPath="$PROJECT_DIR$/src/Node.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
@@ -65,8 +61,8 @@
       <file leaf-file-name="SplitDeciderTest.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+            <state relative-caret-position="315">
+              <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="15" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -593,7 +589,7 @@
       <workItem from="1479765719640" duration="65261000" />
       <workItem from="1479951122649" duration="525000" />
       <workItem from="1479953884666" duration="6162000" />
-      <workItem from="1479970616947" duration="6750000" />
+      <workItem from="1479970616947" duration="7394000" />
     </task>
     <servers />
   </component>
@@ -630,7 +626,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140919000" />
+    <option name="totallyTimeSpent" value="141563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1009,8 +1005,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        <state relative-caret-position="315">
+          <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="15" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>

@@ -21,17 +21,17 @@ protected:
 TEST_F(SplitDeciderTest, shouldSplit_samplesWithMultipleRows) {
     Segment<float, int> segment (samplesWithMultipleRows);
     bool shouldSplit = SplitDecider<float, int>::shouldSplit(segment);
-    ASSERT_EQ(true, shouldSplit);
+    EXPECT_TRUE(shouldSplit);
 }
 
 TEST_F(SplitDeciderTest, shouldSplit_samplesWithOneRow) {
     Segment<float, int> segment (samplesWithOneRow);
     bool shouldSplit = SplitDecider<float, int>::shouldSplit(segment);
-    ASSERT_EQ(false, shouldSplit);
+    EXPECT_FALSE(shouldSplit);
 }
 
 TEST_F(SplitDeciderTest, shouldSplit_samplesWithNoRows) {
     Segment<float, int> segment (samplesWithNoRows);
     bool shouldSplit = SplitDecider<float, int>::shouldSplit(segment);
-    ASSERT_EQ(false, shouldSplit);
+    EXPECT_FALSE(shouldSplit);
 }
