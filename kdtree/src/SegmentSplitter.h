@@ -43,12 +43,21 @@ SplitSegments<DataType, DimensionType> SegmentSplitter<DataType, DimensionType>:
     SampleIdsInSegment<DimensionType> sampleIdsLessThanThreshold;
     SampleIdsInSegment<DimensionType> sampleIdsGreaterThanThreshold;
 
+    bool putInLessThanIfEqual = true;
     for (DimensionType sampleId: sampleIdsInSegment) {
         DataType sampleValue = samples(sampleId, dimensionToSplit);
         if (sampleValue < splitThreshold) {
             sampleIdsLessThanThreshold.push_back(sampleId);
         } else if (sampleValue > splitThreshold) {
             sampleIdsGreaterThanThreshold.push_back(sampleId);
+        } else {
+            if (putInLessThanIfEqual) {
+                sampleIdsLessThanThreshold.push_back(sampleId);
+                putInLessThanIfEqual = false;
+            } else {
+                sampleIdsGreaterThanThreshold.push_back(sampleId);
+                putInLessThanIfEqual = true;
+            }
         }
     }
 
@@ -58,39 +67,5 @@ SplitSegments<DataType, DimensionType> SegmentSplitter<DataType, DimensionType>:
 
     return splitSegments;
 }
-
-//class SimpleSegmentSplitter : public SegmentSplitter<DataType, DimensionType> {
-//public:
-//    virtual SplitSegments<DataType, DimensionType> split(
-//        const Segment<DataType, DimensionType> &segment,
-//        const DimensionWithSplitInfo<DataType> &dimensionWithSplitInfo
-//    ) override {
-//
-//        const Samples<DataType> &samples = segment.getSamples();
-//        const SampleIdsInSegment<DimensionType> &sampleIdsInSegment = segment.getSampleIdsInSegment();
-//
-//        DimensionType dimensionToSplit = dimensionWithSplitInfo.getSplitDimension();
-//        DataType splitThreshold = dimensionWithSplitInfo.getSplitInfo().getThreshold();
-//
-//        SampleIdsInSegment<DimensionType> sampleIdsLessThanThreshold;
-//        SampleIdsInSegment<DimensionType> sampleIdsGreaterThanThreshold;
-//
-//        for (DimensionType sampleId: sampleIdsInSegment) {
-//            DataType sampleValue = samples(sampleId, dimensionToSplit);
-//            if (sampleValue < splitThreshold) {
-//                sampleIdsLessThanThreshold.push_back(sampleId);
-//            } else {
-//                sampleIdsGreaterThanThreshold.push_back(sampleId);
-//            }
-//        }
-//
-//        Segment<DataType, DimensionType> segmentLessThanThreshold (samples, sampleIdsLessThanThreshold);
-//        Segment<DataType, DimensionType> segmentGreaterThanThreshold (samples, sampleIdsGreaterThanThreshold);
-//        SplitSegments<DataType, DimensionType> splitSegments (segmentLessThanThreshold, segmentGreaterThanThreshold);
-//
-//        return splitSegments;
-//    }
-//};
-
 
 #endif //KDTREE_SEGMENTSPLITTER_H

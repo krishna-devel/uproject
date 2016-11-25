@@ -5,17 +5,17 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
+      <config projectName="kdtree" targetName="gmock" />
       <config projectName="kdtree" targetName="runBasicTests" />
       <config projectName="Calendar" targetName="runBasicCalendarTests" />
-      <config projectName="kdtree" targetName="src" />
       <config projectName="Calendar" targetName="gtest_main" />
-      <config projectName="kdtree" targetName="kdtree_run" />
-      <config projectName="Calendar" targetName="calendars" />
-      <config projectName="kdtree" targetName="runTests" />
-      <config projectName="kdtree" targetName="gmock_main" />
-      <config projectName="kdtree" targetName="gmock" />
       <config projectName="Calendar" targetName="calendar_run" />
+      <config projectName="kdtree" targetName="kdtree_run" />
       <config projectName="Calendar" targetName="gtest" />
+      <config projectName="Calendar" targetName="calendars" />
+      <config projectName="kdtree" targetName="gmock_main" />
+      <config projectName="kdtree" targetName="runTests" />
+      <config projectName="kdtree" targetName="src" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -25,8 +25,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SegmentSplitter.h" afterPath="$PROJECT_DIR$/src/SegmentSplitter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,23 +50,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Node.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Node.h">
+      <file leaf-file-name="SegmentSplitter.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="309">
+              <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
               <folding>
-                <element signature="e#95#107#0" expanded="true" />
+                <element signature="e#67#87#0" expanded="true" />
+                <element signature="e#904#948#0" expanded="true" />
+                <element signature="e#1209#1253#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplitDeciderTest.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp">
+      <file leaf-file-name="SegmentSplitterTest.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="15" />
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -70,89 +76,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DimensionSelectorTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DimensionSelector.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-              <folding>
-                <element signature="e#71#91#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DimensionSplitter.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SegmentSplitterTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="18" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>split(</find>
+      <find>samplesWithNoRows</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -160,7 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/calendars/Calendar.cpp" />
         <option value="$PROJECT_DIR$/calendars/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/calendars_tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
@@ -200,17 +129,18 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" />
         <option value="$PROJECT_DIR$/src/Dimension.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
-        <option value="$PROJECT_DIR$/src/SegmentSplitter.h" />
         <option value="$PROJECT_DIR$/src/Segment.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" />
         <option value="$PROJECT_DIR$/src/SplitDecider.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/MockTest.cpp" />
         <option value="$PROJECT_DIR$/src/DimensionSplitter.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/DimensionSelector.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
         <option value="$PROJECT_DIR$/src/Node.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
+        <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
+        <option value="$PROJECT_DIR$/src/SegmentSplitter.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" />
       </list>
     </option>
   </component>
@@ -286,6 +216,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kdtree" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kdtree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -308,24 +252,24 @@
       <recent name="$PROJECT_DIR$/tests/basic_tests/mocks" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.NodeTestsad.test_pointers_can_be_set_as_expected">
-    <configuration default="false" name="All in MockTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="mock_test.*:mock_test/*.*:*/mock_test.*/*:*/mock_test/*.*" TEST_MODE="PATTERN">
+  <component name="RunManager" selected="Google Test.All in SegmentSplitterTest.cpp">
+    <configuration default="false" name="SegmentSplitterTest.split_base_case" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentSplitterTest" TEST_METHOD="split_base_case" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="mock_test.test3" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="mock_test" TEST_METHOD="test3" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="SegmentSplitterTest.split_sample_with_one_row" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentSplitterTest" TEST_METHOD="split_sample_with_one_row" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="NodeTest.test_pointers_can_be_set_as_expected" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="kdtree_run" CONFIG_NAME="Debug" TEST_CLASS="NodeTest" TEST_METHOD="test_pointers_can_be_set_as_expected" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="All in SegmentSplitterTest" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentSplitterTest" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="NodeTestsad.test_pointers_can_be_set_as_expected" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="NodeTestsad" TEST_METHOD="test_pointers_can_be_set_as_expected" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="All in SegmentSplitterTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="SegmentSplitterTest.*:SegmentSplitterTest/*.*:*/SegmentSplitterTest.*/*:*/SegmentSplitterTest/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="All in NodeTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="NodeTestsad.*:NodeTestsad/*.*:*/NodeTestsad.*/*:*/NodeTestsad/*.*" TEST_MODE="PATTERN">
+    <configuration default="false" name="SegmentSplitterTest.split_sample_with_duplicate_rows" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentSplitterTest" TEST_METHOD="split_sample_with_duplicate_rows" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
@@ -557,19 +501,19 @@
       <item index="9" class="java.lang.String" itemvalue="Google Test.runTests" />
       <item index="10" class="java.lang.String" itemvalue="Application.gmock" />
       <item index="11" class="java.lang.String" itemvalue="Application.gmock_main" />
-      <item index="12" class="java.lang.String" itemvalue="Google Test.All in MockTest.cpp" />
-      <item index="13" class="java.lang.String" itemvalue="Google Test.mock_test.test3" />
-      <item index="14" class="java.lang.String" itemvalue="Google Test.NodeTest.test_pointers_can_be_set_as_expected" />
-      <item index="15" class="java.lang.String" itemvalue="Google Test.NodeTestsad.test_pointers_can_be_set_as_expected" />
-      <item index="16" class="java.lang.String" itemvalue="Google Test.All in NodeTest.cpp" />
+      <item index="12" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_base_case" />
+      <item index="13" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_sample_with_one_row" />
+      <item index="14" class="java.lang.String" itemvalue="Google Test.All in SegmentSplitterTest" />
+      <item index="15" class="java.lang.String" itemvalue="Google Test.All in SegmentSplitterTest.cpp" />
+      <item index="16" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_sample_with_duplicate_rows" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Google Test.NodeTestsad.test_pointers_can_be_set_as_expected" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.All in NodeTest.cpp" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.NodeTest.test_pointers_can_be_set_as_expected" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.mock_test.test3" />
-        <item index="4" class="java.lang.String" itemvalue="Google Test.All in MockTest.cpp" />
+        <item index="0" class="java.lang.String" itemvalue="Google Test.All in SegmentSplitterTest.cpp" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_sample_with_duplicate_rows" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_sample_with_one_row" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.SegmentSplitterTest.split_base_case" />
+        <item index="4" class="java.lang.String" itemvalue="Google Test.All in SegmentSplitterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -589,50 +533,51 @@
       <workItem from="1479765719640" duration="65261000" />
       <workItem from="1479951122649" duration="525000" />
       <workItem from="1479953884666" duration="6162000" />
-      <workItem from="1479970616947" duration="7394000" />
+      <workItem from="1479970616947" duration="9587000" />
+      <workItem from="1480033484280" duration="4556000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_MockTest_cpp - 2016.11.24 at 08h 17m 39s.xml">
-      <configuration name="All in MockTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SegmentSplitterTest - 2016.11.24 at 17h 13m 10s.xml">
+      <configuration name="All in SegmentSplitterTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_MockTest_cpp - 2016.11.24 at 08h 18m 47s.xml">
-      <configuration name="All in MockTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SegmentSplitterTest - 2016.11.24 at 17h 58m 20s.xml">
+      <configuration name="All in SegmentSplitterTest" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_NodeTest_cpp - 2016.11.24 at 08h 38m 28s.xml">
-      <configuration name="All in NodeTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SegmentSplitterTest_cpp - 2016.11.24 at 17h 15m 09s.xml">
+      <configuration name="All in SegmentSplitterTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="NodeTestsad_test_pointers_can_be_set_as_expected - 2016.11.24 at 08h 39m 00s.xml">
-      <configuration name="NodeTestsad.test_pointers_can_be_set_as_expected" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SegmentSplitterTest_cpp - 2016.11.24 at 18h 00m 49s.xml">
+      <configuration name="All in SegmentSplitterTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 07h 58m 27s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_base_case - 2016.11.24 at 17h 58m 54s.xml">
+      <configuration name="SegmentSplitterTest.split_base_case" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 08h 16m 29s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_sample_with_duplicate_rows - 2016.11.24 at 18h 00m 40s.xml">
+      <configuration name="SegmentSplitterTest.split_sample_with_duplicate_rows" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 08h 19m 36s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_sample_with_one_row - 2016.11.24 at 17h 15m 34s.xml">
+      <configuration name="SegmentSplitterTest.split_sample_with_one_row" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 08h 21m 40s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_sample_with_one_row - 2016.11.24 at 17h 24m 16s.xml">
+      <configuration name="SegmentSplitterTest.split_sample_with_one_row" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 08h 22m 17s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_sample_with_one_row - 2016.11.24 at 17h 59m 24s.xml">
+      <configuration name="SegmentSplitterTest.split_sample_with_one_row" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="mock_test_test3 - 2016.11.24 at 08h 27m 57s.xml">
-      <configuration name="mock_test.test3" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentSplitterTest_split_sample_with_one_row - 2016.11.24 at 17h 59m 50s.xml">
+      <configuration name="SegmentSplitterTest.split_sample_with_one_row" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141563000" />
+    <option name="totallyTimeSpent" value="148312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -651,6 +596,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -668,18 +633,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp</url>
+          <line>24</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build/CMakeFiles/Makefile2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="250" column="13" lean-forward="false" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/eigen3/Eigen/src/Core/util/Macros.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -742,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,7 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,20 +773,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/exceptions.h" />
     <entry file="file://$PROJECT_DIR$/src/EigenMatrixAdapter.cpp" />
-    <entry file="file://$PROJECT_DIR$/src/Util.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -883,31 +832,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-          <folding>
-            <element signature="e#904#948#0" expanded="true" />
-            <element signature="e#1209#1253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SplitDecider.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="46" lean-forward="false" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
           <folding>
-            <element signature="e#92#136#0" expanded="true" />
-            <element signature="e#257#301#0" expanded="true" />
+            <element signature="e#92#136#0" expanded="false" />
+            <element signature="e#257#301#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -917,21 +848,13 @@
         <state relative-caret-position="660">
           <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="85" selection-end-column="2" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#1377#1389#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
+            <element signature="e#1377#1389#0" expanded="false" />
             <marker date="1480004529000" expanded="true" signature="658:829" ph="{...}" />
             <marker date="1480004529000" expanded="true" signature="854:1031" ph="{...}" />
             <marker date="1480004529000" expanded="true" signature="1041:1365" ph="{...}" />
             <marker date="1480004529000" expanded="true" signature="2638:2993" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="18" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,17 +893,7 @@
         <state relative-caret-position="210">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
-            <element signature="e#71#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Node.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding>
-            <element signature="e#95#107#0" expanded="true" />
+            <element signature="e#71#91#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -991,22 +902,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Node.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <element signature="e#360#403#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="60" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#17#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#59#76#0" expanded="false" />
+            <element signature="e#108#175#0" expanded="false" />
+            <element signature="e#328#395#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="e#67#87#0" expanded="true" />
+            <element signature="e#904#948#0" expanded="true" />
+            <element signature="e#1209#1253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="15" />
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
