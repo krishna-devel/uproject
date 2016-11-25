@@ -7,7 +7,7 @@ add_executable(runTests
         SegmentTest.cpp
         UtilTest.cpp
         NodeTest.cpp
-        MockTest.cpp DimensionSelectorTest.cpp SegmentSplitterTest.cpp SplitDeciderTest.cpp)
+        MockTest.cpp DimensionSelectorTest.cpp SegmentSplitterTest.cpp SplitDeciderTest.cpp KDTreeTest.cpp)
 
 #add_subdirectory(mocks)
 
