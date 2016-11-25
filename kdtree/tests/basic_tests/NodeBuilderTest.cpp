@@ -19,10 +19,24 @@ TEST(NodeBuilderTest, test_basic) {
     ASSERT_EQ(NodeType::INTERNAL, kdTree.getNode(0)->getType());
     ASSERT_EQ(0, kdTree.getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
     ASSERT_EQ(4.0, kdTree.getNode(0)->getDimensionWithSplitInfo()->getSplitInfo().getThreshold());
+    ASSERT_EQ(-1, kdTree.getNode(0)->getSampleId());
 
     ASSERT_EQ(NodeType::INTERNAL, kdTree.getNode(1)->getType());
     ASSERT_EQ(1, kdTree.getNode(1)->getDimensionWithSplitInfo()->getSplitDimension());
     ASSERT_EQ(3.5, kdTree.getNode(1)->getDimensionWithSplitInfo()->getSplitInfo().getThreshold());
+    ASSERT_EQ(-1, kdTree.getNode(1)->getSampleId());
+
+    ASSERT_EQ(NodeType::LEAF, kdTree.getNode(2)->getType());
+    ASSERT_EQ(nullptr, kdTree.getNode(2)->getDimensionWithSplitInfo());
+    ASSERT_EQ(2, kdTree.getNode(2)->getSampleId());
+
+    ASSERT_EQ(NodeType::LEAF, kdTree.getNode(3)->getType());
+    ASSERT_EQ(nullptr, kdTree.getNode(3)->getDimensionWithSplitInfo());
+    ASSERT_EQ(0, kdTree.getNode(3)->getSampleId());
+
+    ASSERT_EQ(NodeType::LEAF, kdTree.getNode(4)->getType());
+    ASSERT_EQ(nullptr, kdTree.getNode(4)->getDimensionWithSplitInfo());
+    ASSERT_EQ(1, kdTree.getNode(4)->getSampleId());
 
 }
 
