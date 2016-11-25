@@ -9,14 +9,18 @@ template <typename  DataType, typename DimensionType>
 class DimensionWithSplitInfo {
 public:
     DimensionWithSplitInfo(
-            DimensionType splitDimension,
-            const SplitInfo<DataType> &splitInfo
+        DimensionType splitDimension,
+        const SplitInfo<DataType> &splitInfo
     ) : splitDimension(splitDimension), splitInfo(splitInfo) {}
-    int getSplitDimension() const { return splitDimension; }
+    DimensionType getSplitDimension() const { return splitDimension; }
     const SplitInfo<DataType> &getSplitInfo() const { return splitInfo; }
 private:
     DimensionType splitDimension;
     SplitInfo<DataType> splitInfo;
+};
+
+enum DimensionSelectorType {
+    LOOPING
 };
 
 template <typename  DataType, typename DimensionType>
@@ -25,32 +29,28 @@ public:
     virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
             const Segment<DataType, DimensionType> &segment
     ) = 0;
+    static DimensionSelector<DataType, DimensionType> *getByType(const DimensionSelectorType type);
 };
 
 template <typename  DataType, typename DimensionType>
- class LoopingDimensionSelector : public DimensionSelector<DataType, DimensionType> {
+class LoopingDimensionSelector : public DimensionSelector<DataType, DimensionType> {
 public:
-    LoopingDimensionSelector(int lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
-
+    LoopingDimensionSelector(DataType lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
     virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
-            const Segment<DataType, DimensionType> &segment
+        const Segment<DataType, DimensionType> &segment
     ) override {
-        long numDimensions = segment.getSamples().cols();
-        long nextDimension = (lastSelectedDimension + 1)%numDimensions;
-
+        DimensionType numDimensions = segment.getSamples().cols();
+        DimensionType nextDimension = (lastSelectedDimension + 1)%numDimensions;
         Dimension<DataType, DimensionType> dimension (segment, nextDimension);
         SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-                DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-                dimension.getValuesAlongDimension()
+            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+            dimension.getValuesAlongDimension()
         );
-
         DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
         return dimensionWithSplitInfo;
     }
-
 private:
-    int lastSelectedDimension;
+    DimensionType lastSelectedDimension;
 };
-
 
 #endif //KDTREE_DIMENSIONSELECTOR_H

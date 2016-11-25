@@ -1,10 +1,14 @@
 #include "gtest/gtest.h"
 #include "SegmentSplitter.h"
 #include <stdlib.h>
+#include "memory"
+
+using namespace std;
 
 class SegmentSplitterTest : public testing::Test {
 protected:
     virtual void SetUp() {
+        segmentSplitter = unique_ptr<SegmentSplitter<float, int>> (new SegmentSplitter<float, int>());
         samplesWithOneRow << 1.0, 2.0, 3.0, 4.0, 5.0;
         samplesWithMultipleRows <<
                 1.0, 2.0, 3.0, 4.0, 5.0,
@@ -20,13 +24,14 @@ protected:
 
     }
     static bool isBalanced(const SplitSegments<float, int> &splitSegments) {
-        int diff = labs(splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment().size() -
+        long diff = labs(splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment().size() -
                      splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment().size()) <= 1;
         return diff;
     }
     Samples<float> samplesWithDuplicateRows {3, 3};
     Samples<float> samplesWithOneRow {1, 5};
     Samples<float> samplesWithMultipleRows {6, 5};
+    unique_ptr<SegmentSplitter<float, int>> segmentSplitter;
 };
 
 TEST_F(SegmentSplitterTest, split_base_case) {
@@ -34,7 +39,7 @@ TEST_F(SegmentSplitterTest, split_base_case) {
     SplitInfo<float> splitInfo (13.0);
     DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (2, splitInfo);
 
-    SplitSegments<float, int> splitSegments = SegmentSplitter<float, int>::split(
+    SplitSegments<float, int> splitSegments = segmentSplitter->split(
             segment,
             dimensionWithSplitInfo
     );
@@ -57,7 +62,7 @@ TEST_F(SegmentSplitterTest, split_sample_with_one_row) {
     SplitInfo<float> splitInfo (3.0);
     DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (2, splitInfo);
 
-    SplitSegments<float, int> splitSegments = SegmentSplitter<float, int>::split(
+    SplitSegments<float, int> splitSegments = segmentSplitter->split(
             segment,
             dimensionWithSplitInfo
     );
@@ -80,7 +85,7 @@ TEST_F(SegmentSplitterTest, split_sample_with_duplicate_rows) {
     SplitInfo<float> splitInfo (2.0);
     DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (1, splitInfo);
 
-    SplitSegments<float, int> splitSegments = SegmentSplitter<float, int>::split(
+    SplitSegments<float, int> splitSegments = segmentSplitter->split(
             segment,
             dimensionWithSplitInfo
     );

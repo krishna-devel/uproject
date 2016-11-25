@@ -18,7 +18,6 @@ private:
     DataType splitThreshold;
 };
 
-
 template <typename DataType, typename DimensionType>
 class DimensionSplitter {
 public:
@@ -54,8 +53,8 @@ SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::medianOfMedianSc
 ) {
     DataType threshold;
 
-    int size = valuesAlongDimension.size();
-    int middleItemIndex = size / 2;
+    DimensionType size = valuesAlongDimension.size();
+    DimensionType middleItemIndex = size / 2;
 
     nth_element(
             valuesAlongDimension.begin(),
@@ -68,7 +67,7 @@ SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::medianOfMedianSc
         threshold = valuesAlongDimension[middleItemIndex].getValue();
     } else {
         //Even number of points
-        int neighborIndex = middleItemIndex - 1;
+        DimensionType neighborIndex = middleItemIndex - 1;
         nth_element(
                 valuesAlongDimension.begin(),
                 valuesAlongDimension.begin() + neighborIndex,
@@ -85,7 +84,7 @@ SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::getSplitInfo(
         const DimensionSplittingMethod splittingMethod,
         vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
 ) {
-    int size = valuesAlongDimension.size();
+    DimensionType size = valuesAlongDimension.size();
     if (size != 0) {
         switch(splittingMethod) {
             case MEDIAN_OF_MEDIAN:

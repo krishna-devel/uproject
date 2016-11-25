@@ -39,23 +39,23 @@ private:
 template <typename DataType, typename DimensionType>
 class KDTree {
 private:
-    int numNodes;
+    DimensionType numNodes;
     vector<Node<DataType, DimensionType>*> nodes;
 public:
-    KDTree(int numNodes) : numNodes(numNodes) { nodes.reserve(numNodes); }
-    void insertLeafNode(const long nodeId, DimensionType sampleId) {
+    KDTree(DimensionType numNodes) : numNodes(numNodes) { nodes.reserve(numNodes); }
+    void insertLeafNode(const DimensionType nodeId, const DimensionType sampleId) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
     }
     void insertInternalNode(
-        const long nodeId,
+        const DimensionType nodeId,
         const DimensionWithSplitInfo<DataType, DimensionType> &dimensionWithSplitInfo
     ) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
     }
     Node<DataType, DimensionType> *getNode(const DimensionType nodeId) { return nodes[nodeId]; };
-    DimensionType leftNodeId(const DimensionType nodeId) { return nodeId*2 + 1; }
-    DimensionType rightNodeId(const DimensionType nodeId) { return nodeId*2 + 2; }
-    DimensionType parentNodeId(const DimensionType nodeId) { return (nodeId-1)/2; }
+    static DimensionType leftNodeId(const DimensionType nodeId) { return nodeId*2 + 1; }
+    static DimensionType rightNodeId(const DimensionType nodeId) { return nodeId*2 + 2; }
+    static DimensionType parentNodeId(const DimensionType nodeId) { return (nodeId-1)/2; }
 };
 
 

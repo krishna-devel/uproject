@@ -23,7 +23,7 @@ private:
 template <typename  DataType, typename DimensionType>
 class SegmentSplitter {
 public:
-    static SplitSegments<DataType, DimensionType> split(
+    SplitSegments<DataType, DimensionType> split(
             const Segment<DataType, DimensionType> &segment,
             const DimensionWithSplitInfo<DataType, DimensionType> &dimensionWithSplitInfo
     );
