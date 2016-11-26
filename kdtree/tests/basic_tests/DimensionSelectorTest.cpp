@@ -35,3 +35,12 @@ TEST_F(LoopingDimensionSelectorTest, getNextDimensionToSplit_dimension_rotate_ba
     ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
     ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
 }
+
+TEST(DimensionWithSplitInfoTest, test_string_serilization) {
+    SplitInfo<float> splitInfo (5.0);
+    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo1 (1, splitInfo);
+    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo2 =
+            DimensionWithSplitInfo<float, int>::fromString(dimensionWithSplitInfo1.toString());
+    ASSERT_EQ(5.0, dimensionWithSplitInfo2.getSplitInfo().getThreshold());
+    ASSERT_EQ(1, dimensionWithSplitInfo2.getSplitDimension());
+}

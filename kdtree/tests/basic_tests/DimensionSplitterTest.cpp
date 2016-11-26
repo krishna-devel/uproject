@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <Dimension.h>
 #include <DimensionSplitter.h>
+#include <string>
 
 
 TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) {
@@ -49,4 +50,11 @@ TEST(DimensionSplitterTest, test_median_of_medians_with_even_number_of_points) {
     );
 
     ASSERT_EQ(3.5, separationInfo.getThreshold());
+}
+
+TEST(SplitInfoTest, test_string_serilization) {
+    SplitInfo<float> si1 = SplitInfo<float>(5.0);
+    string str = si1.toString();
+    SplitInfo<float> si2 = SplitInfo<float>::fromString(str);
+    ASSERT_EQ(si1.getThreshold(), si2.getThreshold());
 }

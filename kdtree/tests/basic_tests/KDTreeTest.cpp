@@ -65,3 +65,20 @@ TEST_F(NodeAndKDTreeTest, test_inserting_nodes) {
     ASSERT_EQ(1, kdTree.getNode(2)->getSampleId());
 }
 
+TEST_F(NodeAndKDTreeTest, test_string_serilization_leaf_node) {
+    Node<float, int> node1 (NodeType::LEAF, 10);
+    Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
+    ASSERT_EQ(NodeType::LEAF, node2.getType());
+    ASSERT_EQ(10, node2.getSampleId());
+    EXPECT_FALSE(node2.getDimensionWithSplitInfo());
+}
+
+TEST_F(NodeAndKDTreeTest, test_string_serilization_internal_node) {
+    Node<float, int> node1 (NodeType::INTERNAL, *dimensionWithSplitInfo);
+    Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
+    ASSERT_EQ(NodeType::INTERNAL, node2.getType());
+    ASSERT_EQ(-1, node2.getSampleId());
+    ASSERT_EQ(10, node2.getDimensionWithSplitInfo()->getSplitDimension());
+    ASSERT_EQ(2.0, node2.getDimensionWithSplitInfo()->getSplitInfo().getThreshold());
+}
+

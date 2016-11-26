@@ -2,6 +2,7 @@
 #define KDTREE_DIMENSIONSPLITTER_H
 
 #include "Dimension.h"
+#include <string>
 
 using namespace std;
 
@@ -14,6 +15,11 @@ class SplitInfo {
 public:
     SplitInfo(DataType threshold) : splitThreshold(threshold) {}
     DataType getThreshold() const { return splitThreshold; }
+    string toString() { return to_string(getThreshold()); }
+    static SplitInfo<DataType> fromString(string objectStr) {
+        DataType threshold = stod(objectStr);
+        return SplitInfo(threshold);
+    }
 private:
     DataType splitThreshold;
 };

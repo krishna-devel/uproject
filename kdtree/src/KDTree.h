@@ -4,6 +4,7 @@
 #include <vector>
 #include "DimensionSelector.h"
 #include "memory"
+#include <string>
 
 using namespace std;
 
@@ -30,6 +31,32 @@ public:
     unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> &getDimensionWithSplitInfo() {
         return dimensionWithSplitInfo;
     }
+    string toString() {
+        string dimensionWithSplitInfoString;
+        if (dimensionWithSplitInfo) {
+            dimensionWithSplitInfoString = dimensionWithSplitInfo->toString();
+        } else {
+            dimensionWithSplitInfoString = "empty_ptr";
+        }
+        return to_string(type) + ";" + to_string(sampleId) + ";" + dimensionWithSplitInfoString;
+    }
+    static Node<DataType, DimensionType> fromString(string objectStr) {
+        vector<string> data;
+        istringstream ss(objectStr);
+        string token;
+        while(getline(ss, token, ';')) { data.push_back(token); }
+
+        NodeType type = static_cast<NodeType>(stoi(data[0]));
+        int typeInt = stoi(data[0]);
+        if (typeInt == 0) {
+            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
+                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(data[2]);
+            return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
+        } else {
+            DimensionType sampleId = stol(data[1]);
+            return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
+        }
+    };
 private:
     NodeType type;
     DimensionType sampleId = -1;
