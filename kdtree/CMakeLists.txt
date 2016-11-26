@@ -12,6 +12,12 @@ include_directories(include)
 add_subdirectory(src)
 add_subdirectory(tests)
 
+find_package( ZLIB REQUIRED )
+if ( ZLIB_FOUND )
+    include_directories( ${ZLIB_INCLUDE_DIRS} )
+    target_link_libraries(kdtree_run ${ZLIB_LIBRARIES} )
+endif( ZLIB_FOUND )
+
 find_package (Threads)
 target_link_libraries(kdtree_run ${CMAKE_THREAD_LIBS_INIT})
 
