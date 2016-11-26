@@ -12,11 +12,8 @@ include_directories(include)
 add_subdirectory(src)
 add_subdirectory(tests)
 
-#find_package(Eigen3 REQUIRED)
-#
-#include_directories(EIGEN3_INCLUDE_DIR)
-
-#target_link_libraries(kdtree_run src)
+find_package (Threads)
+target_link_libraries(kdtree_run ${CMAKE_THREAD_LIBS_INIT})
 
 
 #if ($ENV{CLION_IDE})
