@@ -80,6 +80,8 @@ public:
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
     }
     Node<DataType, DimensionType> *getNode(const DimensionType nodeId) { return nodes[nodeId]; };
+    DimensionType getNumNodes() const { return numNodes; }
+
     static DimensionType leftNodeId(const DimensionType nodeId) { return nodeId*2 + 1; }
     static DimensionType rightNodeId(const DimensionType nodeId) { return nodeId*2 + 2; }
     static DimensionType parentNodeId(const DimensionType nodeId) { return (nodeId-1)/2; }
