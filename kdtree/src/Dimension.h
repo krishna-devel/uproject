@@ -34,8 +34,8 @@ private:
 
 template <typename DataType, typename DimensionType>
 Dimension<DataType, DimensionType>::Dimension(
-        const Segment<DataType, DimensionType> &segment,
-        DimensionType dimensionId
+    const Segment<DataType, DimensionType> &segment,
+    DimensionType dimensionId
 ) : adapter(segment), dimensionId(dimensionId) {
     const Samples<DataType> &samples = segment.getSamples();
     const SampleIdsInSegment<DimensionType> &indices = segment.getSampleIdsInSegment();

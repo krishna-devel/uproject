@@ -9,6 +9,17 @@ TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) 
         ({
              vector<ValueAlongDimension<double, int>> valuesAlongDimension;
              SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+                     DimensionSplittingMethod::MEDIAN,
+                     valuesAlongDimension
+             );
+         }),
+         cant_split_threshold_for_empty_vector_exception
+    );
+
+    ASSERT_THROW(
+        ({
+             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
+             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
                      DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
                      valuesAlongDimension
              );
@@ -26,12 +37,17 @@ TEST(DimensionSplitterTest, test_median_of_medians_with_odd_number_of_points) {
         ValueAlongDimension<double, int>(4, 3.0)
     };
 
-    SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
+            DimensionSplittingMethod::MEDIAN,
+            valuesAlongDimension
+    );
+    ASSERT_EQ(3.0, separationInfo1.getThreshold());
+
+    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
             DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
             valuesAlongDimension
     );
-
-    ASSERT_EQ(3.0, separationInfo.getThreshold());
+    ASSERT_EQ(3.0, separationInfo2.getThreshold());
 }
 
 TEST(DimensionSplitterTest, test_median_of_medians_with_even_number_of_points) {
@@ -44,12 +60,17 @@ TEST(DimensionSplitterTest, test_median_of_medians_with_even_number_of_points) {
         ValueAlongDimension<double, int>(5, 6.0)
     };
 
-    SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
+            DimensionSplittingMethod::MEDIAN,
+            valuesAlongDimension
+    );
+    ASSERT_EQ(3.5, separationInfo1.getThreshold());
+
+    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
             DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
             valuesAlongDimension
     );
-
-    ASSERT_EQ(3.5, separationInfo.getThreshold());
+    ASSERT_EQ(3.5, separationInfo2.getThreshold());
 }
 
 TEST(SplitInfoTest, test_string_serilization) {

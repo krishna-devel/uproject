@@ -77,12 +77,21 @@ void NodeBuilder<DataType, DimensionType>::build(
         // Segment has more than one sample. So split it almost equally and insert a split node in the tree.
         DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
                 params->getDimensionSelector()->getNextDimensionToSplit(segment);
-        SplitSegments<DataType, DimensionType> splitSegments = segmentSplitter()->split(segment, dimensionWithSplitInfo);
+        SplitSegments<DataType, DimensionType> splitSegments =
+                segmentSplitter()->split(segment, dimensionWithSplitInfo);
 
         DimensionType dimensionUsedForSplitting = dimensionWithSplitInfo.getSplitDimension();
         kdtree->insertInternalNode(nodeId, dimensionWithSplitInfo);
-        build(params->getParamsForLeftNode(dimensionUsedForSplitting), splitSegments.getSegmentLessThanThreshold(), kdtree);
-        build(params->getParamsForRightNode(dimensionUsedForSplitting), splitSegments.getSegmentGreaterThanThreshold(), kdtree);
+        build(
+                params->getParamsForLeftNode(dimensionUsedForSplitting),
+                splitSegments.getSegmentLessThanThreshold(),
+                kdtree
+        );
+        build(
+                params->getParamsForRightNode(dimensionUsedForSplitting),
+                splitSegments.getSegmentGreaterThanThreshold(),
+                kdtree
+        );
     }
 
 }
