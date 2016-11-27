@@ -24,12 +24,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSelector.h" afterPath="$PROJECT_DIR$/src/DimensionSelector.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
-    </list>
+    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="" />
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="586">
-              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -590,7 +585,7 @@
       <workItem from="1479951122649" duration="525000" />
       <workItem from="1479953884666" duration="6162000" />
       <workItem from="1479970616947" duration="9587000" />
-      <workItem from="1480033484280" duration="98122000" />
+      <workItem from="1480033484280" duration="98170000" />
     </task>
     <servers />
   </component>
@@ -627,7 +622,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241878000" />
+    <option name="totallyTimeSpent" value="241926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1077,7 +1072,7 @@
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -1097,7 +1092,7 @@
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="586">
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding />
         </state>
       </provider>
