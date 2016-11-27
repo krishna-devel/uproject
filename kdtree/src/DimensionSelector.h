@@ -33,11 +33,6 @@ private:
     SplitInfo<DataType> splitInfo;
 };
 
-enum DimensionSelectorType {
-    CYCLE_THROUGH_AXES,
-    HIGHEST_RANGE_AXIS
-};
-
 template <typename  DataType, typename DimensionType>
 class DimensionSelector {
 public:
@@ -54,7 +49,6 @@ public:
         DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
         return dimensionWithSplitInfo;
     }
-    static DimensionSelector<DataType, DimensionType> *getByType(const DimensionSelectorType type);
 };
 
 template <typename  DataType, typename DimensionType>
@@ -112,6 +106,27 @@ private:
 
         return maxIndex;
 
+    }
+};
+
+enum DimensionSelectorType {
+    CYCLE_THROUGH_AXES,
+    HIGHEST_RANGE_AXIS
+};
+
+template <typename  DataType, typename DimensionType>
+class DimensionSelectorByType {
+public:
+    static DimensionSelector<DataType, DimensionType> *get(
+        const DimensionSelectorType dimensionSelectorType,
+        const DataType lastDimensionUsedForSplitting
+    ) {
+        switch(dimensionSelectorType) {
+            case DimensionSelectorType::CYCLE_THROUGH_AXES:
+                return new CycleThroughAxesDimensionSelector<DataType, DimensionType>(lastDimensionUsedForSplitting);
+            case DimensionSelectorType::HIGHEST_RANGE_AXIS:
+                return new HighestRangeAxisDimensionSelector<DataType, DimensionType>();
+        }
     }
 };
 

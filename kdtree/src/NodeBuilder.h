@@ -17,7 +17,7 @@ public:
         dimensionSelectorType(dimensionSelectorType),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting) {
         dimensionSelector = unique_ptr<DimensionSelector<DataType, DimensionType>>(
-            getDimensionSelector(dimensionSelectorType, lastDimensionUsedForSplitting)
+            DimensionSelectorByType<DataType, DimensionType>::get(dimensionSelectorType, lastDimensionUsedForSplitting)
         );
     }
     const DimensionType getNodeId() const { return nodeId; }
@@ -48,16 +48,6 @@ private:
     const DimensionSelectorType dimensionSelectorType;
     const DimensionType lastDimensionUsedForSplitting;
     unique_ptr<DimensionSelector<DataType, DimensionType>> dimensionSelector;
-
-    DimensionSelector<DataType, DimensionType> *getDimensionSelector(
-        const DimensionSelectorType dimensionSelectorType,
-        const DataType lastDimensionUsedForSplitting
-    ) {
-        switch(dimensionSelectorType) {
-            case DimensionSelectorType::CYCLE_THROUGH_AXES:
-                return new CycleThroughAxesDimensionSelector<DataType, DimensionType>(lastDimensionUsedForSplitting);
-        }
-    }
 };
 
 template <typename DataType, typename DimensionType>
