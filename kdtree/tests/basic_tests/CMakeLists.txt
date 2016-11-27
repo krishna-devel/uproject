@@ -10,3 +10,9 @@ add_executable(runTests
 
 target_link_libraries(runTests gmock gtest gtest_main)
 target_link_libraries(runTests src)
+
+find_package( ZLIB REQUIRED )
+if ( ZLIB_FOUND )
+    include_directories( ${ZLIB_INCLUDE_DIRS} )
+    target_link_libraries(runTests ${ZLIB_LIBRARIES} )
+endif( ZLIB_FOUND )

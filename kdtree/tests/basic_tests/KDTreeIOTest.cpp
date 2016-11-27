@@ -17,9 +17,13 @@ protected:
     KDTree<float, int>* kdTree;
 
 };
+
 TEST_F(KDTestIOTest, test_basics) {
-    KDTreeIO<float, int>::write(*kdTree, "kdTree_from_test", true);
-    KDTree<float, int> loadedKDTree = KDTreeIO<float, int>::load("kdTree_from_test");
+
+    string fileName = tmpnam(nullptr);
+
+    KDTreeIO<float, int>::write(*kdTree, fileName);
+    KDTree<float, int> loadedKDTree = KDTreeIO<float, int>::load(fileName);
 
     ASSERT_EQ(3, loadedKDTree.getNumNodes());
 

@@ -36,7 +36,8 @@ public:
         if (dimensionWithSplitInfo) {
             dimensionWithSplitInfoString = dimensionWithSplitInfo->toString();
         } else {
-            dimensionWithSplitInfoString = "empty_ptr";
+            // empty_pointed
+            dimensionWithSplitInfoString = "n";
         }
         return to_string(type) + ";" + to_string(sampleId) + ";" + dimensionWithSplitInfoString;
     }

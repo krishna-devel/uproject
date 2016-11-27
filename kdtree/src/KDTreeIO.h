@@ -6,21 +6,24 @@
 #include "memory"
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include "zlib.h"
 
 using namespace std;
 
 template <typename DataType, typename DimensionType>
 class KDTreeIO {
 public:
-    static void write(const KDTree<DataType, DimensionType> &kdTree, const string &modelOutputFilePath, bool compressOutput);
+    static void write(const KDTree<DataType, DimensionType> &kdTree, const string &modelOutputFilePath);
     static KDTree<DataType, DimensionType> load(const string &modelFilePath);
+
 private:
     static vector<string> convertKDTreeToStringVector(const KDTree<DataType, DimensionType> &kdTree);
     static KDTree<DataType, DimensionType> convertStringVectorToKDTree(const vector<string> &stringVector);
     static void writeStringVector(const vector<string> &stringVector, const string &outputFilePath);
     static vector<string> loadStringVector(const string &inputFilePath);
-    static void compress(const string &inputFilePath);
-    static void unCompress(const string &inputFilePath);
+    static string compressString(const string &input);
+    static string unCompressString(const string &input);
 };
 
 template <typename DataType, typename DimensionType>
@@ -86,29 +89,62 @@ vector<string> KDTreeIO<DataType, DimensionType>::loadStringVector(const string 
     return stringVector;
 }
 
+/*
+* https://gist.github.com/arq5x/5315739
+*/
+template <typename DataType, typename DimensionType>
+string KDTreeIO<DataType, DimensionType>::compressString(const string &input) {
+    char output[input.size()+50];
+
+    z_stream defstream;
+    defstream.zalloc = Z_NULL;
+    defstream.zfree = Z_NULL;
+    defstream.opaque = Z_NULL;
+    // setup "a" as the input and "output" as the compressed output
+    defstream.avail_in = (uInt)strlen(input.c_str())+1; // size of input, string + terminator
+    defstream.next_in = (Bytef *)input.c_str(); // input char array
+    defstream.avail_out = (uInt)sizeof(output); // size of output
+    defstream.next_out = (Bytef *)output; // output char array
+
+    // the actual compression work.
+    deflateInit(&defstream, Z_BEST_COMPRESSION);
+    deflate(&defstream, Z_FINISH);
+    deflateEnd(&defstream);
+
+    string returnStr(output);
+    return returnStr;
+};
+
+template <typename DataType, typename DimensionType>
+string KDTreeIO<DataType, DimensionType>::unCompressString(const string &input) {
+    char output[input.size()+500];
+
+    z_stream infstream;
+    infstream.zalloc = Z_NULL;
+    infstream.zfree = Z_NULL;
+    infstream.opaque = Z_NULL;
+    // setup "b" as the input and "c" as the compressed output
+    infstream.avail_in = (uInt)(strlen(input.c_str())+1); // size of input
+    infstream.next_in = (Bytef *)input.c_str(); // input char array
+    infstream.avail_out = (uInt)sizeof(output); // size of output
+    infstream.next_out = (Bytef *)output; // output char array
+
+    // the actual DE-compression work.
+    inflateInit(&infstream);
+    inflate(&infstream, Z_NO_FLUSH);
+    inflateEnd(&infstream);
+
+    string returnStr(output);
+    return returnStr;
+};
+
+
 template <typename DataType, typename DimensionType>
 void KDTreeIO<DataType, DimensionType>::write(
     const KDTree<DataType, DimensionType> &kdTree,
-    const string &modelOutputFilePath,
-    bool compressOutput
+    const string &modelOutputFilePath
 ) {
     writeStringVector(convertKDTreeToStringVector(kdTree), modelOutputFilePath);
-    if (compressOutput) {
-        compress(modelOutputFilePath);
-    }
-}
-
-template <typename DataType, typename DimensionType>
-void KDTreeIO<DataType, DimensionType>::compress(const string &inputFilePath) {
-    string compressCommand = "gzip " + inputFilePath;
-//    string moveCommand = "mv " + inputFilePath + ".gz " + inputFilePath;
-    system(compressCommand.c_str());
-//    system(moveCommand);
-}
-
-template <typename DataType, typename DimensionType>
-void KDTreeIO<DataType, DimensionType>::unCompress(const string &inputFilePath) {
-
 }
 
 template <typename DataType, typename DimensionType>
