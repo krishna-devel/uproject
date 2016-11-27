@@ -38,12 +38,14 @@ class DimensionSelector {
 public:
     virtual DimensionType getNextDimension(const Segment<DataType, DimensionType> &segment) = 0;
     DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
-        const Segment<DataType, DimensionType> &segment
+        const Segment<DataType, DimensionType> &segment,
+        const DimensionSplittingMethod dimensionSplittingMethod
     ) {
         const DimensionType nextDimension = getNextDimension(segment);
         Dimension<DataType, DimensionType> dimension (segment, nextDimension);
         SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-                DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+//                DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+                dimensionSplittingMethod,
                 dimension.getValuesAlongDimension()
         );
         DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);

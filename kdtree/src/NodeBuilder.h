@@ -11,16 +11,19 @@ public:
     NodeBuilderParams(
         const DimensionType nodeId,
         const DimensionSelectorType dimensionSelectorType,
+        const DimensionSplittingMethod dimensionSplittingMethod,
         const DimensionType lastDimensionUsedForSplitting
     ) :
         nodeId(nodeId),
         dimensionSelectorType(dimensionSelectorType),
+        dimensionSplittingMethod(dimensionSplittingMethod),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting) {
         dimensionSelector = unique_ptr<DimensionSelector<DataType, DimensionType>>(
             DimensionSelectorByType<DataType, DimensionType>::get(dimensionSelectorType, lastDimensionUsedForSplitting)
         );
     }
     const DimensionType getNodeId() const { return nodeId; }
+    const DimensionSplittingMethod getDimensionSplittingMethod() const { return dimensionSplittingMethod; }
     unique_ptr<DimensionSelector<DataType, DimensionType>> &getDimensionSelector() { return dimensionSelector; }
 
     unique_ptr<NodeBuilderParams<DataType, DimensionType>> getParamsForLeftNode(
@@ -29,6 +32,7 @@ public:
         return unique_ptr<NodeBuilderParams<DataType, DimensionType>>(new NodeBuilderParams(
                 KDTree<DataType, DimensionType>::leftNodeId(nodeId),
                 dimensionSelectorType,
+                dimensionSplittingMethod,
                 lastDimensionUsedForSplitting
         ));
     };
@@ -39,6 +43,7 @@ public:
         return unique_ptr<NodeBuilderParams<DataType, DimensionType>>(new NodeBuilderParams(
                 KDTree<DataType, DimensionType>::rightNodeId(nodeId),
                 dimensionSelectorType,
+                dimensionSplittingMethod,
                 lastDimensionUsedForSplitting
         ));
     };
@@ -46,6 +51,7 @@ public:
 private:
     const DimensionType nodeId;
     const DimensionSelectorType dimensionSelectorType;
+    const DimensionSplittingMethod dimensionSplittingMethod;
     const DimensionType lastDimensionUsedForSplitting;
     unique_ptr<DimensionSelector<DataType, DimensionType>> dimensionSelector;
 };
@@ -76,7 +82,7 @@ void NodeBuilder<DataType, DimensionType>::build(
     } else {
         // Segment has more than one sample. So split it almost equally and insert a split node in the tree.
         DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
-                params->getDimensionSelector()->getNextDimensionToSplit(segment);
+                params->getDimensionSelector()->getNextDimensionToSplit(segment, params->getDimensionSplittingMethod());
         SplitSegments<DataType, DimensionType> splitSegments =
                 segmentSplitter()->split(segment, dimensionWithSplitInfo);
 

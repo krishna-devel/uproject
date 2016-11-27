@@ -20,7 +20,12 @@ protected:
 
 TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
     unique_ptr<NodeBuilderParams<float, int>> params = unique_ptr<NodeBuilderParams<float, int>> (
-        new NodeBuilderParams<float, int>(0, DimensionSelectorType::CYCLE_THROUGH_AXES, -1)
+        new NodeBuilderParams<float, int>(
+            0,
+            DimensionSelectorType::CYCLE_THROUGH_AXES,
+            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+            -1
+        )
     );
     NodeBuilder<float, int>::build(params, *segment, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
@@ -48,7 +53,12 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 
 TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
     unique_ptr<NodeBuilderParams<float, int>> params = unique_ptr<NodeBuilderParams<float, int>> (
-        new NodeBuilderParams<float, int>(0, DimensionSelectorType::HIGHEST_RANGE_AXIS, -1)
+        new NodeBuilderParams<float, int>(
+            0,
+            DimensionSelectorType::HIGHEST_RANGE_AXIS,
+            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+            -1
+        )
     );
     NodeBuilder<float, int>::build(params, *segment, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());

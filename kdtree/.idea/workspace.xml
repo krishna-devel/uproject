@@ -25,10 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Dimension.h" afterPath="$PROJECT_DIR$/src/Dimension.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSplitter.h" afterPath="$PROJECT_DIR$/src/DimensionSplitter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSelector.h" afterPath="$PROJECT_DIR$/src/DimensionSelector.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,18 +51,65 @@
       <file leaf-file-name="DimensionSplitter.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="60" column="45" lean-forward="false" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+            <state relative-caret-position="219">
+              <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DimensionSplitterTest.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DimensionSelector.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+              <folding>
+                <element signature="e#71#91#0" expanded="true" />
+                <element signature="e#215#259#0" expanded="true" />
+                <element signature="e#2803#2847#0" expanded="true" />
+                <element signature="e#4726#4770#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DimensionSelectorTest.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeBuilderTest.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeBuilder.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-36">
+              <caret line="84" column="82" lean-forward="false" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DimensionSplitterTest.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -143,13 +190,13 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/src/Segment.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
-        <option value="$PROJECT_DIR$/src/DimensionSelector.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
-        <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
         <option value="$PROJECT_DIR$/src/Dimension.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
         <option value="$PROJECT_DIR$/src/DimensionSplitter.h" />
+        <option value="$PROJECT_DIR$/src/DimensionSelector.h" />
+        <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
       </list>
     </option>
   </component>
@@ -261,12 +308,8 @@
       <recent name="$PROJECT_DIR$/tests/basic_tests/mocks" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.All in DimensionSplitterTest.cpp">
+  <component name="RunManager" selected="Google Test.All in DimensionSelectorTest.cpp">
     <configuration default="false" name="All in NodeBuilderTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="NodeBuilderTest.*:NodeBuilderTest/*.*:*/NodeBuilderTest.*/*:*/NodeBuilderTest/*.*" TEST_MODE="PATTERN">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="NodeBuilderTest.test_basic_for_highest_range_axis" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="NodeBuilderTest" TEST_METHOD="test_basic_for_highest_range_axis" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
@@ -279,6 +322,10 @@
       <method />
     </configuration>
     <configuration default="false" name="DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="DimensionSplitterTest" TEST_METHOD="test_median_of_medians_with_even_number_of_points" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in DimensionSelectorTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="CycleThroughAxesDimensionSelectorTest.*:CycleThroughAxesDimensionSelectorTest/*.*:*/CycleThroughAxesDimensionSelectorTest.*/*:*/CycleThroughAxesDimensionSelectorTest/*.*:HighestRangeAxisDimensionSelectorTest.*:HighestRangeAxisDimensionSelectorTest/*.*:*/HighestRangeAxisDimensionSelectorTest.*/*:*/HighestRangeAxisDimensionSelectorTest/*.*:DimensionWithSplitInfoTest.*:DimensionWithSplitInfoTest/*.*:*/DimensionWithSplitInfoTest.*/*:*/DimensionWithSplitInfoTest/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
     </configuration>
@@ -511,18 +558,18 @@
       <item index="10" class="java.lang.String" itemvalue="Google Test.runBasicTests" />
       <item index="11" class="java.lang.String" itemvalue="Google Test.runTests" />
       <item index="12" class="java.lang.String" itemvalue="Google Test.All in NodeBuilderTest.cpp" />
-      <item index="13" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_highest_range_axis" />
-      <item index="14" class="java.lang.String" itemvalue="Google Test.All in DimensionSplitterTest.cpp" />
-      <item index="15" class="java.lang.String" itemvalue="Google Test.SplitInfoTest.test_string_serilization" />
-      <item index="16" class="java.lang.String" itemvalue="Google Test.DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" />
+      <item index="13" class="java.lang.String" itemvalue="Google Test.All in DimensionSplitterTest.cpp" />
+      <item index="14" class="java.lang.String" itemvalue="Google Test.SplitInfoTest.test_string_serilization" />
+      <item index="15" class="java.lang.String" itemvalue="Google Test.DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" />
+      <item index="16" class="java.lang.String" itemvalue="Google Test.All in DimensionSelectorTest.cpp" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Google Test.All in DimensionSplitterTest.cpp" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.SplitInfoTest.test_string_serilization" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.All in NodeBuilderTest.cpp" />
-        <item index="4" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_highest_range_axis" />
+        <item index="0" class="java.lang.String" itemvalue="Google Test.All in DimensionSelectorTest.cpp" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.All in DimensionSplitterTest.cpp" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.SplitInfoTest.test_string_serilization" />
+        <item index="4" class="java.lang.String" itemvalue="Google Test.All in NodeBuilderTest.cpp" />
       </list>
     </recent_temporary>
   </component>
@@ -543,11 +590,14 @@
       <workItem from="1479951122649" duration="525000" />
       <workItem from="1479953884666" duration="6162000" />
       <workItem from="1479970616947" duration="9587000" />
-      <workItem from="1480033484280" duration="95746000" />
+      <workItem from="1480033484280" duration="98122000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="All_in_DimensionSelectorTest_cpp - 2016.11.27 at 09h 04m 08s.xml">
+      <configuration name="All in DimensionSelectorTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
     <history-entry file="All_in_DimensionSplitterTest_cpp - 2016.11.27 at 08h 12m 08s.xml">
       <configuration name="All in DimensionSplitterTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -563,9 +613,6 @@
     <history-entry file="DimensionSplitterTest_test_median_of_medians_with_even_number_of_points - 2016.11.27 at 08h 15m 08s.xml">
       <configuration name="DimensionSplitterTest.test_median_of_medians_with_even_number_of_points" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="NodeBuilderTest_test_basic_for_cycle_through_axes - 2016.11.27 at 07h 29m 22s.xml">
-      <configuration name="NodeBuilderTest.test_basic_for_cycle_through_axes" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="NodeBuilderTest_test_basic_for_highest_range_axis - 2016.11.27 at 07h 31m 19s.xml">
       <configuration name="NodeBuilderTest.test_basic_for_highest_range_axis" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -580,20 +627,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239502000" />
+    <option name="totallyTimeSpent" value="241878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3338068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -619,7 +666,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -645,7 +692,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/DimensionSelector.h</url>
-          <line>85</line>
+          <line>87</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -990,45 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="12" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="88" column="9" lean-forward="false" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-          <folding>
-            <element signature="e#71#91#0" expanded="true" />
-            <element signature="e#215#259#0" expanded="true" />
-            <element signature="e#2694#2738#0" expanded="true" />
-            <element signature="e#4617#4661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Dimension.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1039,19 +1047,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="60" column="45" lean-forward="false" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+        <state relative-caret-position="219">
+          <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="84" column="82" lean-forward="false" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding>
+            <element signature="e#71#91#0" expanded="true" />
+            <element signature="e#215#259#0" expanded="true" />
+            <element signature="e#2803#2847#0" expanded="true" />
+            <element signature="e#4726#4770#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
