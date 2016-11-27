@@ -34,38 +34,85 @@ private:
 };
 
 enum DimensionSelectorType {
-    CYCLE_THROUGH_AXIS,
-
+    CYCLE_THROUGH_AXES,
+    HIGHEST_RANGE_AXIS
 };
 
 template <typename  DataType, typename DimensionType>
 class DimensionSelector {
 public:
-    virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
-            const Segment<DataType, DimensionType> &segment
-    ) = 0;
-    static DimensionSelector<DataType, DimensionType> *getByType(const DimensionSelectorType type);
-};
-
-template <typename  DataType, typename DimensionType>
-class LoopingDimensionSelector : public DimensionSelector<DataType, DimensionType> {
-public:
-    LoopingDimensionSelector(DataType lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
-    virtual DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
+    virtual DimensionType getNextDimension(const Segment<DataType, DimensionType> &segment) = 0;
+    DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
         const Segment<DataType, DimensionType> &segment
-    ) override {
-        DimensionType numDimensions = segment.getSamples().cols();
-        DimensionType nextDimension = (lastSelectedDimension + 1)%numDimensions;
+    ) {
+        const DimensionType nextDimension = getNextDimension(segment);
         Dimension<DataType, DimensionType> dimension (segment, nextDimension);
         SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-            dimension.getValuesAlongDimension()
+                DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+                dimension.getValuesAlongDimension()
         );
         DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
         return dimensionWithSplitInfo;
     }
+    static DimensionSelector<DataType, DimensionType> *getByType(const DimensionSelectorType type);
+};
+
+template <typename  DataType, typename DimensionType>
+class CycleThroughAxesDimensionSelector : public DimensionSelector<DataType, DimensionType> {
+public:
+    CycleThroughAxesDimensionSelector(DataType lastSelectedDimension) : lastSelectedDimension(lastSelectedDimension) {}
+    virtual DimensionType getNextDimension(const Segment<DataType, DimensionType> &segment) override {
+        DimensionType numDimensions = segment.getSamples().cols();
+        return (lastSelectedDimension + 1)%numDimensions;
+    }
 private:
     DimensionType lastSelectedDimension;
+};
+
+template <typename  DataType, typename DimensionType>
+class HighestRangeAxisDimensionSelector : public DimensionSelector<DataType, DimensionType> {
+public:
+    virtual DimensionType getNextDimension(const Segment<DataType, DimensionType> &segment) override {
+        return getDimensionWithHighestRange(segment);
+    }
+private:
+    DimensionType getDimensionWithHighestRange(const Segment<DataType, DimensionType> &segment) {
+        DimensionType numDimensions = segment.getSamples().cols();
+        const Samples<DataType> &samples = segment.getSamples();
+        const SampleIdsInSegment<DimensionType> &sampleIdsInSegment = segment.getSampleIdsInSegment();
+
+        vector<DataType> maxValues (numDimensions);
+        vector<DataType> minValues (numDimensions);
+
+        for (DimensionType d = 0; d < numDimensions; d++) {
+            maxValues[d] = samples(sampleIdsInSegment[0], d);
+            minValues[d] = samples(sampleIdsInSegment[0], d);
+        }
+
+        for (DimensionType r = 1; r < sampleIdsInSegment.size(); r++) {
+            for (DimensionType d = 0; d < numDimensions; d++) {
+                if (maxValues[d] < samples(sampleIdsInSegment[r],d)) {
+                    maxValues[d] = samples(sampleIdsInSegment[r],d);
+                }
+                if (minValues[d] > samples(sampleIdsInSegment[r],d)) {
+                    minValues[d] = samples(sampleIdsInSegment[r],d);
+                }
+            }
+        }
+
+        DimensionType maxIndex = 0;
+        DataType maxValue = maxValues[maxIndex] - minValues[maxIndex];
+        for (DimensionType d = 0; d < numDimensions; d++) {
+            DataType currentDiff = maxValues[d] - minValues[d];
+            if (maxValue < currentDiff) {
+                maxValue = currentDiff;
+                maxIndex = d;
+            }
+        }
+
+        return maxIndex;
+
+    }
 };
 
 #endif //KDTREE_DIMENSIONSELECTOR_H
