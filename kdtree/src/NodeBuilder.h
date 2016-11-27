@@ -54,7 +54,7 @@ private:
         const DataType lastDimensionUsedForSplitting
     ) {
         switch(dimensionSelectorType) {
-            case DimensionSelectorType::LOOPING:
+            case DimensionSelectorType::CYCLE_THROUGH_AXIS:
                 return new LoopingDimensionSelector<DataType, DimensionType>(lastDimensionUsedForSplitting);
         }
     }

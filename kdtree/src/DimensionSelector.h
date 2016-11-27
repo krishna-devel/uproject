@@ -34,7 +34,8 @@ private:
 };
 
 enum DimensionSelectorType {
-    LOOPING
+    CYCLE_THROUGH_AXIS,
+
 };
 
 template <typename  DataType, typename DimensionType>

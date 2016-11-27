@@ -2,6 +2,7 @@
 #include <string.h>  // for strlen
 #include <assert.h>
 #include "zlib.h"
+#include <getopt.h>
 
 // adapted from: http://stackoverflow.com/questions/7540259/deflate-and-inflate-zlib-h-in-c
 int main(int argc, char* argv[])

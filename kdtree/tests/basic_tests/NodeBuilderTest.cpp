@@ -3,9 +3,9 @@
 #include "NodeBuilder.h"
 
 TEST(NodeBuilderTest, test_basic) {
-//    KDTreeConfig<float, int> config (DimensionSelectorType::LOOPING);
+//    KDTreeConfig<float, int> config (DimensionSelectorType::CYCLE_THROUGH_AXIS);
     unique_ptr<NodeBuilderParams<float, int>> params = unique_ptr<NodeBuilderParams<float, int>> (
-         new NodeBuilderParams<float, int>(0, DimensionSelectorType::LOOPING, -1)
+         new NodeBuilderParams<float, int>(0, DimensionSelectorType::CYCLE_THROUGH_AXIS, -1)
     );
     Samples<float> samples {3, 3};
     samples <<
