@@ -21,8 +21,8 @@ public:
         iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
     }
     Segment(
-            const Samples<DataType> &samples,
-            const vector<DimensionType> &samplesInSegment
+        const Samples<DataType> &samples,
+        const vector<DimensionType> &samplesInSegment
     ): samples(samples), sampleIdsInSegment(samplesInSegment) {}
     const Samples<DataType> &getSamples() const { return samples; };
     const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; };

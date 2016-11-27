@@ -55,7 +55,7 @@ class cant_split_threshold_for_empty_vector_exception : public exception {};
  */
 template <typename DataType, typename DimensionType>
 SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::medianOfMedianScorer(
-        vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
+    vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
 ) {
     DataType threshold;
 
@@ -87,8 +87,8 @@ SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::medianOfMedianSc
 
 template <typename DataType, typename DimensionType>
 SplitInfo<DataType> DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-        const DimensionSplittingMethod splittingMethod,
-        vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
+    const DimensionSplittingMethod splittingMethod,
+    vector<ValueAlongDimension<DataType, DimensionType>> valuesAlongDimension
 ) {
     DimensionType size = valuesAlongDimension.size();
     if (size != 0) {
