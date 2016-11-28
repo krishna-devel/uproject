@@ -6,6 +6,7 @@
 #include "DimensionSplitter.h"
 #include <string>
 #include <sstream>
+#include "Util.h"
 
 using namespace std;
 
@@ -18,14 +19,16 @@ public:
     ) : splitDimension(splitDimension), splitInfo(splitInfo) {}
     DimensionType getSplitDimension() const { return splitDimension; }
     const SplitInfo<DataType> &getSplitInfo() const { return splitInfo; }
-    string toString() { return to_string(splitDimension) + "," + splitInfo.toString(); }
+    string toString() {
+        map<string, string> m;
+        m["splitDimension"] = to_string(splitDimension);
+        m["splitInfo"] = splitInfo.toString();
+        return Util::convertMapToString(m, ":ds:", ";ds;");
+    }
     static DimensionWithSplitInfo<DataType, DimensionType> fromString(string objectStr) {
-        vector<string> data;
-        istringstream ss(objectStr);
-        string token;
-        while(getline(ss, token, ',')) { data.push_back(token); }
-        DimensionType splitDimension = stol(data[0]);
-        SplitInfo<DataType> splitInfo = SplitInfo<DataType>::fromString(data[1]);
+        map<string, string> m = Util::convertStringToMap(objectStr, ":ds:", ";ds;");
+        DimensionType splitDimension = stol(m["splitDimension"]);
+        SplitInfo<DataType> splitInfo = SplitInfo<DataType>::fromString(m["splitInfo"]);
         return DimensionWithSplitInfo<DataType, DimensionType>(splitDimension, splitInfo);
     };
 private:

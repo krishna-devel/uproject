@@ -2,6 +2,7 @@
 #define KDTREE_DIMENSIONSPLITTER_H
 
 #include "Dimension.h"
+#include "Util.h"
 #include <string>
 
 using namespace std;
@@ -34,19 +35,15 @@ class SplitInfo {
 public:
     SplitInfo(DataType threshold) : splitThreshold(threshold) {}
     DataType getThreshold() const { return splitThreshold; }
-    string toString() { return ":si:"+to_string(getThreshold())+":si:"; }
-    static SplitInfo<DataType> fromString(string objectStr) {
-        replace1(":si:", "", objectStr);
-        DataType threshold = stod(objectStr);
-        return SplitInfo(threshold);
+    string toString() {
+        map<string, string> m;
+        m["threshold"] = to_string(getThreshold());
+        return Util::convertMapToString(m, ":si:", ";si;");
     }
-    static bool replace1(const string &from, const string &to, string &str) {
-        size_t start_pos = str.find(from);
-        if(start_pos == string::npos){
-            return false;
-        }
-        str.replace(start_pos, from.length(), to);
-        return true;
+    static SplitInfo<DataType> fromString(string objectStr) {
+        map<string, string> m = Util::convertStringToMap(objectStr, ":si:", ";si;");
+        DataType threshold = stod(m["threshold"]);
+        return SplitInfo(threshold);
     }
 private:
     DataType splitThreshold;

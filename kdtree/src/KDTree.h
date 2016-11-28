@@ -32,31 +32,53 @@ public:
         return dimensionWithSplitInfo;
     }
     string toString() {
-        string dimensionWithSplitInfoString;
+        map<string, string> m;
+        m["type"] = to_string(type);
+        m["sampleId"] = to_string(sampleId);
         if (dimensionWithSplitInfo) {
-            dimensionWithSplitInfoString = dimensionWithSplitInfo->toString();
+            m["dimensionWithSplitInfoString"] = dimensionWithSplitInfo->toString();
         } else {
             // empty_pointed
-            dimensionWithSplitInfoString = "n";
+            m["dimensionWithSplitInfoString"] = "n";
         }
-        return to_string(type) + ";" + to_string(sampleId) + ";" + dimensionWithSplitInfoString;
+        return Util::convertMapToString(m, ":no:", ";no;");
+
+//        string dimensionWithSplitInfoString;
+//        if (dimensionWithSplitInfo) {
+//            dimensionWithSplitInfoString = dimensionWithSplitInfo->toString();
+//        } else {
+//            // empty_pointed
+//            dimensionWithSplitInfoString = "n";
+//        }
+//        return to_string(type) + ";" + to_string(sampleId) + ";" + dimensionWithSplitInfoString;
     }
     static Node<DataType, DimensionType> fromString(string objectStr) {
-        vector<string> data;
-        istringstream ss(objectStr);
-        string token;
-        while(getline(ss, token, ';')) { data.push_back(token); }
-
-        NodeType type = static_cast<NodeType>(stoi(data[0]));
-        int typeInt = stoi(data[0]);
+        map<string, string> m = Util::convertStringToMap(objectStr, ":no:", ";no;");
+        int typeInt = stoi(m["type"]);
         if (typeInt == 0) {
             DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
-                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(data[2]);
+                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
             return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
         } else {
-            DimensionType sampleId = stol(data[1]);
+            DimensionType sampleId = stol(m["sampleId"]);
             return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
         }
+
+//        vector<string> data;
+//        istringstream ss(objectStr);
+//        string token;
+//        while(getline(ss, token, ';')) { data.push_back(token); }
+//
+//        NodeType type = static_cast<NodeType>(stoi(data[0]));
+//        int typeInt = stoi(data[0]);
+//        if (typeInt == 0) {
+//            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
+//                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(data[2]);
+//            return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
+//        } else {
+//            DimensionType sampleId = stol(data[1]);
+//            return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
+//        }
     };
 private:
     NodeType type;
