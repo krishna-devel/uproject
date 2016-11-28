@@ -3,33 +3,16 @@
 
 #include "Dimension.h"
 #include "Util.h"
+#include "Point.h"
 #include <string>
 
 using namespace std;
-
-//template <typename DataType> using Point = vector<DataType>;
 
 enum DimensionSplittingMethod {
     MEDIAN,
     MEDIAN_OF_MEDIAN
 };
 
-//template <typename  DataType>
-//class Bounds {
-//public:
-//    Bounds(
-//        const Point<DataType> &splittingPoint,
-//        const Point<DataType> &minPoint,
-//        const Point<DataType> &maxPoint
-//    ) : splittingPoint(splittingPoint), minPoint(minPoint), maxPoint(maxPoint) {}
-//    const Point<DataType> &getSplittingPoint() const { return splittingPoint; }
-//    const Point<DataType> &getMinPoint() const { return minPoint; }
-//    const Point<DataType> &getMaxPoint() const { return maxPoint; }
-//private:
-//    Point<DataType> splittingPoint;
-//    Point<DataType> minPoint;
-//    Point<DataType> maxPoint;
-//};
 template <typename  DataType>
 class SplitInfo {
 public:
@@ -47,6 +30,34 @@ public:
     }
 private:
     DataType splitThreshold;
+};
+
+template <typename DataType, typename DimensionType>
+class Split {
+public:
+    Split(
+        const Point<DataType, DimensionType> &point,
+        DimensionType splitDimension
+    ) : point(point), splitDimension(splitDimension) {}
+    DataType getThreshold() const { return point.getCoefficients()[splitDimension]; }
+    string toString() {
+        map<string, string> m;
+        m["point"] = point.toString();
+        m["splitDimension"] = to_string(splitDimension);
+        return Util::convertMapToString(m, ":spi:", ";spi;");
+    }
+    static Split<DataType, DimensionType> fromString(string objectStr) {
+        map<string, string> m = Util::convertStringToMap(objectStr, ":spi:", ";spi;");
+        Point<DataType, DimensionType> point = Point<DataType, DimensionType>::fromString(m["point"]);
+        DataType splitDimension = stol(m["splitDimension"]);
+        return Split<DataType, DimensionType>(point, splitDimension);
+    }
+    const Point<DataType, DimensionType> &getPoint() const { return point; }
+    DimensionType getSplitDimension() const { return splitDimension; }
+
+private:
+    Point<DataType, DimensionType> point;
+    DimensionType splitDimension;
 };
 
 template <typename DataType, typename DimensionType>

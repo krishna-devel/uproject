@@ -21,8 +21,8 @@ public:
        dimensionWithSplitInfo =
            unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> (
                new DimensionWithSplitInfo<DataType, DimensionType>(
-                       _dimensionWithSplitInfo.getSplitDimension(),
-                       _dimensionWithSplitInfo.getSplitInfo()
+                   _dimensionWithSplitInfo.getSplitDimension(),
+                   _dimensionWithSplitInfo.getSplitInfo()
                )
            );
     }

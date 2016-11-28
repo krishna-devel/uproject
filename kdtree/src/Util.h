@@ -48,7 +48,11 @@ public:
         return result;
     }
 
-    static string convertMapToString(const map<string, string> &dict, const string &kvSeparator, const string &itemSeparator) {
+    static string convertMapToString(
+        const map<string, string> &dict,
+        const string &kvSeparator,
+        const string &itemSeparator
+    ) {
         string stringToReturn;
         for(pair<string, string> p: dict) {
             string s = p.first + kvSeparator + p.second;
@@ -68,6 +72,18 @@ public:
             mapToReturn[kv[0]] = kv[1];
         }
         return mapToReturn;
+    }
+
+    static string convertVectorToString(const vector<string> &data, const string &itemSeparator) {
+        string stringToReturn;
+        for(string s: data) {
+            stringToReturn += s + itemSeparator;
+        }
+        return stringToReturn;
+    }
+
+    static vector<string> convertStringToVector(const string &inputString, const string &itemSeparator) {
+        return split(inputString, itemSeparator);
     }
 };
 

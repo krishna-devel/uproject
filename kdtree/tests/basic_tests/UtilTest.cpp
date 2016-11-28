@@ -31,3 +31,8 @@ TEST(UtilTest, convertStringToMap) {
     expectedMap["k3"] = "v3";
     EXPECT_EQ(expectedMap, Util::convertStringToMap("k1:v1;k2:v2;k3:v3;", ":", ";"));
 }
+
+TEST(UtilTest, convertVectorToStringAndViceVersa) {
+    vector<string> v {"s1, s2"};
+    EXPECT_EQ(v, Util::convertStringToVector(Util::convertVectorToString(v, ":"), ":"));
+}
