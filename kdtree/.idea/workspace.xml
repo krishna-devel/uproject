@@ -25,38 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SplitGenerator.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSplitter.h" afterPath="$PROJECT_DIR$/src/DimensionSplitter.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" afterPath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/README.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/CookBook.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/CookBook.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/DevGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/DevGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/FrequentlyAskedQuestions.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/FrequentlyAskedQuestions.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_5/CookBook.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_5/CookBook.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_5/FrequentlyAskedQuestions.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_5/FrequentlyAskedQuestions.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_6/CookBook.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_6/CookBook.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_6/FrequentlyAskedQuestions.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_6/FrequentlyAskedQuestions.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_7/CookBook.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_7/CookBook.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_7/FrequentlyAskedQuestions.md" afterPath="$PROJECT_DIR$/tests/lib/googlemock/docs/v1_7/FrequentlyAskedQuestions.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googlemock/include/gmock/gmock-generated-function-mockers.h.pump" afterPath="$PROJECT_DIR$/tests/lib/googlemock/include/gmock/gmock-generated-function-mockers.h.pump" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/README.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/configure.ac" afterPath="$PROJECT_DIR$/tests/lib/googletest/configure.ac" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/AdvancedGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/AdvancedGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/DevGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/DevGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/Primer.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/Primer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_5_AdvancedGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_5_AdvancedGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_5_Primer.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_5_Primer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_6_AdvancedGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_6_AdvancedGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_6_Primer.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_6_Primer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_7_AdvancedGuide.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_7_AdvancedGuide.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_7_Primer.md" afterPath="$PROJECT_DIR$/tests/lib/googletest/docs/V1_7_Primer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest-param-test.h.pump" afterPath="$PROJECT_DIR$/tests/lib/googletest/include/gtest/gtest-param-test.h.pump" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/include/gtest/internal/gtest-param-util-generated.h.pump" afterPath="$PROJECT_DIR$/tests/lib/googletest/include/gtest/internal/gtest-param-util-generated.h.pump" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/googletest/test/gtest_output_test_golden_lin.txt" afterPath="$PROJECT_DIR$/tests/lib/googletest/test/gtest_output_test_golden_lin.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Segment.h" afterPath="$PROJECT_DIR$/src/Segment.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplitGenerator.h" afterPath="$PROJECT_DIR$/src/SplitGenerator.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,25 +50,75 @@
       <file leaf-file-name="SplitGenerator.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-397">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="96" column="28" lean-forward="false" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
               <folding>
                 <element signature="e#65#87#0" expanded="true" />
                 <element signature="e#153#196#0" expanded="true" />
                 <element signature="e#1349#1392#0" expanded="true" />
+                <element signature="e#3498#3541#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplitGeneratorTest.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp">
+      <file leaf-file-name="Segment.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Segment.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+              <folding>
+                <element signature="e#51#68#0" expanded="true" />
+                <element signature="e#275#299#0" expanded="true" />
+                <element signature="e#360#403#0" expanded="true" />
+                <element signature="e#1248#1291#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SegmentTest.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DimensionSplitterTest.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DimensionSplitter.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="67" />
+              <folding>
+                <element signature="e#71#93#0" expanded="true" />
+                <element signature="e#250#270#0" expanded="true" />
+                <element signature="e#888#931#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dimension.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Dimension.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,6 +142,7 @@
       <find>getNextDimensionToSplit</find>
       <find>std::</find>
       <find>s</find>
+      <find>cant_split_threshold_for_empty_vector_exception</find>
     </findStrings>
     <replaceStrings>
       <replace>kdTreekdTree.</replace>
@@ -149,7 +171,6 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/EigenMatrixAdapterTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp.cpp" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" />
         <option value="$PROJECT_DIR$/src/SplitDecider.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/MockTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/SplitDeciderTest.cpp" />
@@ -167,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/KDTreeIO.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/src/Segment.h" />
         <option value="$PROJECT_DIR$/src/Dimension.h" />
         <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
@@ -184,6 +204,8 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp" />
         <option value="$PROJECT_DIR$/src/SplitGenerator.h" />
+        <option value="$PROJECT_DIR$/src/Segment.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" />
       </list>
     </option>
   </component>
@@ -295,24 +317,24 @@
       <recent name="$PROJECT_DIR$/tests/basic_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.All in SplitGeneratorTest.cpp">
-    <configuration default="false" name="BoundsTest.test_bounds_serilization" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="BoundsTest" TEST_METHOD="test_bounds_serilization" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Google Test.SegmentTest.test_ValueInSegment_sorts_correctly">
+    <configuration default="false" name="SegmentTest.test_ValueInSegment_works_as_expected" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentTest" TEST_METHOD="test_ValueInSegment_works_as_expected" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SplitGeneratorTest.test_bounds_serilization" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SplitGeneratorTest" TEST_METHOD="test_bounds_serilization" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="SegmentTest.check_indices_are_correct_if_initialized_with_constructor" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentTest" TEST_METHOD="check_indices_are_correct_if_initialized_with_constructor" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SplitTest.test_split_serilization" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SplitTest" TEST_METHOD="test_split_serilization" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="SegmentTest.test_ValueInSegment_throws_exception" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentTest" TEST_METHOD="test_ValueInSegment_throws_exception" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="SplitGeneratorTest.test_split_serilization" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SplitGeneratorTest" TEST_METHOD="test_split_serilization" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="All in SegmentTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="SegmentTest.*:SegmentTest/*.*:*/SegmentTest.*/*:*/SegmentTest/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="All in SplitGeneratorTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="SplitGeneratorTest.*:SplitGeneratorTest/*.*:*/SplitGeneratorTest.*/*:*/SplitGeneratorTest/*.*" TEST_MODE="PATTERN">
+    <configuration default="false" name="SegmentTest.test_ValueInSegment_sorts_correctly" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="SegmentTest" TEST_METHOD="test_ValueInSegment_sorts_correctly" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
@@ -544,19 +566,19 @@
       <item index="9" class="java.lang.String" itemvalue="Google Test.runBasicCalendarTests" />
       <item index="10" class="java.lang.String" itemvalue="Google Test.runBasicTests" />
       <item index="11" class="java.lang.String" itemvalue="Google Test.runTests" />
-      <item index="12" class="java.lang.String" itemvalue="Google Test.BoundsTest.test_bounds_serilization" />
-      <item index="13" class="java.lang.String" itemvalue="Google Test.SplitGeneratorTest.test_bounds_serilization" />
-      <item index="14" class="java.lang.String" itemvalue="Google Test.SplitTest.test_split_serilization" />
-      <item index="15" class="java.lang.String" itemvalue="Google Test.SplitGeneratorTest.test_split_serilization" />
-      <item index="16" class="java.lang.String" itemvalue="Google Test.All in SplitGeneratorTest.cpp" />
+      <item index="12" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_works_as_expected" />
+      <item index="13" class="java.lang.String" itemvalue="Google Test.SegmentTest.check_indices_are_correct_if_initialized_with_constructor" />
+      <item index="14" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_throws_exception" />
+      <item index="15" class="java.lang.String" itemvalue="Google Test.All in SegmentTest.cpp" />
+      <item index="16" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_sorts_correctly" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Google Test.All in SplitGeneratorTest.cpp" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.SplitGeneratorTest.test_split_serilization" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.SplitTest.test_split_serilization" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.SplitGeneratorTest.test_bounds_serilization" />
-        <item index="4" class="java.lang.String" itemvalue="Google Test.BoundsTest.test_bounds_serilization" />
+        <item index="0" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_sorts_correctly" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.All in SegmentTest.cpp" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_throws_exception" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.SegmentTest.test_ValueInSegment_works_as_expected" />
+        <item index="4" class="java.lang.String" itemvalue="Google Test.SegmentTest.check_indices_are_correct_if_initialized_with_constructor" />
       </list>
     </recent_temporary>
   </component>
@@ -577,44 +599,44 @@
       <workItem from="1479951122649" duration="525000" />
       <workItem from="1479953884666" duration="6162000" />
       <workItem from="1479970616947" duration="9587000" />
-      <workItem from="1480033484280" duration="129747000" />
+      <workItem from="1480033484280" duration="132732000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="All_in_SegmentTest_cpp - 2016.11.28 at 08h 29m 41s.xml">
+      <configuration name="All in SegmentTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
     <history-entry file="All_in_SplitGeneratorTest_cpp - 2016.11.28 at 07h 35m 52s.xml">
       <configuration name="All in SplitGeneratorTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="BoundsTest_test_bounds_serilization - 2016.11.28 at 07h 15m 29s.xml">
-      <configuration name="BoundsTest.test_bounds_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_sorts_correctly - 2016.11.28 at 08h 34m 07s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_sorts_correctly" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_bounds_serilization - 2016.11.28 at 07h 18m 55s.xml">
-      <configuration name="SplitGeneratorTest.test_bounds_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_sorts_correctly - 2016.11.28 at 08h 34m 58s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_sorts_correctly" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 31m 48s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_sorts_correctly - 2016.11.28 at 08h 35m 17s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_sorts_correctly" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 32m 55s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_throws_exception - 2016.11.28 at 08h 27m 44s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_throws_exception" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 33m 28s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_throws_exception - 2016.11.28 at 08h 28m 43s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_throws_exception" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 34m 08s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_works_as_expected - 2016.11.28 at 08h 18m 11s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_works_as_expected" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 35m 08s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_works_as_expected - 2016.11.28 at 08h 18m 29s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_works_as_expected" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="SplitGeneratorTest_test_split_serilization - 2016.11.28 at 07h 35m 28s.xml">
-      <configuration name="SplitGeneratorTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="SplitTest_test_split_serilization - 2016.11.28 at 07h 20m 34s.xml">
-      <configuration name="SplitTest.test_split_serilization" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="SegmentTest_test_ValueInSegment_works_as_expected - 2016.11.28 at 08h 25m 57s.xml">
+      <configuration name="SegmentTest.test_ValueInSegment_works_as_expected" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273503000" />
+    <option name="totallyTimeSpent" value="276488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -717,14 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="2458" column="0" lean-forward="false" selection-start-line="2458" selection-start-column="0" selection-end-line="2458" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -901,32 +915,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dimension.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
           <folding>
             <element signature="e#0#17#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="80" />
-          <folding>
-            <element signature="e#51#68#0" expanded="false" />
-            <element signature="e#194#213#0" expanded="false" />
-            <element signature="e#360#403#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1004,8 +998,8 @@
         <state relative-caret-position="113">
           <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
-            <element signature="e#47#64#0" expanded="true" />
-            <element signature="e#115#158#0" expanded="true" />
+            <element signature="e#47#64#0" expanded="false" />
+            <element signature="e#115#158#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1015,7 +1009,7 @@
         <state relative-caret-position="45">
           <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,52 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="32" column="83" lean-forward="false" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="83" column="27" lean-forward="false" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="e#71#93#0" expanded="true" />
-            <element signature="e#250#270#0" expanded="true" />
-            <element signature="e#888#931#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="79" column="1" lean-forward="false" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1084,25 +1032,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="645">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
           <folding>
-            <element signature="e#65#87#0" expanded="true" />
-            <element signature="e#153#196#0" expanded="true" />
-            <element signature="e#1349#1392#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp">
+    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="283">
+          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="42" column="75" lean-forward="false" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="96" column="28" lean-forward="false" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+          <folding>
+            <element signature="e#65#87#0" expanded="true" />
+            <element signature="e#153#196#0" expanded="true" />
+            <element signature="e#1349#1392#0" expanded="true" />
+            <element signature="e#3498#3541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dimension.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding>
+            <element signature="e#51#68#0" expanded="true" />
+            <element signature="e#275#299#0" expanded="true" />
+            <element signature="e#360#403#0" expanded="true" />
+            <element signature="e#1248#1291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="66" column="4" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="67" />
+          <folding>
+            <element signature="e#71#93#0" expanded="true" />
+            <element signature="e#250#270#0" expanded="true" />
+            <element signature="e#888#931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

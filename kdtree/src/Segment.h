@@ -31,4 +31,33 @@ private:
     SampleIdsInSegment<DimensionType> sampleIdsInSegment;
 };
 
+class sample_id_not_in_segment : public exception {};
+
+template <typename DataType, typename DimensionType>
+class ValueInSegment {
+public:
+    ValueInSegment(
+        const Segment<DataType, DimensionType> &segment,
+        DimensionType sampleId,
+        DimensionType dimensionId
+    ) : segment(segment), sampleId(sampleId), dimensionId(dimensionId) {
+        bool sampleIdIsPresent = false;
+        for(DimensionType d: segment.getSampleIdsInSegment()) {
+            if (d == sampleId) {
+                sampleIdIsPresent = true;
+                break;
+            }
+        }
+        if (!sampleIdIsPresent) {
+            throw sample_id_not_in_segment();
+        }
+    }
+    DataType getValue() const { return segment.getSamples()(sampleId, dimensionId); }
+    bool operator<( const ValueInSegment& val ) const { return getValue() < val.getValue(); }
+private:
+    Segment<DataType, DimensionType> segment;
+    DimensionType sampleId;
+    DimensionType dimensionId;
+};
+
 #endif //KDTREE_SEGMENT_H

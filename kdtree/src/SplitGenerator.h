@@ -78,6 +78,42 @@ private:
     Bounds<DataType, DimensionType> rightBounds;
 };
 
+enum SplittingMethod {
+    MEDIAN,
+    MEDIAN_OF_MEDIAN
+};
+
+template <typename DataType, typename DimensionType>
+class SplitGenerator {
+public:
+    /**
+     * Not passing valuesAlongDimension as reference as this can be modified
+     * by the underlying implementation.
+     *
+     * @param splittingMethod
+     * @param valuesAlongDimension
+     * @return
+     */
+    static Split<DataType, DimensionType> generate(
+        const Segment<DataType, DimensionType> &segment,
+        const SplittingMethod &splittingMethod,
+        const DimensionType &dimensionToSplitBy
+    ) {
+        switch(splittingMethod) {
+            case MEDIAN: return median(segment, dimensionToSplitBy);
+            case MEDIAN_OF_MEDIAN: return medianOfMedianScorer(segment, dimensionToSplitBy);
+        }
+    };
+private:
+    static Split<DataType, DimensionType> median(
+        const Segment<DataType, DimensionType> &segment,
+        const DimensionType &dimensionToSplitBy
+    );
+    static Split<DataType, DimensionType> medianOfMedianScorer(
+        const Segment<DataType, DimensionType> &segment,
+        const DimensionType &dimensionToSplitBy
+    );
+};
 
 
 
