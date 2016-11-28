@@ -44,9 +44,8 @@ public:
         const DimensionType nextDimension = getNextDimension(segment);
         Dimension<DataType, DimensionType> dimension (segment, nextDimension);
         SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-//                DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-                dimensionSplittingMethod,
-                dimension.getValuesAlongDimension()
+            dimensionSplittingMethod,
+            dimension.getValuesAlongDimension()
         );
         DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
         return dimensionWithSplitInfo;

@@ -38,14 +38,14 @@ TEST(DimensionSplitterTest, test_median_of_medians_with_odd_number_of_points) {
     };
 
     SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
-            DimensionSplittingMethod::MEDIAN,
-            valuesAlongDimension
+        DimensionSplittingMethod::MEDIAN,
+        valuesAlongDimension
     );
     ASSERT_EQ(3.0, separationInfo1.getThreshold());
 
     SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
-            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-            valuesAlongDimension
+        DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+        valuesAlongDimension
     );
     ASSERT_EQ(3.0, separationInfo2.getThreshold());
 }
