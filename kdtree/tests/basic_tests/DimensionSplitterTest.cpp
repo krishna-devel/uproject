@@ -3,7 +3,6 @@
 #include <DimensionSplitter.h>
 #include <string>
 
-
 TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) {
     ASSERT_THROW(
         ({
@@ -78,15 +77,4 @@ TEST(SplitInfoTest, test_string_serilization) {
     string str = si1.toString();
     SplitInfo<float> si2 = SplitInfo<float>::fromString(str);
     ASSERT_EQ(si1.getThreshold(), si2.getThreshold());
-}
-
-TEST(SplitTest, test_string_serilization) {
-    vector<float> v {1.0, 2.0, 3.0};
-    Point<float, int> point(v);
-    Split<float, int> split(point, 1);
-    string splitString = split.toString();
-    Split<float, int> newSplit = Split<float, int>::fromString(splitString);
-    EXPECT_EQ(point.getCoefficients(), newSplit.getPoint().getCoefficients());
-    EXPECT_EQ(1, newSplit.getSplitDimension());
-    EXPECT_EQ(2.0, newSplit.getThreshold());
 }
