@@ -83,6 +83,7 @@ void NodeBuilder<DataType, DimensionType>::build(
         // Segment has more than one sample. So split it almost equally and insert a split node in the tree.
         DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
                 params->getDimensionSelector()->getNextDimensionToSplit(segment, params->getDimensionSplittingMethod());
+
         SplitSegments<DataType, DimensionType> splitSegments =
                 segmentSplitter()->split(segment, dimensionWithSplitInfo);
 

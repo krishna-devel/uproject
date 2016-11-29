@@ -107,6 +107,20 @@ private:
     Bounds<DataType, DimensionType> rightBounds;
 };
 
+template <typename DataType, typename DimensionType>
+class SplitWithSegments {
+public:
+    SplitWithSegments(
+        const Split<DataType, DimensionType> &split,
+        const SplitSegments<DataType, DimensionType> &splitSegments
+    ) : split(split), splitSegments(splitSegments) {}
+    const Split<DataType, DimensionType> &getSplit() const { return split; }
+    const SplitSegments<DataType, DimensionType> &getSplitSegments() const { return splitSegments; }
+private:
+    Split<DataType, DimensionType> split;
+    SplitSegments<DataType, DimensionType> splitSegments;
+};
+
 enum SplittingMethod {
     MEDIAN1,
     MEDIAN_OF_MEDIAN1
@@ -115,7 +129,7 @@ enum SplittingMethod {
 template <typename DataType, typename DimensionType>
 class SplitGenerator {
 public:
-    static Split<DataType, DimensionType> generate(
+    static SplitWithSegments<DataType, DimensionType> generate(
         const Segment<DataType, DimensionType> &segment,
         const SplittingMethod &splittingMethod,
         const DimensionType &dimensionToSplitBy
@@ -135,7 +149,10 @@ public:
         Bounds<DataType, DimensionType> rightBounds =
                 Bounds<DataType, DimensionType>::generate(segmentGreaterThanThreshold);
 
-        return Split<DataType, DimensionType>(dimensionToSplitBy, splitPoint, leftBounds, rightBounds);
+        return SplitWithSegments<DataType, DimensionType>(
+            Split<DataType, DimensionType>(dimensionToSplitBy, splitPoint, leftBounds, rightBounds),
+            splitSegments
+        );
     }
 
     static Point<DataType, DimensionType> getSplitPoint(

@@ -110,7 +110,9 @@ TEST_F(SplitGeneratorTest, test_splitting_with_even_metrics) {
 TEST_F(SplitGeneratorTest, test_generate_entire_segment) {
     Segment<float, int> segment(samples5x5);
 
-    Split<float, int> split = SplitGenerator<float, int>::generate(segment, SplittingMethod::MEDIAN1, 1);
+    SplitWithSegments<float, int> splitWithSegments =
+            SplitGenerator<float, int>::generate(segment, SplittingMethod::MEDIAN1, 1);
+    Split<float, int> split = splitWithSegments.getSplit();
 
     vector<float> expectedSplitPoint {11,12,13,14,15};
     vector<float> leftMin {1,2,3,4,5};
@@ -130,7 +132,9 @@ TEST_F(SplitGeneratorTest, test_generate_for_2_rows) {
     vector<int> rows {0,4};
     Segment<float, int> segment(samples5x5, rows);
 
-    Split<float, int> split = SplitGenerator<float, int>::generate(segment, SplittingMethod::MEDIAN1, 1);
+    SplitWithSegments<float, int> splitWithSegments =
+        SplitGenerator<float, int>::generate(segment, SplittingMethod::MEDIAN1, 1);
+    Split<float, int> split = splitWithSegments.getSplit();
 
     vector<float> expectedSplitPoint {11,12,13,14,15};
     vector<float> leftMin {1,2,3,4,5};
