@@ -86,28 +86,6 @@ public:
         return split(inputString, itemSeparator);
     }
 
-//    template <typename  DataType, typename DimensionType>
-//    static Bounds<DataType, DimensionType> generateBounds(const Segment<DataType, DimensionType> &segment) {
-//        vector<DataType> maxValues (numDimensions);
-//        vector<DataType> minValues (numDimensions);
-//
-//        for (DimensionType d = 0; d < numDimensions; d++) {
-//            maxValues[d] = samples(sampleIdsInSegment[0], d);
-//            minValues[d] = samples(sampleIdsInSegment[0], d);
-//        }
-//
-//        for (DimensionType r = 1; r < sampleIdsInSegment.size(); r++) {
-//            for (DimensionType d = 0; d < numDimensions; d++) {
-//                if (maxValues[d] < samples(sampleIdsInSegment[r],d)) {
-//                    maxValues[d] = samples(sampleIdsInSegment[r],d);
-//                }
-//                if (minValues[d] > samples(sampleIdsInSegment[r],d)) {
-//                    minValues[d] = samples(sampleIdsInSegment[r],d);
-//                }
-//            }
-//        }
-//
-//    };
 };
 
 #endif //KDTREE_UTIL_H

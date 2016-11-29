@@ -2,7 +2,6 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(runTests
         SegmentTest.cpp
-        PointTest.cpp
         MockTest.cpp DimensionSelectorTest.cpp SegmentSplitterTest.cpp KDTreeTest.cpp NodeBuilderTest.cpp KDTreeIOTest.cpp UtilTest.cpp SplitGeneratorTest.cpp)
 
 #add_subdirectory(mocks)

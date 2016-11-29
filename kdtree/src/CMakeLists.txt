@@ -9,6 +9,6 @@ set(HEADER_FILES
         )
 
 set(SOURCE_FILES
-        DimensionSelector.h SegmentSplitter.h NodeBuilder.h KDTree.h KDTree.cpp KDTreeIO.h Util.h Point.h SplitGenerator.h)
+        DimensionSelector.h SegmentSplitter.h NodeBuilder.h KDTree.h KDTree.cpp KDTreeIO.h Util.h SplitGenerator.h)
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
