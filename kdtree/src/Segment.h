@@ -1,9 +1,11 @@
 #ifndef KDTREE_SEGMENT_H
 #define KDTREE_SEGMENT_H
 
-#include <vector>
-#include <numeric>
 #include "eigen3/Eigen/Dense"
+#include <Point.h>
+#include <memory>
+#include <numeric>
+#include <vector>
 
 using namespace std;
 using namespace Eigen;
@@ -11,6 +13,8 @@ using Eigen::Matrix;
 
 template <typename DataType> using Samples = Matrix<DataType, Dynamic, Dynamic>;
 template <typename DimensionType> using SampleIdsInSegment = vector<DimensionType>;
+
+class sample_id_not_in_segment : public exception {};
 
 template <typename DataType, typename DimensionType>
 class Segment {
@@ -26,12 +30,20 @@ public:
     ): samples(samples), sampleIdsInSegment(samplesInSegment) {}
     const Samples<DataType> &getSamples() const { return samples; };
     const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; };
+    Point<DataType, DimensionType> getPoint(DimensionType sampleId) const {
+        vector<DimensionType> x(getNumDimensions());
+        iota(begin(x), end(x), 0);
+        vector<DataType> coefficients;
+        for (DimensionType dimension : x) {
+            coefficients.push_back(samples(sampleId, dimension));
+        }
+        return Point<DataType, DimensionType>(coefficients);
+    };
+    DimensionType getNumDimensions() const  { return samples.cols(); }
 private:
     Samples<DataType> samples;
     SampleIdsInSegment<DimensionType> sampleIdsInSegment;
 };
-
-class sample_id_not_in_segment : public exception {};
 
 template <typename DataType, typename DimensionType>
 class ValueInSegment {
@@ -54,6 +66,9 @@ public:
     }
     DataType getValue() const { return segment.getSamples()(sampleId, dimensionId); }
     bool operator<( const ValueInSegment& val ) const { return getValue() < val.getValue(); }
+
+    DimensionType getSampleId() const { return sampleId; }
+
 private:
     Segment<DataType, DimensionType> segment;
     DimensionType sampleId;

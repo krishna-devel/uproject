@@ -3,6 +3,7 @@
 
 #include "vector"
 #include "Util.h"
+#include <numeric>
 
 using namespace std;
 
@@ -18,6 +19,9 @@ public:
         }
         return Util::convertVectorToString(v, ";p;");
     }
+    DataType getValueAt(DimensionType dimensionId) const {
+        return coefficients[dimensionId];
+    }
     static Point<DataType, DimensionType> fromString(string objectStr) {
         vector<DataType> coefficients;
         for (string s: Util::convertStringToVector(objectStr, ";p;")) {
@@ -25,6 +29,27 @@ public:
         }
         return Point<DataType, DimensionType>(coefficients);
     }
+    static Point<DataType, DimensionType> average(
+        Point<DataType, DimensionType> point1,
+        Point<DataType, DimensionType> point2
+    ) {
+
+        vector<DataType> point1Coefficients = point1.getCoefficients();
+        vector<DataType> point2Coefficients = point2.getCoefficients();
+
+        assert(point1Coefficients.size() == point2Coefficients.size());
+        vector<DimensionType> x(point1.getCoefficients().size());
+        std::iota(begin(x), end(x), 0);
+
+        vector<DataType> averageCoefficients;
+        for (DimensionType dimension : x) {
+            DataType average = (point1Coefficients[dimension] + point2Coefficients[dimension])/2.0;
+            averageCoefficients.push_back(average);
+        }
+
+        return Point<DataType, DimensionType>(averageCoefficients);
+    };
+
 private:
     vector<DataType> coefficients;
 };

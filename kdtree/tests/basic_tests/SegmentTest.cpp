@@ -66,3 +66,11 @@ TEST_F(SegmentTest, test_ValueInSegment_sorts_correctly) {
     ASSERT_EQ(2.0, valuesInSegment[0].getValue());
     ASSERT_EQ(4.0, valuesInSegment[1].getValue());
 }
+
+TEST_F(SegmentTest, test_conversion_to_point) {
+    Segment<float, int> segment (fSamples);
+    vector<float> expectedVector1 {1.0, 2.0};
+    vector<float> expectedVector2 {3.0, 4.0};
+    ASSERT_EQ(expectedVector1, segment.getPoint(0).getCoefficients());
+    ASSERT_EQ(expectedVector2, segment.getPoint(1).getCoefficients());
+}

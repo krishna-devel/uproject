@@ -75,7 +75,7 @@ public:
     }
 private:
     DimensionType getDimensionWithHighestRange(const Segment<DataType, DimensionType> &segment) {
-        DimensionType numDimensions = segment.getSamples().cols();
+        DimensionType numDimensions = segment.getNumDimensions();
         const Samples<DataType> &samples = segment.getSamples();
         const SampleIdsInSegment<DimensionType> &sampleIdsInSegment = segment.getSampleIdsInSegment();
 
