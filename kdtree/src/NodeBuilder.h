@@ -4,6 +4,7 @@
 #include "Segment.h"
 #include "KDTree.h"
 #include "SegmentSplitter.h"
+#include "SplitGenerator.h"
 
 template <typename  DataType, typename DimensionType>
 class NodeBuilderParams {
@@ -11,7 +12,7 @@ public:
     NodeBuilderParams(
         const DimensionType nodeId,
         const DimensionSelectorType dimensionSelectorType,
-        const DimensionSplittingMethod dimensionSplittingMethod,
+        const SplittingMethod dimensionSplittingMethod,
         const DimensionType lastDimensionUsedForSplitting
     ) :
         nodeId(nodeId),
@@ -23,7 +24,7 @@ public:
         );
     }
     const DimensionType getNodeId() const { return nodeId; }
-    const DimensionSplittingMethod getDimensionSplittingMethod() const { return dimensionSplittingMethod; }
+    const SplittingMethod getDimensionSplittingMethod() const { return dimensionSplittingMethod; }
     unique_ptr<DimensionSelector<DataType, DimensionType>> &getDimensionSelector() { return dimensionSelector; }
 
     unique_ptr<NodeBuilderParams<DataType, DimensionType>> getParamsForLeftNode(
@@ -51,7 +52,7 @@ public:
 private:
     const DimensionType nodeId;
     const DimensionSelectorType dimensionSelectorType;
-    const DimensionSplittingMethod dimensionSplittingMethod;
+    const SplittingMethod dimensionSplittingMethod;
     const DimensionType lastDimensionUsedForSplitting;
     unique_ptr<DimensionSelector<DataType, DimensionType>> dimensionSelector;
 };
@@ -81,23 +82,38 @@ void NodeBuilder<DataType, DimensionType>::build(
         kdtree->insertLeafNode(nodeId, segment.getSampleIdsInSegment()[0]);
     } else {
         // Segment has more than one sample. So split it almost equally and insert a split node in the tree.
-        DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
-                params->getDimensionSelector()->getNextDimensionToSplit(segment, params->getDimensionSplittingMethod());
+//        DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
+//                params->getDimensionSelector()->getNextDimensionToSplit(segment, params->getDimensionSplittingMethod());
+        DimensionType dimensionToSplitBy = params->getDimensionSelector()->getNextDimension(segment);
 
-        SplitSegments<DataType, DimensionType> splitSegments =
-                segmentSplitter()->split(segment, dimensionWithSplitInfo);
+        SplitWithSegments<DataType, DimensionType> splitWithSegments =
+            SplitGenerator<DataType, DimensionType>::generate(
+                segment,
+                // CHANGE THIS
+//                SplittingMethod::MEDIAN1,
+                params->getDimensionSplittingMethod(),
+                dimensionToSplitBy
+            );
 
-        DimensionType dimensionUsedForSplitting = dimensionWithSplitInfo.getSplitDimension();
-        kdtree->insertInternalNode(nodeId, dimensionWithSplitInfo);
+//        SplitSegments<DataType, DimensionType> splitSegments =
+//                segmentSplitter()->split(segment, dimensionWithSplitInfo);
+        Split<DataType, DimensionType> split = splitWithSegments.getSplit();
+        SplitSegments<DataType, DimensionType> splitSegments = splitWithSegments.getSplitSegments();
+
+//        DimensionType dimensionUsedForSplitting = dimensionWithSplitInfo.getSplitDimension();
+        DimensionType dimensionUsedForSplitting = split.getSplitDimension();
+
+//        kdtree->insertInternalNode(nodeId, dimensionWithSplitInfo);
+        kdtree->insertInternalNode(nodeId, split);
         build(
-                params->getParamsForLeftNode(dimensionUsedForSplitting),
-                splitSegments.getSegmentLessThanThreshold(),
-                kdtree
+            params->getParamsForLeftNode(dimensionUsedForSplitting),
+            splitSegments.getSegmentLessThanThreshold(),
+            kdtree
         );
         build(
-                params->getParamsForRightNode(dimensionUsedForSplitting),
-                splitSegments.getSegmentGreaterThanThreshold(),
-                kdtree
+            params->getParamsForRightNode(dimensionUsedForSplitting),
+            splitSegments.getSegmentGreaterThanThreshold(),
+            kdtree
         );
     }
 

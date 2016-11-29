@@ -32,59 +32,29 @@ protected:
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_first_dimension) {
     Segment<float, int> segment (samples);
     CycleThroughAxesDimensionSelector<float, int> dimensionSelector (-1);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo =
-            dimensionSelector.getNextDimensionToSplit(segment, DimensionSplittingMethod::MEDIAN_OF_MEDIAN);
-    ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
-    ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
+    ASSERT_EQ(0, dimensionSelector.getNextDimension(segment));
 }
 
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_dimension_in_between) {
     Segment<float, int> segment (samples);
     CycleThroughAxesDimensionSelector<float, int> dimensionSelector (1);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo =
-            dimensionSelector.getNextDimensionToSplit(segment, DimensionSplittingMethod::MEDIAN_OF_MEDIAN);
-    ASSERT_EQ(2, dimensionWithSplitInfo.getSplitDimension());
-    ASSERT_EQ(6.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
+    ASSERT_EQ(2, dimensionSelector.getNextDimension(segment));
 }
 
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_dimension_rotate_back_to_first_dimension) {
     Segment<float, int> segment (samples);
     CycleThroughAxesDimensionSelector<float, int> dimensionSelector (2);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo =
-            dimensionSelector.getNextDimensionToSplit(segment, DimensionSplittingMethod::MEDIAN_OF_MEDIAN);
-    ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
-    ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
-}
-
-TEST(DimensionWithSplitInfoTest, test_string_serilization) {
-    SplitInfo<float> splitInfo (5.0);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo1 (1, splitInfo);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo2 =
-            DimensionWithSplitInfo<float, int>::fromString(dimensionWithSplitInfo1.toString());
-    ASSERT_EQ(5.0, dimensionWithSplitInfo2.getSplitInfo().getThreshold());
-    ASSERT_EQ(1, dimensionWithSplitInfo2.getSplitDimension());
+    ASSERT_EQ(0, dimensionSelector.getNextDimension(segment));
 }
 
 TEST_F(HighestRangeAxisDimensionSelectorTest, test_split_works_correctly_on_entire_segment) {
     Segment<float, int> segment (samples1);
 
     CycleThroughAxesDimensionSelector<float, int> cycleThroughAxesDimensionSelector (-1);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo =
-            cycleThroughAxesDimensionSelector.getNextDimensionToSplit(
-                    segment,
-                    DimensionSplittingMethod::MEDIAN_OF_MEDIAN
-            );
-    ASSERT_EQ(0, dimensionWithSplitInfo.getSplitDimension());
-    ASSERT_EQ(4.0, dimensionWithSplitInfo.getSplitInfo().getThreshold());
+    ASSERT_EQ(0, cycleThroughAxesDimensionSelector.getNextDimension(segment));
 
     HighestRangeAxisDimensionSelector<float, int> highestRangeAxisDimensionSelector;
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo2 =
-            highestRangeAxisDimensionSelector.getNextDimensionToSplit(
-                    segment,
-                    DimensionSplittingMethod::MEDIAN_OF_MEDIAN
-            );
-    ASSERT_EQ(1, dimensionWithSplitInfo2.getSplitDimension());
-    ASSERT_EQ(5.0, dimensionWithSplitInfo2.getSplitInfo().getThreshold());
+    ASSERT_EQ(1, highestRangeAxisDimensionSelector.getNextDimension(segment));
 }
 
 TEST_F(HighestRangeAxisDimensionSelectorTest, test_split_works_correctly_on_part_of_segments) {
@@ -92,21 +62,9 @@ TEST_F(HighestRangeAxisDimensionSelectorTest, test_split_works_correctly_on_part
 
     vector<int> samplesInSegment1 {0, 1};
     Segment<float, int> segment1 (samples2, samplesInSegment1);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo1 =
-            highestRangeAxisDimensionSelector.getNextDimensionToSplit(
-                    segment1,
-                    DimensionSplittingMethod::MEDIAN_OF_MEDIAN
-            );
-    ASSERT_EQ(2, dimensionWithSplitInfo1.getSplitDimension());
-    ASSERT_EQ(5.0, dimensionWithSplitInfo1.getSplitInfo().getThreshold());
+    ASSERT_EQ(2, highestRangeAxisDimensionSelector.getNextDimension(segment1));
 
     vector<int> samplesInSegment2 {1, 2};
     Segment<float, int> segment2 (samples2, samplesInSegment2);
-    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo2 =
-            highestRangeAxisDimensionSelector.getNextDimensionToSplit(
-                    segment2,
-                    DimensionSplittingMethod::MEDIAN_OF_MEDIAN
-            );
-    ASSERT_EQ(0, dimensionWithSplitInfo2.getSplitDimension());
-    ASSERT_EQ(5.5, dimensionWithSplitInfo2.getSplitInfo().getThreshold());
+    ASSERT_EQ(0, highestRangeAxisDimensionSelector.getNextDimension(segment2));
 }

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "DimensionSelector.h"
+#include "SplitGenerator.h"
 #include "memory"
 #include <string>
 
@@ -17,18 +18,21 @@ template <typename DataType, typename DimensionType>
 class Node {
 public:
     Node(NodeType type, DimensionType sampleId) : type(type), sampleId(sampleId) {}
-    Node(NodeType type, const DimensionWithSplitInfo<DataType, DimensionType> &_dimensionWithSplitInfo) : type(type) {
+    Node(NodeType type, const Split<DataType, DimensionType> &_dimensionWithSplitInfo) : type(type) {
        dimensionWithSplitInfo =
-           unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> (
-               new DimensionWithSplitInfo<DataType, DimensionType>(
+           unique_ptr<Split<DataType, DimensionType>> (
+               new Split<DataType, DimensionType>(
                    _dimensionWithSplitInfo.getSplitDimension(),
-                   _dimensionWithSplitInfo.getSplitInfo()
+                   _dimensionWithSplitInfo.getSplitPoint(),
+                   _dimensionWithSplitInfo.getLeftBounds(),
+                   _dimensionWithSplitInfo.getRightBounds()
                )
            );
     }
+
     NodeType getType() const { return type; }
     DimensionType getSampleId() const { return sampleId; }
-    unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> &getDimensionWithSplitInfo() {
+    unique_ptr<Split<DataType, DimensionType>> &getDimensionWithSplitInfo() {
         return dimensionWithSplitInfo;
     }
     string toString() {
@@ -38,52 +42,30 @@ public:
         if (dimensionWithSplitInfo) {
             m["dimensionWithSplitInfoString"] = dimensionWithSplitInfo->toString();
         } else {
-            // empty_pointed
+            // empty_pointer
             m["dimensionWithSplitInfoString"] = "n";
         }
         return Util::convertMapToString(m, ":no:", ";no;");
-
-//        string dimensionWithSplitInfoString;
-//        if (dimensionWithSplitInfo) {
-//            dimensionWithSplitInfoString = dimensionWithSplitInfo->toString();
-//        } else {
-//            // empty_pointed
-//            dimensionWithSplitInfoString = "n";
-//        }
-//        return to_string(type) + ";" + to_string(sampleId) + ";" + dimensionWithSplitInfoString;
     }
     static Node<DataType, DimensionType> fromString(string objectStr) {
         map<string, string> m = Util::convertStringToMap(objectStr, ":no:", ";no;");
         int typeInt = stoi(m["type"]);
         if (typeInt == 0) {
-            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
-                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
+//            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
+//                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
+            Split<DataType, DimensionType> dimensionWithSplitInfo =
+                    Split<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
             return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
         } else {
             DimensionType sampleId = stol(m["sampleId"]);
             return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
         }
-
-//        vector<string> data;
-//        istringstream ss(objectStr);
-//        string token;
-//        while(getline(ss, token, ';')) { data.push_back(token); }
-//
-//        NodeType type = static_cast<NodeType>(stoi(data[0]));
-//        int typeInt = stoi(data[0]);
-//        if (typeInt == 0) {
-//            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
-//                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(data[2]);
-//            return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
-//        } else {
-//            DimensionType sampleId = stol(data[1]);
-//            return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
-//        }
     };
 private:
     NodeType type;
     DimensionType sampleId = -1;
-    unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> dimensionWithSplitInfo;
+//    unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> dimensionWithSplitInfo;
+    unique_ptr<Split<DataType, DimensionType>> dimensionWithSplitInfo;
 };
 
 template <typename DataType, typename DimensionType>
@@ -98,7 +80,8 @@ public:
     }
     void insertInternalNode(
         const DimensionType nodeId,
-        const DimensionWithSplitInfo<DataType, DimensionType> &dimensionWithSplitInfo
+        const Split<DataType, DimensionType> &dimensionWithSplitInfo
+//        const DimensionWithSplitInfo<DataType, DimensionType> &dimensionWithSplitInfo
     ) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
     }

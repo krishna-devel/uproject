@@ -5,15 +5,24 @@
 class KDTestIOTest : public testing::Test {
 protected:
     virtual void SetUp() {
-        splitInfo = new SplitInfo<float>(2.0);
-        dimensionWithSplitInfo = new DimensionWithSplitInfo<float, int>(10, *splitInfo);
         kdTree = new KDTree<float, int>(3);
+        splitPoint = new Point<float, int>(splitPointV);
+        leftBounds = new Bounds<float, int>(maxPointV, minPointV);
+        rightBounds = new Bounds<float, int>(maxPointV, minPointV);
+        dimensionWithSplitInfo = new Split<float, int>(1, *splitPoint, *leftBounds, *rightBounds);
         kdTree->insertInternalNode(0, *dimensionWithSplitInfo);
         kdTree->insertLeafNode(1, 0);
         kdTree->insertLeafNode(2, 1);
     }
-    SplitInfo<float>* splitInfo;
-    DimensionWithSplitInfo<float, int>* dimensionWithSplitInfo;
+    vector<float> splitPointV {3,4};
+    vector<float> maxPointV {5,6};
+    vector<float> minPointV {1,2};
+
+    Point<float, int> *splitPoint;
+    Bounds<float, int> *leftBounds;
+    Bounds<float, int> *rightBounds;
+    Split<float, int> *dimensionWithSplitInfo;
+
     KDTree<float, int>* kdTree;
 
 };
@@ -35,8 +44,8 @@ TEST_F(KDTestIOTest, test_basics) {
     ASSERT_EQ(0, loadedKDTree.getNode(1)->getSampleId());
     ASSERT_EQ(1, loadedKDTree.getNode(2)->getSampleId());
 
-    ASSERT_EQ(10, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(2.0, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitInfo().getThreshold());
+    ASSERT_EQ(1, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
+    ASSERT_EQ(4.0, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitThreshold());
     EXPECT_FALSE(loadedKDTree.getNode(1)->getDimensionWithSplitInfo());
     EXPECT_FALSE(loadedKDTree.getNode(2)->getDimensionWithSplitInfo());
 

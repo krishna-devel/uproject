@@ -1,90 +1,90 @@
-#include "gtest/gtest.h"
-#include <Dimension.h>
-#include <DimensionSplitter.h>
-#include <string>
-
-
-TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) {
-    ASSERT_THROW(
-        ({
-             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
-             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
-                     DimensionSplittingMethod::MEDIAN,
-                     valuesAlongDimension
-             );
-         }),
-         cant_split_threshold_for_empty_vector_exception
-    );
-
-    ASSERT_THROW(
-        ({
-             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
-             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
-                     DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-                     valuesAlongDimension
-             );
-         }),
-         cant_split_threshold_for_empty_vector_exception
-    );
-}
-
-TEST(DimensionSplitterTest, test_median_of_medians_with_odd_number_of_points) {
-    vector<ValueAlongDimension<double, int>> valuesAlongDimension {
-        ValueAlongDimension<double, int>(0, 1.0),
-        ValueAlongDimension<double, int>(1, 5.0),
-        ValueAlongDimension<double, int>(2, 4.0),
-        ValueAlongDimension<double, int>(3, 2.0),
-        ValueAlongDimension<double, int>(4, 3.0)
-    };
-
-    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
-        DimensionSplittingMethod::MEDIAN,
-        valuesAlongDimension
-    );
-    ASSERT_EQ(3.0, separationInfo1.getThreshold());
-
-    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
-        DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-        valuesAlongDimension
-    );
-    ASSERT_EQ(3.0, separationInfo2.getThreshold());
-}
-
-TEST(DimensionSplitterTest, test_median_of_medians_with_even_number_of_points) {
-    vector<ValueAlongDimension<double, int>> valuesAlongDimension {
-        ValueAlongDimension<double, int>(0, 1.0),
-        ValueAlongDimension<double, int>(1, 5.0),
-        ValueAlongDimension<double, int>(2, 4.0),
-        ValueAlongDimension<double, int>(3, 2.0),
-        ValueAlongDimension<double, int>(4, 3.0),
-        ValueAlongDimension<double, int>(5, 6.0)
-    };
-
-    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
-            DimensionSplittingMethod::MEDIAN,
-            valuesAlongDimension
-    );
-    ASSERT_EQ(3.5, separationInfo1.getThreshold());
-
-    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
-            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
-            valuesAlongDimension
-    );
-    ASSERT_EQ(3.5, separationInfo2.getThreshold());
-}
-
-TEST(SplitInfoTest, test_string_serilization) {
-    SplitInfo<float> si1 = SplitInfo<float>(5.0);
-    string str = si1.toString();
-    SplitInfo<float> si2 = SplitInfo<float>::fromString(str);
-    ASSERT_EQ(si1.getThreshold(), si2.getThreshold());
-}
-
-//TEST(SplitTest, test_string_serilization) {
-//    vector<float> v {1.0, 2.0, 3.0};
-//    Point<float, int> point(v);
-//    Split<float, int> point(v);
-//    string pointString = point.toString();
-//    Point<float, int> newPoint = Point<float, int>::fromString(pointString);
-//    EXPECT_EQ(point.getCoefficients(), newPoint.getCoefficients());
+//#include "gtest/gtest.h"
+//#include <Dimension.h>
+//#include <DimensionSplitter.h>
+//#include <string>
+//
+//
+//TEST(DimensionSplitterTest, test_median_of_medians_with_no_values_in_dimension) {
+//    ASSERT_THROW(
+//        ({
+//             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
+//             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+//                     DimensionSplittingMethod::MEDIAN,
+//                     valuesAlongDimension
+//             );
+//         }),
+//         cant_split_threshold_for_empty_vector_exception
+//    );
+//
+//    ASSERT_THROW(
+//        ({
+//             vector<ValueAlongDimension<double, int>> valuesAlongDimension;
+//             SplitInfo<double> separationInfo = DimensionSplitter<double, int>::getSplitInfo(
+//                     DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+//                     valuesAlongDimension
+//             );
+//         }),
+//         cant_split_threshold_for_empty_vector_exception
+//    );
 //}
+//
+//TEST(DimensionSplitterTest, test_median_of_medians_with_odd_number_of_points) {
+//    vector<ValueAlongDimension<double, int>> valuesAlongDimension {
+//        ValueAlongDimension<double, int>(0, 1.0),
+//        ValueAlongDimension<double, int>(1, 5.0),
+//        ValueAlongDimension<double, int>(2, 4.0),
+//        ValueAlongDimension<double, int>(3, 2.0),
+//        ValueAlongDimension<double, int>(4, 3.0)
+//    };
+//
+//    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
+//        DimensionSplittingMethod::MEDIAN,
+//        valuesAlongDimension
+//    );
+//    ASSERT_EQ(3.0, separationInfo1.getThreshold());
+//
+//    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
+//        DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+//        valuesAlongDimension
+//    );
+//    ASSERT_EQ(3.0, separationInfo2.getThreshold());
+//}
+//
+//TEST(DimensionSplitterTest, test_median_of_medians_with_even_number_of_points) {
+//    vector<ValueAlongDimension<double, int>> valuesAlongDimension {
+//        ValueAlongDimension<double, int>(0, 1.0),
+//        ValueAlongDimension<double, int>(1, 5.0),
+//        ValueAlongDimension<double, int>(2, 4.0),
+//        ValueAlongDimension<double, int>(3, 2.0),
+//        ValueAlongDimension<double, int>(4, 3.0),
+//        ValueAlongDimension<double, int>(5, 6.0)
+//    };
+//
+//    SplitInfo<double> separationInfo1 = DimensionSplitter<double, int>::getSplitInfo(
+//            DimensionSplittingMethod::MEDIAN,
+//            valuesAlongDimension
+//    );
+//    ASSERT_EQ(3.5, separationInfo1.getThreshold());
+//
+//    SplitInfo<double> separationInfo2 = DimensionSplitter<double, int>::getSplitInfo(
+//            DimensionSplittingMethod::MEDIAN_OF_MEDIAN,
+//            valuesAlongDimension
+//    );
+//    ASSERT_EQ(3.5, separationInfo2.getThreshold());
+//}
+//
+//TEST(SplitInfoTest, test_string_serilization) {
+//    SplitInfo<float> si1 = SplitInfo<float>(5.0);
+//    string str = si1.toString();
+//    SplitInfo<float> si2 = SplitInfo<float>::fromString(str);
+//    ASSERT_EQ(si1.getThreshold(), si2.getThreshold());
+//}
+//
+////TEST(SplitTest, test_string_serilization) {
+////    vector<float> v {1.0, 2.0, 3.0};
+////    Point<float, int> point(v);
+////    Split<float, int> point(v);
+////    string pointString = point.toString();
+////    Point<float, int> newPoint = Point<float, int>::fromString(pointString);
+////    EXPECT_EQ(point.getCoefficients(), newPoint.getCoefficients());
+////}
