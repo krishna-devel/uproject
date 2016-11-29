@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Dimension.h" description="T getValue() const { return value; }" line="13" />
-  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="kdtree" targetName="gmock" />
       <config projectName="kdtree" targetName="runBasicTests" />
       <config projectName="Calendar" targetName="runBasicCalendarTests" />
-      <config projectName="Calendar" targetName="gtest_main" />
-      <config projectName="Calendar" targetName="calendar_run" />
-      <config projectName="kdtree" targetName="kdtree_run" />
-      <config projectName="Calendar" targetName="gtest" />
-      <config projectName="Calendar" targetName="calendars" />
-      <config projectName="kdtree" targetName="gmock_main" />
-      <config projectName="kdtree" targetName="runTests" />
       <config projectName="kdtree" targetName="src" />
+      <config projectName="Calendar" targetName="gtest_main" />
+      <config projectName="kdtree" targetName="kdtree_run" />
+      <config projectName="Calendar" targetName="calendars" />
+      <config projectName="kdtree" targetName="runTests" />
+      <config projectName="kdtree" targetName="gmock_main" />
+      <config projectName="kdtree" targetName="gmock" />
+      <config projectName="Calendar" targetName="calendar_run" />
+      <config projectName="Calendar" targetName="gtest" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -25,19 +22,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Dimension.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DimensionSplitter.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSelector.h" afterPath="$PROJECT_DIR$/src/DimensionSelector.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DimensionSplitter.h" afterPath="$PROJECT_DIR$/src/DimensionSplitter.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTree.h" afterPath="$PROJECT_DIR$/src/KDTree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTreeIO.h" afterPath="$PROJECT_DIR$/src/KDTreeIO.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SegmentSplitter.h" afterPath="$PROJECT_DIR$/src/SegmentSplitter.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplitGenerator.h" afterPath="$PROJECT_DIR$/src/SplitGenerator.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" afterPath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,62 +52,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DimensionSelectorTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-284">
-              <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dimension.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Dimension.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeBuilder.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="54" />
-              <folding>
-                <element signature="e#59#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DimensionSelector.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="76" column="64" lean-forward="false" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
-              <folding>
-                <element signature="e#71#91#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DimensionSplitter.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-              <folding>
-                <marker date="1480434541000" expanded="false" signature="273:302" ph="&lt;DataType&gt;" />
-                <marker date="1480434541000" expanded="false" signature="949:1001" ph="&lt;DataType,DimensionType&gt;" />
-                <marker date="1480434541000" expanded="false" signature="1860:1912" ph="&lt;DataType,DimensionType&gt;" />
-                <marker date="1480434541000" expanded="false" signature="2605:2657" ph="&lt;DataType,DimensionType&gt;" />
-                <marker date="1480434541000" expanded="false" signature="3774:3826" ph="&lt;DataType,DimensionType&gt;" />
-              </folding>
+            <state relative-caret-position="-1026">
+              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,14 +72,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KDTree.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KDTree.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/KDTree.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="e#57#74#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="68" column="14" lean-forward="true" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -190,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/EigenMatrixAdapter.cpp" />
         <option value="$PROJECT_DIR$/src/EigenMatrixAdapter.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/EigenMatrixAdapterTest.cpp" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp.cpp" />
         <option value="$PROJECT_DIR$/src/SplitDecider.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/MockTest.cpp" />
@@ -200,12 +142,10 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
         <option value="$PROJECT_DIR$/src/KDTreeConfig.h" />
         <option value="$PROJECT_DIR$/src/Util.cpp" />
-        <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/KDTree.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.h.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/src/Dimension.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/basic_tests/PointTest.cpp" />
@@ -213,8 +153,6 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/SegmentSplitterTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/SegmentTest.cpp" />
         <option value="$PROJECT_DIR$/src/Util.h" />
-        <option value="$PROJECT_DIR$/src/Segment.h" />
-        <option value="$PROJECT_DIR$/src/SplitGenerator.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" />
@@ -223,10 +161,15 @@
         <option value="$PROJECT_DIR$/src/DimensionSplitter.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp" />
         <option value="$PROJECT_DIR$/src/SegmentSplitter.h" />
-        <option value="$PROJECT_DIR$/src/DimensionSelector.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp" />
-        <option value="$PROJECT_DIR$/src/KDTree.h" />
+        <option value="$PROJECT_DIR$/src/Segment.h" />
         <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
+        <option value="$PROJECT_DIR$/src/Dimension.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp" />
+        <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/DimensionSelector.h" />
+        <option value="$PROJECT_DIR$/src/SplitGenerator.h" />
+        <option value="$PROJECT_DIR$/src/KDTree.h" />
       </list>
     </option>
   </component>
@@ -621,7 +564,7 @@
       <workItem from="1479953884666" duration="6162000" />
       <workItem from="1479970616947" duration="9587000" />
       <workItem from="1480033484280" duration="165051000" />
-      <workItem from="1480433738861" duration="1612000" />
+      <workItem from="1480433738861" duration="3379000" />
     </task>
     <servers />
   </component>
@@ -658,19 +601,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310419000" />
+    <option name="totallyTimeSpent" value="312186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3338068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -680,13 +624,12 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3338068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3338068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -695,9 +638,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -756,21 +699,6 @@
     <entry file="file://$PROJECT_DIR$/src/KDTreeConfig.h" />
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
     <entry file="file://$PROJECT_DIR$/src/Node.h" />
-    <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="2" lean-forward="false" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/MockTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -783,6 +711,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -881,6 +810,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -906,6 +836,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="12" column="24" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="12" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -913,19 +844,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1089">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
-          <folding>
-            <element signature="e#51#80#0" expanded="true" />
-            <element signature="e#312#336#0" expanded="true" />
-            <element signature="e#452#495#0" expanded="true" />
-            <element signature="e#1747#1790#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,37 +882,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="123" column="20" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="20" />
-          <folding>
-            <element signature="e#65#87#0" expanded="true" />
-            <element signature="e#163#206#0" expanded="true" />
-            <element signature="e#2649#2692#0" expanded="true" />
-            <element signature="e#4738#4781#0" expanded="true" />
-            <element signature="e#5376#5419#0" expanded="true" />
-            <element signature="e#8045#8088#0" expanded="true" />
-            <element signature="e#8910#8953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="906">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
-            <element signature="e#67#87#0" expanded="true" />
+            <element signature="e#67#87#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="62" column="59" lean-forward="false" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,16 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="76" column="64" lean-forward="false" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
-          <folding>
-            <element signature="e#71#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSelectorTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-284">
@@ -1035,25 +920,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dimension.h">
+    <entry file="file://$PROJECT_DIR$/src/Segment.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        <state relative-caret-position="152">
+          <caret line="31" column="87" lean-forward="false" selection-start-line="31" selection-start-column="87" selection-end-line="31" selection-end-column="87" />
+          <folding>
+            <element signature="e#51#80#0" expanded="false" />
+            <element signature="e#312#336#0" expanded="false" />
+            <element signature="e#452#495#0" expanded="false" />
+            <element signature="e#1747#1790#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionSplitterTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        <state relative-caret-position="225">
+          <caret line="36" column="9" lean-forward="false" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
           <folding>
-            <marker date="1480434541000" expanded="false" signature="273:302" ph="&lt;DataType&gt;" />
-            <marker date="1480434541000" expanded="false" signature="949:1001" ph="&lt;DataType,DimensionType&gt;" />
-            <marker date="1480434541000" expanded="false" signature="1860:1912" ph="&lt;DataType,DimensionType&gt;" />
-            <marker date="1480434541000" expanded="false" signature="2605:2657" ph="&lt;DataType,DimensionType&gt;" />
-            <marker date="1480434541000" expanded="false" signature="3774:3826" ph="&lt;DataType,DimensionType&gt;" />
+            <element signature="e#59#79#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dimension.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="e#65#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1026">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,21 +1011,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#57#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="54" />
-          <folding>
-            <element signature="e#59#79#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="68" column="14" lean-forward="true" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -6,35 +6,39 @@
 #include "SegmentSplitter.h"
 #include "SplitGenerator.h"
 
+
 template <typename  DataType, typename DimensionType>
 class NodeBuilderParams {
 public:
+    /**
+     * This object contains params that are needed to build a node.
+     */
     NodeBuilderParams(
         const DimensionType nodeId,
         const DimensionSelectorType dimensionSelectorType,
-        const SplittingMethod dimensionSplittingMethod,
+        const SplittingMethod splittingMethod,
         const DimensionType lastDimensionUsedForSplitting
     ) :
         nodeId(nodeId),
         dimensionSelectorType(dimensionSelectorType),
-        dimensionSplittingMethod(dimensionSplittingMethod),
+        splittingMethod(splittingMethod),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting) {
         dimensionSelector = unique_ptr<DimensionSelector<DataType, DimensionType>>(
             DimensionSelectorByType<DataType, DimensionType>::get(dimensionSelectorType, lastDimensionUsedForSplitting)
         );
     }
     const DimensionType getNodeId() const { return nodeId; }
-    const SplittingMethod getDimensionSplittingMethod() const { return dimensionSplittingMethod; }
+    const SplittingMethod getSplittingMethod() const { return splittingMethod; }
     unique_ptr<DimensionSelector<DataType, DimensionType>> &getDimensionSelector() { return dimensionSelector; }
 
     unique_ptr<NodeBuilderParams<DataType, DimensionType>> getParamsForLeftNode(
         const DimensionType lastDimensionUsedForSplitting
     ) {
         return unique_ptr<NodeBuilderParams<DataType, DimensionType>>(new NodeBuilderParams(
-                KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-                dimensionSelectorType,
-                dimensionSplittingMethod,
-                lastDimensionUsedForSplitting
+            KDTree<DataType, DimensionType>::leftNodeId(nodeId),
+            dimensionSelectorType,
+            splittingMethod,
+            lastDimensionUsedForSplitting
         ));
     };
 
@@ -42,17 +46,17 @@ public:
         const DimensionType lastDimensionUsedForSplitting
     ) {
         return unique_ptr<NodeBuilderParams<DataType, DimensionType>>(new NodeBuilderParams(
-                KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-                dimensionSelectorType,
-                dimensionSplittingMethod,
-                lastDimensionUsedForSplitting
+            KDTree<DataType, DimensionType>::rightNodeId(nodeId),
+            dimensionSelectorType,
+            splittingMethod,
+            lastDimensionUsedForSplitting
         ));
     };
 
 private:
     const DimensionType nodeId;
     const DimensionSelectorType dimensionSelectorType;
-    const SplittingMethod dimensionSplittingMethod;
+    const SplittingMethod splittingMethod;
     const DimensionType lastDimensionUsedForSplitting;
     unique_ptr<DimensionSelector<DataType, DimensionType>> dimensionSelector;
 };
@@ -60,12 +64,18 @@ private:
 template <typename DataType, typename DimensionType>
 class NodeBuilder {
 public:
+    /**
+     * This method is used to build a node in kd-tree.
+     *
+     * @param params
+     * @param segment
+     * @param kdtree
+     */
     static void build(
         const unique_ptr<NodeBuilderParams<DataType, DimensionType>> &params,
         const Segment<DataType, DimensionType> &segment,
         KDTree<DataType, DimensionType> *kdtree
     );
-    static unique_ptr<SegmentSplitter<DataType, DimensionType>> segmentSplitter();
 };
 
 template <typename DataType, typename DimensionType>
@@ -82,46 +92,37 @@ void NodeBuilder<DataType, DimensionType>::build(
         kdtree->insertLeafNode(nodeId, segment.getSampleIdsInSegment()[0]);
     } else {
         // Segment has more than one sample. So split it almost equally and insert a split node in the tree.
-//        DimensionWithSplitInfo<DataType, DimensionType>  dimensionWithSplitInfo =
-//                params->getDimensionSelector()->getNextDimensionToSplit(segment, params->getDimensionSplittingMethod());
+
+        // Select the dimension that will be used to split the node
         DimensionType dimensionToSplitBy = params->getDimensionSelector()->getNextDimension(segment);
 
+        // This step does the following steps:
+        // - Determines the split point that is used to generate 2 new segments.
+        // - Determines the bounds for the 2 segments
         SplitWithSegments<DataType, DimensionType> splitWithSegments =
             SplitGenerator<DataType, DimensionType>::generate(
                 segment,
-                // CHANGE THIS
-//                SplittingMethod::MEDIAN1,
-                params->getDimensionSplittingMethod(),
+                params->getSplittingMethod(),
                 dimensionToSplitBy
             );
 
-//        SplitSegments<DataType, DimensionType> splitSegments =
-//                segmentSplitter()->split(segment, dimensionWithSplitInfo);
         Split<DataType, DimensionType> split = splitWithSegments.getSplit();
         SplitSegments<DataType, DimensionType> splitSegments = splitWithSegments.getSplitSegments();
 
-//        DimensionType dimensionUsedForSplitting = dimensionWithSplitInfo.getSplitDimension();
-        DimensionType dimensionUsedForSplitting = split.getSplitDimension();
-
-//        kdtree->insertInternalNode(nodeId, dimensionWithSplitInfo);
+        // Insert the node built in this step and then build left and right child nodes.
         kdtree->insertInternalNode(nodeId, split);
         build(
-            params->getParamsForLeftNode(dimensionUsedForSplitting),
+            params->getParamsForLeftNode(dimensionToSplitBy),
             splitSegments.getSegmentLessThanThreshold(),
             kdtree
         );
         build(
-            params->getParamsForRightNode(dimensionUsedForSplitting),
+            params->getParamsForRightNode(dimensionToSplitBy),
             splitSegments.getSegmentGreaterThanThreshold(),
             kdtree
         );
     }
 
-}
-
-template <typename DataType, typename DimensionType>
-unique_ptr<SegmentSplitter<DataType, DimensionType>> NodeBuilder<DataType, DimensionType>::segmentSplitter() {
-    return unique_ptr<SegmentSplitter<DataType, DimensionType>>(new SegmentSplitter<DataType, DimensionType>());
 }
 
 #endif //KDTREE_NODEBUILDER_H

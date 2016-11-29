@@ -1,7 +1,6 @@
 #ifndef KDTREE_SPLITGENERATOR_H
 #define KDTREE_SPLITGENERATOR_H
 
-#include "Dimension.h"
 #include "Util.h"
 #include "SegmentSplitter.h"
 #include <string>

@@ -1,8 +1,6 @@
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(runTests
-        DimensionSplitterTest.cpp
-        DimensionTest.cpp
         SegmentTest.cpp
         PointTest.cpp
         MockTest.cpp DimensionSelectorTest.cpp SegmentSplitterTest.cpp SplitDeciderTest.cpp KDTreeTest.cpp NodeBuilderTest.cpp KDTreeIOTest.cpp UtilTest.cpp SplitGeneratorTest.cpp)

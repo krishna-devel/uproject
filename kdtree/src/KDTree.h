@@ -51,8 +51,6 @@ public:
         map<string, string> m = Util::convertStringToMap(objectStr, ":no:", ";no;");
         int typeInt = stoi(m["type"]);
         if (typeInt == 0) {
-//            DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo =
-//                    DimensionWithSplitInfo<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
             Split<DataType, DimensionType> dimensionWithSplitInfo =
                     Split<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
             return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
@@ -64,7 +62,6 @@ public:
 private:
     NodeType type;
     DimensionType sampleId = -1;
-//    unique_ptr<DimensionWithSplitInfo<DataType, DimensionType>> dimensionWithSplitInfo;
     unique_ptr<Split<DataType, DimensionType>> dimensionWithSplitInfo;
 };
 
@@ -81,7 +78,6 @@ public:
     void insertInternalNode(
         const DimensionType nodeId,
         const Split<DataType, DimensionType> &dimensionWithSplitInfo
-//        const DimensionWithSplitInfo<DataType, DimensionType> &dimensionWithSplitInfo
     ) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
     }

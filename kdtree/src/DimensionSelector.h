@@ -2,71 +2,16 @@
 #define KDTREE_DIMENSIONSELECTOR_H
 
 #include "Segment.h"
-#include "Dimension.h"
-#include "DimensionSplitter.h"
 #include <string>
 #include <sstream>
 #include "Util.h"
 
 using namespace std;
 
-//template <typename  DataType, typename DimensionType>
-//class DimensionWithSplitInfo {
-//public:
-//    DimensionWithSplitInfo(
-//        DimensionType splitDimension,
-//        const SplitInfo<DataType> &splitInfo
-//    ) : splitDimension(splitDimension), splitInfo(splitInfo) {}
-//    DimensionType getSplitDimension() const { return splitDimension; }
-//    const SplitInfo<DataType> &getSplitInfo() const { return splitInfo; }
-//    string toString() {
-//        map<string, string> m;
-//        m["splitDimension"] = to_string(splitDimension);
-//        m["splitInfo"] = splitInfo.toString();
-//        return Util::convertMapToString(m, ":ds:", ";ds;");
-//    }
-//    static DimensionWithSplitInfo<DataType, DimensionType> fromString(string objectStr) {
-//        map<string, string> m = Util::convertStringToMap(objectStr, ":ds:", ";ds;");
-//        DimensionType splitDimension = stol(m["splitDimension"]);
-//        SplitInfo<DataType> splitInfo = SplitInfo<DataType>::fromString(m["splitInfo"]);
-//        return DimensionWithSplitInfo<DataType, DimensionType>(splitDimension, splitInfo);
-//    };
-//private:
-//    DimensionType splitDimension;
-//    SplitInfo<DataType> splitInfo;
-//};
-
 template <typename  DataType, typename DimensionType>
 class DimensionSelector {
 public:
     virtual DimensionType getNextDimension(const Segment<DataType, DimensionType> &segment) = 0;
-//    DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
-//        const Segment<DataType, DimensionType> &segment,
-//        const DimensionSplittingMethod dimensionSplittingMethod
-//    ) {
-//        return getNextDimension(segment);
-////        Dimension<DataType, DimensionType> dimension (segment, nextDimension);
-////        SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-////            dimensionSplittingMethod,
-////            dimension.getValuesAlongDimension()
-////        );
-////        DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
-////        return dimensionWithSplitInfo;
-//    }
-
-//    DimensionWithSplitInfo<DataType, DimensionType> getNextDimensionToSplit(
-//        const Segment<DataType, DimensionType> &segment,
-//        const DimensionSplittingMethod dimensionSplittingMethod
-//    ) {
-//        const DimensionType nextDimension = getNextDimension(segment);
-//        Dimension<DataType, DimensionType> dimension (segment, nextDimension);
-//        SplitInfo<DataType> splitInfo = DimensionSplitter<DataType, DimensionType>::getSplitInfo(
-//            dimensionSplittingMethod,
-//            dimension.getValuesAlongDimension()
-//        );
-//        DimensionWithSplitInfo<DataType, DimensionType> dimensionWithSplitInfo (nextDimension, splitInfo);
-//        return dimensionWithSplitInfo;
-//    }
 };
 
 template <typename  DataType, typename DimensionType>
