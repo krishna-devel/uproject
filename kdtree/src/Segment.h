@@ -6,6 +6,7 @@
 #include <memory>
 #include <numeric>
 #include <vector>
+#include <math.h>
 
 using namespace std;
 using namespace Eigen;
@@ -38,9 +39,10 @@ public:
         }
         return Point<DataType, DimensionType>(coefficients);
     }
+
     static Point<DataType, DimensionType> average(
-            Point<DataType, DimensionType> point1,
-            Point<DataType, DimensionType> point2
+        Point<DataType, DimensionType> point1,
+        Point<DataType, DimensionType> point2
     ) {
 
         vector<DataType> point1Coefficients = point1.getCoefficients();
@@ -57,6 +59,29 @@ public:
         }
 
         return Point<DataType, DimensionType>(averageCoefficients);
+    };
+
+    static DataType squaredDistance(Point<DataType, DimensionType> point1, Point<DataType, DimensionType> point2) {
+
+        vector<DataType> point1Coefficients = point1.getCoefficients();
+        vector<DataType> point2Coefficients = point2.getCoefficients();
+
+        vector<DimensionType> x(point1.getCoefficients().size());
+        std::iota(begin(x), end(x), 0);
+
+        DataType distance;
+
+        for (DimensionType dimension : x) {
+            DataType diff = (point1Coefficients[dimension] - point2Coefficients[dimension]);
+            distance += (diff*diff);
+        }
+
+        return distance;
+    };
+
+    static DataType euclideanDistance(Point<DataType, DimensionType> point1, Point<DataType, DimensionType> point2) {
+        DataType squaredDistance = Point<DataType, DimensionType>::squaredDistance(point1, point2);
+        return sqrt(squaredDistance);
     };
 
 private:

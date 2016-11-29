@@ -104,3 +104,23 @@ TEST(PointTest, test_get_value_at_dimension) {
     ASSERT_EQ(2.0, point.getValueAt(1));
     ASSERT_EQ(3.0, point.getValueAt(2));
 }
+
+TEST(PointTest, test_squaredDistance) {
+    vector<float> v1 {15, 8};
+    vector<float> v2 {4, 3};
+    Point<float, int> point1(v1);
+    Point<float, int> point2(v2);
+
+    float distance1 = Point<float, int>::squaredDistance(point1, point2);
+    ASSERT_EQ(146.0, distance1);
+}
+
+TEST(PointTest, test_euclideanDistance) {
+    vector<float> v1 {15, 8};
+    vector<float> v2 {4, 3};
+    Point<float, int> point1(v1);
+    Point<float, int> point2(v2);
+
+    float distance1 = Point<float, int>::euclideanDistance(point1, point2);
+    EXPECT_NEAR(sqrt(146.0), distance1, 0.01);
+}
