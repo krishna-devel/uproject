@@ -44,9 +44,9 @@ TEST_F(KDTestIOTest, test_basics) {
     ASSERT_EQ(0, loadedKDTree.getNode(1)->getSampleId());
     ASSERT_EQ(1, loadedKDTree.getNode(2)->getSampleId());
 
-    ASSERT_EQ(1, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, loadedKDTree.getNode(0)->getDimensionWithSplitInfo()->getSplitThreshold());
-    EXPECT_FALSE(loadedKDTree.getNode(1)->getDimensionWithSplitInfo());
-    EXPECT_FALSE(loadedKDTree.getNode(2)->getDimensionWithSplitInfo());
+    ASSERT_EQ(1, loadedKDTree.getNode(0)->getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, loadedKDTree.getNode(0)->getSplit()->getSplitThreshold());
+    EXPECT_FALSE(loadedKDTree.getNode(1)->getSplit());
+    EXPECT_FALSE(loadedKDTree.getNode(2)->getSplit());
 
 }

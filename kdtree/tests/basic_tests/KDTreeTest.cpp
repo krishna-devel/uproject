@@ -31,12 +31,12 @@ TEST_F(NodeAndKDTreeTest, test_leaf_node) {
 TEST_F(NodeAndKDTreeTest, test_internal_node) {
     Node<float, int> node (NodeType::INTERNAL, *dimensionWithSplitInfo);
     ASSERT_EQ(NodeType::INTERNAL, node.getType());
-    ASSERT_EQ(1, node.getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, node.getDimensionWithSplitInfo()->getSplitThreshold());
-    EXPECT_EQ(maxPointV, node.getDimensionWithSplitInfo()->getLeftBounds().getMaxPoint().getCoefficients());
-    EXPECT_EQ(minPointV, node.getDimensionWithSplitInfo()->getLeftBounds().getMinPoint().getCoefficients());
-    EXPECT_EQ(maxPointV, node.getDimensionWithSplitInfo()->getRightBounds().getMaxPoint().getCoefficients());
-    EXPECT_EQ(minPointV, node.getDimensionWithSplitInfo()->getRightBounds().getMinPoint().getCoefficients());
+    ASSERT_EQ(1, node.getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, node.getSplit()->getSplitThreshold());
+    EXPECT_EQ(maxPointV, node.getSplit()->getLeftBounds().getMaxPoint().getCoefficients());
+    EXPECT_EQ(minPointV, node.getSplit()->getLeftBounds().getMinPoint().getCoefficients());
+    EXPECT_EQ(maxPointV, node.getSplit()->getRightBounds().getMaxPoint().getCoefficients());
+    EXPECT_EQ(minPointV, node.getSplit()->getRightBounds().getMinPoint().getCoefficients());
 }
 
 TEST_F(NodeAndKDTreeTest, test_getting_child_nodes) {
@@ -65,16 +65,16 @@ TEST_F(NodeAndKDTreeTest, test_inserting_nodes) {
     kdTree.insertLeafNode(2, 1);
 
     ASSERT_EQ(NodeType::INTERNAL, kdTree.getNode(0)->getType());
-    ASSERT_EQ(1, kdTree.getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, kdTree.getNode(0)->getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(1, kdTree.getNode(0)->getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, kdTree.getNode(0)->getSplit()->getSplitThreshold());
     ASSERT_EQ(-1, kdTree.getNode(0)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree.getNode(1)->getType());
-    ASSERT_EQ(nullptr, kdTree.getNode(1)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree.getNode(1)->getSplit());
     ASSERT_EQ(0, kdTree.getNode(1)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree.getNode(2)->getType());
-    ASSERT_EQ(nullptr, kdTree.getNode(2)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree.getNode(2)->getSplit());
     ASSERT_EQ(1, kdTree.getNode(2)->getSampleId());
 }
 
@@ -83,7 +83,7 @@ TEST_F(NodeAndKDTreeTest, test_string_serilization_leaf_node) {
     Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
     ASSERT_EQ(NodeType::LEAF, node2.getType());
     ASSERT_EQ(10, node2.getSampleId());
-    EXPECT_FALSE(node2.getDimensionWithSplitInfo());
+    EXPECT_FALSE(node2.getSplit());
 }
 
 TEST_F(NodeAndKDTreeTest, test_string_serilization_internal_node) {
@@ -91,6 +91,6 @@ TEST_F(NodeAndKDTreeTest, test_string_serilization_internal_node) {
     Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
     ASSERT_EQ(NodeType::INTERNAL, node2.getType());
     ASSERT_EQ(-1, node2.getSampleId());
-    ASSERT_EQ(1, node2.getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, node2.getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(1, node2.getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, node2.getSplit()->getSplitThreshold());
 }

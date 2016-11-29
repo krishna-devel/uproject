@@ -34,78 +34,7 @@ protected:
     unique_ptr<SegmentSplitter<float, int>> segmentSplitter;
 };
 
-//TEST_F(SegmentSplitterTest, split_base_case) {
-//    Segment<float, int> segment (samplesWithMultipleRows);
-//    SplitInfo<float> splitInfo (13.0);
-//    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (2, splitInfo);
-//
-//    SplitSegments<float, int> splitSegments = segmentSplitter->split(
-//        segment,
-//        dimensionWithSplitInfo
-//    );
-//
-//    SampleIdsInSegment<int> allSegmentIds {0,1,2,3,4,5};
-//    SampleIdsInSegment<int> expectedSegmentIdsInLessThan {0,1, 2};
-//    SampleIdsInSegment<int> expectedSegmentIdsInGreaterThan {3,4,5};
-//
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentLessThanThreshold().getSamples());
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentGreaterThanThreshold().getSamples());
-//
-//    ASSERT_EQ(allSegmentIds, segment.getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInLessThan, splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInGreaterThan, splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment());
-//    EXPECT_TRUE(SegmentSplitterTest::isBalanced(splitSegments));
-//}
-//
-//TEST_F(SegmentSplitterTest, split_sample_with_one_row) {
-//    Segment<float, int> segment (samplesWithOneRow);
-//    SplitInfo<float> splitInfo (3.0);
-//    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (2, splitInfo);
-//
-//    SplitSegments<float, int> splitSegments = segmentSplitter->split(
-//            segment,
-//            dimensionWithSplitInfo
-//    );
-//
-//    SampleIdsInSegment<int> allSegmentIds {0};
-//    SampleIdsInSegment<int> expectedSegmentIdsInLessThan {0};
-//    SampleIdsInSegment<int> expectedSegmentIdsInGreaterThan;
-//
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentLessThanThreshold().getSamples());
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentGreaterThanThreshold().getSamples());
-//
-//    ASSERT_EQ(allSegmentIds, segment.getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInLessThan, splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInGreaterThan, splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment());
-//    EXPECT_TRUE(SegmentSplitterTest::isBalanced(splitSegments));
-//}
-//
-//TEST_F(SegmentSplitterTest, split_sample_with_duplicate_rows) {
-//    Segment<float, int> segment (samplesWithDuplicateRows);
-//    SplitInfo<float> splitInfo (2.0);
-//    DimensionWithSplitInfo<float, int> dimensionWithSplitInfo (1, splitInfo);
-//
-//    SplitSegments<float, int> splitSegments = segmentSplitter->split(
-//            segment,
-//            dimensionWithSplitInfo
-//    );
-//
-//    SampleIdsInSegment<int> allSegmentIds {0, 1, 2};
-//    SampleIdsInSegment<int> expectedSegmentIdsInLessThan {0, 2};
-//    SampleIdsInSegment<int> expectedSegmentIdsInGreaterThan {1};
-//
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentLessThanThreshold().getSamples());
-//    ASSERT_EQ(segment.getSamples(), splitSegments.getSegmentGreaterThanThreshold().getSamples());
-//
-//    ASSERT_EQ(allSegmentIds, segment.getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInLessThan, splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment());
-//    ASSERT_EQ(expectedSegmentIdsInGreaterThan, splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment());
-//    EXPECT_TRUE(SegmentSplitterTest::isBalanced(splitSegments));
-//}
-
-/////////////////
-
-TEST_F(SegmentSplitterTest, split_base_case_2) {
+TEST_F(SegmentSplitterTest, split_base_case) {
     Segment<float, int> segment (samplesWithMultipleRows);
 
     vector<float> splitPointVector {11.0, 12.0, 13.0, 14.0, 15.0};
@@ -126,7 +55,7 @@ TEST_F(SegmentSplitterTest, split_base_case_2) {
     EXPECT_TRUE(SegmentSplitterTest::isBalanced(splitSegments));
 }
 
-TEST_F(SegmentSplitterTest, split_sample_with_one_row_2) {
+TEST_F(SegmentSplitterTest, split_sample_with_one_row) {
     Segment<float, int> segment (samplesWithOneRow);
 
     vector<float> splitPointVector {1.0, 2.0, 3.0, 4.0, 5.0};
@@ -147,7 +76,7 @@ TEST_F(SegmentSplitterTest, split_sample_with_one_row_2) {
     EXPECT_TRUE(SegmentSplitterTest::isBalanced(splitSegments));
 }
 
-TEST_F(SegmentSplitterTest, split_sample_with_duplicate_rows_2) {
+TEST_F(SegmentSplitterTest, split_sample_with_duplicate_rows) {
     Segment<float, int> segment (samplesWithDuplicateRows);
 
     vector<float> splitPointVector {1.0, 2.0, 3.0};

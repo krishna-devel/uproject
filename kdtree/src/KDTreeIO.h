@@ -49,10 +49,10 @@ KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::convertString
             kdTree.insertInternalNode(
                 nodeId,
                 Split<DataType, DimensionType>(
-                    node.getDimensionWithSplitInfo()->getSplitDimension(),
-                    node.getDimensionWithSplitInfo()->getSplitPoint(),
-                    node.getDimensionWithSplitInfo()->getLeftBounds(),
-                    node.getDimensionWithSplitInfo()->getRightBounds()
+                        node.getSplit()->getSplitDimension(),
+                    node.getSplit()->getSplitPoint(),
+                    node.getSplit()->getLeftBounds(),
+                    node.getSplit()->getRightBounds()
                 )
             );
         }

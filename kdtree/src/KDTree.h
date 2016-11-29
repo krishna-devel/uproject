@@ -18,32 +18,30 @@ template <typename DataType, typename DimensionType>
 class Node {
 public:
     Node(NodeType type, DimensionType sampleId) : type(type), sampleId(sampleId) {}
-    Node(NodeType type, const Split<DataType, DimensionType> &_dimensionWithSplitInfo) : type(type) {
-       dimensionWithSplitInfo =
+    Node(NodeType type, const Split<DataType, DimensionType> &_split) : type(type) {
+       split =
            unique_ptr<Split<DataType, DimensionType>> (
                new Split<DataType, DimensionType>(
-                   _dimensionWithSplitInfo.getSplitDimension(),
-                   _dimensionWithSplitInfo.getSplitPoint(),
-                   _dimensionWithSplitInfo.getLeftBounds(),
-                   _dimensionWithSplitInfo.getRightBounds()
+                   _split.getSplitDimension(),
+                   _split.getSplitPoint(),
+                   _split.getLeftBounds(),
+                   _split.getRightBounds()
                )
            );
     }
 
     NodeType getType() const { return type; }
     DimensionType getSampleId() const { return sampleId; }
-    unique_ptr<Split<DataType, DimensionType>> &getDimensionWithSplitInfo() {
-        return dimensionWithSplitInfo;
-    }
+    unique_ptr<Split<DataType, DimensionType>> &getSplit() { return split; }
     string toString() {
         map<string, string> m;
         m["type"] = to_string(type);
         m["sampleId"] = to_string(sampleId);
-        if (dimensionWithSplitInfo) {
-            m["dimensionWithSplitInfoString"] = dimensionWithSplitInfo->toString();
+        if (split) {
+            m["split"] = split->toString();
         } else {
             // empty_pointer
-            m["dimensionWithSplitInfoString"] = "n";
+            m["split"] = "n";
         }
         return Util::convertMapToString(m, ":no:", ";no;");
     }
@@ -51,9 +49,8 @@ public:
         map<string, string> m = Util::convertStringToMap(objectStr, ":no:", ";no;");
         int typeInt = stoi(m["type"]);
         if (typeInt == 0) {
-            Split<DataType, DimensionType> dimensionWithSplitInfo =
-                    Split<DataType, DimensionType>::fromString(m["dimensionWithSplitInfoString"]);
-            return Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
+            Split<DataType, DimensionType> split = Split<DataType, DimensionType>::fromString(m["split"]);
+            return Node<DataType, DimensionType>(NodeType::INTERNAL, split);
         } else {
             DimensionType sampleId = stol(m["sampleId"]);
             return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
@@ -62,7 +59,7 @@ public:
 private:
     NodeType type;
     DimensionType sampleId = -1;
-    unique_ptr<Split<DataType, DimensionType>> dimensionWithSplitInfo;
+    unique_ptr<Split<DataType, DimensionType>> split;
 };
 
 template <typename DataType, typename DimensionType>

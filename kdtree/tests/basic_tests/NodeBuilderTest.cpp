@@ -29,25 +29,25 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
     );
     NodeBuilder<float, int>::build(params, *segment, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
-    ASSERT_EQ(0, kdTree->getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, kdTree->getNode(0)->getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
     ASSERT_EQ(-1, kdTree->getNode(0)->getSampleId());
 
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(1)->getType());
-    ASSERT_EQ(1, kdTree->getNode(1)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(3.5, kdTree->getNode(1)->getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(1, kdTree->getNode(1)->getSplit()->getSplitDimension());
+    ASSERT_EQ(3.5, kdTree->getNode(1)->getSplit()->getSplitThreshold());
     ASSERT_EQ(-1, kdTree->getNode(1)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(2)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(2)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(2)->getSplit());
     ASSERT_EQ(2, kdTree->getNode(2)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(3)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(3)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(3)->getSplit());
     ASSERT_EQ(0, kdTree->getNode(3)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(4)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(4)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(4)->getSplit());
     ASSERT_EQ(1, kdTree->getNode(4)->getSampleId());
 }
 
@@ -62,25 +62,25 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
     );
     NodeBuilder<float, int>::build(params, *segment, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
-    ASSERT_EQ(0, kdTree->getNode(0)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(4.0, kdTree->getNode(0)->getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
+    ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
     ASSERT_EQ(-1, kdTree->getNode(0)->getSampleId());
 
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(1)->getType());
-    ASSERT_EQ(0, kdTree->getNode(1)->getDimensionWithSplitInfo()->getSplitDimension());
-    ASSERT_EQ(2.5, kdTree->getNode(1)->getDimensionWithSplitInfo()->getSplitThreshold());
+    ASSERT_EQ(0, kdTree->getNode(1)->getSplit()->getSplitDimension());
+    ASSERT_EQ(2.5, kdTree->getNode(1)->getSplit()->getSplitThreshold());
     ASSERT_EQ(-1, kdTree->getNode(1)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(2)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(2)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(2)->getSplit());
     ASSERT_EQ(2, kdTree->getNode(2)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(3)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(3)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(3)->getSplit());
     ASSERT_EQ(0, kdTree->getNode(3)->getSampleId());
 
     ASSERT_EQ(NodeType::LEAF, kdTree->getNode(4)->getType());
-    ASSERT_EQ(nullptr, kdTree->getNode(4)->getDimensionWithSplitInfo());
+    ASSERT_EQ(nullptr, kdTree->getNode(4)->getSplit());
     ASSERT_EQ(1, kdTree->getNode(4)->getSampleId());
 }
 
