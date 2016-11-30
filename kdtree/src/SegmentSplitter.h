@@ -4,31 +4,15 @@
 #include "Segment.h"
 #include "DimensionSelector.h"
 
-//template <typename  DataType, typename DimensionType>
-//class SplitSegments {
-//public:
-//    SplitSegments(
-//        const Segment<DataType, DimensionType> &segmentLessThanThreshold,
-//        const Segment<DataType, DimensionType> &segmentgreaterThanThreshold
-//    ) : segmentLessThanThreshold(segmentLessThanThreshold), segmentGreaterThanThreshold(segmentgreaterThanThreshold) {}
-//    const Segment<DataType, DimensionType> &getSegmentLessThanThreshold() const { return segmentLessThanThreshold; }
-//    const Segment<DataType, DimensionType> &getSegmentGreaterThanThreshold() const {
-//        return segmentGreaterThanThreshold;
-//    }
-//private:
-//    Segment<DataType, DimensionType> segmentLessThanThreshold;
-//    Segment<DataType, DimensionType> segmentGreaterThanThreshold;
-//};
-//
-//template <typename  DataType, typename DimensionType>
-//class SegmentSplitter {
-//public:
-//    SplitSegments<DataType, DimensionType> split(
-//        const Segment<DataType, DimensionType> &segment,
-//        const Point<DataType, DimensionType> &splitPoint,
-//        const DimensionType &dimensionToSplitBy
-//    );
-//};
+template <typename  DataType, typename DimensionType>
+class SegmentSplitter {
+public:
+    SplitSegments<DataType, DimensionType> split(
+        const Segment<DataType, DimensionType> &segment,
+        const Point<DataType, DimensionType> &splitPoint,
+        const DimensionType &dimensionToSplitBy
+    );
+};
 
 template <typename  DataType, typename DimensionType>
 SplitSegments<DataType, DimensionType> SegmentSplitter<DataType, DimensionType>::split(
@@ -66,7 +50,6 @@ SplitSegments<DataType, DimensionType> SegmentSplitter<DataType, DimensionType>:
     SplitSegments<DataType, DimensionType> splitSegments (segmentLessThanThreshold, segmentGreaterThanThreshold);
 
     return splitSegments;
-
 }
 
 #endif //KDTREE_SEGMENTSPLITTER_H

@@ -113,7 +113,7 @@ public:
     };
     DimensionType getNumDimensions() const  { return samples.cols(); }
 private:
-    Samples<DataType> samples;
+    const Samples<DataType> samples;
     SampleIdsInSegment<DimensionType> sampleIdsInSegment;
 };
 
@@ -124,7 +124,7 @@ public:
         const Segment<DataType, DimensionType> &segment,
         DimensionType sampleId,
         DimensionType dimensionId
-    ) : segment(segment), sampleId(sampleId), dimensionId(dimensionId) {
+    ) : sampleId(sampleId), dimensionId(dimensionId) {
         bool sampleIdIsPresent = false;
         for(DimensionType d: segment.getSampleIdsInSegment()) {
             if (d == sampleId) {
@@ -135,14 +135,15 @@ public:
         if (!sampleIdIsPresent) {
             throw sample_id_not_in_segment();
         }
+        value = segment.getSamples()(sampleId, dimensionId);
     }
-    DataType getValue() const { return segment.getSamples()(sampleId, dimensionId); }
+    DataType getValue() const { return value; }
     bool operator<( const ValueInSegment& val ) const { return getValue() < val.getValue(); }
 
     DimensionType getSampleId() const { return sampleId; }
 
 private:
-    Segment<DataType, DimensionType> segment;
+    DataType value;
     DimensionType sampleId;
     DimensionType dimensionId;
 };
@@ -159,18 +160,8 @@ public:
         return segmentGreaterThanThreshold;
     }
 private:
-    Segment<DataType, DimensionType> segmentLessThanThreshold;
-    Segment<DataType, DimensionType> segmentGreaterThanThreshold;
-};
-
-template <typename  DataType, typename DimensionType>
-class SegmentSplitter {
-public:
-    SplitSegments<DataType, DimensionType> split(
-            const Segment<DataType, DimensionType> &segment,
-            const Point<DataType, DimensionType> &splitPoint,
-            const DimensionType &dimensionToSplitBy
-    );
+    const Segment<DataType, DimensionType> segmentLessThanThreshold;
+    const Segment<DataType, DimensionType> segmentGreaterThanThreshold;
 };
 
 #endif //KDTREE_SEGMENT_H

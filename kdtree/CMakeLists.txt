@@ -8,11 +8,11 @@ add_executable(kdtree_run ${SOURCE_FILES})
 
 include_directories(src)
 include_directories(include)
-include_directories(lib/tbb/include/)
+#include_directories(lib/tbb/include/)
 
 add_subdirectory(src)
 add_subdirectory(tests)
-add_subdirectory(lib/tbb)
+#add_subdirectory(lib/tbb)
 
 find_package( ZLIB REQUIRED )
 if ( ZLIB_FOUND )
@@ -22,7 +22,7 @@ endif( ZLIB_FOUND )
 
 find_package (Threads)
 target_link_libraries(kdtree_run ${CMAKE_THREAD_LIBS_INIT})
-target_link_libraries(kdtree_run tbb)
+#target_link_libraries(kdtree_run tbb)
 
 
 #if ($ENV{CLION_IDE})
