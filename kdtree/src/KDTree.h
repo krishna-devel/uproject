@@ -64,9 +64,6 @@ private:
 
 template <typename DataType, typename DimensionType>
 class KDTree {
-private:
-    DimensionType numNodes;
-    vector<Node<DataType, DimensionType>*> nodes;
 public:
     KDTree(DimensionType numNodes) : numNodes(numNodes) { nodes.reserve(numNodes); }
     void insertLeafNode(const DimensionType nodeId, const DimensionType sampleId) {
@@ -84,6 +81,21 @@ public:
     static DimensionType leftNodeId(const DimensionType nodeId) { return nodeId*2 + 1; }
     static DimensionType rightNodeId(const DimensionType nodeId) { return nodeId*2 + 2; }
     static DimensionType parentNodeId(const DimensionType nodeId) { return (nodeId-1)/2; }
+    static Point<DataType, DimensionType> nearestNeighbor(
+        const KDTree<DataType, DimensionType> &kdtree,
+        const Point<DataType, DimensionType> &query
+    );
+private:
+    const DimensionType numNodes;
+    vector<Node<DataType, DimensionType>*> nodes;
+};
+
+template <typename DataType, typename DimensionType>
+Point<DataType, DimensionType> KDTree<DataType, DimensionType>::nearestNeighbor(
+    const KDTree<DataType, DimensionType> &kdtree,
+    const Point<DataType, DimensionType> &query
+) {
+    return query;
 };
 
 
