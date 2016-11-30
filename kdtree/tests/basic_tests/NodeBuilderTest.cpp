@@ -6,7 +6,7 @@ class NodeBuilderTest : public testing::Test {
 protected:
     virtual void SetUp() {
         samples <<
-                1.0, 2.0, 3.0,
+                13.0, 2.0, 3.0,
                 4.0, 5.0, 6.0,
                 7.0, 8.0, 9.0;
         segment = new Segment<float, int>(samples);
@@ -19,15 +19,16 @@ protected:
 };
 
 TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
-    unique_ptr<NodeBuilderParams<float, int>> params = unique_ptr<NodeBuilderParams<float, int>> (
-        new NodeBuilderParams<float, int>(
-            0,
-            DimensionSelectorType::CYCLE_THROUGH_AXES,
-            SplittingMethod::MEDIAN_OF_MEDIAN1,
-            -1
-        )
+
+    NodeBuilderParams<float, int> params (
+        *segment,
+        0,
+        DimensionSelectorType::CYCLE_THROUGH_AXES,
+        SplittingMethod::MEDIAN_OF_MEDIAN1,
+        -1
     );
-    NodeBuilder<float, int>::build(params, *segment, kdTree);
+//    NodeBuilder<float, int>::buildNonRecursive(params, kdTree);
+    NodeBuilder<float, int>::build(params, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
     ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
     ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
@@ -52,15 +53,15 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 }
 
 TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
-    unique_ptr<NodeBuilderParams<float, int>> params = unique_ptr<NodeBuilderParams<float, int>> (
-        new NodeBuilderParams<float, int>(
-            0,
-            DimensionSelectorType::HIGHEST_RANGE_AXIS,
-            SplittingMethod::MEDIAN_OF_MEDIAN1,
-            -1
-        )
+
+    NodeBuilderParams<float, int> params (
+        *segment,
+        0,
+        DimensionSelectorType::HIGHEST_RANGE_AXIS,
+        SplittingMethod::MEDIAN_OF_MEDIAN1,
+        -1
     );
-    NodeBuilder<float, int>::build(params, *segment, kdTree);
+    NodeBuilder<float, int>::build(params, kdTree);
     ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
     ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
     ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());

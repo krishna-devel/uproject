@@ -1,3 +1,23 @@
+#include "tbb/tbb.h"
+#include <iostream>
+using namespace tbb;
+using namespace std;
+
+class first_task : public task {
+public:
+    task* execute( ) {
+        cout << "Hello World!\n";
+        return NULL;
+    }
+};
+
+int main( )
+{
+    task_scheduler_init init(task_scheduler_init::automatic);
+    first_task& f1 = *new(tbb::task::allocate_root()) first_task( );
+    tbb::task::spawn_root_and_wait(f1);
+}
+
 //#include <stdio.h>
 //#include <string.h>  // for strlen
 //#include <assert.h>
@@ -115,72 +135,72 @@
 //}
 
 
-#include <iostream>
-#include <vector>
-#include "eigen3/Eigen/Dense"
-using namespace std;
-int main()
-{
-    Eigen::MatrixXf mat(3,4);
-    mat << 1, 2, 6, 9,
-            3, 1, 7, 2,
-            4, 5, 2, 1;
-
-    int numDim = 4;
-    vector<int> rows {0,1,2};
-    vector<int> max (4);
-    vector<int> min (4);
-
-    for (int d = 0; d < numDim; d++) {
-        max[d] = mat(rows[0], d);
-        min[d] = mat(rows[0], d);
-    }
-
-    for (int r = 1; r < rows.size(); r++) {
-        for (int d = 0; d < numDim; d++) {
-            if (max[d] < mat(rows[r],d)) {
-                max[d] = mat(rows[r],d);
-            }
-            if (min[d] > mat(rows[r],d)) {
-                min[d] = mat(rows[r],d);
-            }
-        }
-    }
-
-    for (int d = 0; d < numDim; d++) {
-        cout << d << ": " << max[d] - min[d] << endl;
-    }
-
-    int maxIndex = 0;
-    int maxValue = max[maxIndex] - min[maxIndex];
-    for (int d = 0; d < numDim; d++) {
-        int currentDiff = max[d] - min[d];
-        if (maxValue < currentDiff) {
-            maxValue = currentDiff;
-            maxIndex = d;
-        }
-    }
-
-    cout << maxIndex << ": " << maxValue << endl;
-
-
-
-
-//    std::cout << "Column's maximum: " << std::endl
-//              << mat.colwise().maxCoeff() << std::endl;
+//#include <iostream>
+//#include <vector>
+//#include "eigen3/Eigen/Dense"
+//using namespace std;
+//int main()
+//{
+//    Eigen::MatrixXf mat(3,4);
+//    mat << 1, 2, 6, 9,
+//            3, 1, 7, 2,
+//            4, 5, 2, 1;
 //
-//    std::cout << "Column's minimum: " << std::endl
-//              << mat.colwise().minCoeff() << std::endl;
+//    int numDim = 4;
+//    vector<int> rows {0,1,2};
+//    vector<int> max (4);
+//    vector<int> min (4);
 //
-//    std::cout << "Column's maximum - min: " << std::endl
-//              << mat.colwise().maxCoeff() - mat.colwise().minCoeff() << std::endl;
+//    for (int d = 0; d < numDim; d++) {
+//        max[d] = mat(rows[0], d);
+//        min[d] = mat(rows[0], d);
+//    }
 //
-//    Eigen::MatrixXf::Index maxIndex;
-//    (mat.colwise().maxCoeff() - mat.colwise().minCoeff()).maxCoeff(&maxIndex);
-//    std::cout << "Column's (maximum - min) plus: " << std::endl
-//              <<  maxIndex << std::endl;
-
-}
+//    for (int r = 1; r < rows.size(); r++) {
+//        for (int d = 0; d < numDim; d++) {
+//            if (max[d] < mat(rows[r],d)) {
+//                max[d] = mat(rows[r],d);
+//            }
+//            if (min[d] > mat(rows[r],d)) {
+//                min[d] = mat(rows[r],d);
+//            }
+//        }
+//    }
+//
+//    for (int d = 0; d < numDim; d++) {
+//        cout << d << ": " << max[d] - min[d] << endl;
+//    }
+//
+//    int maxIndex = 0;
+//    int maxValue = max[maxIndex] - min[maxIndex];
+//    for (int d = 0; d < numDim; d++) {
+//        int currentDiff = max[d] - min[d];
+//        if (maxValue < currentDiff) {
+//            maxValue = currentDiff;
+//            maxIndex = d;
+//        }
+//    }
+//
+//    cout << maxIndex << ": " << maxValue << endl;
+//
+//
+//
+//
+////    std::cout << "Column's maximum: " << std::endl
+////              << mat.colwise().maxCoeff() << std::endl;
+////
+////    std::cout << "Column's minimum: " << std::endl
+////              << mat.colwise().minCoeff() << std::endl;
+////
+////    std::cout << "Column's maximum - min: " << std::endl
+////              << mat.colwise().maxCoeff() - mat.colwise().minCoeff() << std::endl;
+////
+////    Eigen::MatrixXf::Index maxIndex;
+////    (mat.colwise().maxCoeff() - mat.colwise().minCoeff()).maxCoeff(&maxIndex);
+////    std::cout << "Column's (maximum - min) plus: " << std::endl
+////              <<  maxIndex << std::endl;
+//
+//}
 
 //#include <iostream>
 //

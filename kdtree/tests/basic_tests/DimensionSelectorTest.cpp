@@ -31,40 +31,40 @@ protected:
 
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_first_dimension) {
     Segment<float, int> segment (samples);
-    CycleThroughAxesDimensionSelector<float, int> dimensionSelector (-1);
-    ASSERT_EQ(0, dimensionSelector.getNextDimension(segment));
+    int nextDimension = DimensionSelectorByType<float, int>::get(segment, DimensionSelectorType::CYCLE_THROUGH_AXES, -1);
+    ASSERT_EQ(0, nextDimension);
 }
 
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_dimension_in_between) {
     Segment<float, int> segment (samples);
-    CycleThroughAxesDimensionSelector<float, int> dimensionSelector (1);
-    ASSERT_EQ(2, dimensionSelector.getNextDimension(segment));
+    int nextDimension = DimensionSelectorByType<float, int>::get(segment, DimensionSelectorType::CYCLE_THROUGH_AXES, 1);
+    ASSERT_EQ(2, nextDimension);
 }
 
 TEST_F(CycleThroughAxesDimensionSelectorTest, getNextDimensionToSplit_dimension_rotate_back_to_first_dimension) {
     Segment<float, int> segment (samples);
-    CycleThroughAxesDimensionSelector<float, int> dimensionSelector (2);
-    ASSERT_EQ(0, dimensionSelector.getNextDimension(segment));
+    int nextDimension = DimensionSelectorByType<float, int>::get(segment, DimensionSelectorType::CYCLE_THROUGH_AXES, 2);
+    ASSERT_EQ(0, nextDimension);
 }
 
 TEST_F(HighestRangeAxisDimensionSelectorTest, test_split_works_correctly_on_entire_segment) {
     Segment<float, int> segment (samples1);
 
-    CycleThroughAxesDimensionSelector<float, int> cycleThroughAxesDimensionSelector (-1);
-    ASSERT_EQ(0, cycleThroughAxesDimensionSelector.getNextDimension(segment));
+    int nextDimension1 = DimensionSelectorByType<float, int>::get(segment, DimensionSelectorType::CYCLE_THROUGH_AXES, -1);
+    ASSERT_EQ(0, nextDimension1);
 
-    HighestRangeAxisDimensionSelector<float, int> highestRangeAxisDimensionSelector;
-    ASSERT_EQ(1, highestRangeAxisDimensionSelector.getNextDimension(segment));
+    int nextDimension2 = DimensionSelectorByType<float, int>::get(segment, DimensionSelectorType::HIGHEST_RANGE_AXIS, -1);
+    ASSERT_EQ(1, nextDimension2);
 }
 
 TEST_F(HighestRangeAxisDimensionSelectorTest, test_split_works_correctly_on_part_of_segments) {
-    HighestRangeAxisDimensionSelector<float, int> highestRangeAxisDimensionSelector;
-
     vector<int> samplesInSegment1 {0, 1};
     Segment<float, int> segment1 (samples2, samplesInSegment1);
-    ASSERT_EQ(2, highestRangeAxisDimensionSelector.getNextDimension(segment1));
+    int nextDimension1 = DimensionSelectorByType<float, int>::get(segment1, DimensionSelectorType::HIGHEST_RANGE_AXIS, -1);
+    ASSERT_EQ(2, nextDimension1);
 
     vector<int> samplesInSegment2 {1, 2};
     Segment<float, int> segment2 (samples2, samplesInSegment2);
-    ASSERT_EQ(0, highestRangeAxisDimensionSelector.getNextDimension(segment2));
+    int nextDimension2 = DimensionSelectorByType<float, int>::get(segment2, DimensionSelectorType::HIGHEST_RANGE_AXIS, -1);
+    ASSERT_EQ(0, nextDimension2);
 }
