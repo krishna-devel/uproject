@@ -25,6 +25,7 @@ protected:
 
     KDTree<float, int>* kdTree;
 
+    string sampleDataFile = "./data/sample_data.csv";
 };
 
 TEST_F(KDTestIOTest, test_basics) {
@@ -49,4 +50,10 @@ TEST_F(KDTestIOTest, test_basics) {
     EXPECT_FALSE(loadedKDTree.getNode(1)->getSplit());
     EXPECT_FALSE(loadedKDTree.getNode(2)->getSplit());
 
+}
+
+TEST_F(KDTestIOTest, test_loading_samples) {
+    Samples<float> samples = KDTreeIO<float, int>::loadSamples(sampleDataFile);
+    ASSERT_EQ(1000, samples.rows());
+    ASSERT_EQ(3, samples.cols());
 }

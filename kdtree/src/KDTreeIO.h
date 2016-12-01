@@ -14,8 +14,11 @@ using namespace std;
 template <typename DataType, typename DimensionType>
 class KDTreeIO {
 public:
+    KDTreeIO();
+
     static void write(const KDTree<DataType, DimensionType> &kdTree, const string &modelOutputFilePath);
     static KDTree<DataType, DimensionType> load(const string &modelFilePath);
+    static Samples<DataType> loadSamples(const string &modelFilePath);
 
 private:
     static vector<string> convertKDTreeToStringVector(const KDTree<DataType, DimensionType> &kdTree);
@@ -86,7 +89,9 @@ vector<string> KDTreeIO<DataType, DimensionType>::loadStringVector(const string 
         while ( getline (inputFile,line) ) { stringVector.push_back(line); }
         inputFile.close();
     }
-    else cout << "Unable to open file: " + inputFilePath;
+    else {
+        cout << "Unable to open file: " + inputFilePath;
+    }
 
     return stringVector;
 }
@@ -140,6 +145,34 @@ string KDTreeIO<DataType, DimensionType>::unCompressString(const string &input) 
     return returnStr;
 };
 
+class no_samples_in_input_file : public exception {};
+
+template <typename DataType, typename DimensionType>
+Samples<DataType> KDTreeIO<DataType, DimensionType>::loadSamples(const string &modelFilePath) {
+    vector<string> lines = loadStringVector(modelFilePath);
+    DimensionType numSamples = lines.size();
+    if (numSamples > 0) {
+        vector<vector<DataType>> items;
+        for(string line : lines) {
+            vector<string> tokens = Util::split(line, ",");
+            vector<DataType> item;
+            for (string token : tokens) {
+                item.push_back(stod(token));
+            }
+            items.push_back(item);
+        }
+        DimensionType numDimensions = items[0].size();
+        Samples<float> samples {numSamples, numDimensions};
+        for(int i = 0; i < numSamples; i++) {
+            for(int j = 0; j < numDimensions; j++) {
+                samples(i, j) = items[i][j];
+            }
+        }
+        return samples;
+    } else {
+        throw no_samples_in_input_file();
+    }
+}
 
 template <typename DataType, typename DimensionType>
 void KDTreeIO<DataType, DimensionType>::write(
