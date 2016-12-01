@@ -3,6 +3,9 @@
 #include "KDTreeIO.h"
 #include "string"
 
+#include <unistd.h>
+#define GetCurrentDir getcwd
+
 using namespace std;
 
 class KDTestIOTest : public testing::Test {
@@ -27,6 +30,8 @@ protected:
     Split<float, int> *dimensionWithSplitInfo;
 
     KDTree<float, int>* kdTree;
+
+    char cCurrentPath[FILENAME_MAX];
 
 };
 
@@ -55,11 +60,18 @@ TEST_F(KDTestIOTest, test_basics) {
 }
 
 TEST_F(KDTestIOTest, test_loading_samples) {
-    Samples<float> samples1 = KDTreeIO<float, int>::loadSamples("./tests/basic_tests/data/sample_data.csv");
+    GetCurrentDir(cCurrentPath, sizeof(cCurrentPath));
+    string currentWorkingDir = string(cCurrentPath);
+    string kdtreeFolder = currentWorkingDir.substr(0, currentWorkingDir.find("kdtree")+7);
+
+    Samples<float> samples1 = KDTreeIO<float, int>::loadSamples(kdtreeFolder + "/tests/basic_tests/data/sample_data.csv");
     ASSERT_EQ(1000, samples1.rows());
     ASSERT_EQ(3, samples1.cols());
 
-    Samples<float> samples2 = KDTreeIO<float, int>::loadSamples("./tests/basic_tests/data/dummy_data.csv");
+    Samples<float> samples2 = KDTreeIO<float, int>::loadSamples(kdtreeFolder + "/tests/basic_tests/data/dummy_data.csv");
     ASSERT_EQ(8, samples2.rows());
     ASSERT_EQ(2, samples2.cols());
+
+    currentWorkingDir;
+
 }
