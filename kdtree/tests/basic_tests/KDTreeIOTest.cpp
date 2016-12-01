@@ -1,6 +1,9 @@
 #include "memory"
 #include <gmock/gmock.h>
 #include "KDTreeIO.h"
+#include "string"
+
+using namespace std;
 
 class KDTestIOTest : public testing::Test {
 protected:
@@ -25,7 +28,6 @@ protected:
 
     KDTree<float, int>* kdTree;
 
-    string sampleDataFile = "./data/sample_data.csv";
 };
 
 TEST_F(KDTestIOTest, test_basics) {
@@ -53,7 +55,11 @@ TEST_F(KDTestIOTest, test_basics) {
 }
 
 TEST_F(KDTestIOTest, test_loading_samples) {
-    Samples<float> samples = KDTreeIO<float, int>::loadSamples(sampleDataFile);
-    ASSERT_EQ(1000, samples.rows());
-    ASSERT_EQ(3, samples.cols());
+    Samples<float> samples1 = KDTreeIO<float, int>::loadSamples("./tests/basic_tests/data/sample_data.csv");
+    ASSERT_EQ(1000, samples1.rows());
+    ASSERT_EQ(3, samples1.cols());
+
+    Samples<float> samples2 = KDTreeIO<float, int>::loadSamples("./tests/basic_tests/data/dummy_data.csv");
+    ASSERT_EQ(8, samples2.rows());
+    ASSERT_EQ(2, samples2.cols());
 }

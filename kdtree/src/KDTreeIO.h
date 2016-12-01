@@ -161,6 +161,7 @@ Samples<DataType> KDTreeIO<DataType, DimensionType>::loadSamples(const string &m
             }
             items.push_back(item);
         }
+        DimensionType numSamples = items.size();
         DimensionType numDimensions = items[0].size();
         Samples<float> samples {numSamples, numDimensions};
         for(int i = 0; i < numSamples; i++) {
