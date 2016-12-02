@@ -4,7 +4,6 @@
 #include "string"
 
 #include <unistd.h>
-#define GetCurrentDir getcwd
 
 using namespace std;
 
@@ -30,8 +29,6 @@ protected:
     Split<float, int> *dimensionWithSplitInfo;
 
     KDTree<float, int>* kdTree;
-
-    char cCurrentPath[FILENAME_MAX];
 
 };
 
@@ -60,7 +57,8 @@ TEST_F(KDTestIOTest, test_basics) {
 }
 
 TEST_F(KDTestIOTest, test_loading_samples) {
-    GetCurrentDir(cCurrentPath, sizeof(cCurrentPath));
+    char cCurrentPath[FILENAME_MAX];
+    getcwd(cCurrentPath, sizeof(cCurrentPath));
     string currentWorkingDir = string(cCurrentPath);
     string kdtreeFolder = currentWorkingDir.substr(0, currentWorkingDir.find("kdtree")+7);
 
@@ -71,7 +69,4 @@ TEST_F(KDTestIOTest, test_loading_samples) {
     Samples<float> samples2 = KDTreeIO<float, int>::loadSamples(kdtreeFolder + "/tests/basic_tests/data/dummy_data.csv");
     ASSERT_EQ(8, samples2.rows());
     ASSERT_EQ(2, samples2.cols());
-
-    currentWorkingDir;
-
 }

@@ -263,8 +263,96 @@
 //}
 
 #include <iostream>
+#include <sstream>
+#include <boost/iostreams/filtering_streambuf.hpp>
+#include <boost/iostreams/copy.hpp>
+#include <boost/iostreams/filter/gzip.hpp>
+
+class Gzip {
+public:
+
+//    static std::string string_compress_encode(const std::string &data)
+//    {
+//        std::stringstream compressed;
+//        std::stringstream original;
+//        original << data;
+//        boost::iostreams::filtering_streambuf<boost::iostreams::input> out;
+//        out.push(boost::iostreams::zlib_compressor());
+//        out.push(original);
+//        boost::iostreams::copy(out, compressed);
+//
+//        /**need to encode here **/
+//        std::string compressed_encoded = base64_encode(reinterpret_cast<const unsigned char*>(compressed.c_str()), compressed.length());
+//
+//        return compressed_encoded;
+//    }
+//
+//    static std::string string_decompress_decode(const std::string &data)
+//    {
+//        std::stringstream compressed_encoded;
+//        std::stringstream decompressed;
+//        compressed_encoded << data;
+//
+//        /** first decode  then decompress **/
+//        std::string compressed = base64_decode(compressed_encoded);
+//
+//        boost::iostreams::filtering_streambuf<boost::iostreams::input> in;
+//        in.push(boost::iostreams::zlib_decompressor());
+//        in.push(compressed);
+//        boost::iostreams::copy(in, decompressed);
+//        return decompressed;
+//    }
+
+    static std::string compress(const std::string& data)
+    {
+        namespace bio = boost::iostreams;
+
+        std::stringstream compressed;
+        std::stringstream origin(data);
+
+        bio::filtering_streambuf<bio::input> out;
+        out.push(bio::gzip_compressor(bio::gzip_params(bio::gzip::best_compression)));
+        out.push(origin);
+        bio::copy(out, compressed);
+
+        return compressed.str();
+    }
+
+    static std::string decompress(const std::string& data)
+    {
+        namespace bio = boost::iostreams;
+
+        std::stringstream compressed(data);
+        std::stringstream decompressed;
+
+        bio::filtering_streambuf<bio::input> out;
+        out.push(bio::gzip_decompressor());
+        out.push(compressed);
+        bio::copy(out, decompressed);
+
+        return decompressed.str();
+    }
+};
+
 using namespace std;
 
-int main() {
-    cout << "Hello world!!" << endl;
+int main()
+{
+    std::string original = "This is to be compressed!!!!";
+    std::string compressed_encoded = Gzip::compress(original);
+    cout << compressed_encoded << std::endl;
+    std::string decompressed_decoded = Gzip::decompress(compressed_encoded);
+    cout << decompressed_decoded << std::endl;
+
 }
+
+//int main() {
+//    cout << "Hello world!!" << endl;
+//}
+
+//#include <iostream>
+//using namespace std;
+//
+//int main() {
+//    cout << "Hello world!!" << endl;
+//}

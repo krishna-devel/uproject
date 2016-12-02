@@ -74,6 +74,7 @@ public:
         const Split<DataType, DimensionType> &dimensionWithSplitInfo
     ) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
+        int a = 1;
     }
     Node<DataType, DimensionType> *getNode(const DimensionType nodeId) const { return nodes[nodeId]; };
     DimensionType getNumNodes() const { return numNodes; }

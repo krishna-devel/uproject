@@ -20,6 +20,12 @@ if ( ZLIB_FOUND )
     target_link_libraries(kdtree_run ${ZLIB_LIBRARIES} )
 endif( ZLIB_FOUND )
 
+find_package( Boost COMPONENTS system filesystem iostreams REQUIRED )
+if ( Boost_FOUND )
+    include_directories( ${Boost_INCLUDE_DIRS} )
+    target_link_libraries(kdtree_run ${Boost_LIBRARIES} )
+endif( Boost_FOUND )
+
 find_package (Threads)
 target_link_libraries(kdtree_run ${CMAKE_THREAD_LIBS_INIT})
 #target_link_libraries(kdtree_run tbb)

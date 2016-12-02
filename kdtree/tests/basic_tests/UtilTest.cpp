@@ -36,3 +36,8 @@ TEST(UtilTest, convertVectorToStringAndViceVersa) {
     vector<string> v {"s1, s2"};
     EXPECT_EQ(v, Util::convertStringToVector(Util::convertVectorToString(v, ":"), ":"));
 }
+
+TEST(UtilTest, compress_and_decompress) {
+    string testString = "This is to be compressed!!!!";
+    EXPECT_EQ(testString, Util::decompress(Util::compress(testString)));
+}
