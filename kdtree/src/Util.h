@@ -92,6 +92,12 @@ public:
         return split(inputString, itemSeparator);
     }
 
+    /**
+     * Gzip compress/decompress code: https://gist.github.com/yfnick/6ba33efa7ba12e93b148
+     *
+     * @param data
+     * @return
+     */
     static string compress(const string& data) {
         namespace bio = boost::iostreams;
 
