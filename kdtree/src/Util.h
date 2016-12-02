@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <boost/iostreams/filtering_streambuf.hpp>
 #include <boost/iostreams/copy.hpp>
 #include <boost/iostreams/filter/gzip.hpp>
@@ -91,8 +92,7 @@ public:
         return split(inputString, itemSeparator);
     }
 
-    static string compress(const string& data)
-    {
+    static string compress(const string& data) {
         namespace bio = boost::iostreams;
 
         stringstream compressed;
@@ -106,8 +106,7 @@ public:
         return compressed.str();
     }
 
-    static string decompress(const string& data)
-    {
+    static string decompress(const string& data) {
         namespace bio = boost::iostreams;
 
         stringstream compressed(data);
@@ -119,6 +118,21 @@ public:
         bio::copy(out, decompressed);
 
         return decompressed.str();
+    }
+
+    static void writeBinaryFile(const string &filename, const string &data){
+        ofstream file(filename, std::ios::binary);
+        if (file.is_open()) {
+            file.write(data.c_str(), data.length());
+            file.close();
+        } else {
+            cout << "Unable to open file: " << filename << endl;
+        }
+    }
+
+    static string readBinaryFile(const string &filename) {
+        ifstream file(filename, std::ios::binary);
+        return static_cast<stringstream const&>(stringstream() << file.rdbuf()).str();
     }
 
 };

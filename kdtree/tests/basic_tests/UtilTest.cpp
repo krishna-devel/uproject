@@ -41,3 +41,11 @@ TEST(UtilTest, compress_and_decompress) {
     string testString = "This is to be compressed!!!!";
     EXPECT_EQ(testString, Util::decompress(Util::compress(testString)));
 }
+
+TEST(UtilTest, read_and_write_binary) {
+    string filename = tmpnam(nullptr);
+    string s1 = "some test string";
+    Util::writeBinaryFile(filename, s1);
+    string s2 = Util::readBinaryFile(filename);
+    EXPECT_EQ(s1, s2);
+}

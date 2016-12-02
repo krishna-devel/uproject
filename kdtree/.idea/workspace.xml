@@ -109,7 +109,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTreeIO.h" afterPath="$PROJECT_DIR$/src/KDTreeIO.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Util.h" afterPath="$PROJECT_DIR$/src/Util.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,23 +131,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
+      <file leaf-file-name="Util.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Util.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="268" selection-end-column="42" />
+            <state relative-caret-position="320">
+              <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
               <folding>
-                <element signature="e#6771#6790#0" expanded="true" />
+                <element signature="e#45#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <file leaf-file-name="UtilTest.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="541">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KDTreeIOTest.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gtest-printers.cc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/lib/googletest/src/gtest-printers.cc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,94 +176,13 @@
       <file leaf-file-name="KDTreeIO.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KDTreeIO.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="78" column="58" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+            <state relative-caret-position="77">
+              <caret line="75" column="22" lean-forward="false" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
               <folding>
                 <element signature="e#53#72#0" expanded="true" />
-                <element signature="e#5205#5248#0" expanded="true" />
-                <element signature="e#6221#6264#0" expanded="true" />
+                <element signature="e#6186#6229#0" expanded="true" />
+                <element signature="e#7202#7245#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Util.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Util.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1327">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="e#45#62#0" expanded="true" />
-                <marker date="1480660640000" expanded="true" signature="284:3534" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="436:705" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="936:1530" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="1688:1917" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="2082:2328" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="2427:2585" ph="{...}" />
-                <marker date="1480660640000" expanded="true" signature="2691:2748" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KDTree.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/KDTree.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UtilTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KDTreeIOTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KDTreeTest.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
-              <folding>
-                <marker date="1480520819000" expanded="true" signature="1915:2160" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -336,10 +277,10 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/src/Util.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" />
+        <option value="$PROJECT_DIR$/src/Util.h" />
         <option value="$PROJECT_DIR$/src/KDTreeIO.h" />
       </list>
     </option>
@@ -474,15 +415,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Google Test.KDTestIOTest.test_basics">
-    <configuration default="false" name="KDTestIOTest.test_loading_samples" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="KDTestIOTest" TEST_METHOD="test_loading_samples" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="NodeBuilderTest.test_basic_tree_creation_for_dummy_data" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="NodeBuilderTest" TEST_METHOD="test_basic_tree_creation_for_dummy_data" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="NodeBuilderTest.test_basic_for_cycle_through_axes" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="NodeBuilderTest" TEST_METHOD="test_basic_for_cycle_through_axes" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
@@ -491,6 +424,14 @@
       <method />
     </configuration>
     <configuration default="false" name="KDTestIOTest.test_basics" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="KDTestIOTest" TEST_METHOD="test_basics" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="UtilTest.read_and_write_binary" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="UtilTest" TEST_METHOD="read_and_write_binary" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="All in UtilTest.cpp" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_PATTERN="UtilTest.*:UtilTest/*.*:*/UtilTest.*/*:*/UtilTest/*.*" TEST_MODE="PATTERN">
       <envs />
       <method />
     </configuration>
@@ -1157,19 +1098,19 @@
       <item index="96" class="java.lang.String" itemvalue="Application.test_write_once_node" />
       <item index="97" class="java.lang.String" itemvalue="Application.test_yield" />
       <item index="98" class="java.lang.String" itemvalue="Application.tests" />
-      <item index="99" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_loading_samples" />
-      <item index="100" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
-      <item index="101" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_cycle_through_axes" />
-      <item index="102" class="java.lang.String" itemvalue="Google Test.UtilTest.compress_and_decompress" />
-      <item index="103" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_basics" />
+      <item index="99" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
+      <item index="100" class="java.lang.String" itemvalue="Google Test.UtilTest.compress_and_decompress" />
+      <item index="101" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_basics" />
+      <item index="102" class="java.lang.String" itemvalue="Google Test.UtilTest.read_and_write_binary" />
+      <item index="103" class="java.lang.String" itemvalue="Google Test.All in UtilTest.cpp" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_basics" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.UtilTest.compress_and_decompress" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_cycle_through_axes" />
-        <item index="4" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_loading_samples" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.UtilTest.read_and_write_binary" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.All in UtilTest.cpp" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.UtilTest.compress_and_decompress" />
+        <item index="4" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
       </list>
     </recent_temporary>
   </component>
@@ -1192,57 +1133,57 @@
       <workItem from="1479970616947" duration="9587000" />
       <workItem from="1480033484280" duration="165051000" />
       <workItem from="1480433738861" duration="5462000" />
-      <workItem from="1480445225656" duration="54199000" />
+      <workItem from="1480445225656" duration="58324000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 22h 54m 16s.xml">
+    <history-entry file="All_in_UtilTest_cpp - 2016.12.02 at 05h 44m 36s.xml">
+      <configuration name="All in UtilTest.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="KDTestIOTest_test_basics - 2016.12.02 at 06h 04m 08s.xml">
       <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 01m 48s.xml">
+    <history-entry file="KDTestIOTest_test_basics - 2016.12.02 at 06h 06m 56s.xml">
       <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 07m 08s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 36m 38s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 11m 57s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 39m 37s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 13m 04s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 39m 48s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 19m 06s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 40m 15s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 19m 18s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 40m 24s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="KDTestIOTest_test_basics - 2016.12.01 at 23h 21m 34s.xml">
-      <configuration name="KDTestIOTest.test_basics" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 52m 16s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="UtilTest_compress_and_decompress - 2016.12.01 at 22h 45m 09s.xml">
-      <configuration name="UtilTest.compress_and_decompress" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="UtilTest_compress_and_decompress - 2016.12.01 at 23h 01m 03s.xml">
-      <configuration name="UtilTest.compress_and_decompress" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 56m 06s.xml">
+      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368468000" />
+    <option name="totallyTimeSpent" value="372593000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.453125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30390626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1308,26 +1249,16 @@
           <option name="timeStamp" value="141" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="147" />
+      <option name="time" value="162" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/KDTreeConfig.h" />
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeTest.cpp" />
     <entry file="file://$PROJECT_DIR$/src/Node.h" />
     <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/iostream">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-285">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="1597" column="22" lean-forward="false" selection-start-line="1597" selection-start-column="22" selection-end-line="1597" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1578,23 +1509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Util.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1327">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#62#0" expanded="true" />
-            <marker date="1480660640000" expanded="true" signature="284:3534" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="436:705" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="936:1530" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="1688:1917" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="2082:2328" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="2427:2585" ph="{...}" />
-            <marker date="1480660640000" expanded="true" signature="2691:2748" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1619,14 +1533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -1637,30 +1543,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp">
+    <entry file="file://$PROJECT_DIR$/src/KDTree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+        <state relative-caret-position="1080">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/lib/googletest/src/gtest.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2401" column="0" lean-forward="false" selection-start-line="2401" selection-start-column="0" selection-end-line="2401" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/lib/googletest/src/gtest-printers.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="639" column="0" lean-forward="false" selection-start-line="639" selection-start-column="0" selection-end-line="639" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="136" column="0" lean-forward="true" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTreeIO.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="78" column="58" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+        <state relative-caret-position="77">
+          <caret line="75" column="22" lean-forward="false" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
           <folding>
             <element signature="e#53#72#0" expanded="true" />
-            <element signature="e#5205#5248#0" expanded="true" />
-            <element signature="e#6221#6264#0" expanded="true" />
+            <element signature="e#6186#6229#0" expanded="true" />
+            <element signature="e#7202#7245#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KDTree.h">
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeIOTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="191">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>

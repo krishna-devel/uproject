@@ -25,6 +25,7 @@ private:
     static KDTree<DataType, DimensionType> convertStringVectorToKDTree(const vector<string> &stringVector);
     static void writeStringVector(const vector<string> &stringVector, const string &outputFilePath);
     static vector<string> loadStringVector(const string &inputFilePath);
+    static vector<string> loadStringVector2(const string &inputFilePath);
     static string compressString(const string &input);
     static string unCompressString(const string &input);
 };
@@ -71,12 +72,38 @@ void KDTreeIO<DataType, DimensionType>::writeStringVector(
     const vector<string> &stringVector,
     const string &outputFilePath
 ) {
-    ofstream outputFile (outputFilePath);
-    if (outputFile.is_open()) {
-        for(string nodeString: stringVector) outputFile << (nodeString + "\n");
-        outputFile.close();
+    string stringToWrite;
+    for (string s : stringVector) {
+        stringToWrite += (s + "bGh88wY3vm2sebBYc");
     }
-    else cout << "Unable to open file: " + outputFilePath;
+    Util::writeBinaryFile(outputFilePath, Util::compress(stringToWrite));
+//    ofstream outputFile (outputFilePath);
+//    if (outputFile.is_open()) {
+//        for(string nodeString: stringVector) outputFile << (nodeString + "\n");
+//        outputFile.close();
+//    }
+//    else cout << "Unable to open file: " + outputFilePath;
+}
+
+template <typename DataType, typename DimensionType>
+vector<string> KDTreeIO<DataType, DimensionType>::loadStringVector2(const string &inputFilePath) {
+    vector<string> stringVector;
+
+    string completeString = Util::readBinaryFile(inputFilePath);
+    for (string s : Util::split(Util::decompress(completeString), "bGh88wY3vm2sebBYc")) {
+        stringVector.push_back(s);
+    }
+//    string line;
+//    ifstream inputFile (inputFilePath);
+//    if (inputFile.is_open()) {
+//        while ( getline (inputFile,line) ) { stringVector.push_back(line); }
+//        inputFile.close();
+//    }
+//    else {
+//        cout << "Unable to open file: " + inputFilePath;
+//    }
+
+    return stringVector;
 }
 
 template <typename DataType, typename DimensionType>
@@ -185,6 +212,7 @@ void KDTreeIO<DataType, DimensionType>::write(
 
 template <typename DataType, typename DimensionType>
 KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::load(const string &modelFilePath) {
-    return convertStringVectorToKDTree(loadStringVector(modelFilePath));
+//    return convertStringVectorToKDTree(loadStringVector(modelFilePath));
+    return convertStringVectorToKDTree(loadStringVector2(modelFilePath));
 }
 #endif //KDTREE_KDTREEIO_H
