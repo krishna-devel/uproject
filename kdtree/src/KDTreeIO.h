@@ -7,7 +7,6 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
-#include "zlib.h"
 
 using namespace std;
 
@@ -23,11 +22,9 @@ public:
 private:
     static vector<string> convertKDTreeToStringVector(const KDTree<DataType, DimensionType> &kdTree);
     static KDTree<DataType, DimensionType> convertStringVectorToKDTree(const vector<string> &stringVector);
-    static void writeStringVector(const vector<string> &stringVector, const string &outputFilePath);
+    static void compressAndWriteStringVector(const vector <string> &stringVector, const string &outputFilePath);
+    static vector<string> decompressAndLoadStringVector(const string &inputFilePath);
     static vector<string> loadStringVector(const string &inputFilePath);
-    static vector<string> loadStringVector2(const string &inputFilePath);
-    static string compressString(const string &input);
-    static string unCompressString(const string &input);
 };
 
 template <typename DataType, typename DimensionType>
@@ -68,41 +65,24 @@ KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::convertString
 }
 
 template <typename DataType, typename DimensionType>
-void KDTreeIO<DataType, DimensionType>::writeStringVector(
-    const vector<string> &stringVector,
-    const string &outputFilePath
+void KDTreeIO<DataType, DimensionType>::compressAndWriteStringVector(
+        const vector <string> &stringVector,
+        const string &outputFilePath
 ) {
     string stringToWrite;
     for (string s : stringVector) {
         stringToWrite += (s + "bGh88wY3vm2sebBYc");
     }
     Util::writeBinaryFile(outputFilePath, Util::compress(stringToWrite));
-//    ofstream outputFile (outputFilePath);
-//    if (outputFile.is_open()) {
-//        for(string nodeString: stringVector) outputFile << (nodeString + "\n");
-//        outputFile.close();
-//    }
-//    else cout << "Unable to open file: " + outputFilePath;
 }
 
 template <typename DataType, typename DimensionType>
-vector<string> KDTreeIO<DataType, DimensionType>::loadStringVector2(const string &inputFilePath) {
+vector<string> KDTreeIO<DataType, DimensionType>::decompressAndLoadStringVector(const string &inputFilePath) {
     vector<string> stringVector;
-
     string completeString = Util::readBinaryFile(inputFilePath);
     for (string s : Util::split(Util::decompress(completeString), "bGh88wY3vm2sebBYc")) {
         stringVector.push_back(s);
     }
-//    string line;
-//    ifstream inputFile (inputFilePath);
-//    if (inputFile.is_open()) {
-//        while ( getline (inputFile,line) ) { stringVector.push_back(line); }
-//        inputFile.close();
-//    }
-//    else {
-//        cout << "Unable to open file: " + inputFilePath;
-//    }
-
     return stringVector;
 }
 
@@ -122,55 +102,6 @@ vector<string> KDTreeIO<DataType, DimensionType>::loadStringVector(const string 
 
     return stringVector;
 }
-
-/*
-* https://gist.github.com/arq5x/5315739
-*/
-template <typename DataType, typename DimensionType>
-string KDTreeIO<DataType, DimensionType>::compressString(const string &input) {
-    char output[input.size()+50];
-
-    z_stream defstream;
-    defstream.zalloc = Z_NULL;
-    defstream.zfree = Z_NULL;
-    defstream.opaque = Z_NULL;
-    // setup "a" as the input and "output" as the compressed output
-    defstream.avail_in = (uInt)strlen(input.c_str())+1; // size of input, string + terminator
-    defstream.next_in = (Bytef *)input.c_str(); // input char array
-    defstream.avail_out = (uInt)sizeof(output); // size of output
-    defstream.next_out = (Bytef *)output; // output char array
-
-    // the actual compression work.
-    deflateInit(&defstream, Z_BEST_COMPRESSION);
-    deflate(&defstream, Z_FINISH);
-    deflateEnd(&defstream);
-
-    string returnStr(output);
-    return returnStr;
-};
-
-template <typename DataType, typename DimensionType>
-string KDTreeIO<DataType, DimensionType>::unCompressString(const string &input) {
-    char output[input.size()+500];
-
-    z_stream infstream;
-    infstream.zalloc = Z_NULL;
-    infstream.zfree = Z_NULL;
-    infstream.opaque = Z_NULL;
-    // setup "b" as the input and "c" as the compressed output
-    infstream.avail_in = (uInt)(strlen(input.c_str())+1); // size of input
-    infstream.next_in = (Bytef *)input.c_str(); // input char array
-    infstream.avail_out = (uInt)sizeof(output); // size of output
-    infstream.next_out = (Bytef *)output; // output char array
-
-    // the actual DE-compression work.
-    inflateInit(&infstream);
-    inflate(&infstream, Z_NO_FLUSH);
-    inflateEnd(&infstream);
-
-    string returnStr(output);
-    return returnStr;
-};
 
 class no_samples_in_input_file : public exception {};
 
@@ -207,12 +138,11 @@ void KDTreeIO<DataType, DimensionType>::write(
     const KDTree<DataType, DimensionType> &kdTree,
     const string &modelOutputFilePath
 ) {
-    writeStringVector(convertKDTreeToStringVector(kdTree), modelOutputFilePath);
+    compressAndWriteStringVector(convertKDTreeToStringVector(kdTree), modelOutputFilePath);
 }
 
 template <typename DataType, typename DimensionType>
 KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::load(const string &modelFilePath) {
-//    return convertStringVectorToKDTree(loadStringVector(modelFilePath));
-    return convertStringVectorToKDTree(loadStringVector2(modelFilePath));
+    return convertStringVectorToKDTree(decompressAndLoadStringVector(modelFilePath));
 }
 #endif //KDTREE_KDTREEIO_H
