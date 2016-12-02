@@ -34,7 +34,8 @@ protected:
 
 TEST_F(KDTestIOTest, test_basics) {
 
-    string fileName = tmpnam(nullptr);
+//    string fileName = tmpnam(nullptr);
+    string fileName = "tmp_filename";
 
     KDTreeIO<float, int>::write(*kdTree, fileName);
     KDTree<float, int> loadedKDTree = KDTreeIO<float, int>::load(fileName);
