@@ -26,18 +26,28 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids {0, 1, 2};
-        NodeBuilderParams<float, int> params (
-            ids,
-            0,
-            DimensionSelectorType::CYCLE_THROUGH_AXES,
-            SplittingMethod::MEDIAN_OF_MEDIAN1,
-            -1
+//        NodeBuilderParams<float, int> params (
+//            0,
+//            DimensionSelectorType::CYCLE_THROUGH_AXES,
+//            SplittingMethod::MEDIAN_OF_MEDIAN1,
+//            -1
+//        );
+        DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+                samples,
+                ids,
+                0,
+                DimensionSelectorType::CYCLE_THROUGH_AXES,
+                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                -1,
+                kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);
+            NodeBuilder<float, int>::buildNonRecursive(dataForIteration);
         } else {
-            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, kdTree));
+            NodeBuilder<float, int>::build(dataForIteration);
         }
+
+        NodeBuilder<float, int>::build(dataForIteration);
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
         ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
         ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
@@ -68,17 +78,31 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids{0, 1, 2};
-        NodeBuilderParams<float, int> params(
-            ids,
-            0,
-            DimensionSelectorType::HIGHEST_RANGE_AXIS,
-            SplittingMethod::MEDIAN_OF_MEDIAN1,
-            -1
+//        NodeBuilderParams<float, int> params(
+//            0,
+//            DimensionSelectorType::HIGHEST_RANGE_AXIS,
+//            SplittingMethod::MEDIAN_OF_MEDIAN1,
+//            -1
+//        );
+//        if (iteration == 0) {
+//            NodeBuilder<float, int>::buildNonRecursive(DataForIteration<float, int>(samples, ids, params, kdTree));
+//        } else {
+//            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, ids, params, kdTree));
+//        }
+
+        DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+                samples,
+                ids,
+                0,
+                DimensionSelectorType::HIGHEST_RANGE_AXIS,
+                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                -1,
+                kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);
+            NodeBuilder<float, int>::buildNonRecursive(dataForIteration);
         } else {
-            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, kdTree));
+            NodeBuilder<float, int>::build(dataForIteration);
         }
 
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
@@ -113,25 +137,33 @@ TEST_F(NodeBuilderTest, test_basic_tree_creation_for_dummy_data) {
     string currentWorkingDir = string(cCurrentPath);
     string kdtreeFolder = currentWorkingDir.substr(0, currentWorkingDir.find("kdtree")+7);
 
-
     Samples<float> samples = KDTreeIO<float, int>::loadSamples(kdtreeFolder + "/tests/basic_tests/data/dummy_data.csv");
     int numSamples = samples.rows();
     vector<int >sampleIdsInSegment (numSamples);
     iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
 
-    NodeBuilderParams<float, int> params(
-        sampleIdsInSegment,
-        0,
-        DimensionSelectorType::CYCLE_THROUGH_AXES,
-        SplittingMethod::MEDIAN_OF_MEDIAN1,
-        -1
-    );
+//    NodeBuilderParams<float, int> params(
+//        0,
+//        DimensionSelectorType::CYCLE_THROUGH_AXES,
+//        SplittingMethod::MEDIAN_OF_MEDIAN1,
+//        -1
+//    );
 
     int depth = log2(numSamples);
     int numNodes = pow(2, depth) - 1 + numSamples;
     KDTree<float, int> kdTree(numNodes);
 
-    NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, &kdTree));
+    DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+            samples,
+            sampleIdsInSegment,
+            0,
+            DimensionSelectorType::CYCLE_THROUGH_AXES,
+            SplittingMethod::MEDIAN_OF_MEDIAN1,
+            -1,
+            &kdTree
+    );
+
+    NodeBuilder<float, int>::build(dataForIteration);
     KDTreeIO<float, int>::write(kdTree, "debug_tree");
     int i = 10;
 

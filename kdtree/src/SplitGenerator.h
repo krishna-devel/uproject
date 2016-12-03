@@ -163,6 +163,7 @@ public:
             case MEDIAN1: return median(segment, dimensionToSplitBy);
             case MEDIAN_OF_MEDIAN1: return medianOfMedianScorer(segment, dimensionToSplitBy);
         }
+
     }
 
 private:

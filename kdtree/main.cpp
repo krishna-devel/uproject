@@ -274,14 +274,16 @@ using namespace tbb;
 
 class S {
 public:
-    S(const int i, int j, vector<int> *output) : i(i), j(j), output(output) {}
+    S(const int i, int j, vector<int> input, vector<int> *output) : i(i), j(j), input(input), output(output) {}
     const int getI() const { return i; }
     int getJ() const { return j; }
+    vector<int> getInput() const { return input; }
     vector<int> *getOutput() const { return output; }
 
 private:
     const int i;
     int j;
+    vector<int> input;
     vector<int> *output;
 };
 
@@ -292,7 +294,7 @@ public:
         cout << s.getJ() << ", ";
         s.getOutput()->push_back(s.getI());
         if (s.getJ()+1 < 10) {
-            S newS(s.getI(), s.getJ()+1, s.getOutput());
+            S newS(s.getI(), s.getJ()+1, *s.getOutput(), s.getOutput());
             feeder.add(newS);
         }
     }
@@ -302,7 +304,8 @@ public:
 
 int main() {
     vector<int> *v = new vector<int>();
-    S s (-1, 0, v);
+    vector<int> *v2 = new vector<int> {1,2,3};
+    S s (-1, 0, *v2, v);
     vector<S> list {s};
     parallel_do( list.begin(), list.end(), ApplyFoo() );
     for (int i : *v) {
