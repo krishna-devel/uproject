@@ -26,12 +26,6 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids {0, 1, 2};
-//        NodeBuilderParams<float, int> params (
-//            0,
-//            DimensionSelectorType::CYCLE_THROUGH_AXES,
-//            SplittingMethod::MEDIAN_OF_MEDIAN1,
-//            -1
-//        );
         DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
                 samples,
                 ids,
@@ -78,17 +72,6 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids{0, 1, 2};
-//        NodeBuilderParams<float, int> params(
-//            0,
-//            DimensionSelectorType::HIGHEST_RANGE_AXIS,
-//            SplittingMethod::MEDIAN_OF_MEDIAN1,
-//            -1
-//        );
-//        if (iteration == 0) {
-//            NodeBuilder<float, int>::buildNonRecursive(DataForIteration<float, int>(samples, ids, params, kdTree));
-//        } else {
-//            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, ids, params, kdTree));
-//        }
 
         DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
                 samples,
@@ -141,13 +124,6 @@ TEST_F(NodeBuilderTest, test_basic_tree_creation_for_dummy_data) {
     int numSamples = samples.rows();
     vector<int >sampleIdsInSegment (numSamples);
     iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
-
-//    NodeBuilderParams<float, int> params(
-//        0,
-//        DimensionSelectorType::CYCLE_THROUGH_AXES,
-//        SplittingMethod::MEDIAN_OF_MEDIAN1,
-//        -1
-//    );
 
     int depth = log2(numSamples);
     int numNodes = pow(2, depth) - 1 + numSamples;

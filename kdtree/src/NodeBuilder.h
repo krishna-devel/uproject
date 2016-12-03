@@ -10,42 +10,6 @@
 using namespace std;
 using namespace tbb;
 
-//template <typename  DataType, typename DimensionType>
-//class NodeBuilderParams {
-//public:
-//    /**
-//     * This object contains params that are needed to build a node.
-//     */
-//    NodeBuilderParams(
-//        const DimensionType nodeId,
-//        const DimensionSelectorType dimensionSelectorType,
-//        const SplittingMethod splittingMethod,
-//        const DimensionType lastDimensionUsedForSplitting
-//    ) :
-//        nodeId(nodeId),
-//        dimensionSelectorType(dimensionSelectorType),
-//        splittingMethod(splittingMethod),
-//        lastDimensionUsedForSplitting(lastDimensionUsedForSplitting) {
-//    }
-//
-//    NodeBuilderParams() :
-//        nodeId(-1),
-//        dimensionSelectorType(DimensionSelectorType::HIGHEST_RANGE_AXIS),
-//        splittingMethod(SplittingMethod::MEDIAN_OF_MEDIAN1),
-//        lastDimensionUsedForSplitting(-1) {
-//    }
-//    const DimensionType getNodeId() const { return nodeId; }
-//    const SplittingMethod getSplittingMethod() const { return splittingMethod; }
-//    const DimensionSelectorType getDimensionSelectorType() const { return dimensionSelectorType; }
-//    const DimensionType getLastDimensionUsedForSplitting() const { return lastDimensionUsedForSplitting; }
-//
-//private:
-//    DimensionType nodeId;
-//    DimensionSelectorType dimensionSelectorType;
-//    SplittingMethod splittingMethod;
-//    DimensionType lastDimensionUsedForSplitting;
-//};
-
 template <typename DataType, typename DimensionType>
 class DataForIteration {
 public:
@@ -56,7 +20,6 @@ public:
         const DimensionSelectorType dimensionSelectorType,
         const SplittingMethod splittingMethod,
         const DimensionType lastDimensionUsedForSplitting,
-//        NodeBuilderParams<DataType, DimensionType> &params,
         KDTree<DataType, DimensionType> * const kdtree
     ) :
         samples(samples),
@@ -65,11 +28,9 @@ public:
         dimensionSelectorType(dimensionSelectorType),
         splittingMethod(splittingMethod),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting),
-//        params(params),
         kdtree(kdtree) {}
     const Samples<DataType> &getSamples() const { return samples; }
     const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; }
-//    NodeBuilderParams<DataType, DimensionType> &getParams() const { return params; }
     const DimensionType getNodeId() const { return nodeId; }
     const SplittingMethod getSplittingMethod() const { return splittingMethod; }
     const DimensionSelectorType getDimensionSelectorType() const { return dimensionSelectorType; }
@@ -82,7 +43,6 @@ private:
     DimensionSelectorType dimensionSelectorType;
     SplittingMethod splittingMethod;
     DimensionType lastDimensionUsedForSplitting;
-//    NodeBuilderParams<DataType, DimensionType> &params;
     KDTree<DataType, DimensionType> * const kdtree;
 };
 
@@ -138,18 +98,6 @@ void NodeBuilder<DataType, DimensionType>::build(const DataForIteration<DataType
 
         // Insert the node built in this step and then build left and right child nodes.
         kdtree->insertInternalNode(nodeId, split);
-//        NodeBuilderParams<DataType, DimensionType> leftNode(
-//            KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-//            dataForIteration.getDimensionSelectorType(),
-//            dataForIteration.getSplittingMethod(),
-//            dimensionToSplitBy
-//        );
-//        NodeBuilderParams<DataType, DimensionType> rightNode(
-//            KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-//            dataForIteration.getDimensionSelectorType(),
-//            dataForIteration.getSplittingMethod(),
-//            dimensionToSplitBy
-//        );
         build(DataForIteration<DataType, DimensionType>(
             samples,
             splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
@@ -180,7 +128,6 @@ public:
     ) const {
 
         const Samples<DataType> &samples = dataForIteration.getSamples();
-//        NodeBuilderParams<DataType, DimensionType> &params = dataForIteration.getParams();
         KDTree<DataType, DimensionType> * const kdtree = dataForIteration.getKdtree();
 
         DimensionType nodeId = dataForIteration.getNodeId();
@@ -216,20 +163,6 @@ public:
 
             // Insert the node built in this step and then build left and right child nodes.
             kdtree->insertInternalNode(nodeId, split);
-
-//            NodeBuilderParams<DataType, DimensionType> leftNode (
-//                KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-//                params.getDimensionSelectorType(),
-//                params.getSplittingMethod(),
-//                dimensionToSplitBy
-//            );
-//
-//            NodeBuilderParams<DataType, DimensionType> rightNode (
-//                KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-//                params.getDimensionSelectorType(),
-//                params.getSplittingMethod(),
-//                dimensionToSplitBy
-//            );
 
             feeder.add(DataForIteration<DataType, DimensionType>(
                 samples,
