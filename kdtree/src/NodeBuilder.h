@@ -123,7 +123,7 @@ template <typename DataType, typename DimensionType>
 class ParallelNodeBuilder {
 public:
     void operator()(
-        DataForIteration<DataType, DimensionType> dataForIteration,
+        const DataForIteration<DataType, DimensionType> &dataForIteration,
         parallel_do_feeder<DataForIteration<DataType, DimensionType>>& feeder
     ) const {
 

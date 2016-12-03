@@ -110,7 +110,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -145,14 +144,14 @@
       <file leaf-file-name="NodeBuilder.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="125" column="14" lean-forward="false" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
               <folding>
                 <element signature="e#59#79#0" expanded="true" />
                 <element signature="e#239#282#0" expanded="true" />
                 <element signature="e#1929#1972#0" expanded="true" />
                 <element signature="e#5136#5179#0" expanded="true" />
-                <element signature="e#8238#8281#0" expanded="true" />
+                <element signature="e#8245#8288#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1200,7 +1199,7 @@
       <workItem from="1480433738861" duration="5462000" />
       <workItem from="1480445225656" duration="64757000" />
       <workItem from="1480724599839" duration="1643000" />
-      <workItem from="1480736411281" duration="20081000" />
+      <workItem from="1480736411281" duration="20181000" />
     </task>
     <servers />
   </component>
@@ -1237,7 +1236,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="400750000" />
+    <option name="totallyTimeSpent" value="400850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1314,11 +1313,6 @@
           <url>file://$PROJECT_DIR$/main.cpp</url>
           <line>293</line>
           <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NodeBuilder.h</url>
-          <line>136</line>
-          <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NodeBuilder.h</url>
@@ -1670,14 +1664,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="198" column="0" lean-forward="true" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+        <state relative-caret-position="496">
+          <caret line="125" column="14" lean-forward="false" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
           <folding>
             <element signature="e#59#79#0" expanded="true" />
             <element signature="e#239#282#0" expanded="true" />
             <element signature="e#1929#1972#0" expanded="true" />
             <element signature="e#5136#5179#0" expanded="true" />
-            <element signature="e#8238#8281#0" expanded="true" />
+            <element signature="e#8245#8288#0" expanded="true" />
           </folding>
         </state>
       </provider>
