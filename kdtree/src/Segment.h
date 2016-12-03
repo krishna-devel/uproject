@@ -69,14 +69,13 @@ public:
         vector<DimensionType> x(point1.getCoefficients().size());
         std::iota(begin(x), end(x), 0);
 
-        DataType distance;
+        DataType distance = 0;
 
         for (DimensionType dimension : x) {
             DataType diff = (point1Coefficients[dimension] - point2Coefficients[dimension]);
             distance += (diff*diff);
         }
-
-        return distance;
+        if (distance <= 0) return 0; else return distance;
     };
 
     static DataType euclideanDistance(Point<DataType, DimensionType> point1, Point<DataType, DimensionType> point2) {

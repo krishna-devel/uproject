@@ -10,6 +10,7 @@ add_executable(runTests
 
 target_link_libraries(runTests gmock gtest gtest_main)
 target_link_libraries(runTests src)
+target_link_libraries(runTests tbb)
 
 find_package( Boost COMPONENTS system filesystem iostreams REQUIRED )
 if ( Boost_FOUND )

@@ -27,11 +27,11 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids {0, 1, 2};
         NodeBuilderParams<float, int> params (
-                ids,
-                0,
-                DimensionSelectorType::CYCLE_THROUGH_AXES,
-                SplittingMethod::MEDIAN_OF_MEDIAN1,
-                -1
+            ids,
+            0,
+            DimensionSelectorType::CYCLE_THROUGH_AXES,
+            SplittingMethod::MEDIAN_OF_MEDIAN1,
+            -1
         );
         if (iteration == 0) {
             NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);
@@ -69,11 +69,11 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids{0, 1, 2};
         NodeBuilderParams<float, int> params(
-                ids,
-                0,
-                DimensionSelectorType::HIGHEST_RANGE_AXIS,
-                SplittingMethod::MEDIAN_OF_MEDIAN1,
-                -1
+            ids,
+            0,
+            DimensionSelectorType::HIGHEST_RANGE_AXIS,
+            SplittingMethod::MEDIAN_OF_MEDIAN1,
+            -1
         );
         if (iteration == 0) {
             NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);

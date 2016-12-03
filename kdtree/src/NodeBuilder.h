@@ -5,7 +5,10 @@
 #include "KDTree.h"
 #include "SegmentSplitter.h"
 #include "SplitGenerator.h"
+#include "tbb/concurrent_queue.h"
 
+using namespace std;
+using namespace tbb;
 
 template <typename  DataType, typename DimensionType>
 class NodeBuilderParams {
@@ -26,6 +29,14 @@ public:
         splittingMethod(splittingMethod),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting) {
     }
+
+    NodeBuilderParams() :
+        sampleIdsInSegment {},
+        nodeId(-1),
+        dimensionSelectorType(DimensionSelectorType::HIGHEST_RANGE_AXIS),
+        splittingMethod(SplittingMethod::MEDIAN_OF_MEDIAN1),
+        lastDimensionUsedForSplitting(-1) {
+    }
     const DimensionType getNodeId() const { return nodeId; }
     const SplittingMethod getSplittingMethod() const { return splittingMethod; }
     const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; }
@@ -33,11 +44,17 @@ public:
     const DimensionType getLastDimensionUsedForSplitting() const { return lastDimensionUsedForSplitting; }
 
 private:
-    const SampleIdsInSegment<DimensionType> sampleIdsInSegment;
-    const DimensionType nodeId;
-    const DimensionSelectorType dimensionSelectorType;
-    const SplittingMethod splittingMethod;
-    const DimensionType lastDimensionUsedForSplitting;
+    SampleIdsInSegment<DimensionType> sampleIdsInSegment;
+    DimensionType nodeId;
+    DimensionSelectorType dimensionSelectorType;
+    SplittingMethod splittingMethod;
+    DimensionType lastDimensionUsedForSplitting;
+
+//    const SampleIdsInSegment<DimensionType> sampleIdsInSegment;
+//    const DimensionType nodeId;
+//    const DimensionSelectorType dimensionSelectorType;
+//    const SplittingMethod splittingMethod;
+//    const DimensionType lastDimensionUsedForSplitting;
 };
 
 template <typename DataType, typename DimensionType>
@@ -132,12 +149,13 @@ void NodeBuilder<DataType, DimensionType>::buildNonRecursive(
     KDTree<DataType, DimensionType> *kdtree
 ) {
 
-    vector<NodeBuilderParams<DataType, DimensionType>> nodesToBuild;
-    nodesToBuild.push_back(initialParams);
+    concurrent_queue<NodeBuilderParams<DataType, DimensionType>> queue;
+    queue.push(initialParams);
 
-    while(!nodesToBuild.empty()) {
-        NodeBuilderParams<DataType, DimensionType> params = nodesToBuild.back();
-        nodesToBuild.pop_back();
+    while(!queue.empty()) {
+        NodeBuilderParams<DataType, DimensionType> params;
+        queue.try_pop(params);
+
         DimensionType nodeId = params.getNodeId();
         const Segment<DataType, DimensionType> segment (samples, params.getSampleIdsInSegment());
         DimensionType numRowsInSegment = segment.getSampleIdsInSegment().size();
@@ -188,8 +206,8 @@ void NodeBuilder<DataType, DimensionType>::buildNonRecursive(
                 dimensionToSplitBy
             );
 
-            nodesToBuild.push_back(rightNode);
-            nodesToBuild.push_back(leftNode);
+            queue.push(rightNode);
+            queue.push(leftNode);
         }
 
     }
