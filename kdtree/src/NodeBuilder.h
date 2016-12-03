@@ -49,12 +49,6 @@ private:
     DimensionSelectorType dimensionSelectorType;
     SplittingMethod splittingMethod;
     DimensionType lastDimensionUsedForSplitting;
-
-//    const SampleIdsInSegment<DimensionType> sampleIdsInSegment;
-//    const DimensionType nodeId;
-//    const DimensionSelectorType dimensionSelectorType;
-//    const SplittingMethod splittingMethod;
-//    const DimensionType lastDimensionUsedForSplitting;
 };
 
 template <typename DataType, typename DimensionType>
@@ -78,7 +72,6 @@ public:
         NodeBuilderParams<DataType, DimensionType> &params,
         KDTree<DataType, DimensionType> *kdtree
     );
-
 
 };
 

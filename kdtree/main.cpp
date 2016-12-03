@@ -265,20 +265,62 @@
 
 #include "tbb/concurrent_queue.h"
 #include <iostream>
+#include <vector>
+#include "tbb/parallel_do.h"
 
 using namespace std;
 using namespace tbb;
 
+
+class S {
+public:
+    S(const int i, int j, vector<int> *output) : i(i), j(j), output(output) {}
+    const int getI() const { return i; }
+    int getJ() const { return j; }
+    vector<int> *getOutput() const { return output; }
+
+private:
+    const int i;
+    int j;
+    vector<int> *output;
+};
+
+class ApplyFoo {
+public:
+//    static vector<int> list;
+    void operator()(S s, parallel_do_feeder<S>& feeder) const {
+        cout << s.getJ() << ", ";
+        s.getOutput()->push_back(s.getI());
+        if (s.getJ()+1 < 10) {
+            S newS(s.getI(), s.getJ()+1, s.getOutput());
+            feeder.add(newS);
+        }
+    }
+};
+
+//vector<int> ApplyFoo::list = vector<int> {1,2,3};
+
 int main() {
-    concurrent_queue<int> queue;
-    for( int i=0; i<10; ++i )
-        queue.push(i);
-    typedef concurrent_queue<int>::iterator iter;
-    for( iter i(queue.unsafe_begin()); i!=queue.unsafe_end(); ++i )
-        cout << *i << " ";
-    cout << endl;
-    return 0;
+    vector<int> *v = new vector<int>();
+    S s (-1, 0, v);
+    vector<S> list {s};
+    parallel_do( list.begin(), list.end(), ApplyFoo() );
+    for (int i : *v) {
+        cout << i << endl;
+    }
+    cout << v->size() << endl;
 }
+
+//int main() {
+//    concurrent_queue<int> queue;
+//    for( int i=0; i<10; ++i )
+//        queue.push(i);
+//    typedef concurrent_   queue<int>::iterator iter;
+//    for( iter i(queue.unsafe_begin()); i!=queue.unsafe_end(); ++i )
+//        cout << *i << " ";
+//    cout << endl;
+//    return 0;
+//}
 
 //#include "tbb/tbb.h"
 //#include <iostream>
