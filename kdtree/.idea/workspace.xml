@@ -109,8 +109,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -154,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="301" column="0" lean-forward="true" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
+              <caret line="301" column="0" lean-forward="false" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
               <folding>
                 <element signature="e#6772#6805#0" expanded="true" />
               </folding>
@@ -162,15 +162,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeBuilder.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeBuilder.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="346">
+              <caret line="160" column="84" lean-forward="false" selection-start-line="160" selection-start-column="84" selection-end-line="160" selection-end-column="84" />
               <folding>
                 <element signature="e#59#79#0" expanded="true" />
                 <element signature="e#1910#1953#0" expanded="true" />
-                <element signature="e#5147#5190#0" expanded="true" />
+                <element signature="e#2702#2745#0" expanded="true" />
+                <element signature="e#6598#6641#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -218,11 +219,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeBuilderTest.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NodeBuilderTest.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="586">
+              <caret line="137" column="1" lean-forward="true" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -322,10 +323,10 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
         <option value="$PROJECT_DIR$/src/Segment.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
       </list>
     </option>
   </component>
@@ -467,7 +468,7 @@
       <recent name="$PROJECT_DIR$/tests/basic_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.kdtree_run">
+  <component name="RunManager" selected="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data">
     <configuration default="false" name="NodeBuilderTest.test_basic_tree_creation_for_dummy_data" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="NodeBuilderTest" TEST_METHOD="test_basic_tree_creation_for_dummy_data" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -1159,10 +1160,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.All in NodeBuilderTest.cpp" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_highest_range_axis" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
+        <item index="0" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_tree_creation_for_dummy_data" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.NodeBuilderTest.test_basic_for_highest_range_axis" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.All in NodeBuilderTest.cpp" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
         <item index="4" class="java.lang.String" itemvalue="Google Test.KDTestIOTest.test_basics" />
       </list>
     </recent_temporary>
@@ -1188,7 +1189,7 @@
       <workItem from="1480433738861" duration="5462000" />
       <workItem from="1480445225656" duration="64757000" />
       <workItem from="1480724599839" duration="1643000" />
-      <workItem from="1480736411281" duration="9806000" />
+      <workItem from="1480736411281" duration="11184000" />
     </task>
     <servers />
   </component>
@@ -1205,8 +1206,8 @@
     <history-entry file="NodeBuilderTest_test_basic_for_highest_range_axis - 2016.12.02 at 20h 09m 07s.xml">
       <configuration name="NodeBuilderTest.test_basic_for_highest_range_axis" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 39m 37s.xml">
-      <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="NodeBuilderTest_test_basic_tree_creation_for_dummy_data - 2016.12.02 at 23h 32m 40s.xml">
+      <configuration name="NodeBuilderTest.test_basic_tree_creation_for_dummy_data" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
     <history-entry file="UtilTest_read_and_write_binary - 2016.12.02 at 05h 39m 48s.xml">
       <configuration name="UtilTest.read_and_write_binary" configurationId="CMakeGoogleTestRunConfigurationType" />
@@ -1225,7 +1226,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390475000" />
+    <option name="totallyTimeSpent" value="391853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1237,7 +1238,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.453125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30390626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1565,14 +1566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTree.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1618,7 +1611,7 @@
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="301" column="0" lean-forward="true" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
+          <caret line="301" column="0" lean-forward="false" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
           <folding>
             <element signature="e#6772#6805#0" expanded="true" />
           </folding>
@@ -1627,13 +1620,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="346">
+          <caret line="160" column="84" lean-forward="false" selection-start-line="160" selection-start-column="84" selection-end-line="160" selection-end-column="84" />
           <folding>
             <element signature="e#59#79#0" expanded="true" />
             <element signature="e#1910#1953#0" expanded="true" />
-            <element signature="e#5147#5190#0" expanded="true" />
+            <element signature="e#2702#2745#0" expanded="true" />
+            <element signature="e#6598#6641#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="137" column="1" lean-forward="true" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

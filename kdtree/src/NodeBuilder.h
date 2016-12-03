@@ -52,6 +52,28 @@ private:
 };
 
 template <typename DataType, typename DimensionType>
+class DataForIteration {
+public:
+    DataForIteration(
+        const Samples<DataType> &samples,
+        NodeBuilderParams<DataType, DimensionType> &params,
+        KDTree<DataType, DimensionType> *kdtree
+    ) : samples(samples), params(params), kdtree(kdtree) {}
+    const Samples<DataType> &getSamples() const { return samples; }
+    NodeBuilderParams<DataType, DimensionType> &getParams() const { return params; }
+    KDTree<DataType, DimensionType> *getKdtree() const { return kdtree; }
+private:
+    const Samples<DataType> &samples;
+    NodeBuilderParams<DataType, DimensionType> &params;
+    KDTree<DataType, DimensionType> *kdtree;
+};
+
+//template <typename DataType, typename DimensionType>
+//class RecursiveNodeBuilder {
+//
+//};
+
+template <typename DataType, typename DimensionType>
 class NodeBuilder {
 public:
     /**
@@ -61,11 +83,13 @@ public:
      * @param segment
      * @param kdtree
      */
-    static void build(
-        const Samples<DataType> &samples,
-        NodeBuilderParams<DataType, DimensionType> &params,
-        KDTree<DataType, DimensionType> *kdtree
-    );
+//    static void build(
+//        const Samples<DataType> &samples,
+//        NodeBuilderParams<DataType, DimensionType> &params,
+//        KDTree<DataType, DimensionType> *kdtree
+//    );
+
+    static void build(const DataForIteration<DataType, DimensionType> &dataForIteration);
 
     static void buildNonRecursive(
         const Samples<DataType> &samples,
@@ -76,11 +100,16 @@ public:
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::build(
-    const Samples<DataType> &samples,
-    NodeBuilderParams<DataType, DimensionType> &params,
-    KDTree<DataType, DimensionType> * const kdtree
-) {
+//void NodeBuilder<DataType, DimensionType>::build(
+//    const Samples<DataType> &samples,
+//    NodeBuilderParams<DataType, DimensionType> &params,
+//    KDTree<DataType, DimensionType> * const kdtree
+//) {
+void NodeBuilder<DataType, DimensionType>::build(const DataForIteration<DataType, DimensionType> &dataForIteration) {
+    const Samples<DataType> &samples = dataForIteration.getSamples();
+    NodeBuilderParams<DataType, DimensionType> &params = dataForIteration.getParams();
+    KDTree<DataType, DimensionType> * const kdtree = dataForIteration.getKdtree();
+
     DimensionType nodeId = params.getNodeId();
     const Segment<DataType, DimensionType> segment (samples, params.getSampleIdsInSegment());
     DimensionType numRowsInSegment = segment.getSampleIdsInSegment().size();
@@ -93,21 +122,21 @@ void NodeBuilder<DataType, DimensionType>::build(
 
         // Select the dimension that will be used to split the node
         DimensionType dimensionToSplitBy =
-            DimensionSelectorByType<DataType, DimensionType>::get(
-                segment,
-                params.getDimensionSelectorType(),
-                params.getLastDimensionUsedForSplitting()
-            );
+                DimensionSelectorByType<DataType, DimensionType>::get(
+                        segment,
+                        params.getDimensionSelectorType(),
+                        params.getLastDimensionUsedForSplitting()
+                );
 
         // This step does the following steps:
         // - Determines the split point that is used to generate 2 new segments.
         // - Determines the bounds for the 2 segments
         SplitWithSegments<DataType, DimensionType> splitWithSegments =
-            SplitGenerator<DataType, DimensionType>::generate(
-                segment,
-                params.getSplittingMethod(),
-                dimensionToSplitBy
-            );
+                SplitGenerator<DataType, DimensionType>::generate(
+                        segment,
+                        params.getSplittingMethod(),
+                        dimensionToSplitBy
+                );
 
         Split<DataType, DimensionType> split = splitWithSegments.getSplit();
         SplitSegments<DataType, DimensionType> splitSegments = splitWithSegments.getSplitSegments();
@@ -115,25 +144,23 @@ void NodeBuilder<DataType, DimensionType>::build(
         // Insert the node built in this step and then build left and right child nodes.
         kdtree->insertInternalNode(nodeId, split);
         NodeBuilderParams<DataType, DimensionType> leftNode(
-            splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
-            KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-            params.getDimensionSelectorType(),
-            params.getSplittingMethod(),
-            dimensionToSplitBy
+                splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
+                KDTree<DataType, DimensionType>::leftNodeId(nodeId),
+                params.getDimensionSelectorType(),
+                params.getSplittingMethod(),
+                dimensionToSplitBy
         );
         NodeBuilderParams<DataType, DimensionType> rightNode(
-            splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
-            KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-            params.getDimensionSelectorType(),
-            params.getSplittingMethod(),
-            dimensionToSplitBy
+                splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
+                KDTree<DataType, DimensionType>::rightNodeId(nodeId),
+                params.getDimensionSelectorType(),
+                params.getSplittingMethod(),
+                dimensionToSplitBy
         );
-        build(samples, leftNode, kdtree);
-        build(samples, rightNode, kdtree);
-
+        build(DataForIteration<DataType, DimensionType>(samples, leftNode, kdtree));
+        build(DataForIteration<DataType, DimensionType>(samples, rightNode, kdtree));
     }
-
-}
+};
 
 template <typename DataType, typename DimensionType>
 void NodeBuilder<DataType, DimensionType>::buildNonRecursive(

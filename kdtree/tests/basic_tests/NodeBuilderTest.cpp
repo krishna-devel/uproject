@@ -36,7 +36,7 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
         if (iteration == 0) {
             NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);
         } else {
-            NodeBuilder<float, int>::build(samples, params, kdTree);
+            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, kdTree));
         }
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
         ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
@@ -78,7 +78,7 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
         if (iteration == 0) {
             NodeBuilder<float, int>::buildNonRecursive(samples, params, kdTree);
         } else {
-            NodeBuilder<float, int>::build(samples, params, kdTree);
+            NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, kdTree));
         }
 
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
@@ -131,7 +131,7 @@ TEST_F(NodeBuilderTest, test_basic_tree_creation_for_dummy_data) {
     int numNodes = pow(2, depth) - 1 + numSamples;
     KDTree<float, int> kdTree(numNodes);
 
-    NodeBuilder<float, int>::build(samples, params, &kdTree);
+    NodeBuilder<float, int>::build(DataForIteration<float, int>(samples, params, &kdTree));
     KDTreeIO<float, int>::write(kdTree, "debug_tree");
     int i = 10;
 
