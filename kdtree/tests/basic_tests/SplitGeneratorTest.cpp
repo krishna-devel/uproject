@@ -149,3 +149,22 @@ TEST_F(SplitGeneratorTest, test_generate_for_2_rows) {
     EXPECT_EQ(rightMax, split.getRightBounds().getMinPoint().getCoefficients());
     EXPECT_EQ(rightMax, split.getRightBounds().getMaxPoint().getCoefficients());
 }
+
+TEST(BoundsTest, test_distance_from_point) {
+    vector<float> maxPoint {2, 2};
+    vector<float> minPoint {1, 1};
+
+    Bounds<float, int> bounds(maxPoint, minPoint);
+
+    vector<float> point {1, 1};
+    EXPECT_NEAR(0, bounds.distanceFromPoint(point), 0.001);
+
+    vector<float> point2 {0, 0};
+    EXPECT_NEAR(2, bounds.distanceFromPoint(point2), 0.001);
+
+    vector<float> point3 {4, 4};
+    EXPECT_NEAR(8, bounds.distanceFromPoint(point3), 0.001);
+
+
+//    vector<float> point {1.0};
+}

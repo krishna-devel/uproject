@@ -55,6 +55,30 @@ public:
             Point<DataType, DimensionType>(minValues)
         );
     };
+
+    DataType distanceFromPoint(const Point<DataType, DimensionType> &point) {
+        vector<DataType> pointCoefficients = point.getCoefficients();
+        vector<DataType> maxCoefficients = this->maxPoint.getCoefficients();
+        vector<DataType> minCoefficients = this->minPoint.getCoefficients();
+        vector<DimensionType> indices(pointCoefficients.size());
+        iota(begin(indices), end(indices), 0);
+
+        DataType distance = 0.0;
+        for (DimensionType index: indices) {
+            DataType coefficient = pointCoefficients[index];
+            DataType maxCoefficient = maxCoefficients[index];
+            DataType minCoefficient = minCoefficients[index];
+            if (minCoefficient > coefficient) {
+                DataType diff = (minCoefficient - coefficient);
+                distance += (diff * diff);
+            } else if (maxCoefficient < coefficient) {
+                DataType diff = (coefficient - maxCoefficient);
+                distance += (diff * diff);
+            }
+        }
+
+        return distance;
+    }
 private:
     Point<DataType, DimensionType> maxPoint;
     Point<DataType, DimensionType> minPoint;
