@@ -101,9 +101,9 @@ public:
         }
     }
 
-    static NearestNeighbor<DataType, DimensionType>  *getNearestNeighbor(
-        const Point<DataType, DimensionType> &query,
+    static NearestNeighbor<DataType, DimensionType> *getNearestNeighbor(
         const Samples<DataType> &samples,
+        const Point<DataType, DimensionType> &query,
         concurrent_vector<DimensionType> potentialNeighbors
     ) {
         vector<DimensionType> sampleIdsInSegment;
@@ -126,21 +126,16 @@ public:
         return new NearestNeighbor<DataType, DimensionType>(currentNearestNeighbor.getCoefficients(), currentLowestDistance);
     }
 
-    static NearestNeighbor<DataType, DimensionType> findNearestNeighbor(
+    static NearestNeighbor<DataType, DimensionType> *findNearestNeighbor(
         const Samples<DataType> &samples,
         const KDTree<DataType, DimensionType> &kdTree,
         const Point<DataType, DimensionType> &query
     ) {
-
         concurrent_vector<DimensionType> potentialNeighbors;
-        DataToSearchNodes<DataType, DimensionType> dataToSearchNodes (
-            kdTree,
-            query,
-            0,
-            &potentialNeighbors
-        );
+        DataToSearchNodes<DataType, DimensionType> dataToSearchNodes (kdTree, query, 0, &potentialNeighbors);
         vector<DataToSearchNodes<DataType, DimensionType>> list {dataToSearchNodes};
         parallel_do( list.begin(), list.end(), ParallelNodeExplorer<DataType, DimensionType>() );
+        return getNearestNeighbor(samples, query, potentialNeighbors);
     }
 };
 

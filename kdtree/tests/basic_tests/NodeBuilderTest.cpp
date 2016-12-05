@@ -112,35 +112,3 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
 
     }
 }
-
-TEST_F(NodeBuilderTest, test_basic_tree_creation_for_dummy_data) {
-
-    char cCurrentPath[FILENAME_MAX];
-    getcwd(cCurrentPath, sizeof(cCurrentPath));
-    string currentWorkingDir = string(cCurrentPath);
-    string kdtreeFolder = currentWorkingDir.substr(0, currentWorkingDir.find("kdtree")+7);
-
-    Samples<float> samples = KDTreeIO<float, int>::loadSamples(kdtreeFolder + "/tests/basic_tests/data/dummy_data.csv");
-    int numSamples = samples.rows();
-    vector<int >sampleIdsInSegment (numSamples);
-    iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
-
-    int depth = log2(numSamples);
-    int numNodes = pow(2, depth) - 1 + numSamples;
-    KDTree<float, int> kdTree(numNodes);
-
-    DataToBuildNodes<float, int> dataForIteration = DataToBuildNodes<float, int>(
-            samples,
-            sampleIdsInSegment,
-            0,
-            DimensionSelectorType::CYCLE_THROUGH_AXES,
-            SplittingMethod::MEDIAN_OF_MEDIAN1,
-            -1,
-            &kdTree
-    );
-
-    NodeBuilder<float, int>::build(dataForIteration);
-    KDTreeIO<float, int>::write(kdTree, "debug_tree");
-    int i = 10;
-
-}

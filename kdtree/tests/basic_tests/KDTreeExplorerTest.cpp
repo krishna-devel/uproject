@@ -95,7 +95,7 @@ TEST(ParallelNodeSearcherTest, test_getNearestNeighbor) {
     potentialNeighbors.push_back(3);
 
     NearestNeighbor<float, int> *nearestNeighbor =
-        ParallelNodeExplorer<float, int>::getNearestNeighbor(query, samples, potentialNeighbors);
+        ParallelNodeExplorer<float, int>::getNearestNeighbor(samples, query, potentialNeighbors);
 
     vector<float> expectedNearestNeighbor {1,2};
     EXPECT_EQ(expectedNearestNeighbor, nearestNeighbor->getPoint()->getCoefficients());
