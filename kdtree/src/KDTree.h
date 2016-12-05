@@ -6,11 +6,8 @@
 #include "SplitGenerator.h"
 #include "memory"
 #include <string>
-//#include "tbb/tbb.h"
-//#include "tbb/parallel_do.h"
 
 using namespace std;
-//using namespace tbb;
 
 enum NodeType {
     INTERNAL,

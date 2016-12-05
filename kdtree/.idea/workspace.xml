@@ -109,16 +109,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/KDTreeExplorer.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTree.h" afterPath="$PROJECT_DIR$/src/KDTree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplitGenerator.h" afterPath="$PROJECT_DIR$/src/SplitGenerator.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" afterPath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTreeExplorer.h" afterPath="$PROJECT_DIR$/src/KDTreeExplorer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -137,16 +130,42 @@
     <favorites_list name="Calendar" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.2890625">
+    <splitter split-orientation="horizontal" split-proportion="0.540625">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="KDTreeExplorer.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/KDTreeExplorer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+                <state relative-caret-position="158">
+                  <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
                   <folding>
-                    <element signature="e#65#84#0" expanded="true" />
+                    <element signature="e#65#82#0" expanded="true" />
+                    <element signature="e#1189#1232#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="KDTree.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/KDTree.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#57#74#0" expanded="true" />
+                    <element signature="e#2055#2098#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Segment.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Segment.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="152">
+                  <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#248#267#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -159,22 +178,10 @@
           <file leaf-file-name="KDTreeExplorerTest.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+                <state relative-caret-position="281">
+                  <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#24#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="KDTreeTest.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="10" column="54" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="54" />
-                  <folding>
-                    <marker date="1480889303000" expanded="true" signature="1915:2160" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -186,9 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s</find>
-      <find>cant_split_threshold_for_empty_vector_exception</find>
-      <find>segment</find>
       <find>SplitInfo</find>
       <find>DimensionWithSplitInfo</find>
       <find>dimensionWithSplitInfo</find>
@@ -216,6 +220,9 @@
       <find>iota</find>
       <find>Rectangle</find>
       <find>KDTree</find>
+      <find>build</find>
+      <find>parallel_do</find>
+      <find>unique</find>
     </findStrings>
     <replaceStrings>
       <replace>kdTreekdTree.</replace>
@@ -279,8 +286,8 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp" />
         <option value="$PROJECT_DIR$/src/KDTree.h" />
-        <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
         <option value="$PROJECT_DIR$/src/KDTreeExplorer.h" />
+        <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
       </list>
     </option>
   </component>
@@ -422,11 +429,7 @@
       <recent name="$PROJECT_DIR$/tests/basic_tests/mocks" />
     </key>
   </component>
-  <component name="RunManager" selected="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf">
-    <configuration default="false" name="BoundsTest.test_distance_from_point" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="BoundsTest" TEST_METHOD="test_distance_from_point" TEST_MODE="SUITE_TEST">
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Google Test.ParallelNodeSearcherTest.test_getNearestNeighbor">
     <configuration default="false" name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="ParallelNodeSearcherTest" TEST_METHOD="test_potential_neigbors_is_filled_when_node_is_leaf" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
@@ -440,6 +443,10 @@
       <method />
     </configuration>
     <configuration default="false" name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="ParallelNodeSearcherTest" TEST_METHOD="test_potential_neigbors_is_filled_when_node_is_internal" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParallelNodeSearcherTest.test_getNearestNeighbor" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="kdtree" TARGET_NAME="runTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="kdtree" RUN_TARGET_NAME="runTests" TEST_CLASS="ParallelNodeSearcherTest" TEST_METHOD="test_getNearestNeighbor" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
@@ -1106,19 +1113,19 @@
       <item index="96" class="java.lang.String" itemvalue="Application.test_write_once_node" />
       <item index="97" class="java.lang.String" itemvalue="Application.test_yield" />
       <item index="98" class="java.lang.String" itemvalue="Application.tests" />
-      <item index="99" class="java.lang.String" itemvalue="Google Test.BoundsTest.test_distance_from_point" />
-      <item index="100" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf" />
-      <item index="101" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
-      <item index="102" class="java.lang.String" itemvalue="Google Test.All in KDTreeExplorerTest.cpp" />
-      <item index="103" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" />
+      <item index="99" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf" />
+      <item index="100" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
+      <item index="101" class="java.lang.String" itemvalue="Google Test.All in KDTreeExplorerTest.cpp" />
+      <item index="102" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" />
+      <item index="103" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_getNearestNeighbor" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf" />
-        <item index="1" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" />
-        <item index="2" class="java.lang.String" itemvalue="Google Test.All in KDTreeExplorerTest.cpp" />
-        <item index="3" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
-        <item index="4" class="java.lang.String" itemvalue="Google Test.BoundsTest.test_distance_from_point" />
+        <item index="0" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_getNearestNeighbor" />
+        <item index="1" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_leaf" />
+        <item index="2" class="java.lang.String" itemvalue="Google Test.ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" />
+        <item index="3" class="java.lang.String" itemvalue="Google Test.All in KDTreeExplorerTest.cpp" />
+        <item index="4" class="java.lang.String" itemvalue="Google Test.KDTreeSearchTest.test_search_in_kd_tree" />
       </list>
     </recent_temporary>
   </component>
@@ -1143,28 +1150,28 @@
       <workItem from="1480433738861" duration="5462000" />
       <workItem from="1480445225656" duration="64757000" />
       <workItem from="1480724599839" duration="1643000" />
-      <workItem from="1480736411281" duration="48698000" />
+      <workItem from="1480736411281" duration="55464000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 21m 41s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 21m 34s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 24m 31s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 23m 29s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 26m 34s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 25m 00s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 27m 45s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 25m 55s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 28m 39s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 28m 29s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 29m 45s.xml">
-      <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="ParallelNodeSearcherTest_test_getNearestNeighbor - 2016.12.04 at 21h 38m 13s.xml">
+      <configuration name="ParallelNodeSearcherTest.test_getNearestNeighbor" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
     <history-entry file="ParallelNodeSearcherTest_test_potential_neigbors_is_filled_when_node_is_internal - 2016.12.04 at 16h 30m 16s.xml">
       <configuration name="ParallelNodeSearcherTest.test_potential_neigbors_is_filled_when_node_is_internal" configurationId="CMakeGoogleTestRunConfigurationType" />
@@ -1180,7 +1187,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429367000" />
+    <option name="totallyTimeSpent" value="436133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1193,11 +1200,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30390626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.390625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.390625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1205,26 +1212,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.453125" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3096591" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24765626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30390626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.390625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1279,7 +1266,7 @@
           <option name="timeStamp" value="181" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="186" />
+      <option name="time" value="193" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1296,7 +1283,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/DimensionSplitter.h" />
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/DimensionTest.cpp" />
     <entry file="file://$PROJECT_DIR$/src/Dimension.h" />
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/MockTest.cpp">
@@ -1517,14 +1503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="95" column="68" lean-forward="false" selection-start-line="94" selection-start-column="8" selection-end-line="95" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/SplitGeneratorTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1557,32 +1535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="58" column="82" lean-forward="false" selection-start-line="58" selection-start-column="82" selection-end-line="58" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="e#239#282#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1601,21 +1553,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/NodeBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="194" column="92" lean-forward="false" selection-start-line="193" selection-start-column="4" selection-end-line="194" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tbb/include/tbb/concurrent_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="73" column="6" lean-forward="false" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+          <folding>
+            <element signature="e#248#267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="300">
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
             <element signature="e#57#74#0" expanded="true" />
-            <element signature="e#2132#2175#0" expanded="true" />
+            <element signature="e#2055#2098#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+        <state relative-caret-position="281">
+          <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -1624,10 +1618,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTreeExplorer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state relative-caret-position="158">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="e#65#84#0" expanded="true" />
+            <element signature="e#65#82#0" expanded="true" />
+            <element signature="e#1189#1232#0" expanded="true" />
           </folding>
         </state>
       </provider>

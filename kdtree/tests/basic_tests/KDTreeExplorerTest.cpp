@@ -79,3 +79,25 @@ TEST(ParallelNodeSearcherTest, test_potential_neigbors_is_filled_when_node_is_in
     ASSERT_EQ(3, nextNeighbors5[1]);
 
 }
+
+TEST(ParallelNodeSearcherTest, test_getNearestNeighbor) {
+    vector<float> query {2,1};
+
+    Samples<float> samples {4,2};
+    samples << 100,101,
+            -100,101,
+            1,2,
+            200,200;
+
+    concurrent_vector<int> potentialNeighbors;
+    potentialNeighbors.push_back(0);
+    potentialNeighbors.push_back(2);
+    potentialNeighbors.push_back(3);
+
+    NearestNeighbor<float, int> *nearestNeighbor =
+        ParallelNodeExplorer<float, int>::getNearestNeighbor(query, samples, potentialNeighbors);
+
+    vector<float> expectedNearestNeighbor {1,2};
+    EXPECT_EQ(expectedNearestNeighbor, nearestNeighbor->getPoint()->getCoefficients());
+    EXPECT_NEAR(1.414, nearestNeighbor->getDistance(), 0.001);
+}

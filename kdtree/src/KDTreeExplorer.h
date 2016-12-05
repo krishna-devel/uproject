@@ -1,6 +1,7 @@
 #ifndef KDTREE_KDTREEEXPLORER_H
 #define KDTREE_KDTREEEXPLORER_H
 
+#include "memory"
 #include "KDTree.h"
 #include "tbb/tbb.h"
 #include "tbb/parallel_do.h"
@@ -28,6 +29,22 @@ private:
     const Point<DataType, DimensionType> &query;
     const DimensionType nodeId;
     concurrent_vector<DimensionType> *potentialNeighbors;
+};
+
+template <typename DataType, typename DimensionType>
+class NearestNeighbor {
+public:
+    NearestNeighbor(
+        const vector<DataType> &coefficients,
+        const DataType distance
+    ) : distance(distance) {
+        point = unique_ptr<Point<DataType, DimensionType>> (new Point<DataType, DimensionType>(coefficients));
+    }
+    const unique_ptr<Point<DataType, DimensionType>> &getPoint() { return point; }
+    const DataType getDistance() const { return distance; }
+private:
+    unique_ptr<Point<DataType, DimensionType>> point;
+    const DataType distance;
 };
 
 template <typename DataType, typename DimensionType>
@@ -83,6 +100,51 @@ public:
             feeder.add(nextDataToSearchNodes);
         }
     }
+
+    static NearestNeighbor<DataType, DimensionType>  *getNearestNeighbor(
+        const Point<DataType, DimensionType> &query,
+        const Samples<DataType> &samples,
+        concurrent_vector<DimensionType> potentialNeighbors
+    ) {
+        vector<DimensionType> sampleIdsInSegment;
+        for (DimensionType id : potentialNeighbors) {
+            sampleIdsInSegment.push_back(id);
+        }
+        Segment<DataType, DimensionType> segment (samples, sampleIdsInSegment);
+
+        Point<DataType, DimensionType> currentNearestNeighbor = segment.getPoint(sampleIdsInSegment[0]);
+        DataType currentLowestDistance = numeric_limits<double>::infinity();
+        for (DimensionType id: sampleIdsInSegment) {
+            Point<DataType, DimensionType> neighbor = segment.getPoint(id);
+            DataType distance = Point<DataType, DimensionType>::euclideanDistance(query, neighbor);
+            if (distance < currentLowestDistance) {
+                currentNearestNeighbor = neighbor;
+                currentLowestDistance = distance;
+            }
+        }
+
+        return new NearestNeighbor<DataType, DimensionType>(currentNearestNeighbor.getCoefficients(), currentLowestDistance);
+    }
+
+    static NearestNeighbor<DataType, DimensionType> findNearestNeighbor(
+        const Samples<DataType> &samples,
+        const KDTree<DataType, DimensionType> &kdTree,
+        const Point<DataType, DimensionType> &query
+    ) {
+
+        concurrent_vector<DimensionType> potentialNeighbors;
+        DataToSearchNodes<DataType, DimensionType> dataToSearchNodes (
+            kdTree,
+            query,
+            0,
+            &potentialNeighbors
+        );
+        vector<DataToSearchNodes<DataType, DimensionType>> list {dataToSearchNodes};
+        parallel_do( list.begin(), list.end(), ParallelNodeExplorer<DataType, DimensionType>() );
+
+    }
 };
+
+
 
 #endif //KDTREE_KDTREEEXPLORER_H
