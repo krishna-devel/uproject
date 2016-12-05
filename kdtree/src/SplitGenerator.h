@@ -56,7 +56,7 @@ public:
         );
     };
 
-    DataType distanceFromPoint(const Point<DataType, DimensionType> &point) {
+    DataType distanceFromPoint(const Point<DataType, DimensionType> &point) const {
         vector<DataType> pointCoefficients = point.getCoefficients();
         vector<DataType> maxCoefficients = this->maxPoint.getCoefficients();
         vector<DataType> minCoefficients = this->minPoint.getCoefficients();

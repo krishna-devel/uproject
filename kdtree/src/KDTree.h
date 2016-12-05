@@ -6,8 +6,11 @@
 #include "SplitGenerator.h"
 #include "memory"
 #include <string>
+//#include "tbb/tbb.h"
+//#include "tbb/parallel_do.h"
 
 using namespace std;
+//using namespace tbb;
 
 enum NodeType {
     INTERNAL,
@@ -96,6 +99,7 @@ Point<DataType, DimensionType> KDTree<DataType, DimensionType>::nearestNeighbor(
     const KDTree<DataType, DimensionType> &kdtree,
     const Point<DataType, DimensionType> &query
 ) {
+
     return query;
 };
 

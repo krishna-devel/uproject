@@ -11,9 +11,9 @@ using namespace std;
 using namespace tbb;
 
 template <typename DataType, typename DimensionType>
-class DataForIteration {
+class DataToBuildNodes {
 public:
-    DataForIteration(
+    DataToBuildNodes(
         const Samples<DataType> &samples,
         const SampleIdsInSegment<DimensionType> sampleIdsInSegment,
         const DimensionType nodeId,
@@ -56,12 +56,12 @@ public:
      * @param segment
      * @param kdtree
      */
-    static void build(const DataForIteration<DataType, DimensionType> &dataForIteration);
-    static void buildNonRecursive(const DataForIteration<DataType, DimensionType> &dataForIteration);
+    static void build(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
+    static void buildNonRecursive(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::build(const DataForIteration<DataType, DimensionType> &dataForIteration) {
+void NodeBuilder<DataType, DimensionType>::build(const DataToBuildNodes<DataType, DimensionType> &dataForIteration) {
     const Samples<DataType> &samples = dataForIteration.getSamples();
     KDTree<DataType, DimensionType> * const kdtree = dataForIteration.getKdtree();
 
@@ -98,7 +98,7 @@ void NodeBuilder<DataType, DimensionType>::build(const DataForIteration<DataType
 
         // Insert the node built in this step and then build left and right child nodes.
         kdtree->insertInternalNode(nodeId, split);
-        build(DataForIteration<DataType, DimensionType>(
+        build(DataToBuildNodes<DataType, DimensionType>(
             samples,
             splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
             KDTree<DataType, DimensionType>::leftNodeId(nodeId),
@@ -107,7 +107,7 @@ void NodeBuilder<DataType, DimensionType>::build(const DataForIteration<DataType
             dimensionToSplitBy,
             kdtree
         ));
-        build(DataForIteration<DataType, DimensionType>(
+        build(DataToBuildNodes<DataType, DimensionType>(
             samples,
             splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
             KDTree<DataType, DimensionType>::rightNodeId(nodeId),
@@ -123,15 +123,15 @@ template <typename DataType, typename DimensionType>
 class ParallelNodeBuilder {
 public:
     void operator()(
-        const DataForIteration<DataType, DimensionType> &dataForIteration,
-        parallel_do_feeder<DataForIteration<DataType, DimensionType>>& feeder
+        const DataToBuildNodes<DataType, DimensionType> &dataToBuildNodes,
+        parallel_do_feeder<DataToBuildNodes<DataType, DimensionType>>& feeder
     ) const {
 
-        const Samples<DataType> &samples = dataForIteration.getSamples();
-        KDTree<DataType, DimensionType> * const kdtree = dataForIteration.getKdtree();
+        const Samples<DataType> &samples = dataToBuildNodes.getSamples();
+        KDTree<DataType, DimensionType> * const kdtree = dataToBuildNodes.getKdtree();
 
-        DimensionType nodeId = dataForIteration.getNodeId();
-        const Segment<DataType, DimensionType> segment (samples, dataForIteration.getSampleIdsInSegment());
+        DimensionType nodeId = dataToBuildNodes.getNodeId();
+        const Segment<DataType, DimensionType> segment (samples, dataToBuildNodes.getSampleIdsInSegment());
         DimensionType numRowsInSegment = segment.getSampleIdsInSegment().size();
 
         if(numRowsInSegment == 1) {
@@ -144,8 +144,8 @@ public:
             DimensionType dimensionToSplitBy =
                 DimensionSelectorByType<DataType, DimensionType>::get(
                     segment,
-                    dataForIteration.getDimensionSelectorType(),
-                    dataForIteration.getLastDimensionUsedForSplitting()
+                    dataToBuildNodes.getDimensionSelectorType(),
+                    dataToBuildNodes.getLastDimensionUsedForSplitting()
                 );
 
             // This step does the following steps:
@@ -154,7 +154,7 @@ public:
             SplitWithSegments<DataType, DimensionType> splitWithSegments =
                 SplitGenerator<DataType, DimensionType>::generate(
                     segment,
-                    dataForIteration.getSplittingMethod(),
+                    dataToBuildNodes.getSplittingMethod(),
                     dimensionToSplitBy
                 );
 
@@ -164,21 +164,21 @@ public:
             // Insert the node built in this step and then build left and right child nodes.
             kdtree->insertInternalNode(nodeId, split);
 
-            feeder.add(DataForIteration<DataType, DimensionType>(
+            feeder.add(DataToBuildNodes<DataType, DimensionType>(
                 samples,
                 splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
                 KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-                dataForIteration.getDimensionSelectorType(),
-                dataForIteration.getSplittingMethod(),
+                dataToBuildNodes.getDimensionSelectorType(),
+                dataToBuildNodes.getSplittingMethod(),
                 dimensionToSplitBy,
                 kdtree
             ));
-            feeder.add(DataForIteration<DataType, DimensionType>(
+            feeder.add(DataToBuildNodes<DataType, DimensionType>(
                 samples,
                 splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
                 KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-                dataForIteration.getDimensionSelectorType(),
-                dataForIteration.getSplittingMethod(),
+                dataToBuildNodes.getDimensionSelectorType(),
+                dataToBuildNodes.getSplittingMethod(),
                 dimensionToSplitBy,
                 kdtree
             ));
@@ -189,9 +189,9 @@ public:
 
 template <typename DataType, typename DimensionType>
 void NodeBuilder<DataType, DimensionType>::buildNonRecursive(
-    const DataForIteration<DataType, DimensionType> &dataForIteration
+    const DataToBuildNodes<DataType, DimensionType> &dataForIteration
 ) {
-    vector<DataForIteration<DataType, DimensionType>> list {dataForIteration};
+    vector<DataToBuildNodes<DataType, DimensionType>> list {dataForIteration};
     parallel_do( list.begin(), list.end(), ParallelNodeBuilder<DataType, DimensionType>() );
 }
 

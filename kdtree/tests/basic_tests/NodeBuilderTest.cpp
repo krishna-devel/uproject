@@ -26,7 +26,7 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids {0, 1, 2};
-        DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+        DataToBuildNodes<float, int> dataForIteration = DataToBuildNodes<float, int>(
                 samples,
                 ids,
                 0,
@@ -73,7 +73,7 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids{0, 1, 2};
 
-        DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+        DataToBuildNodes<float, int> dataForIteration = DataToBuildNodes<float, int>(
                 samples,
                 ids,
                 0,
@@ -129,7 +129,7 @@ TEST_F(NodeBuilderTest, test_basic_tree_creation_for_dummy_data) {
     int numNodes = pow(2, depth) - 1 + numSamples;
     KDTree<float, int> kdTree(numNodes);
 
-    DataForIteration<float, int> dataForIteration = DataForIteration<float, int>(
+    DataToBuildNodes<float, int> dataForIteration = DataToBuildNodes<float, int>(
             samples,
             sampleIdsInSegment,
             0,
