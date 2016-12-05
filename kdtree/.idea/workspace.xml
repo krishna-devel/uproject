@@ -109,9 +109,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTree.h" afterPath="$PROJECT_DIR$/src/KDTree.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTreeExplorer.h" afterPath="$PROJECT_DIR$/src/KDTreeExplorer.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,8 +134,8 @@
           <file leaf-file-name="KDTreeExplorer.h" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/KDTreeExplorer.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="158">
-                  <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+                <state relative-caret-position="2130">
+                  <caret line="142" column="97" lean-forward="false" selection-start-line="142" selection-start-column="97" selection-end-line="142" selection-end-column="97" />
                   <folding>
                     <element signature="e#65#82#0" expanded="true" />
                     <element signature="e#1189#1232#0" expanded="true" />
@@ -178,7 +176,7 @@
           <file leaf-file-name="KDTreeExplorerTest.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="281">
+                <state relative-caret-position="311">
                   <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#24#0" expanded="true" />
@@ -286,8 +284,8 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeTest.cpp" />
         <option value="$PROJECT_DIR$/src/KDTree.h" />
-        <option value="$PROJECT_DIR$/src/KDTreeExplorer.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
+        <option value="$PROJECT_DIR$/src/KDTreeExplorer.h" />
       </list>
     </option>
   </component>
@@ -1150,7 +1148,7 @@
       <workItem from="1480433738861" duration="5462000" />
       <workItem from="1480445225656" duration="64757000" />
       <workItem from="1480724599839" duration="1643000" />
-      <workItem from="1480736411281" duration="55464000" />
+      <workItem from="1480736411281" duration="55598000" />
     </task>
     <servers />
   </component>
@@ -1187,7 +1185,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="436133000" />
+    <option name="totallyTimeSpent" value="436267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1608,7 +1606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="311">
           <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -1618,8 +1616,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KDTreeExplorer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="2130">
+          <caret line="142" column="97" lean-forward="false" selection-start-line="142" selection-start-column="97" selection-end-line="142" selection-end-column="97" />
           <folding>
             <element signature="e#65#82#0" expanded="true" />
             <element signature="e#1189#1232#0" expanded="true" />

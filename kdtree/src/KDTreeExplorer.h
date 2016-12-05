@@ -141,10 +141,7 @@ public:
         );
         vector<DataToSearchNodes<DataType, DimensionType>> list {dataToSearchNodes};
         parallel_do( list.begin(), list.end(), ParallelNodeExplorer<DataType, DimensionType>() );
-
     }
 };
-
-
 
 #endif //KDTREE_KDTREEEXPLORER_H
