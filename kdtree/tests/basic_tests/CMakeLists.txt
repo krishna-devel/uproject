@@ -11,7 +11,7 @@ add_executable(runTests
         KDTreeIOTest.cpp
         UtilTest.cpp
         SplitGeneratorTest.cpp
-        EndToEndTest.cpp EndToEndTest.h)
+        EndToEndTest.cpp )
 
 #add_subdirectory(mocks)
 
