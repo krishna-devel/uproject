@@ -7,4 +7,5 @@
       <file path="$PROJECT_DIR$/cmake-build-debug/CMakeFiles" />
     </excludeRoots>
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.9 (/opt/twitter_mde/homebrew/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/2.7/bin/python2.7)" project-jdk-type="Python SDK" />
 </project>
