@@ -13,7 +13,8 @@ class NearestNeighbor {
 public:
     NearestNeighbor(
         const Point<DataType, DimensionType> &point,
-        const DataType distance) : point(point), squaredDistance(distance) {}
+        const DataType distance
+    ) : point(point), squaredDistance(distance) {}
     const Point<DataType, DimensionType> &getPoint() const { return point; }
     const DataType getSquaredDistance() const { return squaredDistance; }
     const DataType getEuclideanDistance() const { return sqrt(squaredDistance); }
