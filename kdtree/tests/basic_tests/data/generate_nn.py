@@ -1,7 +1,7 @@
 import numpy as np
 
-dataName = "sample_data_smaller"
 # dataName = "dummy_data"
+dataName = "test_5d"
 
 samplesFileName = "%s.csv"%dataName
 queriesFileName = "%s.queries.csv"%dataName
@@ -25,7 +25,6 @@ for query in Q:
     euclideanDistance = np.sqrt(np.sum((S-query)*(S-query), axis=1))
     nearestNeighborIndex = np.argmin(euclideanDistance)
     output += ",".join(map(str, [nearestNeighborIndex, euclideanDistance[nearestNeighborIndex]])) + "\n"
-    # output += ","nearestNeighborIndex + "," + str(euclideanDistance[nearestNeighborIndex]) + "\n"
 
 with open(nnFileName, 'w') as f:
     f.write(output)

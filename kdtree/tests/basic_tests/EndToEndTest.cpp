@@ -36,6 +36,71 @@ protected:
         return expectedNearestNeighbors;
     }
 
+    void runTest(const string &dataSet, const DimensionSelectorType &dimensionSelectorType, const bool parallel) {
+        string samplesFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".csv";
+        string queriesFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".queries.csv";
+        string expectedNNFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".nn.csv";
+
+        Samples<double> samples = KDTreeIO<double, int>::loadSamples(samplesFileName);
+        int numSamples = samples.rows();
+        vector<int> sampleIdsInSegment(numSamples);
+        iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
+
+        int numNodes = KDTree<float, int>::getNumNodes(numSamples);
+
+        KDTree<double, int> kdTree(numNodes);
+        DataToBuildNodes<double, int> dataForIteration = DataToBuildNodes<double, int>(
+                samples,
+                sampleIdsInSegment,
+                0,
+                dimensionSelectorType,
+                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                -1,
+                &kdTree
+        );
+
+        // Test building, writing and loading of trees
+        string modelFileName = tmpnam(nullptr);
+        if (parallel) {
+            NodeBuilder<double, int>::buildNonRecursive(dataForIteration);
+        }
+        else {
+            NodeBuilder<double, int>::build(dataForIteration);
+        }
+        KDTreeIO<double, int>::write(kdTree, modelFileName);
+        KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);
+
+        // Test NN search on built tree
+        Samples<double> queries = KDTreeIO<double, int>::loadSamples(queriesFileName);
+        int numQueries = queries.rows();
+        vector<int> queryIdsInSegment(numQueries);
+        iota(begin(queryIdsInSegment), end(queryIdsInSegment), 0);
+
+        vector<NN *> expectedNNs = loadNN(expectedNNFileName);
+
+        Segment<double, int> samplesSegment(samples);
+        Segment<double, int> querySegment(queries);
+
+        for (int queryId : queryIdsInSegment) {
+            NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
+                    samples,
+                    loadedKDTree,
+                    querySegment.getPoint(queryId)
+            );
+
+            Point<double, int> expectedNN = samplesSegment.getPoint(expectedNNs[queryId]->getId());
+            double expectedDistance = expectedNNs[queryId]->getDistance();
+            EXPECT_EQ(expectedNN.getCoefficients(), nearestNeighbor->getPoint().getCoefficients());
+            EXPECT_NEAR(expectedDistance, nearestNeighbor->getEuclideanDistance(), 0.00001);
+        }
+    }
+
+    void runTests(const string &dataSet) {
+        runTest(dataSet, DimensionSelectorType::CYCLE_THROUGH_AXES, true);
+        runTest(dataSet, DimensionSelectorType::HIGHEST_RANGE_AXIS, true);
+        runTest(dataSet, DimensionSelectorType::HIGHEST_RANGE_AXIS, false);
+    }
+
     virtual void SetUp() {
         char cCurrentPath[FILENAME_MAX];
         getcwd(cCurrentPath, sizeof(cCurrentPath));
@@ -46,81 +111,6 @@ protected:
     string kdtreeFolder;
 };
 
-TEST_F(EndToEndTest, test_dummy_data) {
-
-    vector<string> dataSets {"dummy_data", "sample_data"};
-    vector<DimensionSelectorType> dimensionSelectors {
-        DimensionSelectorType::CYCLE_THROUGH_AXES,
-        DimensionSelectorType::HIGHEST_RANGE_AXIS,
-    };
-
-
-    for(string dataSet : dataSets) {
-
-        for (DimensionSelectorType dimensionSelectorType : dimensionSelectors) {
-
-            string samplesFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".csv";
-            string queriesFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".queries.csv";
-            string expectedNNFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".nn.csv";
-
-            Samples<double> samples = KDTreeIO<double, int>::loadSamples(samplesFileName);
-            int numSamples = samples.rows();
-            vector<int> sampleIdsInSegment(numSamples);
-            iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
-
-            int numNodes = KDTree<float, int>::getNumNodes(numSamples);
-
-            KDTree<double, int> kdTree(numNodes);
-            DataToBuildNodes<double, int> dataForIteration = DataToBuildNodes<double, int>(
-                    samples,
-                    sampleIdsInSegment,
-                    0,
-                    dimensionSelectorType,
-                    SplittingMethod::MEDIAN_OF_MEDIAN1,
-                    -1,
-                    &kdTree
-            );
-
-            string modelFileName = tmpnam(nullptr);
-            NodeBuilder<double, int>::build(dataForIteration);
-            KDTreeIO<double, int>::write(kdTree, modelFileName);
-            KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);
-
-            Samples<double> queries = KDTreeIO<double, int>::loadSamples(queriesFileName);
-            int numQueries = queries.rows();
-            vector<int> queryIdsInSegment(numQueries);
-            iota(begin(queryIdsInSegment), end(queryIdsInSegment), 0);
-
-            vector<NN *> expectedNNs = loadNN(expectedNNFileName);
-
-            Segment<double, int> samplesSegment(samples);
-            Segment<double, int> querySegment(queries);
-
-            for (int queryId : queryIdsInSegment) {
-                NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
-                        samples,
-                        loadedKDTree,
-                        querySegment.getPoint(queryId)
-                );
-
-                Point<double, int> expectedNN = samplesSegment.getPoint(expectedNNs[queryId]->getId());
-                double expectedDistance = expectedNNs[queryId]->getDistance();
-                EXPECT_EQ(expectedNN.getCoefficients(), nearestNeighbor->getPoint().getCoefficients());
-                EXPECT_NEAR(expectedDistance, nearestNeighbor->getEuclideanDistance(), 0.00001);
-            }
-
-////    vector<double> query {3.812286312667677590e-01,2.249309626074655899e-01,5.286729037289117361e-01};
-////    vector<double> query {4.021451295452648234e-01,5.366133364034287867e-01,5.365332178253696682e-01};
-//    vector<double> query {1.8,1};
-//    NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
-//        samples,
-//        loadedKDTree,
-//        query
-//    );
-//
-//    EXPECT_EQ(query, nearestNeighbor->getPoint().getCoefficients());
-//    EXPECT_NEAR(0, nearestNeighbor->getEuclideanDistance(), 0.00001);
-        }
-    }
-
-}
+TEST_F(EndToEndTest, test_dummy_data) { runTests("dummy_data"); }
+TEST_F(EndToEndTest, test_sample_data) { runTests("sample_data"); }
+TEST_F(EndToEndTest, test_test_5d) { runTests("test_5d"); }
