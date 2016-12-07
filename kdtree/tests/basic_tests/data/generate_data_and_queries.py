@@ -16,4 +16,5 @@ class Config(object):
             for r in range(self.num_queries): f.write(",".join(map(str, Q[r]))+"\n")
 
 if __name__ == '__main__':
-    Config(num_samples=10, num_queries=100, num_dimensions=2, dataset_name="test_5d").generate()
+    # Config(num_samples=1000, num_queries=5000, num_dimensions=5, dataset_name="test_5d").generate()
+    Config(num_samples=1000, num_queries=5000, num_dimensions=25, dataset_name="test_25d").generate()
