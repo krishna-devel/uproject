@@ -46,7 +46,9 @@ KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::convertString
     for(DimensionType nodeId = 0; nodeId < stringVector.size(); nodeId++) {
         string nodeString = stringVector[nodeId];
         Node<DataType, DimensionType> node = Node<DataType, DimensionType>::fromString(nodeString);
-        if (node.getType() == NodeType::INTERNAL) {
+        if (node.getType() == NodeType::EMPTY) {
+            kdTree.insertEmptyNode(nodeId);
+        } else if (node.getType() == NodeType::INTERNAL) {
             kdTree.insertInternalNode(
                 nodeId,
                 Split<DataType, DimensionType>(
@@ -139,9 +141,7 @@ template <typename DataType, typename DimensionType>
 void KDTreeIO<DataType, DimensionType>::write(
     const KDTree<DataType, DimensionType> &kdTree,
     const string &modelOutputFilePath
-) {
-    compressAndWriteStringVector(convertKDTreeToStringVector(kdTree), modelOutputFilePath);
-}
+) { compressAndWriteStringVector(convertKDTreeToStringVector(kdTree), modelOutputFilePath); }
 
 template <typename DataType, typename DimensionType>
 KDTree<DataType, DimensionType> KDTreeIO<DataType, DimensionType>::load(const string &modelFilePath) {

@@ -75,7 +75,15 @@ private:
 template <typename DataType, typename DimensionType>
 class KDTree {
 public:
-    KDTree(DimensionType numNodes) : numNodes(numNodes) { nodes.reserve(numNodes); }
+    KDTree(DimensionType numNodes) : numNodes(numNodes) {
+        nodes.reserve(numNodes);
+        for (int id = 0; id < numNodes; id++) {
+            insertEmptyNode(id);
+        }
+    }
+    void insertEmptyNode(const DimensionType nodeId) {
+        nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::EMPTY, nodeId);
+    }
     void insertLeafNode(const DimensionType nodeId, const DimensionType sampleId) {
         nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::LEAF, nodeId, sampleId);
     }

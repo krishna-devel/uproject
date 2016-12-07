@@ -10,7 +10,7 @@ using namespace std;
 class KDTestIOTest : public testing::Test {
 protected:
     virtual void SetUp() {
-        kdTree = new KDTree<float, int>(3);
+        kdTree = new KDTree<float, int>(7);
         splitPoint = new Point<float, int>(splitPointV);
         leftBounds = new Bounds<float, int>(maxPointV, minPointV);
         rightBounds = new Bounds<float, int>(maxPointV, minPointV);
@@ -39,7 +39,7 @@ TEST_F(KDTestIOTest, test_basics) {
     KDTreeIO<float, int>::write(*kdTree, fileName);
     KDTree<float, int> loadedKDTree = KDTreeIO<float, int>::load(fileName);
 
-    ASSERT_EQ(3, loadedKDTree.getNumNodes());
+    ASSERT_EQ(7, loadedKDTree.getNumNodes());
 
     ASSERT_EQ(NodeType::INTERNAL, loadedKDTree.getNode(0)->getType());
     ASSERT_EQ(NodeType::LEAF, loadedKDTree.getNode(1)->getType());

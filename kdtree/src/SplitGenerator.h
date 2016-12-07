@@ -100,7 +100,7 @@ public:
 
     DataType getSplitThreshold() const { return splitPoint.getCoefficients()[splitDimension]; }
 
-    const pair<DataType, DataType> &getDistancesFromSplits(const Point<DataType, DimensionType> &query) {
+    const pair<DataType, DataType> getDistancesFromSplits(const Point<DataType, DimensionType> &query) {
 
         vector<DataType> maxLeft = leftBounds.getMaxPoint().getCoefficients();
         vector<DataType> minLeft = leftBounds.getMinPoint().getCoefficients();

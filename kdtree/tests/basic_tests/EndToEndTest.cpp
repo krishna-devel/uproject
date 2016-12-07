@@ -74,9 +74,10 @@ TEST_F(EndToEndTest, test_dummy_data) {
                 &kdTree
         );
 
+        string modelFileName = tmpnam(nullptr);
         NodeBuilder<double, int>::build(dataForIteration);
-
-//    KDTreeIO<double, int>::write(kdTree, "output_kd_tree");
+        KDTreeIO<double, int>::write(kdTree, modelFileName);
+        KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);
 
         Samples<double> queries = KDTreeIO<double, int>::loadSamples(queriesFileName);
         int numQueries = queries.rows();
@@ -91,7 +92,7 @@ TEST_F(EndToEndTest, test_dummy_data) {
         for (int queryId : queryIdsInSegment) {
             NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
                     samples,
-                    kdTree,
+                    loadedKDTree,
                     querySegment.getPoint(queryId)
             );
 
@@ -106,7 +107,7 @@ TEST_F(EndToEndTest, test_dummy_data) {
 //    vector<double> query {1.8,1};
 //    NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
 //        samples,
-//        kdTree,
+//        loadedKDTree,
 //        query
 //    );
 //
