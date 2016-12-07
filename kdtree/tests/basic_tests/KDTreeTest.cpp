@@ -23,13 +23,13 @@ protected:
 };
 
 TEST_F(NodeAndKDTreeTest, test_leaf_node) {
-    Node<float, int> node (NodeType::LEAF, 10);
+    Node<float, int> node (NodeType::LEAF, 1, 10);
     ASSERT_EQ(NodeType::LEAF, node.getType());
     ASSERT_EQ(10, node.getSampleId());
 }
 
 TEST_F(NodeAndKDTreeTest, test_internal_node) {
-    Node<float, int> node (NodeType::INTERNAL, *dimensionWithSplitInfo);
+    Node<float, int> node (NodeType::INTERNAL, 1, *dimensionWithSplitInfo);
     ASSERT_EQ(NodeType::INTERNAL, node.getType());
     ASSERT_EQ(1, node.getSplit()->getSplitDimension());
     ASSERT_EQ(4.0, node.getSplit()->getSplitThreshold());
@@ -78,18 +78,28 @@ TEST_F(NodeAndKDTreeTest, test_inserting_nodes) {
     ASSERT_EQ(1, kdTree.getNode(2)->getSampleId());
 }
 
+TEST_F(NodeAndKDTreeTest, test_string_serilization_empty_node) {
+    Node<float, int> node1 (NodeType::EMPTY, 1);
+    Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
+    ASSERT_EQ(NodeType::EMPTY, node2.getType());
+    ASSERT_EQ(1, node2.getId());
+    EXPECT_FALSE(node2.getSplit());
+}
+
 TEST_F(NodeAndKDTreeTest, test_string_serilization_leaf_node) {
-    Node<float, int> node1 (NodeType::LEAF, 10);
+    Node<float, int> node1 (NodeType::LEAF, 1, 10);
     Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
     ASSERT_EQ(NodeType::LEAF, node2.getType());
+    ASSERT_EQ(1, node2.getId());
     ASSERT_EQ(10, node2.getSampleId());
     EXPECT_FALSE(node2.getSplit());
 }
 
 TEST_F(NodeAndKDTreeTest, test_string_serilization_internal_node) {
-    Node<float, int> node1 (NodeType::INTERNAL, *dimensionWithSplitInfo);
+    Node<float, int> node1 (NodeType::INTERNAL, 1, *dimensionWithSplitInfo);
     Node<float, int> node2 = Node<float, int>::fromString(node1.toString());
     ASSERT_EQ(NodeType::INTERNAL, node2.getType());
+    ASSERT_EQ(1, node2.getId());
     ASSERT_EQ(-1, node2.getSampleId());
     ASSERT_EQ(1, node2.getSplit()->getSplitDimension());
     ASSERT_EQ(4.0, node2.getSplit()->getSplitThreshold());

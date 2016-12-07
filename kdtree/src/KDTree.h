@@ -10,6 +10,7 @@
 using namespace std;
 
 enum NodeType {
+    EMPTY,
     INTERNAL,
     LEAF
 };
@@ -17,8 +18,9 @@ enum NodeType {
 template <typename DataType, typename DimensionType>
 class Node {
 public:
-    Node(NodeType type, DimensionType sampleId) : type(type), sampleId(sampleId) {}
-    Node(NodeType type, const Split<DataType, DimensionType> &_split) : type(type) {
+    Node(NodeType type, DimensionType id) : type(type), id(id) {}
+    Node(NodeType type, DimensionType id, DimensionType sampleId) : type(type), id(id), sampleId(sampleId) {}
+    Node(NodeType type, DimensionType id, const Split<DataType, DimensionType> &_split) : type(type), id(id) {
        split =
            unique_ptr<Split<DataType, DimensionType>> (
                new Split<DataType, DimensionType>(
@@ -36,6 +38,7 @@ public:
     string toString() {
         map<string, string> m;
         m["type"] = to_string(type);
+        m["id"] = to_string(id);
         m["sampleId"] = to_string(sampleId);
         if (split) {
             m["split"] = split->toString();
@@ -49,15 +52,22 @@ public:
         map<string, string> m = Util::convertStringToMap(objectStr, ":no:", ";no;");
         int typeInt = stoi(m["type"]);
         if (typeInt == 0) {
+            DimensionType id = stol(m["id"]);
+            return Node<DataType, DimensionType>(NodeType::EMPTY, id);
+        } else if (typeInt == 1) {
             Split<DataType, DimensionType> split = Split<DataType, DimensionType>::fromString(m["split"]);
-            return Node<DataType, DimensionType>(NodeType::INTERNAL, split);
+            DimensionType id = stol(m["id"]);
+            return Node<DataType, DimensionType>(NodeType::INTERNAL, id, split);
         } else {
             DimensionType sampleId = stol(m["sampleId"]);
-            return Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
+            DimensionType id = stol(m["id"]);
+            return Node<DataType, DimensionType>(NodeType::LEAF, id, sampleId);
         }
     };
+    DimensionType getId() const { return id; }
 private:
     NodeType type;
+    DimensionType id;
     DimensionType sampleId = -1;
     unique_ptr<Split<DataType, DimensionType>> split;
 };
@@ -67,13 +77,13 @@ class KDTree {
 public:
     KDTree(DimensionType numNodes) : numNodes(numNodes) { nodes.reserve(numNodes); }
     void insertLeafNode(const DimensionType nodeId, const DimensionType sampleId) {
-        nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::LEAF, sampleId);
+        nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::LEAF, nodeId, sampleId);
     }
     void insertInternalNode(
         const DimensionType nodeId,
         const Split<DataType, DimensionType> &dimensionWithSplitInfo
     ) {
-        nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, dimensionWithSplitInfo);
+        nodes[nodeId] = new Node<DataType, DimensionType>(NodeType::INTERNAL, nodeId, dimensionWithSplitInfo);
         int a = 1;
     }
     Node<DataType, DimensionType> *getNode(const DimensionType nodeId) const { return nodes[nodeId]; };
@@ -86,6 +96,10 @@ public:
         const KDTree<DataType, DimensionType> &kdtree,
         const Point<DataType, DimensionType> &query
     );
+    static DimensionType getNumNodes(const DimensionType numSamples) {
+        int numLeaves = pow(2, floor(log2(numSamples)) + 1);
+        return numLeaves*2 - 1;
+    }
 private:
     const DimensionType numNodes;
     vector<Node<DataType, DimensionType>*> nodes;

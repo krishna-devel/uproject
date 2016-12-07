@@ -1,6 +1,6 @@
 import numpy as np
 
-dataName = "sample_data"
+dataName = "sample_data_smaller"
 # dataName = "dummy_data"
 
 samplesFileName = "%s.csv"%dataName

@@ -164,7 +164,40 @@ TEST(BoundsTest, test_distance_from_point) {
 
     vector<float> point3 {4, 4};
     EXPECT_NEAR(8, bounds.distanceFromPoint(point3), 0.001);
+}
 
+TEST(SplitTest, test_getDistancesFromSplits) {
 
-//    vector<float> point {1.0};
+    vector<float> splitPoint {0, 0};
+
+    vector<float> minLeft {-4, 0};
+    vector<float> maxLeft {-1, 4};
+
+    vector<float> minRight {1, 0};
+    vector<float> maxRight {4, 4};
+
+    Bounds<float, int> leftBounds (maxLeft, minLeft);
+    Bounds<float, int> rightBounds (maxRight, minRight);
+
+    Split<float, int> split (0, splitPoint, leftBounds, rightBounds);
+
+    vector<float> query1 = {-2, 2};
+    pair<float, float> distances1 = split.getDistancesFromSplits(query1);
+    EXPECT_NEAR(0, distances1.first, 0.001);
+    EXPECT_NEAR(4, distances1.second, 0.001);
+
+    vector<float> query2 = {2, 2};
+    pair<float, float> distances2 = split.getDistancesFromSplits(query2);
+    EXPECT_NEAR(4, distances2.first, 0.001);
+    EXPECT_NEAR(0, distances2.second, 0.001);
+
+    vector<float> query3 = {0, 0};
+    pair<float, float> distances3 = split.getDistancesFromSplits(query3);
+    EXPECT_NEAR(0, distances3.first, 0.001);
+    EXPECT_NEAR(0, distances3.second, 0.001);
+
+    vector<float> query4 = {0, -1};
+    pair<float, float> distances4 = split.getDistancesFromSplits(query4);
+    EXPECT_NEAR(1, distances4.first, 0.001);
+    EXPECT_NEAR(1, distances4.second, 0.001);
 }

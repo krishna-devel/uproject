@@ -72,8 +72,10 @@ void KDTreeIO<DataType, DimensionType>::compressAndWriteStringVector(
     string stringToWrite;
     for (string s : stringVector) {
         stringToWrite += (s + "bGh88wY3vm2sebBYc");
+//        stringToWrite += (s + "\n");
     }
     Util::writeBinaryFile(outputFilePath, Util::compress(stringToWrite));
+//    Util::writeBinaryFile(outputFilePath, stringToWrite);
 }
 
 template <typename DataType, typename DimensionType>
@@ -121,7 +123,7 @@ Samples<DataType> KDTreeIO<DataType, DimensionType>::loadSamples(const string &m
         }
         DimensionType numSamples = items.size();
         DimensionType numDimensions = items[0].size();
-        Samples<float> samples {numSamples, numDimensions};
+        Samples<DataType> samples {numSamples, numDimensions};
         for(int i = 0; i < numSamples; i++) {
             for(int j = 0; j < numDimensions; j++) {
                 samples(i, j) = items[i][j];
