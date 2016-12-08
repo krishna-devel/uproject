@@ -110,21 +110,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BuildKDTree.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/QueryKDTree.cpp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/basic_tests/data/test_5d.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/basic_tests/data/test_5d.nn.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/basic_tests/data/test_5d.queries.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CMakeLists.txt" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" afterPath="$PROJECT_DIR$/tests/basic_tests/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/EndToEndTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/EndToEndTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/data/generate_data_and_queries.py" afterPath="$PROJECT_DIR$/tests/basic_tests/data/generate_data_and_queries.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/data/generate_nn.py" afterPath="$PROJECT_DIR$/tests/basic_tests/data/generate_nn.py" />
-    </list>
+    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="" />
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,8 +142,8 @@
       <file leaf-file-name="BuildKDTree.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BuildKDTree.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="70" column="54" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+            <state relative-caret-position="571">
+              <caret line="70" column="43" lean-forward="false" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -1206,7 +1192,7 @@
       <workItem from="1480724599839" duration="1643000" />
       <workItem from="1480736411281" duration="71941000" />
       <workItem from="1481000993883" duration="20329000" />
-      <workItem from="1481061513366" duration="43041000" />
+      <workItem from="1481061513366" duration="43228000" />
     </task>
     <servers />
   </component>
@@ -1243,7 +1229,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="515980000" />
+    <option name="totallyTimeSpent" value="516167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1763,8 +1749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BuildKDTree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="70" column="54" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+        <state relative-caret-position="571">
+          <caret line="70" column="43" lean-forward="false" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
