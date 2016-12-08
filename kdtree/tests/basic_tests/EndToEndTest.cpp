@@ -113,5 +113,5 @@ protected:
 
 TEST_F(EndToEndTest, test_dummy_data) { runTests("dummy_data"); }
 TEST_F(EndToEndTest, test_sample_data) { runTests("sample_data"); }
-TEST_F(EndToEndTest, test_test_5d) { runTests("test_5d"); }
-TEST_F(EndToEndTest, test_test_25d) { runTests("test_25d"); }
+//TEST_F(EndToEndTest, test_test_25d) { runTests("test_25d"); }
+//TEST_F(EndToEndTest, test_test_50K) { runTests("test_50K"); }

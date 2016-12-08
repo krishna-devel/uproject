@@ -262,70 +262,101 @@
 //    return 0;
 //}
 
-
-#include "tbb/concurrent_queue.h"
 #include <iostream>
-#include <vector>
-#include "tbb/tbb.h"
-#include "tbb/parallel_do.h"
-//#include "tbb/concurrent_queue.h"
+#include <boost/program_options.hpp>
 
 using namespace std;
-using namespace tbb;
+using namespace boost;
+namespace po = boost::program_options;
 
+int main(int ac, char* av[]) {
+    po::options_description desc("Allowed options");
+    desc.add_options()
+            ("help", "produce help message")
+            ("compression", po::value<int>(), "set compression level")
+            ;
 
-class S {
-public:
-    S(
-        const int i, int j, vector<int> input, vector<int> *output, concurrent_vector<int> *output2
-    ) : i(i), j(j), input(input), output(output), output2(output2) {}
-    const int getI() const { return i; }
-    int getJ() const { return j; }
-    vector<int> getInput() const { return input; }
-    vector<int> *getOutput() const { return output; }
-    concurrent_vector<int> *getOutput2() const { return output2; }
+    po::variables_map vm;
+    po::store(po::parse_command_line(ac, av, desc), vm);
+    po::notify(vm);
 
-private:
-    const int i;
-    int j;
-    vector<int> input;
-    vector<int> *output;
-    concurrent_vector<int> *output2;
-};
-
-class ApplyFoo {
-public:
-//    static vector<int> list;
-    void operator()(S s, parallel_do_feeder<S>& feeder) const {
-        cout << s.getJ() << ", ";
-        s.getOutput()->push_back(s.getI());
-        s.getOutput2()->push_back(-13);
-        if (s.getJ()+1 < 10) {
-            S newS(s.getI(), s.getJ()+1, *s.getOutput(), s.getOutput(), s.getOutput2());
-            feeder.add(newS);
-        }
+    if (vm.count("help")) {
+        cout << desc << "\n";
+        return 1;
     }
-};
 
-//vector<int> ApplyFoo::list = vector<int> {1,2,3};
-
-int main() {
-    vector<int> *v = new vector<int>();
-    concurrent_vector<int> *output2 = new concurrent_vector<int>();
-    vector<int> *v2 = new vector<int> {1,2,3};
-    S s (-1, 0, *v2, v, output2);
-    vector<S> list {s};
-    parallel_do( list.begin(), list.end(), ApplyFoo() );
-    for (int i : *v) {
-        cout << i << endl;
+    if (vm.count("compression")) {
+        cout << "Compression level was set to "
+             << vm["compression"].as<int>() << ".\n";
+    } else {
+        cout << "Compression level was not set.\n";
     }
-    int i = -1;
-//    while(output2->try_pop(i)) {
-    for(int i : *output2) {
-        cout << i << endl;
-    }
-    cout << v->size() << endl;
 }
+
+//#include "tbb/concurrent_queue.h"
+//#include <iostream>
+//#include <vector>
+//#include "tbb/tbb.h"
+//#include "tbb/parallel_do.h"
+////#include "tbb/concurrent_queue.h"
+//
+//using namespace std;
+//using namespace tbb;
+//
+//
+//
+//class S {
+//public:
+//    S(
+//        const int i, int j, vector<int> input, vector<int> *output, concurrent_vector<int> *output2
+//    ) : i(i), j(j), input(input), output(output), output2(output2) {}
+//    const int getI() const { return i; }
+//    int getJ() const { return j; }
+//    vector<int> getInput() const { return input; }
+//    vector<int> *getOutput() const { return output; }
+//    concurrent_vector<int> *getOutput2() const { return output2; }
+//
+//private:
+//    const int i;
+//    int j;
+//    vector<int> input;
+//    vector<int> *output;
+//    concurrent_vector<int> *output2;
+//};
+//
+//class ApplyFoo {
+//public:
+////    static vector<int> list;
+//    void operator()(S s, parallel_do_feeder<S>& feeder) const {
+//        cout << s.getJ() << ", ";
+//        s.getOutput()->push_back(s.getI());
+//        s.getOutput2()->push_back(-13);
+//        if (s.getJ()+1 < 10) {
+//            S newS(s.getI(), s.getJ()+1, *s.getOutput(), s.getOutput(), s.getOutput2());
+//            feeder.add(newS);
+//        }
+//    }
+//};
+//
+////vector<int> ApplyFoo::list = vector<int> {1,2,3};
+//
+//int main() {
+//    vector<int> *v = new vector<int>();
+//    concurrent_vector<int> *output2 = new concurrent_vector<int>();
+//    vector<int> *v2 = new vector<int> {1,2,3};
+//    S s (-1, 0, *v2, v, output2);
+//    vector<S> list {s};
+//    parallel_do( list.begin(), list.end(), ApplyFoo() );
+//    for (int i : *v) {
+//        cout << i << endl;
+//    }
+//    int i = -1;
+////    while(output2->try_pop(i)) {
+//    for(int i : *output2) {
+//        cout << i << endl;
+//    }
+//    cout << v->size() << endl;
+//}
 
 //int main() {
 //    concurrent_queue<int> queue;

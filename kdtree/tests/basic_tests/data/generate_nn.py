@@ -1,8 +1,9 @@
 import numpy as np
 
 # dataName = "dummy_data"
-# dataName = "test_5d"
-dataName = "test_25d"
+# dataName = "sample_data"
+# dataName = "test_25d"
+dataName = "test_50K"
 
 samplesFileName = "%s.csv"%dataName
 queriesFileName = "%s.queries.csv"%dataName

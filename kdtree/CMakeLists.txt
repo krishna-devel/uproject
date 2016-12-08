@@ -8,35 +8,16 @@ add_executable(kdtree_run ${SOURCE_FILES})
 
 include_directories(src)
 include_directories(include)
-
-#list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
-#find_package(TBB COMPONENTS tbbmalloc tbbmalloc_proxy REQUIRED)
-#set(TBB_INCLUDE_DIRS "${TBB_ROOT_DIR}include")
-##set(TBB_LIBRARIES "${TBB_ROOT_DIR}lib")
-#include_directories(${TBB_INCLUDE_DIRS})
-#add_definitions(${TBB_DEFINITIONS})
-
 include_directories(lib/tbb/include/)
-
-
 
 add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(lib/tbb)
 
-find_package( Boost COMPONENTS system filesystem iostreams REQUIRED )
+find_package( Boost COMPONENTS system filesystem iostreams program_options REQUIRED )
 if ( Boost_FOUND )
     include_directories( ${Boost_INCLUDE_DIRS} )
     target_link_libraries(kdtree_run ${Boost_LIBRARIES} )
 endif( Boost_FOUND )
 
-#find_package (Threads)
-#target_link_libraries(kdtree_run ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(kdtree_run tbb)
-
-
-#if ($ENV{CLION_IDE})
-#    message("Call cmake command from the CLion IDE")
-#    set(CALENDAR_PATH_VAR "test")
-#    set(CALENDAR_DIR_VAR "test")
-#endif ()
