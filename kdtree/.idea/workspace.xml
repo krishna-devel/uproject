@@ -111,9 +111,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NodeBuilder.h" afterPath="$PROJECT_DIR$/src/NodeBuilder.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/EndToEndTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/EndToEndTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" afterPath="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Segment.h" afterPath="$PROJECT_DIR$/src/Segment.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SplitGenerator.h" afterPath="$PROJECT_DIR$/src/SplitGenerator.h" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -133,13 +132,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SplitGenerator.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SplitGenerator.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
               <folding>
-                <element signature="e#65#82#0" expanded="true" />
+                <marker date="1481246466000" expanded="false" signature="133:185" ph="&lt;DataType,DimensionType&gt;" />
+                <marker date="1481246466000" expanded="true" signature="201:3828" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="588:794" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="869:1265" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="1369:2612" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="2701:3719" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="3896:6727" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="4480:5185" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="5209:5519" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="5591:6185" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="6807:7303" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="7327:7363" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="7440:10030" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="7673:8741" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="8959:9173" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="9714:10027" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="10266:10897" ph="{...}" />
+                <marker date="1481246466000" expanded="true" signature="11145:12062" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -172,11 +188,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Segment.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Segment.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Segment.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1214">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="211">
+              <caret line="172" column="4" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -195,8 +211,8 @@
       <file leaf-file-name="SegmentSplitter.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="45">
+              <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -325,7 +341,6 @@
         <option value="$PROJECT_DIR$/tests/basic_tests/UtilTest.cpp" />
         <option value="$PROJECT_DIR$/lib/tbb/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/Segment.h" />
         <option value="$PROJECT_DIR$/tests/basic_tests/NodeBuilderTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/KDTreeExplorerTest.cpp" />
         <option value="$PROJECT_DIR$/tests/basic_tests/data/dummy_data_nn.csv" />
@@ -349,10 +364,11 @@
         <option value="$PROJECT_DIR$/src/KDTree.cpp" />
         <option value="$PROJECT_DIR$/src/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/KDTreeIO.h" />
-        <option value="$PROJECT_DIR$/src/SplitGenerator.h" />
         <option value="$PROJECT_DIR$/src/KDTreeExplorer.h" />
         <option value="$PROJECT_DIR$/src/KDTree.h" />
         <option value="$PROJECT_DIR$/src/NodeBuilder.h" />
+        <option value="$PROJECT_DIR$/src/SplitGenerator.h" />
+        <option value="$PROJECT_DIR$/src/Segment.h" />
       </list>
     </option>
   </component>
@@ -1255,7 +1271,7 @@
       <workItem from="1480724599839" duration="1643000" />
       <workItem from="1480736411281" duration="71941000" />
       <workItem from="1481000993883" duration="20329000" />
-      <workItem from="1481061513366" duration="49233000" />
+      <workItem from="1481061513366" duration="49266000" />
     </task>
     <servers />
   </component>
@@ -1292,7 +1308,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="522172000" />
+    <option name="totallyTimeSpent" value="522205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1717,14 +1733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Util.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1766,14 +1774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Segment.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1214">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DimensionSelector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1784,11 +1784,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SplitGenerator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding>
-            <element signature="e#65#82#0" expanded="true" />
+            <marker date="1481246466000" expanded="false" signature="133:185" ph="&lt;DataType,DimensionType&gt;" />
+            <marker date="1481246466000" expanded="true" signature="201:3828" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="588:794" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="869:1265" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="1369:2612" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="2701:3719" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="3896:6727" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="4480:5185" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="5209:5519" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="5591:6185" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="6807:7303" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="7327:7363" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="7440:10030" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="7673:8741" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="8959:9173" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="9714:10027" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="10266:10897" ph="{...}" />
+            <marker date="1481246466000" expanded="true" signature="11145:12062" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SegmentSplitter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Segment.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="172" column="4" lean-forward="true" selection-start-line="172" selection-start-column="4" selection-end-line="172" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

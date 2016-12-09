@@ -163,4 +163,84 @@ private:
     const Segment<DataType, DimensionType> segmentGreaterThanThreshold;
 };
 
+template <typename DataType, typename DimensionType>
+class Bounds {
+public:
+    Bounds(
+        const Point<DataType, DimensionType> &maxPoint,
+        const Point<DataType, DimensionType> &minPoint
+    ) : maxPoint(maxPoint), minPoint(minPoint) {}
+    const Point<DataType, DimensionType> &getMaxPoint() const { return maxPoint; }
+    const Point<DataType, DimensionType> &getMinPoint() const { return minPoint; }
+    string toString() {
+        map<string, string> m;
+        m["maxPoint"] = maxPoint.toString();
+        m["minPoint"] = minPoint.toString();
+        return Util::convertMapToString(m, ":bounds:", ";bounds;");
+    }
+    static Bounds<DataType, DimensionType> fromString(string objectStr) {
+        map<string, string> m = Util::convertStringToMap(objectStr, ":bounds:", ";bounds;");
+        Point<DataType, DimensionType> maxPoint = Point<DataType, DimensionType>::fromString(m["maxPoint"]);
+        Point<DataType, DimensionType> minPoint = Point<DataType, DimensionType>::fromString(m["minPoint"]);
+        return Bounds<DataType, DimensionType>(maxPoint, minPoint);
+    }
+    static Bounds<DataType, DimensionType> generate(const Segment<DataType, DimensionType> &segment) {
+        DimensionType numDimensions = segment.getNumDimensions();
+        const Samples<DataType> &samples = segment.getSamples();
+        const SampleIdsInSegment<DimensionType> &sampleIdsInSegment = segment.getSampleIdsInSegment();
+
+        vector<DataType> maxValues (numDimensions);
+        vector<DataType> minValues (numDimensions);
+
+        for (DimensionType d = 0; d < numDimensions; d++) {
+            maxValues[d] = samples(sampleIdsInSegment[0], d);
+            minValues[d] = samples(sampleIdsInSegment[0], d);
+        }
+
+        for (DimensionType r = 1; r < sampleIdsInSegment.size(); r++) {
+            for (DimensionType d = 0; d < numDimensions; d++) {
+                if (maxValues[d] < samples(sampleIdsInSegment[r],d)) {
+                    maxValues[d] = samples(sampleIdsInSegment[r],d);
+                }
+                if (minValues[d] > samples(sampleIdsInSegment[r],d)) {
+                    minValues[d] = samples(sampleIdsInSegment[r],d);
+                }
+            }
+        }
+
+        return Bounds<DataType, DimensionType>(
+                Point<DataType, DimensionType>(maxValues),
+                Point<DataType, DimensionType>(minValues)
+        );
+    };
+
+    DataType distanceFromPoint(const Point<DataType, DimensionType> &point) const {
+        vector<DataType> pointCoefficients = point.getCoefficients();
+        vector<DataType> maxCoefficients = this->maxPoint.getCoefficients();
+        vector<DataType> minCoefficients = this->minPoint.getCoefficients();
+        vector<DimensionType> indices(pointCoefficients.size());
+        iota(begin(indices), end(indices), 0);
+
+        DataType distance = 0.0;
+        for (DimensionType index: indices) {
+            DataType coefficient = pointCoefficients[index];
+            DataType maxCoefficient = maxCoefficients[index];
+            DataType minCoefficient = minCoefficients[index];
+            if (minCoefficient > coefficient) {
+                DataType diff = (minCoefficient - coefficient);
+                distance += (diff * diff);
+            } else if (maxCoefficient < coefficient) {
+                DataType diff = (coefficient - maxCoefficient);
+                distance += (diff * diff);
+            }
+        }
+
+        return distance;
+    }
+private:
+    Point<DataType, DimensionType> maxPoint;
+    Point<DataType, DimensionType> minPoint;
+};
+
+
 #endif //KDTREE_SEGMENT_H
