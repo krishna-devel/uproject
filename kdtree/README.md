@@ -15,7 +15,9 @@ This document
 - Running the binaries
 
 ------------------------------------------------
+------------------------------------------------
 Software requirements
+------------------------------------------------
 ------------------------------------------------
 There are 2 ways to run this environment for running the project:
 1. Use the docker image that was built from Ubuntu's docker image for 14.04 (https://hub.docker.com/_/ubuntu/).
