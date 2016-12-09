@@ -14,18 +14,17 @@ This document
 - Running tests
 - Running the binaries
 
-------------------------------------------------
-------------------------------------------------
-Software requirements
-------------------------------------------------
-------------------------------------------------
+########################
+# Software requirements
+########################
+
 There are 2 ways to run this environment for running the project:
 1. Use the docker image that was built from Ubuntu's docker image for 14.04 (https://hub.docker.com/_/ubuntu/).
 This is the easiest way to get the code running.
 2. Install all the software required and get the code from github (or submitted tar.gz file).
 
-Option 1: Docker image
-----------------------
+### Option 1: Docker image
+
 - To install docker follow the instructions on https://docs.docker.com/engine/installation/
 - The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:uber_project
   You can get it running the following command:
