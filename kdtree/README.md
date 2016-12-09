@@ -23,6 +23,7 @@ This is the easiest way to get the code running.
 2. Install all the software required and get the code from github (or submitted tar.gz file).
 
 Option 1: Docker image
+----------------------
 - To install docker follow the instructions on https://docs.docker.com/engine/installation/
 - The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:uber_project
   You can get it running the following command:
@@ -31,8 +32,8 @@ Option 1: Docker image
     $ docker run -v <PATH_TO_TEST_DATASETS>:/kdtree/data -it kykamath/ubuntu_14_04:uber_project
     ```
 
-  Replace `PATH_TO_TEST`DATASETS` with the location of the folder containing the datasets agains which you want to
-  this kd-tree code. If you just want to run the code against some of the test datasets I have included then just
+  Replace `PATH_TO_TEST_DATASETS` with the location of the folder containing the datasets with which you want to
+  test the kd-tree code. If you just want to run the code against some of the test datasets I have included then
   running this command is sufficient:
 
     ```
