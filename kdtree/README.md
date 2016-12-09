@@ -32,19 +32,19 @@ Option 1: Docker image
   Replace PATH_TO_TEST_DATASETS with the location of the folder containing the datasets agains which you want to
   this kd-tree code. If you just want to run the code against some of the test datasets I have included then just
   running this command is sufficient:
-
+    ```
     $ docker run -it kykamath/ubuntu_14_04:uber_project
-
+    ```
   Once you run either of these commands you will land on a terminal prompt similar to this:
-
+    ```
     root@1e822aecd4b1:/#
-
+    ```
   The code and datasets to test (if you ran the first docker command) are inside the /kdtree folder. The
   datasets are inside the folder named data
-
+    ```
     root@1e822aecd4b1:/# ls /kdtree
     CMakeLists.txt  bin  build  cmake-build-debug  data  include  lib  main.cpp  src  tests
-
+    ```
 
 
 
