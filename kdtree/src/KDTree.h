@@ -145,10 +145,4 @@ private:
     vector<Node<DataType, DimensionType>*> nodes;
 };
 
-template <typename DataType, typename DimensionType>
-class KDTreeHandler {
-    
-};
-
-
 #endif //KDTREE_BINARYTREE_H

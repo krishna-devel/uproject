@@ -1,7 +1,6 @@
 #include <iostream>
 #include <boost/program_options.hpp>
-#include <SplitDimensionSelector.h>
-#include <SplitPointSelector.h>
+#include "KDTreeHandler.h"
 
 using namespace std;
 using namespace boost;
@@ -77,13 +76,17 @@ int main(int argc, char* argv[]) {
 
         cout << "Building kd-tree..." << endl;
 
-        duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-        for (int i = 0; i <=1000000; i++){
-
-        }
+        KDTreeHandler<double, long>::buildKDTree(
+            inputSampleDataset,
+            outputModelFilename,
+            dimensionSelectorType,
+            splittingMethod,
+            parallelExecution
+        );
 
         cout << "Writing model to: " << outputModelFilename << endl;
 
+        duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
         cout<<"Model was built in "<< duration << " seconds." << endl;
 
     } catch(std::exception& e) {

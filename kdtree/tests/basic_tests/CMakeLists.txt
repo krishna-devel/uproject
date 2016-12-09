@@ -10,7 +10,7 @@ add_executable(runTests
         KDTreeIOTest.cpp
         UtilTest.cpp
         SplitPointSelectorTest.cpp
-        EndToEndTest.cpp )
+        KDTreeHandlerTest.cpp)
 
 target_link_libraries(runTests gmock gtest gtest_main)
 target_link_libraries(runTests src)

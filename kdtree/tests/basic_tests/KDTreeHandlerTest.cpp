@@ -1,7 +1,6 @@
 #include <gmock/gmock.h>
 
-#include "KDTreeBuilder.h"
-#include "KDTreeIO.h"
+#include "KDTreeHandler.h"
 #include "KDTreeExplorer.h"
 
 class NN {
@@ -14,7 +13,7 @@ public:
     const double getDistance() const { return distance; }
 };
 
-class EndToEndTest : public testing::Test {
+class KDTreeHandlerTest : public testing::Test {
 protected:
 
     vector<NN *> loadNN(const string &fileName) {
@@ -42,32 +41,42 @@ protected:
         string expectedNNFileName = kdtreeFolder + "/tests/basic_tests/data/" + dataSet + ".nn.csv";
 
         Samples<double> samples = KDTreeIO<double, int>::loadSamples(samplesFileName);
-        int numSamples = samples.rows();
-        vector<int> sampleIdsInSegment(numSamples);
-        iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
-
-        int numNodes = KDTree<float, int>::getNumNodes(numSamples);
-
-        KDTree<double, int> kdTree(numNodes);
-        DataToBuildNodes<double, int> dataForIteration = DataToBuildNodes<double, int>(
-                samples,
-                sampleIdsInSegment,
-                0,
-                dimensionSelectorType,
-                SplittingMethod::MEDIAN_OF_MEDIAN,
-                -1,
-                &kdTree
-        );
+//        int numSamples = samples.rows();
+//        vector<int> sampleIdsInSegment(numSamples);
+//        iota(begin(sampleIdsInSegment), end(sampleIdsInSegment), 0);
+//
+//        int numNodes = KDTree<float, int>::getNumNodes(numSamples);
+//
+//        KDTree<double, int> kdTree(numNodes);
+//        DataToBuildNodes<double, int> dataForIteration = DataToBuildNodes<double, int>(
+//                samples,
+//                sampleIdsInSegment,
+//                0,
+//                dimensionSelectorType,
+//                SplittingMethod::MEDIAN_OF_MEDIAN,
+//                -1,
+//                &kdTree
+//        );
 
         // Test building, writing and loading of trees
         string modelFileName = tmpnam(nullptr);
-        if (parallel) {
-            KDTreeBuilder<double, int>::buildInParallel(dataForIteration);
-        }
-        else {
-            KDTreeBuilder<double, int>::buildUsingRecursion(dataForIteration);
-        }
-        KDTreeIO<double, int>::write(kdTree, modelFileName);
+//        if (parallel) {
+//            KDTreeBuilder<double, int>::buildInParallel(dataForIteration);
+//        }
+//        else {
+//            KDTreeBuilder<double, int>::buildUsingRecursion(dataForIteration);
+//        }
+//        KDTreeIO<double, int>::write(kdTree, modelFileName);
+
+        KDTreeHandler<double, long>::buildKDTree(
+                samplesFileName,
+                modelFileName,
+                dimensionSelectorType,
+                SplittingMethod::MEDIAN_OF_MEDIAN,
+                parallel
+        );
+
+
         KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);
 
         // Test NN search on built tree
@@ -111,7 +120,7 @@ protected:
     string kdtreeFolder;
 };
 
-TEST_F(EndToEndTest, test_dummy_data) { runTests("dummy_data"); }
-TEST_F(EndToEndTest, test_sample_data) { runTests("sample_data"); }
-//TEST_F(EndToEndTest, test_test_25d) { runTests("test_25d"); }
-//TEST_F(EndToEndTest, test_test_50K) { runTests("test_50K"); }
+TEST_F(KDTreeHandlerTest, test_dummy_data) { runTests("dummy_data"); }
+TEST_F(KDTreeHandlerTest, test_sample_data) { runTests("sample_data"); }
+//TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
+TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }

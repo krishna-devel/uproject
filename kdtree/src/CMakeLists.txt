@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 set(SOURCE_FILES KDTree.cpp)
 
 set(BUILD_KDTREE_SOURCE_FILES
-        BuildKDTree.cpp)
+        BuildKDTree.cpp KDTreeHandler.h)
 
 set(QUERY_KDTREE_SOURCE_FILES
         QueryKDTree.cpp)
@@ -22,7 +22,7 @@ set(HEADER_FILES
         KDTreeIO.h
         Util.h
         SplitPointSelector.h
-        KDTreeExplorer.h)
+        KDTreeExplorer.h KDTreeHandler.h)
 
 add_executable(build_kdtree ${BUILD_KDTREE_SOURCE_FILES})
 add_executable(query_kdtree ${QUERY_KDTREE_SOURCE_FILES})
@@ -35,3 +35,5 @@ if ( Boost_FOUND )
 endif( Boost_FOUND )
 
 add_library(src STATIC ${SOURCE_FILES} ${HEADER_FILES})
+
+target_link_libraries(build_kdtree tbb)
