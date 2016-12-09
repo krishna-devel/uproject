@@ -31,7 +31,7 @@ Option 1: Docker image
     $ docker run -v <PATH_TO_TEST_DATASETS>:/kdtree/data -it kykamath/ubuntu_14_04:uber_project
     ```
 
-  Replace PATH_TO_TEST_DATASETS with the location of the folder containing the datasets agains which you want to
+  Replace `PATH_TO_TEST`DATASETS` with the location of the folder containing the datasets agains which you want to
   this kd-tree code. If you just want to run the code against some of the test datasets I have included then just
   running this command is sufficient:
 
