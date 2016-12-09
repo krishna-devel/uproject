@@ -53,14 +53,14 @@ private:
 };
 
 template <typename DataType, typename DimensionType>
-class NodeBuilder {
+class KDTreeBuilder {
 public:
     static void buildUsingRecursion(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
     static void buildInParallel(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::buildUsingRecursion(
+void KDTreeBuilder<DataType, DimensionType>::buildUsingRecursion(
     const DataToBuildNodes<DataType, DimensionType> &dataForIteration
 ) {
     const Samples<DataType> &samples = dataForIteration.getSamples();
@@ -189,7 +189,7 @@ public:
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::buildInParallel(
+void KDTreeBuilder<DataType, DimensionType>::buildInParallel(
         const DataToBuildNodes<DataType, DimensionType> &dataForIteration
 ) {
     vector<DataToBuildNodes<DataType, DimensionType>> list {dataForIteration};

@@ -1,12 +1,12 @@
 #include "memory"
 #include <gmock/gmock.h>
-#include "NodeBuilder.h"
+#include "KDTreeBuilder.h"
 #include <unistd.h>
 #include <KDTreeIO.h>
 #include <math.h>
 #include <algorithm>
 
-class NodeBuilderTest : public testing::Test {
+class KDTreeBuilderTest : public testing::Test {
 protected:
     virtual void SetUp() {
         samples <<
@@ -22,7 +22,7 @@ protected:
     KDTree<float, int> *kdTree;
 };
 
-TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
+TEST_F(KDTreeBuilderTest, test_basic_for_cycle_through_axes) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids {0, 1, 2};
@@ -36,12 +36,12 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
                 kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildInParallel(dataForIteration);
+            KDTreeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
-            NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
+            KDTreeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         }
 
-        NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
+        KDTreeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
         ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
         ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
@@ -68,7 +68,7 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
 
 }
 
-TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
+TEST_F(KDTreeBuilderTest, test_basic_for_highest_range_axis) {
 
     for (int iteration = 0; iteration < 2; iteration++) {
         vector<int> ids{0, 1, 2};
@@ -83,9 +83,9 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
                 kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildInParallel(dataForIteration);
+            KDTreeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
-            NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
+            KDTreeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         }
 
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());

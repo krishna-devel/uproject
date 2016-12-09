@@ -1,6 +1,6 @@
-//#include <gmock/gmock.h>
-//#include "KDTreeExplorer.h"
-//
+#include <gmock/gmock.h>
+#include "KDTreeExplorer.h"
+
 //TEST(ParallelNodeSearcherTest, test_potential_neigbors_is_filled_when_node_is_leaf) {
 //
 //    KDTree<float, int> kdTree(5);
@@ -11,7 +11,7 @@
 //    vector<float> query {1,2};
 //    concurrent_vector<int> potentialNeighbors;
 //
-//    ParallelNodeExplorer<float, int> parallelNodeExplorer;
+//    KDTreeExplorer<float, int> parallelNodeExplorer;
 //    parallelNodeExplorer.getNodesToSearch(DataToSearchNodes<float, int>(kdTree, query, 2, &potentialNeighbors));
 //    parallelNodeExplorer.getNodesToSearch(DataToSearchNodes<float, int>(kdTree, query, 3, &potentialNeighbors));
 //    parallelNodeExplorer.getNodesToSearch(DataToSearchNodes<float, int>(kdTree, query, 4, &potentialNeighbors));
@@ -51,7 +51,7 @@
 //
 //    concurrent_vector<int> potentialNeighbors;
 //
-//    ParallelNodeExplorer<float, int> parallelNodeExplorer;
+//    KDTreeExplorer<float, int> parallelNodeExplorer;
 //    vector<int> nextNeighbors1 = parallelNodeExplorer
 //        .getNodesToSearch(DataToSearchNodes<float, int>(kdTree, pointInsideLeftBounds, 1, &potentialNeighbors));
 //    ASSERT_EQ(1, nextNeighbors1.size());
@@ -95,7 +95,7 @@
 //    potentialNeighbors.push_back(3);
 //
 //    NearestNeighbor<float, int> *nearestNeighbor =
-//        ParallelNodeExplorer<float, int>::getNearestNeighbor(samples, query, potentialNeighbors);
+//        KDTreeExplorer<float, int>::getNearestNeighbor(samples, query, potentialNeighbors);
 //
 //    vector<float> expectedNearestNeighbor {1,2};
 //    EXPECT_EQ(expectedNearestNeighbor, nearestNeighbor->getPoint()->getCoefficients());

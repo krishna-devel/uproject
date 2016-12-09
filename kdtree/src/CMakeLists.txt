@@ -17,7 +17,7 @@ set(QUERY_KDTREE_SOURCE_FILES
 set(HEADER_FILES
         Segment.h
         SplitDimensionSelector.h
-        NodeBuilder.h
+        KDTreeBuilder.h
         KDTree.h
         KDTreeIO.h
         Util.h

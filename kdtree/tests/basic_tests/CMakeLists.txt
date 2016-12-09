@@ -6,7 +6,7 @@ add_executable(runTests
         SplitDimensionSelectorTest.cpp
         KDTreeTest.cpp
         KDTreeExplorerTest.cpp
-        NodeBuilderTest.cpp
+        KDTreeBuilderTest.cpp
         KDTreeIOTest.cpp
         UtilTest.cpp
         SplitPointSelectorTest.cpp

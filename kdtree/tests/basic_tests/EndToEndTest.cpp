@@ -1,6 +1,6 @@
 #include <gmock/gmock.h>
 
-#include "NodeBuilder.h"
+#include "KDTreeBuilder.h"
 #include "KDTreeIO.h"
 #include "KDTreeExplorer.h"
 
@@ -62,10 +62,10 @@ protected:
         // Test building, writing and loading of trees
         string modelFileName = tmpnam(nullptr);
         if (parallel) {
-            NodeBuilder<double, int>::buildInParallel(dataForIteration);
+            KDTreeBuilder<double, int>::buildInParallel(dataForIteration);
         }
         else {
-            NodeBuilder<double, int>::buildUsingRecursion(dataForIteration);
+            KDTreeBuilder<double, int>::buildUsingRecursion(dataForIteration);
         }
         KDTreeIO<double, int>::write(kdTree, modelFileName);
         KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);
@@ -82,7 +82,7 @@ protected:
         Segment<double, int> querySegment(queries);
 
         for (int queryId : queryIdsInSegment) {
-            NearestNeighbor<double, int> *nearestNeighbor = ParallelNodeExplorer<double, int>::findNearestNeighbor(
+            NearestNeighbor<double, int> *nearestNeighbor = KDTreeExplorer<double, int>::findNearestNeighbor(
                     samples,
                     loadedKDTree,
                     querySegment.getPoint(queryId)

@@ -9,7 +9,7 @@
 using namespace std;
 
 template <typename DataType, typename DimensionType>
-class ParallelNodeExplorer {
+class KDTreeExplorer {
 public:
 
     static NearestNeighbor<DataType, DimensionType> *findNearestNeighbor(
