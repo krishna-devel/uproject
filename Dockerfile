@@ -1,5 +1,5 @@
 # docker build -t kykamath/ubuntu_14_04:uber_project .
-# docker run -it kykamath/ubuntu_14_04:uber_project
+# docker run -v $PWD/kdtree/tests/basic_tests/data:/kdtree/data -it kykamath/ubuntu_14_04:uber_project
 # docker push kykamath/ubuntu_14_04:uber_project
 FROM kykamath/ubuntu_14_04:uber_setup
 MAINTAINER Krishna Y. Kamath <krishna.kamath@gmail.com>
