@@ -110,9 +110,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KDTreeBuilder.h" afterPath="$PROJECT_DIR$/src/KDTreeBuilder.h" />
-    </list>
+    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="" />
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -145,7 +143,7 @@
         <entry file="file://$PROJECT_DIR$/src/KDTree.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -165,7 +163,7 @@
         <entry file="file://$PROJECT_DIR$/src/Segment.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
               <folding>
                 <element signature="e#51#80#0" expanded="true" />
               </folding>
@@ -198,8 +196,8 @@
       <file leaf-file-name="Util.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Util.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="225">
+              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
               <folding>
                 <element signature="e#45#62#0" expanded="true" />
               </folding>
@@ -211,7 +209,7 @@
         <entry file="file://$PROJECT_DIR$/src/SplitDimensionSelector.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
               <folding>
                 <element signature="e#71#91#0" expanded="true" />
               </folding>
@@ -223,7 +221,7 @@
         <entry file="file://$PROJECT_DIR$/src/QueryKDTree.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -1213,7 +1211,7 @@
       <workItem from="1480724599839" duration="1643000" />
       <workItem from="1480736411281" duration="71941000" />
       <workItem from="1481000993883" duration="20329000" />
-      <workItem from="1481061513366" duration="60722000" />
+      <workItem from="1481061513366" duration="62433000" />
     </task>
     <servers />
   </component>
@@ -1250,7 +1248,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="533661000" />
+    <option name="totallyTimeSpent" value="535372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
@@ -1699,7 +1697,7 @@
     <entry file="file://$PROJECT_DIR$/src/KDTree.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1723,7 +1721,7 @@
     <entry file="file://$PROJECT_DIR$/src/QueryKDTree.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -1733,7 +1731,7 @@
     <entry file="file://$PROJECT_DIR$/src/Segment.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
           <folding>
             <element signature="e#51#80#0" expanded="true" />
           </folding>
@@ -1761,7 +1759,7 @@
     <entry file="file://$PROJECT_DIR$/src/SplitDimensionSelector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
           <folding>
             <element signature="e#71#91#0" expanded="true" />
           </folding>
@@ -1778,8 +1776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Util.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        <state relative-caret-position="225">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding>
             <element signature="e#45#62#0" expanded="true" />
           </folding>
