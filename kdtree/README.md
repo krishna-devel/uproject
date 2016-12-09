@@ -118,6 +118,9 @@ this option
     root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
     ```
 
+## Running kd-tree
+    
+
 Since the code was meant to be working on Ubuntu 14.04LTS,
 make sure the software requirements are met by run the following
 command:

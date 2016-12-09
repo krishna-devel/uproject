@@ -101,6 +101,7 @@ private:
     const DimensionType sampleId;
     Point<DataType, DimensionType> point;
     const DataType squaredDistance;
+//    const
 };
 
 template <typename DataType, typename DimensionType>
