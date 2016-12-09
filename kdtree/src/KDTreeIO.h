@@ -74,10 +74,8 @@ void KDTreeIO<DataType, DimensionType>::compressAndWriteStringVector(
     string stringToWrite;
     for (string s : stringVector) {
         stringToWrite += (s + "bGh88wY3vm2sebBYc");
-//        stringToWrite += (s + "\n");
     }
     Util::writeBinaryFile(outputFilePath, Util::compress(stringToWrite));
-//    Util::writeBinaryFile(outputFilePath, stringToWrite);
 }
 
 template <typename DataType, typename DimensionType>

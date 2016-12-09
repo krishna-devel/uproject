@@ -22,9 +22,9 @@ DimensionSelectorType getDimensionSelectorType(const string &argName, const stri
 SplittingMethod getSplittingMethod(const string &argName, const string &splitPositionAlgorithm) {
     SplittingMethod splittingMethod;
     if (splitPositionAlgorithm == "MEDIAN"){
-        splittingMethod = SplittingMethod::MEDIAN1;
+        splittingMethod = SplittingMethod::MEDIAN;
     } else if (splitPositionAlgorithm == "MEDIAN_OF_MEDIAN"){
-        splittingMethod = SplittingMethod::MEDIAN_OF_MEDIAN1;
+        splittingMethod = SplittingMethod::MEDIAN_OF_MEDIAN;
     } else {
         throw po::validation_error(po::validation_error::invalid_option_value, argName, splitPositionAlgorithm);
     }
@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
     string splitAxisAlgorithm;
     string splitPositionAlgorithm;
     bool parallelExecution;
+    bool printExecutionTime;
 
     try {
         po::options_description desc("Options");
@@ -48,8 +49,8 @@ int main(int argc, char* argv[]) {
                    "Algorithm used to select axis to split on. Select one of: [ CYCLE_THROUGH_AXES, HIGHEST_RANGE_AXIS ]")
                 ("split_position_algorithm,s", po::value<string>(&splitPositionAlgorithm)->default_value("MEDIAN_OF_MEDIAN"),
                    "Algorithm used to select split position. Select one of: [ MEDIAN, MEDIAN_OF_MEDIAN ]")
-                ("parallel,p", po::value<bool>(&parallelExecution)->default_value(true),
-                   "Build model in parallel")
+                ("parallel,p", po::value<bool>(&parallelExecution)->default_value(true), "Build model in parallel")
+                ("print_execution_time,t", po::value<bool>(&printExecutionTime)->default_value(true), "Prints execution time in seconds")
                 ("help,h", "Produce help message");
 
         po::variables_map vm;
@@ -69,9 +70,21 @@ int main(int argc, char* argv[]) {
         cout << "Algorithm used to select axis to split: " << dimensionSelectorType << endl;
         cout << "Algorithm used to select split position: " << splittingMethod << endl;
         cout << "Building model in parallel: " << parallelExecution << endl;
+
+        clock_t start;
+        double duration;
+        start = clock();
+
         cout << "Building kd-tree..." << endl;
+
+        duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+        for (int i = 0; i <=1000000; i++){
+
+        }
+
         cout << "Writing model to: " << outputModelFilename << endl;
 
+        cout<<"Model was built in "<< duration << " seconds." << endl;
 
     } catch(std::exception& e) {
         cerr << "Error: " << e.what() << "\n";

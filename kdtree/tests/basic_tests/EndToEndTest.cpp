@@ -54,7 +54,7 @@ protected:
                 sampleIdsInSegment,
                 0,
                 dimensionSelectorType,
-                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                SplittingMethod::MEDIAN_OF_MEDIAN,
                 -1,
                 &kdTree
         );
@@ -62,7 +62,7 @@ protected:
         // Test building, writing and loading of trees
         string modelFileName = tmpnam(nullptr);
         if (parallel) {
-            NodeBuilder<double, int>::buildNonRecursive(dataForIteration);
+            NodeBuilder<double, int>::buildInParallel(dataForIteration);
         }
         else {
             NodeBuilder<double, int>::build(dataForIteration);

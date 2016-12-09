@@ -29,13 +29,21 @@ public:
         splittingMethod(splittingMethod),
         lastDimensionUsedForSplitting(lastDimensionUsedForSplitting),
         kdtree(kdtree) {}
+
     const Samples<DataType> &getSamples() const { return samples; }
+
     const SampleIdsInSegment<DimensionType> &getSampleIdsInSegment() const { return sampleIdsInSegment; }
+
     const DimensionType getNodeId() const { return nodeId; }
+
     const SplittingMethod getSplittingMethod() const { return splittingMethod; }
+
     const DimensionSelectorType getDimensionSelectorType() const { return dimensionSelectorType; }
+
     const DimensionType getLastDimensionUsedForSplitting() const { return lastDimensionUsedForSplitting; }
+
     KDTree<DataType, DimensionType> *getKdtree() const { return kdtree; }
+
 private:
     const Samples<DataType> &samples;
     SampleIdsInSegment<DimensionType> sampleIdsInSegment;
@@ -49,15 +57,8 @@ private:
 template <typename DataType, typename DimensionType>
 class NodeBuilder {
 public:
-    /**
-     * This method is used to build a node in kd-tree.
-     *
-     * @param params
-     * @param segment
-     * @param kdtree
-     */
     static void build(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
-    static void buildNonRecursive(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
+    static void buildInParallel(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
 };
 
 template <typename DataType, typename DimensionType>
@@ -188,8 +189,8 @@ public:
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::buildNonRecursive(
-    const DataToBuildNodes<DataType, DimensionType> &dataForIteration
+void NodeBuilder<DataType, DimensionType>::buildInParallel(
+        const DataToBuildNodes<DataType, DimensionType> &dataForIteration
 ) {
     vector<DataToBuildNodes<DataType, DimensionType>> list {dataForIteration};
     parallel_do( list.begin(), list.end(), ParallelNodeBuilder<DataType, DimensionType>() );

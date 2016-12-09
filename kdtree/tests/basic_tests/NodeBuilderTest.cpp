@@ -31,12 +31,12 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
                 ids,
                 0,
                 DimensionSelectorType::CYCLE_THROUGH_AXES,
-                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                SplittingMethod::MEDIAN_OF_MEDIAN,
                 -1,
                 kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildNonRecursive(dataForIteration);
+            NodeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
             NodeBuilder<float, int>::build(dataForIteration);
         }
@@ -78,12 +78,12 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
                 ids,
                 0,
                 DimensionSelectorType::HIGHEST_RANGE_AXIS,
-                SplittingMethod::MEDIAN_OF_MEDIAN1,
+                SplittingMethod::MEDIAN_OF_MEDIAN,
                 -1,
                 kdTree
         );
         if (iteration == 0) {
-            NodeBuilder<float, int>::buildNonRecursive(dataForIteration);
+            NodeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
             NodeBuilder<float, int>::build(dataForIteration);
         }

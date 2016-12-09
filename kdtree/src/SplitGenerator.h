@@ -161,8 +161,8 @@ private:
 };
 
 enum SplittingMethod {
-    MEDIAN1,
-    MEDIAN_OF_MEDIAN1
+    MEDIAN,
+    MEDIAN_OF_MEDIAN
 };
 
 template <typename DataType, typename DimensionType>
@@ -200,8 +200,8 @@ public:
         const DimensionType &dimensionToSplitBy
     ) {
         switch(splittingMethod) {
-            case MEDIAN1: return median(segment, dimensionToSplitBy);
-            case MEDIAN_OF_MEDIAN1: return medianOfMedianScorer(segment, dimensionToSplitBy);
+            case MEDIAN: return median(segment, dimensionToSplitBy);
+            case MEDIAN_OF_MEDIAN: return medianOfMedianScorer(segment, dimensionToSplitBy);
         }
 
     }
