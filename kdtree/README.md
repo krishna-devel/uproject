@@ -52,9 +52,9 @@ This is the easiest way to get the code running.
   3. Boost (libboost-all-dev) 
 
   On an ubuntu machine you can get everything isntalled by running the following command:
-    '''  
+    ```  
     sudo apt-get update && sudo apt-get install -y software-properties-common && sudo add-apt-repository ppa:george-edison55/cmake-3.x && sudo apt-get update && sudo apt-get install -y g++ cmake cmake-curses-gui vim && sudo apt-get install -y zlib1g-dev && sudo apt-get install -y libboost-all-dev
-    '''
+    ```
   This is the command I run to setup the ubuntu enviroment in kykamath/ubuntu_14_04:uber_project.  
 
 
