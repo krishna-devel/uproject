@@ -16,13 +16,12 @@ set(QUERY_KDTREE_SOURCE_FILES
 
 set(HEADER_FILES
         Segment.h
-        DimensionSelector.h
-        SegmentSplitter.h
+        SplitDimensionSelector.h
         NodeBuilder.h
         KDTree.h
         KDTreeIO.h
         Util.h
-        SplitGenerator.h
+        SplitPointSelector.h
         KDTreeExplorer.h)
 
 add_executable(build_kdtree ${BUILD_KDTREE_SOURCE_FILES})

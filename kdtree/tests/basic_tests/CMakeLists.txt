@@ -3,14 +3,13 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(runTests
         SegmentTest.cpp
         MockTest.cpp
-        DimensionSelectorTest.cpp
-        SegmentSplitterTest.cpp
+        SplitDimensionSelectorTest.cpp
         KDTreeTest.cpp
         KDTreeExplorerTest.cpp
         NodeBuilderTest.cpp
         KDTreeIOTest.cpp
         UtilTest.cpp
-        SplitGeneratorTest.cpp
+        SplitPointSelectorTest.cpp
         EndToEndTest.cpp )
 
 target_link_libraries(runTests gmock gtest gtest_main)

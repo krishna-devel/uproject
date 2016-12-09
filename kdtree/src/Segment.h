@@ -154,10 +154,51 @@ public:
         const Segment<DataType, DimensionType> &segmentLessThanThreshold,
         const Segment<DataType, DimensionType> &segmentgreaterThanThreshold
     ) : segmentLessThanThreshold(segmentLessThanThreshold), segmentGreaterThanThreshold(segmentgreaterThanThreshold) {}
+
     const Segment<DataType, DimensionType> &getSegmentLessThanThreshold() const { return segmentLessThanThreshold; }
+
     const Segment<DataType, DimensionType> &getSegmentGreaterThanThreshold() const {
         return segmentGreaterThanThreshold;
     }
+
+    static SplitSegments<DataType, DimensionType> generate(
+            const Segment<DataType, DimensionType> &segment,
+            const Point<DataType, DimensionType> &splitPoint,
+            const DimensionType &dimensionToSplitBy) {
+        const Samples<DataType> &samples = segment.getSamples();
+        const SampleIdsInSegment<DimensionType> &sampleIdsInSegment = segment.getSampleIdsInSegment();
+
+        DataType splitThreshold = splitPoint.getValueAt(dimensionToSplitBy);
+
+        SampleIdsInSegment<DimensionType> sampleIdsLessThanThreshold;
+        SampleIdsInSegment<DimensionType> sampleIdsGreaterThanThreshold;
+
+        bool putInLessThanIfEqual = true;
+        for (DimensionType sampleId: sampleIdsInSegment) {
+            DataType sampleValue = samples(sampleId, dimensionToSplitBy);
+            if (sampleValue < splitThreshold) {
+                sampleIdsLessThanThreshold.push_back(sampleId);
+            } else if (sampleValue > splitThreshold) {
+                sampleIdsGreaterThanThreshold.push_back(sampleId);
+            } else {
+                if (putInLessThanIfEqual) {
+                    sampleIdsLessThanThreshold.push_back(sampleId);
+                    putInLessThanIfEqual = false;
+                } else {
+                    sampleIdsGreaterThanThreshold.push_back(sampleId);
+                    putInLessThanIfEqual = true;
+                }
+            }
+        }
+
+        Segment<DataType, DimensionType> segmentLessThanThreshold (samples, sampleIdsLessThanThreshold);
+        Segment<DataType, DimensionType> segmentGreaterThanThreshold (samples, sampleIdsGreaterThanThreshold);
+        SplitSegments<DataType, DimensionType> splitSegments (segmentLessThanThreshold, segmentGreaterThanThreshold);
+
+        return splitSegments;
+    }
+
+
 private:
     const Segment<DataType, DimensionType> segmentLessThanThreshold;
     const Segment<DataType, DimensionType> segmentGreaterThanThreshold;

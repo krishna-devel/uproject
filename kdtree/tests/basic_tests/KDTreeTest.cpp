@@ -104,11 +104,3 @@ TEST_F(NodeAndKDTreeTest, test_string_serilization_internal_node) {
     ASSERT_EQ(1, node2.getSplit()->getSplitDimension());
     ASSERT_EQ(4.0, node2.getSplit()->getSplitThreshold());
 }
-
-//TEST(KDTreeSearchTest, test_search_in_kd_tree) {
-//    KDTree<float, int> kdtree(4);
-//    vector<float> query {1,2};
-//    Point<float, int> nn = KDTree<float, int>::nearestNeighbor(kdtree, query);
-//    float distance = Point<float, int>::euclideanDistance(query, nn);
-//    EXPECT_NEAR(0, distance, 0.01);
-//}

@@ -2,8 +2,8 @@
 #define KDTREE_BINARYTREE_H
 
 #include <vector>
-#include "DimensionSelector.h"
-#include "SplitGenerator.h"
+#include "SplitDimensionSelector.h"
+#include "SplitPointSelector.h"
 #include "memory"
 #include <string>
 

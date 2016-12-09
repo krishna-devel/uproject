@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "DimensionSelector.h"
+#include "SplitDimensionSelector.h"
 
 class CycleThroughAxesDimensionSelectorTest : public testing::Test {
 protected:

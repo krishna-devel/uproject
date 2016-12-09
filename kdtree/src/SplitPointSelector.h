@@ -2,8 +2,8 @@
 #define KDTREE_SPLITGENERATOR_H
 
 #include "Util.h"
-#include "SegmentSplitter.h"
 #include <string>
+#include "Segment.h"
 
 enum SplittingMethod {
     MEDIAN,
@@ -11,19 +11,18 @@ enum SplittingMethod {
 };
 
 template <typename DataType, typename DimensionType>
-class SplitGenerator {
+class SplitPointSelector {
 public:
     static SplitWithSegments<DataType, DimensionType> generate(
         const Segment<DataType, DimensionType> &segment,
         const SplittingMethod &splittingMethod,
         const DimensionType &dimensionToSplitBy
     ) {
-        SegmentSplitter<DataType, DimensionType> segmentSplitter;
 
         Point<DataType, DimensionType> splitPoint = getSplitPoint(segment, splittingMethod, dimensionToSplitBy);
 
         SplitSegments<DataType, DimensionType> splitSegments =
-            segmentSplitter.split(segment, splitPoint, dimensionToSplitBy);
+                SplitSegments<DataType, DimensionType>::generate(segment, splitPoint, dimensionToSplitBy);
         const Segment<DataType, DimensionType> &segmentLessThanThreshold = splitSegments.getSegmentLessThanThreshold();
         const Segment<DataType, DimensionType> &segmentGreaterThanThreshold =
                 splitSegments.getSegmentGreaterThanThreshold();
@@ -76,7 +75,7 @@ private:
 
 
 template <typename DataType, typename DimensionType>
-Point<DataType, DimensionType> SplitGenerator<DataType, DimensionType>::median(
+Point<DataType, DimensionType> SplitPointSelector<DataType, DimensionType>::median(
     const Segment<DataType, DimensionType> &segment,
     const DimensionType &dimensionToSplitBy
 ) {
@@ -93,7 +92,7 @@ Point<DataType, DimensionType> SplitGenerator<DataType, DimensionType>::median(
 }
 
 template <typename DataType, typename DimensionType>
-Point<DataType, DimensionType> SplitGenerator<DataType, DimensionType>::medianOfMedianScorer(
+Point<DataType, DimensionType> SplitPointSelector<DataType, DimensionType>::medianOfMedianScorer(
     const Segment<DataType, DimensionType> &segment,
     const DimensionType &dimensionToSplitBy
 ) {

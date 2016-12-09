@@ -1,10 +1,8 @@
 #ifndef KDTREE_NODEBUILDER_H
 #define KDTREE_NODEBUILDER_H
 
-#include "Segment.h"
 #include "KDTree.h"
-#include "SegmentSplitter.h"
-#include "SplitGenerator.h"
+#include "SplitPointSelector.h"
 #include "tbb/parallel_do.h"
 
 using namespace std;
@@ -90,7 +88,7 @@ void NodeBuilder<DataType, DimensionType>::buildUsingRecursion(
         // - Determines the split point that is used to generate 2 new segments.
         // - Determines the bounds for the 2 segments
         SplitWithSegments<DataType, DimensionType> splitWithSegments =
-            SplitGenerator<DataType, DimensionType>::generate(
+            SplitPointSelector<DataType, DimensionType>::generate(
                 segment,
                 dataForIteration.getSplittingMethod(),
                 dimensionToSplitBy
@@ -155,7 +153,7 @@ public:
             // - Determines the split point that is used to generate 2 new segments.
             // - Determines the bounds for the 2 segments
             SplitWithSegments<DataType, DimensionType> splitWithSegments =
-                SplitGenerator<DataType, DimensionType>::generate(
+                SplitPointSelector<DataType, DimensionType>::generate(
                     segment,
                     dataToBuildNodes.getSplittingMethod(),
                     dimensionToSplitBy

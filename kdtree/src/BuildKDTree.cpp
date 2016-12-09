@@ -1,7 +1,7 @@
 #include <iostream>
 #include <boost/program_options.hpp>
-#include <DimensionSelector.h>
-#include <SplitGenerator.h>
+#include <SplitDimensionSelector.h>
+#include <SplitPointSelector.h>
 
 using namespace std;
 using namespace boost;
