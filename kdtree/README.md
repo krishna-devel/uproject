@@ -1,12 +1,3 @@
-# This is an H1
-## This is an H2
-###### This is an H6
-
-This is also an H1
-==================
-
-This is also an H2
-------------------
 
 This document
 - Software requirements
@@ -14,11 +5,10 @@ This document
 - Running tests
 - Running the binaries
 
-########################
 # Software requirements
-########################
 
 There are 2 ways to run this environment for running the project:
+
 1. Use the docker image that was built from Ubuntu's docker image for 14.04 (https://hub.docker.com/_/ubuntu/).
 This is the easiest way to get the code running.
 2. Install all the software required and get the code from github (or submitted tar.gz file).
