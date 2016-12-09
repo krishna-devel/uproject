@@ -242,5 +242,81 @@ private:
     Point<DataType, DimensionType> minPoint;
 };
 
+template <typename DataType, typename DimensionType>
+class Split {
+public:
+    Split(
+            DimensionType splitDimension,
+            const Point<DataType, DimensionType> &splitPoint,
+            const Bounds<DataType, DimensionType> &leftBounds,
+            const Bounds<DataType, DimensionType> &rightBounds
+    ) :
+            splitDimension(splitDimension),
+            splitPoint(splitPoint),
+            leftBounds(leftBounds),
+            rightBounds(rightBounds) {}
+
+    DataType getSplitThreshold() const { return splitPoint.getCoefficients()[splitDimension]; }
+
+    const pair<DataType, DataType> getDistancesFromSplits(const Point<DataType, DimensionType> &query) {
+
+        vector<DataType> maxLeft = leftBounds.getMaxPoint().getCoefficients();
+        vector<DataType> minLeft = leftBounds.getMinPoint().getCoefficients();
+        maxLeft[splitDimension] = splitPoint.getCoefficients()[splitDimension];
+
+        vector<DataType> maxRight = rightBounds.getMaxPoint().getCoefficients();
+        vector<DataType> minRight = rightBounds.getMinPoint().getCoefficients();
+        minRight[splitDimension] = splitPoint.getCoefficients()[splitDimension];
+
+        return make_pair(
+                Bounds<DataType, DimensionType>(maxLeft, minLeft).distanceFromPoint(query),
+                Bounds<DataType, DimensionType>(maxRight, minRight).distanceFromPoint(query)
+        );
+    }
+
+    string toString() {
+        map<string, string> m;
+        m["splitDimension"] = to_string(splitDimension);
+        m["splitPoint"] = splitPoint.toString();
+        m["leftBounds"] = leftBounds.toString();
+        m["rightBounds"] = rightBounds.toString();
+        return Util::convertMapToString(m, ":split:", ";split;");
+    }
+    static Split<DataType, DimensionType> fromString(string objectStr) {
+        map<string, string> m = Util::convertStringToMap(objectStr, ":split:", ";split;");
+        DataType splitDimension = stol(m["splitDimension"]);
+        Point<DataType, DimensionType> point = Point<DataType, DimensionType>::fromString(m["splitPoint"]);
+        Bounds<DataType, DimensionType> leftBounds = Bounds<DataType, DimensionType>::fromString(m["leftBounds"]);
+        Bounds<DataType, DimensionType> rightBounds = Bounds<DataType, DimensionType>::fromString(m["rightBounds"]);
+        return Split<DataType, DimensionType>(splitDimension, point, leftBounds, rightBounds);
+    }
+
+    // getters
+    DimensionType getSplitDimension() const { return splitDimension; }
+    const Point<DataType, DimensionType> &getSplitPoint() const { return splitPoint; }
+    const Bounds<DataType, DimensionType> &getLeftBounds() const { return leftBounds; }
+    const Bounds<DataType, DimensionType> &getRightBounds() const { return rightBounds; }
+
+private:
+    DimensionType splitDimension;
+    Point<DataType, DimensionType> splitPoint;
+    Bounds<DataType, DimensionType> leftBounds;
+    Bounds<DataType, DimensionType> rightBounds;
+};
+
+template <typename DataType, typename DimensionType>
+class SplitWithSegments {
+public:
+    SplitWithSegments(
+            const Split<DataType, DimensionType> &split,
+            const SplitSegments<DataType, DimensionType> &splitSegments
+    ) : split(split), splitSegments(splitSegments) {}
+    const Split<DataType, DimensionType> &getSplit() const { return split; }
+    const SplitSegments<DataType, DimensionType> &getSplitSegments() const { return splitSegments; }
+private:
+    Split<DataType, DimensionType> split;
+    SplitSegments<DataType, DimensionType> splitSegments;
+};
+
 
 #endif //KDTREE_SEGMENT_H
