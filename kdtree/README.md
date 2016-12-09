@@ -52,6 +52,8 @@ this option
   2. Zlib (zlib1g-dev)
   3. Boost (libboost-all-dev) 
 
+  Other than these libraries I also use gtest, tbb and Eigen. But they are packaged in the source code for simplicity.
+
   On an ubuntu machine you can get everything isntalled by running the following command:
 
     ```  
@@ -66,7 +68,27 @@ this option
   
   Go into the kdtree folder. From now on I assume you are in the kdtree folder for all the commands. The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
-  1. Build project: Go to build folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake. 
+  1. Build project: Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
+
+    ```
+    root@79e81de5fe76:/kdtree/build# rm -rf *
+    root@79e81de5fe76:/kdtree/build# cmake .. && make
+
+    -- The C compiler identification is GNU 4.8.4
+    -- The CXX compiler identification is GNU 4.8.4
+    -- Check for working C compiler: /usr/bin/cc
+    -- Check for working C compiler: /usr/bin/cc -- works
+        .
+        .
+        .
+
+    [ 98%] Building CXX object lib/tbb/CMakeFiles/tbbmalloc_static.dir/src/tbbmalloc/tbbmalloc.cpp.o
+    [ 99%] Building CXX object lib/tbb/CMakeFiles/tbbmalloc_static.dir/src/tbbmalloc/frontend.cpp.o
+    [100%] Building CXX object lib/tbb/CMakeFiles/tbbmalloc_static.dir/src/tbb/itt_notify.cpp.o
+    Linking CXX static library libtbbmalloc_static.a
+    [100%] Built target tbbmalloc_static
+    root@79e81de5fe76:/kdtree/build#
+    ```
 
   2. For testing I have a bunch of unit and integration tests. The integration tests run the code against some
   datasets I generated to evaluate implementation. Some of these integration tests take few minutes to run so they have been 
