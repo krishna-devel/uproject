@@ -1,10 +1,4 @@
 
-This document
-- Software requirements
-- Getting the code
-- Running tests
-- Running the binaries
-
 This is best viewed here: https://github.com/krishna-devel/uproject/tree/master/kdtree
 
 ## Software requirements
