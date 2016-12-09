@@ -57,12 +57,14 @@ private:
 template <typename DataType, typename DimensionType>
 class NodeBuilder {
 public:
-    static void build(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
+    static void buildUsingRecursion(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
     static void buildInParallel(const DataToBuildNodes<DataType, DimensionType> &dataForIteration);
 };
 
 template <typename DataType, typename DimensionType>
-void NodeBuilder<DataType, DimensionType>::build(const DataToBuildNodes<DataType, DimensionType> &dataForIteration) {
+void NodeBuilder<DataType, DimensionType>::buildUsingRecursion(
+    const DataToBuildNodes<DataType, DimensionType> &dataForIteration
+) {
     const Samples<DataType> &samples = dataForIteration.getSamples();
     KDTree<DataType, DimensionType> * const kdtree = dataForIteration.getKdtree();
 
@@ -99,23 +101,23 @@ void NodeBuilder<DataType, DimensionType>::build(const DataToBuildNodes<DataType
 
         // Insert the node built in this step and then build left and right child nodes.
         kdtree->insertInternalNode(nodeId, split);
-        build(DataToBuildNodes<DataType, DimensionType>(
-            samples,
-            splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
-            KDTree<DataType, DimensionType>::leftNodeId(nodeId),
-            dataForIteration.getDimensionSelectorType(),
-            dataForIteration.getSplittingMethod(),
-            dimensionToSplitBy,
-            kdtree
+        buildUsingRecursion(DataToBuildNodes<DataType, DimensionType>(
+                samples,
+                splitSegments.getSegmentLessThanThreshold().getSampleIdsInSegment(),
+                KDTree<DataType, DimensionType>::leftNodeId(nodeId),
+                dataForIteration.getDimensionSelectorType(),
+                dataForIteration.getSplittingMethod(),
+                dimensionToSplitBy,
+                kdtree
         ));
-        build(DataToBuildNodes<DataType, DimensionType>(
-            samples,
-            splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
-            KDTree<DataType, DimensionType>::rightNodeId(nodeId),
-            dataForIteration.getDimensionSelectorType(),
-            dataForIteration.getSplittingMethod(),
-            dimensionToSplitBy,
-            kdtree
+        buildUsingRecursion(DataToBuildNodes<DataType, DimensionType>(
+                samples,
+                splitSegments.getSegmentGreaterThanThreshold().getSampleIdsInSegment(),
+                KDTree<DataType, DimensionType>::rightNodeId(nodeId),
+                dataForIteration.getDimensionSelectorType(),
+                dataForIteration.getSplittingMethod(),
+                dimensionToSplitBy,
+                kdtree
         ));
     }
 };

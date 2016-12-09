@@ -65,7 +65,7 @@ protected:
             NodeBuilder<double, int>::buildInParallel(dataForIteration);
         }
         else {
-            NodeBuilder<double, int>::build(dataForIteration);
+            NodeBuilder<double, int>::buildUsingRecursion(dataForIteration);
         }
         KDTreeIO<double, int>::write(kdTree, modelFileName);
         KDTree<double, int> loadedKDTree = KDTreeIO<double, int>::load(modelFileName);

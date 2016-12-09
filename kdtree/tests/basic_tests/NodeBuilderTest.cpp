@@ -38,10 +38,10 @@ TEST_F(NodeBuilderTest, test_basic_for_cycle_through_axes) {
         if (iteration == 0) {
             NodeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
-            NodeBuilder<float, int>::build(dataForIteration);
+            NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         }
 
-        NodeBuilder<float, int>::build(dataForIteration);
+        NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
         ASSERT_EQ(0, kdTree->getNode(0)->getSplit()->getSplitDimension());
         ASSERT_EQ(4.0, kdTree->getNode(0)->getSplit()->getSplitThreshold());
@@ -85,7 +85,7 @@ TEST_F(NodeBuilderTest, test_basic_for_highest_range_axis) {
         if (iteration == 0) {
             NodeBuilder<float, int>::buildInParallel(dataForIteration);
         } else {
-            NodeBuilder<float, int>::build(dataForIteration);
+            NodeBuilder<float, int>::buildUsingRecursion(dataForIteration);
         }
 
         ASSERT_EQ(NodeType::INTERNAL, kdTree->getNode(0)->getType());
