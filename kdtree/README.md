@@ -87,7 +87,7 @@ this option
     [100%] Building CXX object lib/tbb/CMakeFiles/tbbmalloc_static.dir/src/tbb/itt_notify.cpp.o
     Linking CXX static library libtbbmalloc_static.a
     [100%] Built target tbbmalloc_static
-    
+
     root@79e81de5fe76:/kdtree/build#
     ```
 
@@ -113,6 +113,15 @@ this option
 
 
   To run the longer integration tests, comment out the following lines (at the bottom) of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
+
+    ~~~~
+    TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
+    TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }
+    ~~~~
+
+    ```
+    root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
+    ```
 
 Since the code was meant to be working on Ubuntu 14.04LTS,
 make sure the software requirements are met by run the following
