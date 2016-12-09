@@ -5,6 +5,8 @@ This document
 - Running tests
 - Running the binaries
 
+This is best viewed here: https://github.com/krishna-devel/uproject/tree/master/kdtree
+
 ## Software requirements
 
 There are 2 ways to get the environment for running the project:
@@ -66,7 +68,7 @@ this option
 
 ## Build project and run tests
   
-  Go into the kdtree folder. From now on I assume you are in the kdtree folder for all the commands. The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
+  Go into the `kdtree` folder. From now on I assume you are in the `kdtree` folder for all the commands. The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
   1. Build project: Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
 
@@ -110,7 +112,6 @@ this option
 
   root@79e81de5fe76:/kdtree/build#
   ```
-
 
   To run the longer integration tests, comment out the following lines (at the bottom) of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
