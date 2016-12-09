@@ -87,12 +87,30 @@ this option
     [100%] Building CXX object lib/tbb/CMakeFiles/tbbmalloc_static.dir/src/tbb/itt_notify.cpp.o
     Linking CXX static library libtbbmalloc_static.a
     [100%] Built target tbbmalloc_static
+    
     root@79e81de5fe76:/kdtree/build#
     ```
 
   2. For testing I have a bunch of unit and integration tests. The integration tests run the code against some
   datasets I generated to evaluate implementation. Some of these integration tests take few minutes to run so they have been 
   commented out by default. The following command runs the tests after the project has been built.
+
+  ```
+  root@79e81de5fe76:/kdtree/build# ./tests/basic_tests/runTests
+
+  Running main() from gtest_main.cc
+  [==========] Running 53 tests from 14 test cases.
+  [----------] Global test environment set-up.
+      .
+      .
+      .
+  [----------] Global test environment tear-down
+  [==========] 53 tests from 14 test cases ran. (516 ms total)
+  [  PASSED  ] 53 tests.
+
+  root@79e81de5fe76:/kdtree/build#
+  ```
+
 
   To run the longer integration tests, comment out the following lines (at the bottom) of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
