@@ -2,7 +2,6 @@
 #define KDTREE_NODEBUILDER_H
 
 #include "KDTree.h"
-#include "SplitPointSelector.h"
 #include "tbb/parallel_do.h"
 
 using namespace std;
