@@ -1,30 +1,64 @@
 #include <iostream>
 #include <boost/program_options.hpp>
+#include "KDTreeHandler.h"
 
 using namespace std;
 using namespace boost;
 namespace po = boost::program_options;
 
-int main(int ac, char* av[]) {
-    po::options_description desc("Allowed options");
-    desc.add_options()
-            ("help", "produce help message")
-            ("compression", po::value<int>(), "set compression level")
-            ;
+int main(int argc, char* argv[]) {
 
-    po::variables_map vm;
-    po::store(po::parse_command_line(ac, av, desc), vm);
-    po::notify(vm);
+    string inputSampleDataset;
+    string modelFilename;
+    string queriesFileName;
+    string nnOuputDataset;
 
-    if (vm.count("help")) {
-        cout << desc << "\n";
-        return 1;
-    }
+    try {
+        po::options_description desc("Options");
+        desc.add_options()
+                ("input,i", po::value<string>(&inputSampleDataset)->required(), "Dataset used to build kd-tree (csv)")
+                ("model,m", po::value<string>(&modelFilename)->required(), "Model with built kd-tree")
+                ("queries,q", po::value<string>(&queriesFileName)->required(), "File containing queries to searh")
+                ("nn_output,n", po::value<string>(&nnOuputDataset)->required(), "Nearest neighbor output")
+                ("help,h", "Produce help message");
 
-    if (vm.count("compression")) {
-        cout << "Compression level was set to "
-             << vm["compression"].as<int>() << ".\n";
-    } else {
-        cout << "Compression level was not set.\n";
+        po::variables_map vm;
+        po::store(po::parse_command_line(argc, argv, desc), vm);
+
+        if (argc <= 1 || vm.count("help")) {
+            cout << desc << endl;
+            return 1;
+        }
+
+        po::notify(vm);
+
+        cout << "Using samples from: " << inputSampleDataset << endl;
+        cout << "Loading model file from: " << modelFilename << endl;
+        cout << "Loading queries from: " << queriesFileName << endl;
+
+        clock_t start;
+        double duration;
+        start = clock();
+
+        cout << "Building kd-tree..." << endl;
+
+        KDTreeHandler<double, long>::queryKDTree(
+                inputSampleDataset,
+                modelFilename,
+                queriesFileName,
+                nnOuputDataset
+        );
+
+        cout << "Storing nearest neighbors in: " << nnOuputDataset << endl;
+
+        duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+        cout<<"Searched queries in "<< duration << " seconds." << endl;
+
+    } catch(std::exception& e) {
+        cerr << "Error: " << e.what() << "\n";
+        return false;
+    } catch(...) {
+        cerr << "Unknown error!" << "\n";
+        return false;
     }
 }

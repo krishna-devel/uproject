@@ -84,9 +84,12 @@ template <typename DataType, typename DimensionType>
 class NearestNeighbor {
 public:
     NearestNeighbor(
+        const DimensionType sampleId,
         const Point<DataType, DimensionType> &point,
         const DataType distance
-    ) : point(point), squaredDistance(distance) {}
+    ) : sampleId(sampleId), point(point), squaredDistance(distance) {}
+
+    const DimensionType getSampleId() const { return sampleId; }
 
     const Point<DataType, DimensionType> &getPoint() const { return point; }
 
@@ -95,6 +98,7 @@ public:
     const DataType getEuclideanDistance() const { return sqrt(squaredDistance); }
 
 private:
+    const DimensionType sampleId;
     Point<DataType, DimensionType> point;
     const DataType squaredDistance;
 };

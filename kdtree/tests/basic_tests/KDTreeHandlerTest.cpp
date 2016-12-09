@@ -1,7 +1,6 @@
 #include <gmock/gmock.h>
 
 #include "KDTreeHandler.h"
-#include "KDTreeExplorer.h"
 
 class NN {
 private:

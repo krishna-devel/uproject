@@ -33,7 +33,7 @@ SplittingMethod getSplittingMethod(const string &argName, const string &splitPos
 int main(int argc, char* argv[]) {
 
     string inputSampleDataset;
-    string outputModelFilename;
+    string modelFilename;
     string splitAxisAlgorithm;
     string splitPositionAlgorithm;
     bool parallelExecution;
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
         po::options_description desc("Options");
         desc.add_options()
                 ("input,i", po::value<string>(&inputSampleDataset)->required(), "Dataset used to build kd-tree (csv)")
-                ("output,o", po::value<string>(&outputModelFilename)->required(), "Model to store built kd-tree")
+                ("model,m", po::value<string>(&modelFilename)->required(), "Model to store built kd-tree")
                 ("split_axis_algorithm,a", po::value<string>(&splitAxisAlgorithm)->default_value("HIGHEST_RANGE_AXIS"),
                    "Algorithm used to select axis to split on. Select one of: [ CYCLE_THROUGH_AXES, HIGHEST_RANGE_AXIS ]")
                 ("split_position_algorithm,s", po::value<string>(&splitPositionAlgorithm)->default_value("MEDIAN_OF_MEDIAN"),
@@ -78,13 +78,13 @@ int main(int argc, char* argv[]) {
 
         KDTreeHandler<double, long>::buildKDTree(
             inputSampleDataset,
-            outputModelFilename,
+            modelFilename,
             dimensionSelectorType,
             splittingMethod,
             parallelExecution
         );
 
-        cout << "Writing model to: " << outputModelFilename << endl;
+        cout << "Writing model to: " << modelFilename << endl;
 
         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
         cout<<"Model was built in "<< duration << " seconds." << endl;

@@ -20,7 +20,7 @@ public:
         Segment<DataType, DimensionType> segment(samples);
 
         NearestNeighbor<DataType, DimensionType> *currentNearestNeighbor =
-            new NearestNeighbor<DataType, DimensionType>(segment.getPoint(0), numeric_limits<double>::infinity());
+            new NearestNeighbor<DataType, DimensionType>(0, segment.getPoint(0), numeric_limits<double>::infinity());
 
         stack<Node<DataType, DimensionType>*> nodesToExplore;
         Node<DataType, DimensionType> * rootNode = kdTree.getNode(0);
@@ -37,7 +37,7 @@ public:
                 const DataType distanceFromPoint = Point<DataType, DimensionType>::squaredDistance(point, query);
                 if (distanceFromPoint < currentNearestNeighbor->getSquaredDistance()) {
                     currentNearestNeighbor =
-                        new NearestNeighbor<DataType, DimensionType>(point, distanceFromPoint);
+                        new NearestNeighbor<DataType, DimensionType>(node->getSampleId(), point, distanceFromPoint);
                 }
             } else {
                 const DimensionType leftNodeId = kdTree.leftNodeId(nodeId);

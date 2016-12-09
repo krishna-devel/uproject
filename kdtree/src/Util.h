@@ -141,6 +141,15 @@ public:
         return static_cast<stringstream const&>(stringstream() << file.rdbuf()).str();
     }
 
+    static void writeStringVector(const string &fileName, const vector<string> &data) {
+        ofstream f;
+        f.open (fileName);
+        for (string l : data) {
+            f << l + "\n";
+        }
+        f.close();
+    }
+
 };
 
 #endif //KDTREE_UTIL_H
