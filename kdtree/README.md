@@ -7,8 +7,8 @@ Table of Contents
    * [Option 1: Using docker image](#option-1-using-docker-image)
    * [Option 2: Manual install](#option-2-manual-install)
 * [Build Project and Run Tests](#build-project-and-run-tests)
-   * [Build project](#build-project)
-   * [Test project](#test-project)
+   * [Build](#build)
+   * [Run tests](#run-tests)
 * [Running Applications](#running-applications)
 
 ## Setting up Environment and Code
@@ -79,7 +79,7 @@ this option.
   
   The docker image already contains built binaries. So if you are using the image, you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
-  ### Build project  
+### Build  
   Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
 
     ```
@@ -104,7 +104,7 @@ this option.
     root@79e81de5fe76:/kdtree/build#
     ```
   
-  ### Test project  
+### Run tests 
   For testing I have a bunch of unit and integration tests. The integration tests run the code against some
   datasets I generated to evaluate implementation. Some of these integration tests take few minutes to run so they have been 
   commented out by default. The following command runs the tests after the project has been built.
@@ -126,7 +126,7 @@ this option.
   root@79e81de5fe76:/kdtree/build#
   ```
 
-  To run the longer integration tests, comment out the following lines at the bottom of `/kdtree/tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
+  To run the longer integration tests, uncomment the following lines at the bottom of `/kdtree/tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
     ```
     TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
