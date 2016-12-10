@@ -120,7 +120,35 @@ this option
 
 ## Running kd-tree
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
+    ```
+    root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
+    Options:
+      -i [ --input ] arg                    Dataset used to build kd-tree (csv)
+      -m [ --model ] arg                    Model to store built kd-tree
+      -a [ --split_axis_algorithm ] arg (=HIGHEST_RANGE_AXIS)
+                                            Algorithm used to select axis to split
+                                            on. Select one of: [
+                                            CYCLE_THROUGH_AXES, HIGHEST_RANGE_AXIS
+                                            ]
+      -s [ --split_position_algorithm ] arg (=MEDIAN_OF_MEDIAN)
+                                            Algorithm used to select split
+                                            position. Select one of: [ MEDIAN,
+                                            MEDIAN_OF_MEDIAN ]
+      -p [ --parallel ] arg (=1)            Build model in parallel
+      -t [ --print_execution_time ] arg (=1)
+                                            Prints execution time in seconds
+      -h [ --help ]                         Produce help message
+    ```
 
+    ```
+    root@0a10892d84d1:/kdtree/bin# ./query_kdtree --help
+    Options:
+      -i [ --input ] arg     Dataset used to build kd-tree (csv)
+      -m [ --model ] arg     Model with built kd-tree
+      -q [ --queries ] arg   File containing queries to searh
+      -n [ --nn_output ] arg Nearest neighbor output
+      -h [ --help ]          Produce help message
+    ```
 
 Since the code was meant to be working on Ubuntu 14.04LTS,
 make sure the software requirements are met by run the following
