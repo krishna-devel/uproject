@@ -165,6 +165,31 @@ this option
   Model was built in 0.131368 seconds.
   ```
 
-  
+  Now to test the model generated in previous step, I generated the queries file that contains the same points use to build the tree. So the nearest point to each of the queries should be the point itself and the eculidian distance between them should be zero. This is stored in `tests/basic_tests/data/sample_data.queries.csv`. You can search for queries and store the result as shown below.
+
+  ```
+  root@0a10892d84d1:/kdtree# ./bin/query_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
+  Using samples from: tests/basic_tests/data/sample_data.csv
+  Loading model file from: sample_data.kdtree
+  Loading queries from: tests/basic_tests/data/sample_data.queries.csv
+  Building kd-tree...
+  Storing nearest neighbors in: sample_data.results
+  Searched queries in 0.08498 seconds.
+  ```
+
+  The output of the results file is as expected:
+
+  ```
+  root@0a10892d84d1:/kdtree# head sample_data.results && tail sample_data.results
+  0,0.000000
+  1,0.000000
+  2,0.000000
+       .
+       .
+       .  
+  997,0.000000
+  998,0.000000
+  999,0.000000
+  ```
 
 
