@@ -62,7 +62,7 @@ this option
 
 ## Build project and run tests
   
-  Go into the `kdtree` folder. From now on I assume you are in the `kdtree` folder for all the commands. The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
+  The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
   1. Build project: Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
 
@@ -152,8 +152,19 @@ this option
     -h [ --help ]          Produce help message
   ```
 
-Since the code was meant to be working on Ubuntu 14.04LTS,
-make sure the software requirements are met by run the following
-command:
-sudo apt-get update && sudo apt-get install -y software-properties-common && sudo add-apt-repository ppa:george-edison55/cmake-3.x && sudo apt-get update && sudo apt-get install -y g++ cmake cmake-curses-gui vim && sudo apt-get install -y zlib1g-dev && sudo apt-get install -y libboost-all-dev
+  For an example of how to run these commands lets take a look at the `sample_data.csv` file that was provided in the problem set. It contains 3 dimensions and has 1000 samples. We will build the kd-tree for this sample, using HIGHEST_RANGE_AXIS method to select the next dimension to split and MEDIAN_OF_MEDIAN method to select the split point. We will set `parallel` argument to true, as a result of which will use a multi-threaded approach to build the tree instead of recusion.
+
+  ```
+  root@0a10892d84d1:/kdtree# ./bin/build_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
+  Reading samples from: tests/basic_tests/data/sample_data.csv
+  Algorithm used to select axis to split: 1
+  Algorithm used to select split position: 1
+  Building model in parallel: 1
+  Building kd-tree...
+  Writing model to: sample_data.kdtree
+  Model was built in 0.131368 seconds.
+  ```
+
+  
+
 
