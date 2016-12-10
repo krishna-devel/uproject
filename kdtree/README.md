@@ -160,7 +160,7 @@ this option.
     -h [ --help ]          Produce help message
   ```
 
-  For an example of how to run these commands lets take a look at the `sample_data.csv` file that was provided in the problem set. It contains 3 dimensions and has 1000 samples. We will build the kd-tree for this sample, using HIGHEST_RANGE_AXIS method to select the next dimension to split and MEDIAN_OF_MEDIAN method to select the split point. We will set `parallel` argument to true, as a result of which will use a multi-threaded approach to build the tree instead of recusion.
+  For an example of how to run these commands lets take a look at the `sample_data.csv` file. It contains 3 dimensions and has 1000 samples. We will build the kd-tree for this sample, using HIGHEST_RANGE_AXIS method to select the next dimension to split and MEDIAN_OF_MEDIAN method to select the split point. We will set `parallel` argument to true, as a result of which will use a multi-threaded approach to build the tree instead of recursion.
 
   ```
   root@0a10892d84d1:/kdtree# ./bin/build_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
