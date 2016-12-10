@@ -1,7 +1,7 @@
-# docker build -t kykamath/ubuntu_14_04:uber_project .
-# docker run -v $PWD/kdtree/tests/basic_tests/data:/kdtree/data -it kykamath/ubuntu_14_04:uber_project
-# docker push kykamath/ubuntu_14_04:uber_project
-FROM kykamath/ubuntu_14_04:uber_setup
+# docker build -t kykamath/ubuntu_14_04:kdtree .
+# docker run -v $PWD/kdtree/tests/basic_tests/data:/kdtree/data -it kykamath/ubuntu_14_04:kdtree
+# docker push kykamath/ubuntu_14_04:kdtree
+FROM kykamath/ubuntu_14_04:cpp_setup
 MAINTAINER Krishna Y. Kamath <krishna.kamath@gmail.com>
 
 # Install basic software

@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
         desc.add_options()
                 ("input,i", po::value<string>(&inputSampleDataset)->required(), "Dataset used to build kd-tree (csv)")
                 ("model,m", po::value<string>(&modelFilename)->required(), "Model with built kd-tree")
-                ("queries,q", po::value<string>(&queriesFileName)->required(), "File containing queries to searh")
+                ("queries,q", po::value<string>(&queriesFileName)->required(), "File containing queries to search")
                 ("nn_output,n", po::value<string>(&nnOuputDataset)->required(), "Nearest neighbor output")
                 ("help,h", "Produce help message");
 

@@ -1,5 +1,5 @@
-# docker build -t kykamath/ubuntu_14_04:uber_setup ubuntu_14_04_setup
-# docker push kykamath/ubuntu_14_04:uber_setup
+# docker build -t kykamath/ubuntu_14_04:cpp_setup ubuntu_14_04_setup
+# docker push kykamath/ubuntu_14_04:cpp_setup
 FROM ubuntu:14.04
 MAINTAINER Krishna Y. Kamath <krishna.kamath@gmail.com>
 

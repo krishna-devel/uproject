@@ -3,14 +3,13 @@ This is best viewed here: https://github.com/krishna-devel/uproject/tree/master/
 
 Table of Contents
 =================
-* [Software requirements](#software-requirements)
-   * [Option 1: Docker image](#option-1-docker-image)
+* [Setting up Environment and Code](#setting-up-environment-and-code)
+   * [Option 1: Using docker image](#option-1-using-docker-image)
    * [Option 2: Manual install](#option-2-manual-install)
-* [Build project and run tests](#build-project-and-run-tests)
-* [Running kd-tree](#running-kd-tree)
+* [Build Project and Run Tests](#build-project-and-run-tests)
+* [Running Applications](#running-applications)
 
-
-## Software requirements
+## Setting up Environment and Code
 
 There are 2 ways to get the environment for running the project:
 
@@ -19,7 +18,7 @@ This is the easiest way to get the code running and if docker is already install
 this option
 2. Make sure all the software required in installed and get the code from github (or submitted tar.gz file).
 
-### Option 1: Docker image
+### Option 1: Using docker image
 
   To install docker follow the instructions on https://docs.docker.com/engine/installation/
   The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:uber_project
@@ -69,7 +68,7 @@ this option
 
   Get the code either from github repository or extract it from tar-gz file.
 
-## Build project and run tests
+## Build Project and Run Tests
   
   The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
@@ -127,7 +126,7 @@ this option
     root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
     ```
 
-## Running kd-tree
+## Running Applications
 
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
 
@@ -156,7 +155,7 @@ this option
   Options:
     -i [ --input ] arg     Dataset used to build kd-tree (csv)
     -m [ --model ] arg     Model with built kd-tree
-    -q [ --queries ] arg   File containing queries to searh
+    -q [ --queries ] arg   File containing queries to search
     -n [ --nn_output ] arg Nearest neighbor output
     -h [ --help ]          Produce help message
   ```
