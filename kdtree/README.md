@@ -140,7 +140,7 @@ this option
                                             Prints execution time in seconds
       -h [ --help ]                         Produce help message
     
-
+                 
 
     root@0a10892d84d1:/kdtree/bin# ./query_kdtree --help
     Options:
