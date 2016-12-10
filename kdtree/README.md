@@ -1,6 +1,15 @@
 
 This is best viewed here: https://github.com/krishna-devel/uproject/tree/master/kdtree
 
+Table of Contents
+=================
+* [Software requirements](#software-requirements)
+   * [Option 1: Docker image](#option-1-docker-image)
+   * [Option 2: Manual install](#option-2-manual-install)
+* [Build project and run tests](#build-project-and-run-tests)
+* [Running kd-tree](#running-kd-tree)
+
+
 ## Software requirements
 
 There are 2 ways to get the environment for running the project:
