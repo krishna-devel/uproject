@@ -110,11 +110,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main.cpp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../build.sh" afterPath="$PROJECT_DIR$/../build.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b2d79762-50d3-4df4-9139-8cedd6dc9a97" name="Default" comment="" />
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1099,7 +1095,7 @@
       <workItem from="1480736411281" duration="71941000" />
       <workItem from="1481000993883" duration="20329000" />
       <workItem from="1481061513366" duration="66836000" />
-      <workItem from="1481297296300" duration="7430000" />
+      <workItem from="1481297296300" duration="8485000" />
     </task>
     <servers />
   </component>
@@ -1136,7 +1132,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="547205000" />
+    <option name="totallyTimeSpent" value="548260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
