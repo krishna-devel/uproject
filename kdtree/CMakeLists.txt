@@ -4,7 +4,7 @@ project(kdtree)
 add_definitions(-std=c++11)
 
 include_directories(src)
-include_directories(include)
+include_directories(lib/)
 include_directories(lib/tbb/include/)
 
 add_subdirectory(src)
