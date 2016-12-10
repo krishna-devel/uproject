@@ -121,6 +121,15 @@ this option
 ## Running kd-tree
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
 
+    ~~~~
+    TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
+    TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }
+    ~~~~
+
+    ```
+    root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
+    ```
+
 
     root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
     Options:
