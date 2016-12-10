@@ -22,9 +22,12 @@ this option.
 
   To install docker follow the instructions on https://docs.docker.com/engine/installation/
   The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:kdtree
-  You can get it running the following command:
+  You can get it running the following commands:
 
-    
+    $ docker run -it kykamath/ubuntu_14_04:kdtree
+
+    OR this command if you want to test it across any datasets you have.
+
     $ docker run -v <PATH_TO_TEST_DATASETS>:/kdtree/data -it kykamath/ubuntu_14_04:kdtree
     
 
