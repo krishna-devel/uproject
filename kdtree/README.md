@@ -107,7 +107,7 @@ this option
   root@79e81de5fe76:/kdtree/build#
   ```
 
-  To run the longer integration tests, comment out the following lines (at the bottom) of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
+  To run the longer integration tests, comment out the following lines at the bottom of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
     ~~~~
     TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
@@ -119,7 +119,8 @@ this option
     ```
 
 ## Running kd-tree
-    
+  The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
+
 
 Since the code was meant to be working on Ubuntu 14.04LTS,
 make sure the software requirements are met by run the following
