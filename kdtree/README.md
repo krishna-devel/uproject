@@ -128,14 +128,14 @@ this option.
 
   To run the longer integration tests, uncomment the following lines at the bottom of `/kdtree/tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
-    ```
-    TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
-    TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }
-    ```
+  ```
+  TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
+  TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }
+  ```
 
-    ```
-    root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
-    ```
+  ```
+  root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
+  ```
 
 ## Running Applications
 
