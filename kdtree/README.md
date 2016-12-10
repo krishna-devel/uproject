@@ -120,6 +120,7 @@ this option
 
 ## Running kd-tree
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
+  
     ```
     root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
     Options:
