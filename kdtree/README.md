@@ -15,17 +15,17 @@ There are 2 ways to get the environment for running the project:
 
 1. Use the docker image that was built from Ubuntu's docker image for 14.04 (https://hub.docker.com/_/ubuntu/).
 This is the easiest way to get the code running and if docker is already installed I would strongly suggest using 
-this option
+this option.
 2. Make sure all the software required in installed and get the code from github (or submitted tar.gz file).
 
 ### Option 1: Using docker image
 
   To install docker follow the instructions on https://docs.docker.com/engine/installation/
-  The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:uber_project
+  The prebuilt docker image with kd-tree project for this project is at: kykamath/ubuntu_14_04:kdtree
   You can get it running the following command:
 
     
-    $ docker run -v <PATH_TO_TEST_DATASETS>:/kdtree/data -it kykamath/ubuntu_14_04:uber_project
+    $ docker run -v <PATH_TO_TEST_DATASETS>:/kdtree/data -it kykamath/ubuntu_14_04:kdtree
     
 
   Replace `PATH_TO_TEST_DATASETS` with the location of the folder containing the datasets with which you want to
@@ -33,7 +33,7 @@ this option
   running this command is sufficient:
 
     
-    $ docker run -it kykamath/ubuntu_14_04:uber_project
+    $ docker run -it kykamath/ubuntu_14_04:kdtree
     
 
   Once you run either of these commands you will land on a terminal prompt similar to this:
@@ -64,13 +64,13 @@ this option
     sudo apt-get update && sudo apt-get install -y software-properties-common && sudo add-apt-repository ppa:george-edison55/cmake-3.x && sudo apt-get update && sudo apt-get install -y g++ cmake cmake-curses-gui vim && sudo apt-get install -y zlib1g-dev && sudo apt-get install -y libboost-all-dev
     ```
       
-  This is the command I run to setup the ubuntu enviroment in kykamath/ubuntu_14_04:uber_project.  
+  This is the command I run to setup the ubuntu enviroment in kykamath/ubuntu_14_04:kdtree.  
 
-  Get the code either from github repository or extract it from tar-gz file.
+  You can then get the code either from github repository or extract it from tar-gz file.
 
 ## Build Project and Run Tests
   
-  The docker image already contains built binaries. So you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
+  The docker image already contains built binaries. So if you are using the image, you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
   1. Build project: Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
 
@@ -117,10 +117,10 @@ this option
 
   To run the longer integration tests, comment out the following lines at the bottom of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
-    ~~~~
+    ```
     TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
     TEST_F(KDTreeHandlerTest, test_test_50K) { runTests("test_50K"); }
-    ~~~~
+    ```
 
     ```
     root@79e81de5fe76:/kdtree/build# cmake .. && make && ./tests/basic_tests/runTests
@@ -128,7 +128,7 @@ this option
 
 ## Running Applications
 
-  The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
+  The binaries for the project are under `kdtree/bin`. The details can be obtained using `--help` argument.
 
   ```
   root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
@@ -199,5 +199,4 @@ this option
   998,0.000000
   999,0.000000
   ```
-
-
+  
