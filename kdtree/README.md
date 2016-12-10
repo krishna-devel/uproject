@@ -7,6 +7,8 @@ Table of Contents
    * [Option 1: Using docker image](#option-1-using-docker-image)
    * [Option 2: Manual install](#option-2-manual-install)
 * [Build Project and Run Tests](#build-project-and-run-tests)
+   * [Build project](#build-project)
+   * [Test project](#test-project)
 * [Running Applications](#running-applications)
 
 ## Setting up Environment and Code
@@ -52,7 +54,7 @@ this option.
 
     
     root@1e822aecd4b1:/# ls /kdtree
-    CMakeLists.txt  bin  build  cmake-build-debug  data  include  lib  main.cpp  src  tests
+    CMakeLists.txt  README.md  bin  build  lib  src  tests
     
 ### Option 2: Manual install
   We require the following libraries to build the project.
@@ -77,9 +79,11 @@ this option.
   
   The docker image already contains built binaries. So if you are using the image, you can skip the building stage and directly jump to tests if you want. Otherwise follow along.
 
-  1. Build project: Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
+  ### Build project  
+  Go to `build` folder (or create one under kdtree if not present) and delete all the contents. Then build the project using cmake.
 
     ```
+    root@79e81de5fe76:/# cd /kdtree/build
     root@79e81de5fe76:/kdtree/build# rm -rf *
     root@79e81de5fe76:/kdtree/build# cmake .. && make
 
@@ -99,12 +103,14 @@ this option.
 
     root@79e81de5fe76:/kdtree/build#
     ```
-
-  2. For testing I have a bunch of unit and integration tests. The integration tests run the code against some
+  
+  ### Test project  
+  For testing I have a bunch of unit and integration tests. The integration tests run the code against some
   datasets I generated to evaluate implementation. Some of these integration tests take few minutes to run so they have been 
   commented out by default. The following command runs the tests after the project has been built.
 
   ```
+  root@79e81de5fe76:/# cd /kdtree/build
   root@79e81de5fe76:/kdtree/build# ./tests/basic_tests/runTests
 
   Running main() from gtest_main.cc
@@ -120,7 +126,7 @@ this option.
   root@79e81de5fe76:/kdtree/build#
   ```
 
-  To run the longer integration tests, comment out the following lines at the bottom of `tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
+  To run the longer integration tests, comment out the following lines at the bottom of `/kdtree/tests/basic_tests/KDTreeHandlerTest.cpp`, rebuild the project and run the tests again.
 
     ```
     TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }
@@ -133,10 +139,11 @@ this option.
 
 ## Running Applications
 
-  The binaries for the project are under `kdtree/bin`. The details can be obtained using `--help` argument.
+  The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
 
   ```
-  root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
+  root@79e81de5fe76:/# cd /kdtree/bin
+  root@79e81de5fe76:/kdtree/bin# ./build_kdtree --help
   Options:
     -i [ --input ] arg                    Dataset used to build kd-tree (csv)
     -m [ --model ] arg                    Model to store built kd-tree
@@ -156,7 +163,7 @@ this option.
   ```
                
   ```
-  root@0a10892d84d1:/kdtree/bin# ./query_kdtree --help
+  root@79e81de5fe76:/kdtree/bin# ./query_kdtree --help
   Options:
     -i [ --input ] arg     Dataset used to build kd-tree (csv)
     -m [ --model ] arg     Model with built kd-tree
@@ -168,7 +175,8 @@ this option.
   For an example of how to run these commands lets take a look at the `sample_data.csv` file. It contains 3 dimensions and has 1000 samples. We will build the kd-tree for this sample, using HIGHEST_RANGE_AXIS method to select the next dimension to split and MEDIAN_OF_MEDIAN method to select the split point. We will set `parallel` argument to true, as a result of which will use a multi-threaded approach to build the tree instead of recursion.
 
   ```
-  root@0a10892d84d1:/kdtree# ./bin/build_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
+  root@79e81de5fe76:/# cd /kdtree/bin
+  root@79e81de5fe76:/kdtree# ./build_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
   Reading samples from: tests/basic_tests/data/sample_data.csv
   Algorithm used to select axis to split: 1
   Algorithm used to select split position: 1
@@ -178,10 +186,11 @@ this option.
   Model was built in 0.131368 seconds.
   ```
 
-  Now to test the model generated in previous step, I generated the queries file that contains the same points use to build the tree. So the nearest point to each of the queries should be the point itself and the eculidian distance between them should be zero. This is stored in `tests/basic_tests/data/sample_data.queries.csv`. You can search for queries and store the result as shown below.
+  Now to test the model generated in previous step, I generated the queries file that contains the same points used to build the tree. So the nearest point to each of the queries should be the point itself and the Eculidian distance between them should be zero. This is stored in `tests/basic_tests/data/sample_data.queries.csv`. You can search for queries and store the result as shown below.
 
   ```
-  root@0a10892d84d1:/kdtree# ./bin/query_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
+  root@79e81de5fe76:/# cd /kdtree/bin
+  root@79e81de5fe76:/kdtree# ./query_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
   Using samples from: tests/basic_tests/data/sample_data.csv
   Loading model file from: sample_data.kdtree
   Loading queries from: tests/basic_tests/data/sample_data.queries.csv
