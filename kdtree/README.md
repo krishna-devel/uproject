@@ -120,8 +120,9 @@ this option
 
 ## Running kd-tree
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
-  
-    ```
+
+
+    ``` 
     root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
     Options:
       -i [ --input ] arg                    Dataset used to build kd-tree (csv)
@@ -140,6 +141,7 @@ this option
                                             Prints execution time in seconds
       -h [ --help ]                         Produce help message
     ```
+
 
     ```
     root@0a10892d84d1:/kdtree/bin# ./query_kdtree --help
