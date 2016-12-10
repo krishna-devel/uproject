@@ -122,7 +122,6 @@ this option
   The binaries for the project are under `/kdtree/bin`. The details can be obtained using `--help` argument.
 
 
-    ~~~~
     root@0a10892d84d1:/kdtree/bin# ./build_kdtree --help
     Options:
       -i [ --input ] arg                    Dataset used to build kd-tree (csv)
@@ -140,10 +139,9 @@ this option
       -t [ --print_execution_time ] arg (=1)
                                             Prints execution time in seconds
       -h [ --help ]                         Produce help message
-    ~~~~
+    
+..
 
-
-    ~~~~
     root@0a10892d84d1:/kdtree/bin# ./query_kdtree --help
     Options:
       -i [ --input ] arg     Dataset used to build kd-tree (csv)
@@ -151,7 +149,7 @@ this option
       -q [ --queries ] arg   File containing queries to searh
       -n [ --nn_output ] arg Nearest neighbor output
       -h [ --help ]          Produce help message
-    ~~~~
+    
 
 Since the code was meant to be working on Ubuntu 14.04LTS,
 make sure the software requirements are met by run the following
