@@ -114,14 +114,14 @@ this option.
   root@79e81de5fe76:/kdtree/build# ./tests/basic_tests/runTests
 
   Running main() from gtest_main.cc
-  [==========] Running 53 tests from 14 test cases.
+  [==========] Running 54 tests from 15 test cases.
   [----------] Global test environment set-up.
       .
       .
       .
   [----------] Global test environment tear-down
-  [==========] 53 tests from 14 test cases ran. (516 ms total)
-  [  PASSED  ] 53 tests.
+  [==========] 54 tests from 14 test cases ran. (516 ms total)
+  [  PASSED  ] 54 tests.
 
   root@79e81de5fe76:/kdtree/build#
   ```
