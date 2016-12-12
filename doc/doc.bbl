@@ -5,4 +5,10 @@ Ga\"{e}l Guennebaud, Beno\^{i}t Jacob, et~al.
 \newblock Eigen v3.
 \newblock http://eigen.tuxfamily.org, 2010.
 
+\bibitem{bounding_distance}
+Nearest neighbor search using kd trees.
+\newblock
+  http://programmizm.sourceforge.net/blog/2011/nearest-neighbor-search-using-kd-trees,
+  2011.
+
 \end{thebibliography}

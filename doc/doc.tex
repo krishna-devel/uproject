@@ -25,15 +25,31 @@
 %\section{}
 %\subsection{}
 
+\section{Basic components}
+
 The various components used in this project are as follows:
 
 \begin{list}{\labelitemi}{\leftmargin= 1.4cm} \setlength\itemsep{1em}
 
 \item \textbf{Sample matrix}: Input samples are represented as a matrix $M \in R^{m \times n}$, where we have $m$ samples and $n$ dimensions and $M_{ij}$ represents the value for $i^{th}$ sample in $j^{th}$ dimension. We use Eigen library \cite{Guennebaud:2010aa} to represent this matrix.
 
+\begin{figure}[t!]
+\centering
+\includegraphics[width=\linewidth]{images/segment}
+\caption{Example of how samples are stored in an Eigen matrix and then shared between segments.}
+\label{fig:segment}
+\end{figure}
+
 \item \textbf{Segment}: Segment is the logical partitioning of samples that is used by the KD-tree algorithm during tree construction. Example of segments is shown in Figure \ref{fig:segment}. The six samples are stored in memory as a Eigen matrix and shared by all segments. Each segment contains a vector of sample ids that are present in the segment. The first segment contains all the sample ids. 
 
 After a split, during tree building process, we get two almost equal segments which contains a reference to the main matrix and have a vector of sample ids that indicate the samples from matrix with belong in the segment. Partitioning samples this way allows us to develop recursive or parallel algorithms to build trees efficiently. 
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width=\linewidth]{images/bounding_box}
+\caption{Example of a split, with split point, left and right bounding boxes.}
+\label{fig:bounding_box}
+\end{figure}
 
 \item \textbf{Split}: This contains the information that we need to split samples into segments. This is created during tree building process and used when we are searching for a query in the tree. Every internal node in the tree contains this split object. Split contains the following details (Figure \ref{fig:bounding_box}):
 \vspace{1.5 mm}
@@ -62,19 +78,38 @@ After a split, during tree building process, we get two almost equal segments wh
 
 \end{list}
 
-\begin{figure}[t!]
-\centering
-\includegraphics[width=\linewidth]{images/segment}
-\caption{Example of how samples are stored in an Eigen matrix and then shared between segments.}
-\label{fig:segment}
-\end{figure}
+\section{Algorithms}
+I implemented three algorithms in this project. First two of them are related to building KD-tree and the third one is about searching a query in the tree. Of the two tree building algorithms one uses recursion (Algorithm~\ref{tree_building_recursive}) and another one is a parallel (Algorithm~\ref{tree_building_parallel}). The third algorithm is used to search for a query in a KD-tree (Algorithm~\ref{query_searching})
+
+\vspace{5 mm}
+\noindent\textbf{Recursive tree building algorithm}:  We first load samples into a Eigen matrix and then initialize KD-tree as a array of nodes. We then create a big segment containing all the samples and call the function  to build the tree. This recursive function gets the dimension to split by and splits the big segment into 2 segments of almost equal parts using the split point. It inserts the split point into KD-tree and then calls the recursive function again with the smaller segments. If the segment contains just one sample then the function inserts a leaf node with that segment into the tree.
+
+\vspace{5 mm}
+\noindent\textbf{Parallel tree building algorithm}: This is similar to recursive algorithm in terms of functionality but doesn't have the additional overhead maintaining system stack during recursion. Instead it uses a thread-safe queue that can be used like a stack. In addition to this the algorithm is multithreaded which allows for faster tree building on a big dataset when enough resources are available.
+
+\vspace{5 mm}
+\noindent\textbf{Query search algorithm}: This algorithm is used to search for a query in a KD-tree. Like the iterative (parallel) version, this uses a stack to track the sample space that needs to be explored. We start by loading the samples on which the tree was built and the KD-tree. We then initialize the stack with the root node of KD-tree. In addition to this we also initialize 2 variables - the nearest neighbor discovered so far during the search and the euclidian distance from it. The nearest neighbor is initialized to the first node and its distance is set to Infinity. We then start the search until the stack is empty. During the search if we reach leaf node, we check if the sample at that node is closer than the nearest neighbor found so far. If it is, we update nearest neighbor and the distance from it.
+
+Important aspect of this search algorithm is the approach used to find the distance between query and the bounds identified during the KD-tree building process. A bound is represented using 2 points $(point_{min}, point_{max})$, where $point_{min}$ and $point_{max}$ and $n$-dimensional vectors, similar to query $q$. The split distance between the two is defined as follows:
+\[ d(i) =
+  \begin{cases}
+    point_{min}[i] > q[i]       & \quad (point_{min}[i] - q[i])\\
+    point_{max}[i] < q[i]       & \quad (q[i] - point_{max}[i]) \\
+    otherwise                      & \quad 0
+  \end{cases}
+\]
+\[distance(bound, q) =  \sum_{i = 0}^{n-1} d(i)^{2}\]
 
 \begin{figure}[t!]
 \centering
-\includegraphics[width=\linewidth]{images/bounding_box}
-\caption{Example of a split, with split point, left and right bounding boxes.}
-\label{fig:bounding_box}
+\includegraphics[width=\linewidth]{images/bound_distance}
+\caption{Example of a distance between query (red point) and bounding box is shown. Case (a) has the query inside the bound so it has a distance of 0. In case (b) and (c) the query is about $1$ unit away from the bounding box. Hence, is at a distance of 1.}
+\label{fig:bound_distance}
 \end{figure}
+
+This function keeps the distance between two points to be 0 if they are within the range other wise we add the squared distance from the region. This is similar to the approach discussed in \cite{bounding_distance}.  An example of this is shown in Figure~\ref{fig:bound_distance}. Using this definition of distance the search algorithm continues to decide if a branch needs to be explored in the search tree.
+
+
 
 \begin{algorithm}
 \caption{Tree building algorithm (recursive)}
@@ -196,6 +231,14 @@ After a split, during tree building process, we get two almost equal segments wh
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+
+
+\section{Implementation/Design}
+
+I made the following design decisions during the implementation of the algorithms.
+\
+
+
 
  \bibliography{sigproc}
  \bibliographystyle{unsrt}
