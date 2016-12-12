@@ -11,4 +11,20 @@ Nearest neighbor search using kd trees.
   http://programmizm.sourceforge.net/blog/2011/nearest-neighbor-search-using-kd-trees,
   2011.
 
+\bibitem{sklearn_api}
+Lars Buitinck, Gilles Louppe, Mathieu Blondel, Fabian Pedregosa, Andreas
+  Mueller, Olivier Grisel, Vlad Niculae, Peter Prettenhofer, Alexandre
+  Gramfort, Jaques Grobler, Robert Layton, Jake VanderPlas, Arnaud Joly, Brian
+  Holt, and Ga{\"{e}}l Varoquaux.
+\newblock {API} design for machine learning software: experiences from the
+  scikit-learn project.
+\newblock In {\em ECML PKDD Workshop: Languages for Data Mining and Machine
+  Learning}, pages 108--122, 2013.
+
+\bibitem{Reinders:2007:ITB:1461409}
+James Reinders.
+\newblock {\em Intel Threading Building Blocks}.
+\newblock O'Reilly \& Associates, Inc., Sebastopol, CA, USA, first edition,
+  2007.
+
 \end{thebibliography}

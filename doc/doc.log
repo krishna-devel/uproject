@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 DEC 2016 00:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 DEC 2016 11:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -327,57 +327,62 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: images/segment.png Graphic file (type png)
 
 <use images/segment.png>
-Package pdftex.def Info: images/segment.png used on input line 38.
+Package pdftex.def Info: images/segment.png used on input line 46.
 (pdftex.def)             Requested size: 430.00462pt x 253.55762pt.
- [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./im
-ages/segment.png>]
-<images/bounding_box.png, id=17, 935.495pt x 442.65375pt>
+
+<images/bounding_box.png, id=3, 935.495pt x 442.65375pt>
 File: images/bounding_box.png Graphic file (type png)
 
 <use images/bounding_box.png>
-Package pdftex.def Info: images/bounding_box.png used on input line 49.
+Package pdftex.def Info: images/bounding_box.png used on input line 53.
 (pdftex.def)             Requested size: 430.00462pt x 203.46783pt.
+ [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-Underfull \vbox (badness 2080) has occurred while \output is active []
+LaTeX Warning: Text page 2 contains only floats.
 
- [2 <./images/bounding_box.png>] [3]
-<images/bound_distance.png, id=25, 1174.3875pt x 283.0575pt>
+[2 <./images/segment.png> <./images/bounding_box.png>] [3]
+Underfull \vbox (badness 1377) has occurred while \output is active []
+
+ [4]
+[5] <images/bound_distance.png, id=34, 1174.3875pt x 283.0575pt>
 File: images/bound_distance.png Graphic file (type png)
 
 <use images/bound_distance.png>
-Package pdftex.def Info: images/bound_distance.png used on input line 105.
+Package pdftex.def Info: images/bound_distance.png used on input line 183.
 (pdftex.def)             Requested size: 430.00462pt x 103.6412pt.
- [4 <./images/bound_distance.png>] (./doc.bbl
+ [6 <./images/bound_distance.png>] [7]
+(./doc.bbl
 Underfull \hbox (badness 1803) in paragraph at lines 9--13
 []\OT1/cmr/m/n/9 Nearest neigh-bor search us-ing kd trees. http://programmizm.s
 ourceforge.net/blog/2011/nearest-
  []
 
-) [5] [6] [7] (./doc.aux) ) 
+[8]) [9] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 3995 strings out of 493089
- 53369 string characters out of 6134842
- 138449 words of memory out of 5000000
- 7256 multiletter control sequences out of 15000+600000
- 11087 words of font info for 43 fonts, out of 8000000 for 9000
+ 4003 strings out of 493089
+ 53502 string characters out of 6134842
+ 129429 words of memory out of 5000000
+ 7263 multiletter control sequences out of 15000+600000
+ 11432 words of font info for 44 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,8n,32p,854b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy8.pfb>
-Output written on doc.pdf (7 pages, 329166 bytes).
+ 42i,8n,32p,860b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
+>
+Output written on doc.pdf (9 pages, 348901 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
