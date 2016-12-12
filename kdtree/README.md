@@ -190,7 +190,7 @@ this option.
 
   ```
   root@79e81de5fe76:/# cd /kdtree/bin
-  root@79e81de5fe76:/kdtree/bin# ./query_kdtree -i ../tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
+  root@79e81de5fe76:/kdtree/bin# ./query_kdtree -i ../tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q ../tests/basic_tests/data/sample_data.queries.csv
   Using samples from: tests/basic_tests/data/sample_data.csv
   Loading model file from: sample_data.kdtree
   Loading queries from: tests/basic_tests/data/sample_data.queries.csv
