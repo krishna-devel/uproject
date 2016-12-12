@@ -176,7 +176,7 @@ this option.
 
   ```
   root@79e81de5fe76:/# cd /kdtree/bin
-  root@79e81de5fe76:/kdtree# ./build_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
+  root@79e81de5fe76:/kdtree/bin# ./build_kdtree -i ../tests/basic_tests/data/sample_data.csv -m sample_data.kdtree
   Reading samples from: tests/basic_tests/data/sample_data.csv
   Algorithm used to select axis to split: 1
   Algorithm used to select split position: 1
@@ -190,7 +190,7 @@ this option.
 
   ```
   root@79e81de5fe76:/# cd /kdtree/bin
-  root@79e81de5fe76:/kdtree# ./query_kdtree -i tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
+  root@79e81de5fe76:/kdtree/bin# ./query_kdtree -i ../tests/basic_tests/data/sample_data.csv -m sample_data.kdtree -n sample_data.results -q tests/basic_tests/data/sample_data.queries.csv
   Using samples from: tests/basic_tests/data/sample_data.csv
   Loading model file from: sample_data.kdtree
   Loading queries from: tests/basic_tests/data/sample_data.queries.csv
@@ -202,7 +202,7 @@ this option.
   The output of the results file is as expected:
 
   ```
-  root@0a10892d84d1:/kdtree# head sample_data.results && tail sample_data.results
+  root@0a10892d84d1:/kdtree/bin# head sample_data.results && tail sample_data.results
   0,0.000000
   1,0.000000
   2,0.000000
