@@ -236,8 +236,17 @@ This function keeps the distance between two points to be 0 if they are within t
 \section{Implementation/Design}
 
 I made the following design decisions during the implementation of the algorithms.
-\
 
+\begin{list}{\labelitemi}{\leftmargin= 1.4cm} \setlength\itemsep{1em}
+
+\item \textbf{Functional design}: During the design of classes I tried to follow the concepts of functional programming as much as possible. This decision allowed me to reuse code that was used to implement recursion based solution to a mutli-threaded one. It also allowed me to to test different components in a modular way resulting in cleaner code and isolation of issues. I achieved function aspects by making most of my classes immutable, i.e, the class attributes cannot be changed once they are created. In addition I made sure all the functions are pure, i.e, the value returned by the function is just dependent on the input parameters to the function.
+
+\item \textbf{Sample ids instead of samples}:
+
+\item \textbf{Test driven development}: Integration and unit tests
+
+
+\end{list}
 
 
  \bibliography{sigproc}

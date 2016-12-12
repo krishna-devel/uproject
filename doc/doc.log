@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 DEC 2016 23:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 DEC 2016 00:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -347,7 +347,7 @@ File: images/bound_distance.png Graphic file (type png)
 <use images/bound_distance.png>
 Package pdftex.def Info: images/bound_distance.png used on input line 105.
 (pdftex.def)             Requested size: 430.00462pt x 103.6412pt.
- (./doc.bbl [4 <./images/bound_distance.png>]
+ [4 <./images/bound_distance.png>] (./doc.bbl
 Underfull \hbox (badness 1803) in paragraph at lines 9--13
 []\OT1/cmr/m/n/9 Nearest neigh-bor search us-ing kd trees. http://programmizm.s
 ourceforge.net/blog/2011/nearest-
@@ -357,11 +357,11 @@ ourceforge.net/blog/2011/nearest-
 Here is how much of TeX's memory you used:
  3995 strings out of 493089
  53369 string characters out of 6134842
- 137449 words of memory out of 5000000
+ 138449 words of memory out of 5000000
  7256 multiletter control sequences out of 15000+600000
  11087 words of font info for 43 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,8n,32p,854b,364s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,32p,854b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
@@ -374,7 +374,7 @@ s/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb>
-Output written on doc.pdf (7 pages, 328258 bytes).
+Output written on doc.pdf (7 pages, 329166 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
