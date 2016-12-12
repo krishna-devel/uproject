@@ -263,8 +263,8 @@ In this document I described the various data structures and components, the alg
 \begin{list}{\labelitemi}{\leftmargin= 1.4cm} \setlength\itemsep{1em}
 \item \textbf{Store multiple samples in leaf nodes}: Right now the KD-tree continues to build the tree until leaf contains just one sample. Alternatively, we can stop the iteration when we have reached a threshold, for example, stop building tree when a node contains 10 samples. During the search process we can then do a linear search of the 10 samples to find the nearest neighbor. This can be implemented in my design without too many changes.
 \item \textbf{Evaluation of parallel algorithm}: I have currently evaluated the correctness of my parallel implementation. I would like to spend more time trying different datasets to see when using parallel approach beats the recursive approach. For small datasets, there might not be too much difference between the two implementation. In addition to the size of the dataset, I might also want to see if there are specific parameters in TBB \cite{Reinders:2007:ITB:1461409} (currently used for parallelization) library that can help me improve the performance.
+\item \textbf{More documentation}: I have added comments in places where I felt code needed clarity. But I would have done another round of documentation making the code more clear. 
 \end{list}
-
 
  \bibliography{sigproc}
  \bibliographystyle{unsrt}

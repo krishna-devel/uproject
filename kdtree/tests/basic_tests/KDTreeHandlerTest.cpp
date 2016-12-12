@@ -95,6 +95,7 @@ protected:
     string kdtreeFolder;
 };
 
+
 TEST_F(KDTreeHandlerTest, test_dummy_data) { runTests("dummy_data"); }
 TEST_F(KDTreeHandlerTest, test_sample_data) { runTests("sample_data"); }
 //TEST_F(KDTreeHandlerTest, test_test_25d) { runTests("test_25d"); }

@@ -8,6 +8,15 @@
 template <typename DataType, typename DimensionType>
 class KDTreeHandler {
 public:
+    /**
+     * This method is used to build the KD-tree.
+     *
+     * @param inputSampleDataset
+     * @param outputModelFilename
+     * @param dimensionSelectorType
+     * @param splittingMethod
+     * @param parallelExecution
+     */
     static void buildKDTree(
         const string &inputSampleDataset,
         const string &outputModelFilename,
@@ -16,6 +25,15 @@ public:
         const bool &parallelExecution
     );
 
+    /**
+     * This method is used to search for queries in a pre-built KD-tree
+     * that was built in the buildKDTree method.
+     *
+     * @param inputSampleDataset
+     * @param modelFilename
+     * @param queriesFileName
+     * @param nnOuputDataset
+     */
     static void queryKDTree(
         const string &inputSampleDataset,
         const string &modelFilename,

@@ -8,6 +8,8 @@
 
 using namespace std;
 
+class query_and_kd_tree_dimensions_dont_match : public exception {};
+
 template <typename DataType, typename DimensionType>
 class KDTreeExplorer {
 public:
@@ -18,6 +20,11 @@ public:
         const Point<DataType, DimensionType> &query
     ) {
         Segment<DataType, DimensionType> segment(samples);
+
+        // Check query and KD-tree dimensions match
+        if(segment.getNumDimensions() != query.getCoefficients().size()) {
+            throw query_and_kd_tree_dimensions_dont_match();
+        }
 
         NearestNeighbor<DataType, DimensionType> *currentNearestNeighbor =
             new NearestNeighbor<DataType, DimensionType>(0, segment.getPoint(0), numeric_limits<double>::infinity());

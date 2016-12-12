@@ -180,7 +180,6 @@ TEST(SplitTest, test_getDistancesFromSplits) {
 class SegmentSplitterTest : public testing::Test {
 protected:
     virtual void SetUp() {
-//        segmentSplitter = unique_ptr<SegmentSplitter<float, int>> (new SegmentSplitter<float, int>());
         samplesWithOneRow << 1.0, 2.0, 3.0, 4.0, 5.0;
         samplesWithMultipleRows <<
                                 1.0, 2.0, 3.0, 4.0, 5.0,
@@ -203,7 +202,6 @@ protected:
     Samples<float> samplesWithDuplicateRows {3, 3};
     Samples<float> samplesWithOneRow {1, 5};
     Samples<float> samplesWithMultipleRows {6, 5};
-//    unique_ptr<SegmentSplitter<float, int>> segmentSplitter;
 };
 
 TEST_F(SegmentSplitterTest, split_base_case) {
